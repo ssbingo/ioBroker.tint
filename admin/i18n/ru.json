@@ -1,0 +1,14 @@
+{
+	"tint adapter settings": "Настройки адаптера tint",
+	"connectionHeader": "Подключение deCONZ",
+	"ip": "IP-адрес deCONZ",
+	"port": "REST-порт",
+	"wsPort": "WebSocket-порт",
+	"apiKey": "API-ключ",
+	"behaviorHeader": "Поведение",
+	"pollingInterval": "Интервал опроса (секунды)",
+	"transitionTime": "Время перехода (×100 мс)",
+	"remoteHeader": "Пульт Tint",
+	"autoApplyColorWheel": "Автоматически применять цветовое колесо",
+	"watchdogMinutes": "Сторожевой таймер пульта (минуты)"
+}

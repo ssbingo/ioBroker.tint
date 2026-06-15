@@ -1,0 +1,14 @@
+{
+	"tint adapter settings": "tint 适配器设置",
+	"connectionHeader": "deCONZ 连接",
+	"ip": "deCONZ IP 地址",
+	"port": "REST 端口",
+	"wsPort": "WebSocket 端口",
+	"apiKey": "API 密钥",
+	"behaviorHeader": "行为",
+	"pollingInterval": "轮询间隔（秒）",
+	"transitionTime": "过渡时间（×100 毫秒）",
+	"remoteHeader": "Tint 遥控器",
+	"autoApplyColorWheel": "自动应用色轮到灯具",
+	"watchdogMinutes": "遥控器看门狗（分钟）"
+}

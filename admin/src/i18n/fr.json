@@ -1,0 +1,14 @@
+{
+	"tint adapter settings": "Paramètres de l'adaptateur tint",
+	"connectionHeader": "Connexion deCONZ",
+	"ip": "Adresse IP deCONZ",
+	"port": "Port REST",
+	"wsPort": "Port WebSocket",
+	"apiKey": "Clé API",
+	"behaviorHeader": "Comportement",
+	"pollingInterval": "Intervalle d'interrogation (secondes)",
+	"transitionTime": "Temps de transition (×100 ms)",
+	"remoteHeader": "Télécommande Tint",
+	"autoApplyColorWheel": "Appliquer la roue chromatique automatiquement",
+	"watchdogMinutes": "Chien de garde télécommande (minutes)"
+}

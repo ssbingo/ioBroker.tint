@@ -1,0 +1,109 @@
+{
+	"common": {
+		"name": "tint",
+		"version": "0.1.0",
+		"news": {
+			"0.1.0": {
+				"en": "Initial release: lights, groups, scenes, Tint remote with color wheel",
+				"de": "Erstveröffentlichung: Lampen, Gruppen, Szenen, Tint-Fernbedienung mit Farbrad",
+				"ru": "Первый выпуск: лампы, группы, сцены, пульт Tint с цветовым колесом",
+				"pt": "Lançamento inicial: luzes, grupos, cenas, controlo remoto Tint com roda de cores",
+				"nl": "Eerste versie: lampen, groepen, scènes, Tint-afstandsbediening met kleurenwiel",
+				"fr": "Version initiale: lampes, groupes, scènes, télécommande Tint avec roue chromatique",
+				"it": "Versione iniziale: luci, gruppi, scene, telecomando Tint con ruota dei colori",
+				"es": "Versión inicial: luces, grupos, escenas, mando a distancia Tint con rueda de colores",
+				"pl": "Pierwsza wersja: światła, grupy, sceny, pilot Tint z kołem kolorów",
+				"uk": "Перший випуск: лампи, групи, сцени, пульт Tint із колесом кольорів",
+				"zh-cn": "初始版本：灯具、群组、场景、带色轮的Tint遥控器"
+			}
+		},
+		"titleLang": {
+			"en": "Müller Licht tint",
+			"de": "Müller Licht tint",
+			"ru": "Müller Licht tint",
+			"pt": "Müller Licht tint",
+			"nl": "Müller Licht tint",
+			"fr": "Müller Licht tint",
+			"it": "Müller Licht tint",
+			"es": "Müller Licht tint",
+			"pl": "Müller Licht tint",
+			"uk": "Müller Licht tint",
+			"zh-cn": "Müller Licht tint"
+		},
+		"desc": {
+			"en": "Control Müller Licht tint Zigbee smart lights via deCONZ/ConBee including full Tint remote support with color wheel",
+			"de": "Steuerung von Müller Licht tint Zigbee-Leuchten über deCONZ/ConBee inkl. vollständiger Tint-Fernbedienungsunterstützung mit Farbrad",
+			"ru": "Управление умными светильниками Müller Licht tint Zigbee через deCONZ/ConBee, включая полную поддержку пульта Tint с цветовым колесом",
+			"pt": "Controle luzes inteligentes Müller Licht tint Zigbee via deCONZ/ConBee incluindo suporte completo ao controlo remoto Tint com roda de cores",
+			"nl": "Bedien Müller Licht tint Zigbee slimme lampen via deCONZ/ConBee inclusief volledige Tint-afstandsbediening met kleurenwiel",
+			"fr": "Contrôlez les éclairages intelligents Müller Licht tint Zigbee via deCONZ/ConBee avec support complet de la télécommande Tint et roue chromatique",
+			"it": "Controlla le luci intelligenti Müller Licht tint Zigbee tramite deCONZ/ConBee con pieno supporto del telecomando Tint con ruota dei colori",
+			"es": "Controle las luces inteligentes Müller Licht tint Zigbee a través de deCONZ/ConBee con soporte completo del mando Tint con rueda de colores",
+			"pl": "Steruj inteligentnymi lampami Müller Licht tint Zigbee przez deCONZ/ConBee z pełną obsługą pilota Tint z kołem kolorów",
+			"uk": "Керуйте розумними лампами Müller Licht tint Zigbee через deCONZ/ConBee з повною підтримкою пульта Tint із колесом кольорів",
+			"zh-cn": "通过deCONZ/ConBee控制Müller Licht tint Zigbee智能灯，包括完整的Tint遥控器色轮支持"
+		},
+		"authors": ["ssbingo <s.sternitzke@online.de>"],
+		"keywords": ["MüllerLicht", "Tint", "Zigbee", "deCONZ", "ConBee", "RGBW"],
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "tint.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/ssbingo/ioBroker.tint/main/admin/tint.png",
+		"readme": "https://github.com/ssbingo/ioBroker.tint/blob/main/README.md",
+		"loglevel": "info",
+		"tier": 3,
+		"mode": "daemon",
+		"type": "hardware",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "push",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.0.23"
+			}
+		]
+	},
+	"native": {
+		"ip": "192.168.1.100",
+		"port": 80,
+		"wsPort": 443,
+		"apiKey": "",
+		"pollingInterval": 60,
+		"autoApplyColorWheel": true,
+		"transitionTime": 4,
+		"watchdogMinutes": 120
+	},
+	"encryptedNative": ["apiKey"],
+	"protectedNative": ["apiKey"],
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"name": {
+					"en": "Connection to deCONZ",
+					"de": "Verbindung zu deCONZ"
+				},
+				"type": "boolean",
+				"role": "indicator.connected",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
+}
