@@ -45,5 +45,9 @@
 	"msgError": "Erreur",
 	"msgConfirmDelete": "Supprimer le groupe \"%s\" ?",
 	"msgSaving": "Enregistrement…",
-	"msgDeleting": "Suppression…"
+	"msgDeleting": "Suppression…",
+	"msgAdapterOffline": "L'instance de l'adaptateur n'est pas démarrée. Veuillez d'abord la démarrer dans la vue des instances ioBroker.",
+	"msgTimeout": "Pas de réponse de l'adaptateur (délai dépassé). L'instance est-elle en cours d'exécution ?",
+	"lightsCount": "lampe(s) trouvée(s)",
+	"groupsCount": "groupe(s) trouvé(s)"
 }

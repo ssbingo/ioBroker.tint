@@ -10,5 +10,9 @@
 	"transitionTime": "Overgangstijd (×100 ms)",
 	"remoteHeader": "Tint afstandsbediening",
 	"autoApplyColorWheel": "Kleurenwiel automatisch toepassen",
-	"watchdogMinutes": "Watchdog afstandsbediening (minuten)"
+	"watchdogMinutes": "Watchdog afstandsbediening (minuten)",
+	"tabLights": "Lampen",
+	"tabGroups": "Groepen",
+	"descLightsTab": "Alle lampen die zijn gekoppeld aan uw deCONZ-gateway en hun huidige status.",
+	"descGroupsTab": "Beheer lampengroepen: maak nieuwe groepen, bewerk het lidmaatschap of verwijder groepen. Wijzigingen worden direct doorgevoerd in uw deCONZ-gateway."
 }

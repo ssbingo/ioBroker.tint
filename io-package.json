@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.1",
+		"version": "0.2.2",
 		"news": {
+			"0.2.2": {
+				"en": "Fix tab labels (Lights/Groups), add static descriptions, improve UX with alive-check and sendTo timeout",
+				"de": "Tab-Bezeichnungen korrigiert (Leuchten/Gruppen), statische Beschreibungen ergänzt, UX verbessert mit Alive-Prüfung und sendTo-Timeout",
+				"ru": "Исправлены названия вкладок, добавлены описания, улучшен UX с проверкой alive и таймаутом sendTo",
+				"pt": "Corrigidas etiquetas de separadores, adicionadas descrições estáticas, UX melhorado com verificação alive e timeout sendTo",
+				"nl": "Tablabels gecorrigeerd, statische beschrijvingen toegevoegd, UX verbeterd met alive-check en sendTo-timeout",
+				"fr": "Libellés d'onglets corrigés, descriptions statiques ajoutées, UX amélioré avec vérification alive et délai sendTo",
+				"it": "Corrette etichette delle schede, aggiunte descrizioni statiche, UX migliorato con controllo alive e timeout sendTo",
+				"es": "Corregidas etiquetas de pestañas, añadidas descripciones estáticas, UX mejorado con comprobación alive y timeout sendTo",
+				"pl": "Poprawiono etykiety zakładek, dodano opisy statyczne, poprawiono UX z kontrolą alive i limitem czasu sendTo",
+				"uk": "Виправлено підписи вкладок, додано статичні описи, покращено UX з перевіркою alive та таймаутом sendTo",
+				"zh-cn": "修正选项卡标签，添加静态描述，通过alive检查和sendTo超时改进用户体验"
+			},
 			"0.2.1": {
 				"en": "Fix: panels were empty because window.React is not a global in admin 7",
 				"de": "Bugfix: Panels waren leer, weil window.React in Admin 7 kein Global ist",
@@ -69,8 +82,17 @@
 			"uk": "Керуйте розумними лампами Müller Licht tint Zigbee через deCONZ/ConBee з повною підтримкою пульта Tint із колесом кольорів",
 			"zh-cn": "通过deCONZ/ConBee控制Müller Licht tint Zigbee智能灯，包括完整的Tint遥控器色轮支持"
 		},
-		"authors": ["ssbingo <s.sternitzke@online.de>"],
-		"keywords": ["MüllerLicht", "Tint", "Zigbee", "deCONZ", "ConBee", "RGBW"],
+		"authors": [
+			"ssbingo <s.sternitzke@online.de>"
+		],
+		"keywords": [
+			"MüllerLicht",
+			"Tint",
+			"Zigbee",
+			"deCONZ",
+			"ConBee",
+			"RGBW"
+		],
 		"licenseInformation": {
 			"type": "free",
 			"license": "MIT"
@@ -111,8 +133,12 @@
 		"transitionTime": 4,
 		"watchdogMinutes": 120
 	},
-	"encryptedNative": ["apiKey"],
-	"protectedNative": ["apiKey"],
+	"encryptedNative": [
+		"apiKey"
+	],
+	"protectedNative": [
+		"apiKey"
+	],
 	"objects": [],
 	"instanceObjects": [
 		{

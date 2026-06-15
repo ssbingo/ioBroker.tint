@@ -48,6 +48,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.2.2 (2026-06-15)
+* (ssbingo) Etiquetas corregidas · Descripciones añadidas · UX mejorado con comprobación alive y timeout
+
 ### 0.2.1 (2026-06-15)
 * (ssbingo) Corrección: los paneles estaban vacíos porque `window.React` no es un global en admin 7
 

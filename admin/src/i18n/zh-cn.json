@@ -12,7 +12,7 @@
 	"autoApplyColorWheel": "自动应用色轮到灯具",
 	"watchdogMinutes": "遥控器看门狗（分钟）",
 	"tabLights": "灯具",
-	"tabGroups": "灯组",
+	"tabGroups": "群组",
 	"colName": "名称",
 	"colModel": "型号",
 	"colManufacturer": "制造商",
@@ -45,5 +45,9 @@
 	"msgError": "错误",
 	"msgConfirmDelete": "确定删除群组\"%s\"？",
 	"msgSaving": "保存中…",
-	"msgDeleting": "删除中…"
+	"msgDeleting": "删除中…",
+	"msgAdapterOffline": "适配器实例未运行。请先在ioBroker实例视图中启动它。",
+	"msgTimeout": "适配器无响应（超时）。实例是否正在运行？",
+	"lightsCount": "个灯具已找到",
+	"groupsCount": "个群组已找到"
 }

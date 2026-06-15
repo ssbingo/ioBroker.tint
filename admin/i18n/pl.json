@@ -10,5 +10,9 @@
 	"transitionTime": "Czas przejścia (×100 ms)",
 	"remoteHeader": "Pilot Tint",
 	"autoApplyColorWheel": "Automatyczne stosowanie koła kolorów",
-	"watchdogMinutes": "Watchdog pilota (minuty)"
+	"watchdogMinutes": "Watchdog pilota (minuty)",
+	"tabLights": "Lampy",
+	"tabGroups": "Grupy",
+	"descLightsTab": "Wszystkie lampy sparowane z bramką deCONZ i ich bieżący stan.",
+	"descGroupsTab": "Zarządzaj grupami lamp: twórz nowe grupy, edytuj skład lub usuwaj grupy. Zmiany są stosowane bezpośrednio w bramce deCONZ."
 }

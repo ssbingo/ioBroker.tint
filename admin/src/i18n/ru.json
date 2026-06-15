@@ -11,7 +11,7 @@
 	"remoteHeader": "Пульт Tint",
 	"autoApplyColorWheel": "Автоматически применять цветовое колесо",
 	"watchdogMinutes": "Сторожевой таймер пульта (минуты)",
-	"tabLights": "Лампы",
+	"tabLights": "Светильники",
 	"tabGroups": "Группы",
 	"colName": "Название",
 	"colModel": "Модель",
@@ -45,5 +45,9 @@
 	"msgError": "Ошибка",
 	"msgConfirmDelete": "Удалить группу \"%s\"?",
 	"msgSaving": "Сохранение…",
-	"msgDeleting": "Удаление…"
+	"msgDeleting": "Удаление…",
+	"msgAdapterOffline": "Экземпляр адаптера не запущен. Запустите его в разделе экземпляров ioBroker.",
+	"msgTimeout": "Нет ответа от адаптера (тайм-аут). Запущен ли экземпляр?",
+	"lightsCount": "светильник(ов) найдено",
+	"groupsCount": "групп(а) найдено"
 }

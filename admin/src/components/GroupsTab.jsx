@@ -7,35 +7,73 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import Chip from '@material-ui/core/Chip';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
-import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import GroupDialog from './GroupDialog';
 
 const useStyles = makeStyles((theme) => ({
+	root: { padding: theme.spacing(0, 0, 2, 0) },
+
+	/* Toolbar */
 	toolbar: {
 		display: 'flex',
 		alignItems: 'center',
 		gap: theme.spacing(1),
-		marginBottom: theme.spacing(1),
+		padding: theme.spacing(1, 2),
+		marginBottom: theme.spacing(2),
+		background: theme.palette.type === 'dark' ? 'rgba(255,255,255,0.04)' : '#f5f5f5',
+		borderRadius: theme.shape.borderRadius,
+		border: `1px solid ${theme.palette.divider}`,
 	},
+	dot: {
+		width: 10,
+		height: 10,
+		borderRadius: '50%',
+		flexShrink: 0,
+	},
+	dotOk: { backgroundColor: '#4caf50' },
+	dotError: { backgroundColor: '#f44336' },
+	dotIdle: { backgroundColor: '#bdbdbd' },
 	spacer: { flex: 1 },
-	stateOn: { color: '#ff9800', fontWeight: 'bold' },
+
+	/* Alerts */
+	alert: {
+		display: 'flex',
+		alignItems: 'flex-start',
+		gap: theme.spacing(1),
+		padding: theme.spacing(1.5, 2),
+		borderRadius: theme.shape.borderRadius,
+		marginBottom: theme.spacing(2),
+		fontSize: '0.875rem',
+		lineHeight: 1.5,
+	},
+	alertError: { background: '#fdecea', border: '1px solid #ef9a9a', color: '#b71c1c' },
+	alertWarn:  { background: '#fff8e1', border: '1px solid #ffe082', color: '#7b5000' },
+	alertInfo:  { background: '#e3f2fd', border: '1px solid #90caf9', color: '#0d47a1' },
+
+	/* Table */
+	tableHead: { background: theme.palette.type === 'dark' ? 'rgba(255,255,255,0.06)' : '#fafafa' },
+	tableRow: { '&:hover': { background: theme.palette.action.hover } },
+
+	stateOn:  { color: '#e65100', fontWeight: 'bold' },
 	stateOff: { color: '#9e9e9e' },
 	sceneChip: { margin: '2px', height: 20, fontSize: '0.7rem' },
-	actionBtn: { minWidth: 0, padding: '4px 8px', fontSize: '0.75rem', marginRight: 4 },
-	center: { display: 'flex', justifyContent: 'center', padding: theme.spacing(4) },
+	actionBtn: { minWidth: 0, padding: '3px 10px', fontSize: '0.75rem', marginLeft: 4 },
+
+	center: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		padding: theme.spacing(4),
+		gap: theme.spacing(1),
+		color: theme.palette.text.secondary,
+	},
 }));
 
-/**
- * @param {object} props
- * @param {function(string, object): Promise} props.sendToAdapter
- * @param {function(string): string} props.t
- */
-export default function GroupsTab({ sendToAdapter, t }) {
+export default function GroupsTab({ sendToAdapter, t, alive }) {
 	const classes = useStyles();
 	const [groups, setGroups] = useState(null);
 	const [allLights, setAllLights] = useState({});
@@ -52,22 +90,30 @@ export default function GroupsTab({ sendToAdapter, t }) {
 			sendToAdapter('getLights', {}),
 		]);
 		setLoading(false);
-		if (gRes && gRes.error) {
-			setError(gRes.error);
-			return;
-		}
+		if (gRes && gRes.error) { setError(gRes.error); return; }
 		if (gRes && gRes.groups) setGroups(gRes.groups);
 		if (lRes && lRes.lights) setAllLights(lRes.lights);
 	}, [sendToAdapter]);
 
-	useEffect(() => { load(); }, [load]);
+	useEffect(() => {
+		if (alive !== false) load();
+	}, [load, alive]);
+
+	/* Adapter offline */
+	if (alive === false) {
+		return (
+			<div className={`${classes.alert} ${classes.alertWarn}`}>
+				<span>⚠️</span>
+				<span><strong>{t('msgAdapterOffline')}</strong></span>
+			</div>
+		);
+	}
 
 	const openCreate = () => { setEditGroup(null); setDialogOpen(true); };
 	const openEdit = (id, group) => {
 		setEditGroup({ id, name: group.name, lights: group.lights || [] });
 		setDialogOpen(true);
 	};
-
 	const handleSave = async (name, lightIds) => {
 		if (editGroup) {
 			await sendToAdapter('updateGroup', { id: editGroup.id, name, lights: lightIds });
@@ -77,51 +123,86 @@ export default function GroupsTab({ sendToAdapter, t }) {
 		setDialogOpen(false);
 		await load();
 	};
-
 	const handleDelete = async (id, name) => {
 		if (!window.confirm(t('msgConfirmDelete').replace('%s', name))) return;
 		await sendToAdapter('deleteGroup', { id });
 		await load();
 	};
 
-	if (loading && !groups) {
-		return (
-			<div className={classes.center}>
-				<CircularProgress />
-				<Typography style={{ marginLeft: 12 }}>{t('msgLoading')}</Typography>
-			</div>
-		);
-	}
-
 	const rows = groups ? Object.entries(groups) : [];
+	const dotClass = error ? classes.dotError : groups !== null ? classes.dotOk : classes.dotIdle;
 
 	return (
-		<div>
+		<div className={classes.root}>
+
+			{/* Toolbar */}
 			<div className={classes.toolbar}>
-				<Button variant="contained" color="primary" size="small" onClick={openCreate}>
+				{loading ? <CircularProgress size={10} /> : <span className={`${classes.dot} ${dotClass}`} />}
+				<Typography variant="body2" color="textSecondary">
+					{loading && !groups
+						? t('msgLoading')
+						: error
+						? t('msgNotConnected')
+						: groups !== null
+						? `${rows.length} ${t('groupsCount')}`
+						: '–'}
+				</Typography>
+				<div className={classes.spacer} />
+				<Button
+					variant="contained"
+					color="primary"
+					size="small"
+					onClick={openCreate}
+					disabled={loading || !!error}
+				>
 					{t('btnNewGroup')}
 				</Button>
-				<div className={classes.spacer} />
 				<Button variant="outlined" size="small" onClick={load} disabled={loading}>
 					{loading ? <CircularProgress size={14} /> : t('btnRefresh')}
 				</Button>
 			</div>
 
+			{/* Error */}
 			{error && (
-				<Typography color="error" gutterBottom>
-					{t('msgNotConnected')}<br />
-					<small>{error}</small>
-				</Typography>
+				<div className={`${classes.alert} ${classes.alertError}`}>
+					<span>✖</span>
+					<div>
+						<strong>{t('msgError')}:</strong> {error}
+					</div>
+				</div>
 			)}
 
-			{!error && rows.length === 0 && (
-				<Typography>{t('msgNoGroups')}</Typography>
+			{/* Loading spinner (initial) */}
+			{loading && !groups && (
+				<div className={classes.center}>
+					<CircularProgress size={36} />
+					<Typography variant="body2">{t('msgLoading')}</Typography>
+				</div>
 			)}
 
+			{/* No groups */}
+			{!loading && !error && groups !== null && rows.length === 0 && (
+				<div className={`${classes.alert} ${classes.alertInfo}`}>
+					<span>ℹ</span>
+					<span>
+						{t('msgNoGroups')}{' '}
+						<Button
+							size="small"
+							color="primary"
+							onClick={openCreate}
+							style={{ verticalAlign: 'baseline', padding: '0 4px', minHeight: 'unset' }}
+						>
+							{t('btnNewGroup')}
+						</Button>
+					</span>
+				</div>
+			)}
+
+			{/* Groups table */}
 			{rows.length > 0 && (
-				<TableContainer component={Paper}>
+				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
-						<TableHead>
+						<TableHead className={classes.tableHead}>
 							<TableRow>
 								<TableCell><strong>{t('colName')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colLightCount')}</strong></TableCell>
@@ -136,10 +217,15 @@ export default function GroupsTab({ sendToAdapter, t }) {
 								const st = group.state || {};
 								const scenes = Array.isArray(group.scenes) ? group.scenes : [];
 								return (
-									<TableRow key={id} hover>
-										<TableCell>{group.name}</TableCell>
+									<TableRow key={id} className={classes.tableRow}>
+										<TableCell>
+											<Typography variant="body2"><strong>{group.name}</strong></Typography>
+											<Typography variant="caption" color="textSecondary">ID {id}</Typography>
+										</TableCell>
 										<TableCell align="center">
-											{(group.lights || []).length}
+											<Typography variant="body2">
+												{(group.lights || []).length}
+											</Typography>
 										</TableCell>
 										<TableCell align="center">
 											<span className={st.all_on ? classes.stateOn : classes.stateOff}>
@@ -152,14 +238,13 @@ export default function GroupsTab({ sendToAdapter, t }) {
 											</span>
 										</TableCell>
 										<TableCell>
-											{scenes.map((sc) => (
-												<Chip
-													key={sc.id}
-													label={sc.name}
-													size="small"
-													className={classes.sceneChip}
-												/>
-											))}
+											{scenes.length === 0 ? (
+												<Typography variant="caption" color="textSecondary">–</Typography>
+											) : (
+												scenes.map((sc) => (
+													<Chip key={sc.id} label={sc.name} size="small" className={classes.sceneChip} />
+												))
+											)}
 										</TableCell>
 										<TableCell align="right">
 											<Tooltip title={t('btnEdit')}>

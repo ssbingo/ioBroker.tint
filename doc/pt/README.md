@@ -48,6 +48,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.2.2 (2026-06-15)
+* (ssbingo) Corrigidas etiquetas · Adicionadas descrições estáticas · UX melhorado com alive-check e timeout
+
 ### 0.2.1 (2026-06-15)
 * (ssbingo) Correção: os painéis estavam vazios porque `window.React` não é global no admin 7
 

@@ -48,6 +48,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.2.2 (2026-06-15)
+* (ssbingo) Poprawiono etykiety · Dodano opisy · Poprawiono UX z kontrolą alive i limitem czasu
+
 ### 0.2.1 (2026-06-15)
 * (ssbingo) Poprawka: panele były puste, ponieważ `window.React` nie jest globalnym w admin 7
 

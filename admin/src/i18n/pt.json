@@ -45,5 +45,9 @@
 	"msgError": "Erro",
 	"msgConfirmDelete": "Eliminar grupo \"%s\"?",
 	"msgSaving": "A guardar…",
-	"msgDeleting": "A eliminar…"
+	"msgDeleting": "A eliminar…",
+	"msgAdapterOffline": "A instância do adaptador não está em execução. Por favor, inicie-a primeiro na vista de instâncias do ioBroker.",
+	"msgTimeout": "Sem resposta do adaptador (tempo esgotado). A instância está em execução?",
+	"lightsCount": "luz(es) encontrada(s)",
+	"groupsCount": "grupo(s) encontrado(s)"
 }

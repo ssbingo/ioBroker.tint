@@ -123,10 +123,21 @@
 			"type": "tab",
 			"label": "tabLights",
 			"items": {
+				"lightsDesc": {
+					"type": "staticText",
+					"text": "descLightsTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"lightsDivider": {
+					"type": "divider",
+					"sm": 12
+				},
 				"lightsPanel": {
 					"type": "custom",
 					"url": "build/panels/LightsPanel.js",
 					"name": "LightsPanel",
+					"newLine": true,
 					"sm": 12
 				}
 			}
@@ -135,10 +146,21 @@
 			"type": "tab",
 			"label": "tabGroups",
 			"items": {
+				"groupsDesc": {
+					"type": "staticText",
+					"text": "descGroupsTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"groupsDivider": {
+					"type": "divider",
+					"sm": 12
+				},
 				"groupsPanel": {
 					"type": "custom",
 					"url": "build/panels/GroupsPanel.js",
 					"name": "GroupsPanel",
+					"newLine": true,
 					"sm": 12
 				}
 			}

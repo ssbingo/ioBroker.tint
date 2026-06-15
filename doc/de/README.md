@@ -116,6 +116,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.2.2 (2026-06-15)
+* (ssbingo) Tab-Bezeichnungen korrigiert (Leuchten/Gruppen) · Statische Beschreibungen ergänzt · UX mit Alive-Prüfung, sendTo-Timeout, Statusbalken verbessert
+
 ### 0.2.1 (2026-06-15)
 * (ssbingo) Bugfix: Panels waren leer, weil `window.React` in Admin 7 kein Global ist
 

@@ -1,37 +1,50 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import LightsTab from '../components/LightsTab';
 import { createT } from './i18n.js';
 
-function LightsPanelApp({ socket, instance, lang }) {
+function LightsPanelApp({ socket, instance, lang, alive }) {
 	const t = createT(lang || 'en');
 
 	const sendToAdapter = useCallback(
 		(command, data) =>
 			new Promise((resolve) => {
-				socket.sendTo(`tint.${instance}`, command, data || {}, resolve);
+				const tid = setTimeout(
+					() => resolve({ error: t('msgTimeout') }),
+					10000,
+				);
+				socket.sendTo(`tint.${instance}`, command, data || {}, (result) => {
+					clearTimeout(tid);
+					resolve(result);
+				});
 			}),
-		[socket, instance],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[socket, instance, lang],
 	);
 
-	return <LightsTab sendToAdapter={sendToAdapter} t={t} />;
+	return <LightsTab sendToAdapter={sendToAdapter} t={t} alive={alive} />;
 }
 
 /**
- * Outer shell: returned into admin's React tree.
- * Uses our bundled React.createElement for the host div — React elements are
- * plain objects ($$typeof: Symbol.for('react.element')) and admin's reconciler
- * handles host elements ('div') from any React version.
- * The inner app runs in a separate ReactDOM root to avoid hook-dispatcher
- * conflicts between admin's React and our bundled React.
+ * Outer shell returned into admin's React tree (no hooks, no React version conflict).
+ * The inner app runs in its own ReactDOM root so hook dispatchers stay isolated.
+ * setTimeout defers mount to the next tick, outside admin's commit phase.
  */
 function LightsPanel(props) {
 	return React.createElement('div', {
 		style: { width: '100%', fontFamily: 'Roboto, Arial, sans-serif' },
 		ref: function (el) {
-			if (el) {
-				ReactDOM.render(React.createElement(LightsPanelApp, props), el);
-			}
+			if (!el) return;
+			setTimeout(function () {
+				try {
+					ReactDOM.render(React.createElement(LightsPanelApp, props), el);
+				} catch (err) {
+					el.innerHTML =
+						'<p style="color:#c62828;padding:12px;background:#fdecea;border-radius:4px;margin:0">⚠ Panel error: ' +
+						err.message +
+						'</p>';
+				}
+			}, 0);
 		},
 	});
 }

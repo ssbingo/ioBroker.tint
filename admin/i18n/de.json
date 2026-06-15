@@ -10,5 +10,9 @@
 	"transitionTime": "Übergangszeit (×100 ms)",
 	"remoteHeader": "Tint-Fernbedienung",
 	"autoApplyColorWheel": "Farbrad automatisch auf Leuchten anwenden",
-	"watchdogMinutes": "Fernbedienung Watchdog (Minuten)"
+	"watchdogMinutes": "Fernbedienung Watchdog (Minuten)",
+	"tabLights": "Leuchten",
+	"tabGroups": "Gruppen",
+	"descLightsTab": "Alle mit Ihrem deCONZ-Gateway gekoppelten Leuchten und deren aktueller Status.",
+	"descGroupsTab": "Leuchtgruppen verwalten: Neue Gruppen anlegen, Zugehörigkeit bearbeiten oder Gruppen löschen. Änderungen werden direkt an Ihr deCONZ-Gateway übertragen."
 }

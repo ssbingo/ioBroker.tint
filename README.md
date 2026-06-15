@@ -142,6 +142,12 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.2 (2026-06-15)
+* (ssbingo) Fix tab labels: "Leuchten" and "Gruppen" now shown correctly (i18n keys added to `admin/i18n/`)
+* (ssbingo) Add static description text above each panel tab (always visible, even when panel fails to load)
+* (ssbingo) Panel components: add sendTo timeout (10 s), alive-check, deferred mount via setTimeout, error boundary
+* (ssbingo) Improve LightsTab and GroupsTab UX: status bar with dot indicator, count label, alert boxes for error/empty/offline
+
 ### 0.2.1 (2026-06-15)
 * (ssbingo) Fix: panels were empty because `window.React` is not a global in admin 7
 

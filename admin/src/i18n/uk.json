@@ -11,7 +11,7 @@
 	"remoteHeader": "Пульт Tint",
 	"autoApplyColorWheel": "Автоматично застосовувати колесо кольорів",
 	"watchdogMinutes": "Сторожовий таймер пульта (хвилини)",
-	"tabLights": "Лампи",
+	"tabLights": "Світильники",
 	"tabGroups": "Групи",
 	"colName": "Назва",
 	"colModel": "Модель",
@@ -45,5 +45,9 @@
 	"msgError": "Помилка",
 	"msgConfirmDelete": "Видалити групу \"%s\"?",
 	"msgSaving": "Збереження…",
-	"msgDeleting": "Видалення…"
+	"msgDeleting": "Видалення…",
+	"msgAdapterOffline": "Екземпляр адаптера не запущено. Будь ласка, спочатку запустіть його в переліку екземплярів ioBroker.",
+	"msgTimeout": "Немає відповіді від адаптера (тайм-аут). Чи запущено екземпляр?",
+	"lightsCount": "світильник(ів) знайдено",
+	"groupsCount": "групу(п) знайдено"
 }

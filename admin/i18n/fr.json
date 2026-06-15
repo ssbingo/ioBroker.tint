@@ -10,5 +10,9 @@
 	"transitionTime": "Temps de transition (×100 ms)",
 	"remoteHeader": "Télécommande Tint",
 	"autoApplyColorWheel": "Appliquer la roue chromatique automatiquement",
-	"watchdogMinutes": "Chien de garde télécommande (minutes)"
+	"watchdogMinutes": "Chien de garde télécommande (minutes)",
+	"tabLights": "Lampes",
+	"tabGroups": "Groupes",
+	"descLightsTab": "Toutes les lampes associées à votre passerelle deCONZ et leur statut actuel.",
+	"descGroupsTab": "Gérez les groupes de lampes : créez, modifiez la composition ou supprimez des groupes. Les modifications sont appliquées directement à votre passerelle deCONZ."
 }

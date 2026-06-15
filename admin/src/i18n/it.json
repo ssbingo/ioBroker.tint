@@ -45,5 +45,9 @@
 	"msgError": "Errore",
 	"msgConfirmDelete": "Eliminare il gruppo \"%s\"?",
 	"msgSaving": "Salvataggio…",
-	"msgDeleting": "Eliminazione…"
+	"msgDeleting": "Eliminazione…",
+	"msgAdapterOffline": "L'istanza dell'adattatore non è in esecuzione. Avviarla prima nella vista delle istanze di ioBroker.",
+	"msgTimeout": "Nessuna risposta dall'adattatore (timeout). L'istanza è in esecuzione?",
+	"lightsCount": "luce/luci trovata/e",
+	"groupsCount": "gruppo/i trovato/i"
 }

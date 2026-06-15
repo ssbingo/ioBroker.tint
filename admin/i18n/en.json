@@ -10,5 +10,9 @@
 	"transitionTime": "Transition time (×100 ms)",
 	"remoteHeader": "Tint Remote",
 	"autoApplyColorWheel": "Auto-apply color wheel to lights",
-	"watchdogMinutes": "Remote watchdog (minutes)"
+	"watchdogMinutes": "Remote watchdog (minutes)",
+	"tabLights": "Lights",
+	"tabGroups": "Groups",
+	"descLightsTab": "All lights paired with your deCONZ gateway and their current status.",
+	"descGroupsTab": "Manage light groups: create, edit membership, or delete groups. Changes are applied directly to your deCONZ gateway."
 }

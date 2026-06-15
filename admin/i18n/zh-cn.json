@@ -10,5 +10,9 @@
 	"transitionTime": "过渡时间（×100 毫秒）",
 	"remoteHeader": "Tint 遥控器",
 	"autoApplyColorWheel": "自动应用色轮到灯具",
-	"watchdogMinutes": "遥控器看门狗（分钟）"
+	"watchdogMinutes": "遥控器看门狗（分钟）",
+	"tabLights": "灯具",
+	"tabGroups": "群组",
+	"descLightsTab": "所有与deCONZ网关配对的灯具及其当前状态。",
+	"descGroupsTab": "管理灯具群组：创建新群组、编辑成员或删除群组。更改直接应用于您的deCONZ网关。"
 }

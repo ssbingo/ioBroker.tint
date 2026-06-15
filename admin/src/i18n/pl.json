@@ -45,5 +45,9 @@
 	"msgError": "Błąd",
 	"msgConfirmDelete": "Usunąć grupę \"%s\"?",
 	"msgSaving": "Zapisywanie…",
-	"msgDeleting": "Usuwanie…"
+	"msgDeleting": "Usuwanie…",
+	"msgAdapterOffline": "Instancja adaptera nie jest uruchomiona. Uruchom ją najpierw w widoku instancji ioBroker.",
+	"msgTimeout": "Brak odpowiedzi od adaptera (przekroczenie czasu). Czy instancja jest uruchomiona?",
+	"lightsCount": "lampa/lampy znaleziono",
+	"groupsCount": "grupa/grupy znaleziono"
 }

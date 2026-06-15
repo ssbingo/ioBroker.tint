@@ -10,5 +10,9 @@
 	"transitionTime": "Tempo di transizione (×100 ms)",
 	"remoteHeader": "Telecomando Tint",
 	"autoApplyColorWheel": "Applicare la ruota dei colori automaticamente",
-	"watchdogMinutes": "Watchdog telecomando (minuti)"
+	"watchdogMinutes": "Watchdog telecomando (minuti)",
+	"tabLights": "Luci",
+	"tabGroups": "Gruppi",
+	"descLightsTab": "Tutte le luci associate al tuo gateway deCONZ e il loro stato attuale.",
+	"descGroupsTab": "Gestisci i gruppi di luci: crea nuovi gruppi, modifica la composizione o elimina gruppi esistenti. Le modifiche vengono applicate direttamente al tuo gateway deCONZ."
 }
