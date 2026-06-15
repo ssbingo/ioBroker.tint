@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.1.0",
+		"version": "0.2.0",
 		"news": {
+			"0.2.0": {
+				"en": "Admin UI: lights and groups tabs in adapter settings; group management (create, edit, delete); Node.js >= 22 required",
+				"de": "Admin-UI: Lampen- und Gruppen-Tabs in den Adaptereinstellungen; Gruppenverwaltung (erstellen, bearbeiten, löschen); Node.js >= 22 erforderlich",
+				"ru": "Admin UI: вкладки светильников и групп в настройках адаптера; управление группами (создание, редактирование, удаление); требуется Node.js >= 22",
+				"pt": "Admin UI: abas de luzes e grupos nas configurações do adaptador; gestão de grupos (criar, editar, eliminar); necessário Node.js >= 22",
+				"nl": "Admin UI: lampen- en groepentabbladen in adapterinstellingen; groepsbeheer (maken, bewerken, verwijderen); Node.js >= 22 vereist",
+				"fr": "Admin UI: onglets lampes et groupes dans les paramètres de l'adaptateur; gestion des groupes (créer, modifier, supprimer); Node.js >= 22 requis",
+				"it": "Admin UI: schede luci e gruppi nelle impostazioni dell'adattatore; gestione gruppi (creare, modificare, eliminare); Node.js >= 22 richiesto",
+				"es": "Admin UI: pestañas de luces y grupos en la configuración del adaptador; gestión de grupos (crear, editar, eliminar); Node.js >= 22 requerido",
+				"pl": "Admin UI: zakładki świateł i grup w ustawieniach adaptera; zarządzanie grupami (tworzenie, edycja, usuwanie); wymagany Node.js >= 22",
+				"uk": "Admin UI: вкладки ламп та груп у налаштуваннях адаптера; керування групами (створення, редагування, видалення); потрібен Node.js >= 22",
+				"zh-cn": "管理界面：适配器设置中的灯具和群组选项卡；群组管理（创建、编辑、删除）；需要Node.js >= 22"
+			},
 			"0.1.0": {
 				"en": "Initial release: lights, groups, scenes, Tint remote with color wheel",
 				"de": "Erstveröffentlichung: Lampen, Gruppen, Szenen, Tint-Fernbedienung mit Farbrad",
@@ -61,17 +74,8 @@
 		"compact": true,
 		"connectionType": "local",
 		"dataSource": "push",
-		"adminTab": {
-			"name": {
-				"en": "tint",
-				"de": "tint"
-			},
-			"fa-icon": "lightbulb-o",
-			"ignoreConfigUpdate": false
-		},
 		"adminUI": {
-			"config": "json",
-			"tab": "html"
+			"config": "json"
 		},
 		"dependencies": [
 			{

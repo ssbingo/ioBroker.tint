@@ -48,6 +48,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: abas de luzes e grupos nas configurações do adaptador; gestão de grupos (criar, editar, eliminar); necessário Node.js >= 22
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Lançamento inicial: luzes, grupos, cenas, controlo remoto Tint com roda de cores
 

@@ -48,6 +48,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: lampen- en groepentabbladen in adapterinstellingen; groepsbeheer (maken, bewerken, verwijderen); Node.js >= 22 vereist
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Eerste versie: lampen, groepen, scènes, Tint-afstandsbediening met kleurenwiel
 

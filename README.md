@@ -142,6 +142,11 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: lights and groups overview tabs inside the adapter settings dialog
+* (ssbingo) Group management: create, edit, and delete deCONZ groups from the admin UI
+* (ssbingo) Drop Node 20 support; require Node.js >= 22
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Initial release: lights, groups, scenes, Tint remote with color wheel
 

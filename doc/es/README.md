@@ -48,6 +48,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: pestañas de luces y grupos en la configuración del adaptador; gestión de grupos (crear, editar, eliminar); Node.js >= 22 requerido
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Versión inicial: luces, grupos, escenas, mando a distancia Tint con rueda de colores
 

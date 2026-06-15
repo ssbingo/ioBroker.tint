@@ -48,6 +48,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: onglets lampes et groupes dans les paramètres de l'adaptateur; gestion des groupes (créer, modifier, supprimer); Node.js >= 22 requis
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Version initiale : lampes, groupes, scènes, télécommande Tint avec roue chromatique
 

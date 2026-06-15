@@ -1,117 +1,147 @@
 {
 	"i18n": true,
-	"type": "panel",
+	"type": "tabs",
 	"items": {
-		"_connectionHeader": {
-			"type": "header",
-			"text": "connectionHeader",
-			"size": 3
+		"tabSettings": {
+			"type": "tab",
+			"label": "tint adapter settings",
+			"items": {
+				"_connectionHeader": {
+					"type": "header",
+					"text": "connectionHeader",
+					"size": 3
+				},
+				"ip": {
+					"type": "text",
+					"label": "ip",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 6,
+					"lg": 4,
+					"xl": 4
+				},
+				"port": {
+					"type": "number",
+					"label": "port",
+					"newLine": false,
+					"xs": 6,
+					"sm": 4,
+					"md": 3,
+					"lg": 2,
+					"xl": 2,
+					"default": 80,
+					"min": 1,
+					"max": 65535
+				},
+				"wsPort": {
+					"type": "number",
+					"label": "wsPort",
+					"newLine": false,
+					"xs": 6,
+					"sm": 4,
+					"md": 3,
+					"lg": 2,
+					"xl": 2,
+					"default": 443,
+					"min": 1,
+					"max": 65535
+				},
+				"apiKey": {
+					"type": "password",
+					"label": "apiKey",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 8,
+					"lg": 6,
+					"xl": 6
+				},
+				"_behaviorHeader": {
+					"type": "header",
+					"text": "behaviorHeader",
+					"size": 3
+				},
+				"pollingInterval": {
+					"type": "number",
+					"label": "pollingInterval",
+					"newLine": true,
+					"xs": 12,
+					"sm": 6,
+					"md": 4,
+					"lg": 3,
+					"xl": 3,
+					"default": 60,
+					"min": 10,
+					"max": 3600
+				},
+				"transitionTime": {
+					"type": "number",
+					"label": "transitionTime",
+					"newLine": false,
+					"xs": 12,
+					"sm": 6,
+					"md": 4,
+					"lg": 3,
+					"xl": 3,
+					"default": 4,
+					"min": 0,
+					"max": 65535
+				},
+				"_remoteHeader": {
+					"type": "header",
+					"text": "remoteHeader",
+					"size": 3
+				},
+				"autoApplyColorWheel": {
+					"type": "checkbox",
+					"label": "autoApplyColorWheel",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"default": true
+				},
+				"watchdogMinutes": {
+					"type": "number",
+					"label": "watchdogMinutes",
+					"newLine": true,
+					"xs": 12,
+					"sm": 6,
+					"md": 4,
+					"lg": 3,
+					"xl": 3,
+					"default": 120,
+					"min": 0,
+					"max": 10080
+				}
+			}
 		},
-		"ip": {
-			"type": "text",
-			"label": "ip",
-			"newLine": true,
-			"xs": 12,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"xl": 4
+		"tabLights": {
+			"type": "tab",
+			"label": "tabLights",
+			"items": {
+				"lightsPanel": {
+					"type": "custom",
+					"url": "build/panels/LightsPanel.js",
+					"name": "LightsPanel",
+					"sm": 12
+				}
+			}
 		},
-		"port": {
-			"type": "number",
-			"label": "port",
-			"newLine": false,
-			"xs": 6,
-			"sm": 4,
-			"md": 3,
-			"lg": 2,
-			"xl": 2,
-			"default": 80,
-			"min": 1,
-			"max": 65535
-		},
-		"wsPort": {
-			"type": "number",
-			"label": "wsPort",
-			"newLine": false,
-			"xs": 6,
-			"sm": 4,
-			"md": 3,
-			"lg": 2,
-			"xl": 2,
-			"default": 443,
-			"min": 1,
-			"max": 65535
-		},
-		"apiKey": {
-			"type": "password",
-			"label": "apiKey",
-			"newLine": true,
-			"xs": 12,
-			"sm": 12,
-			"md": 8,
-			"lg": 6,
-			"xl": 6
-		},
-		"_behaviorHeader": {
-			"type": "header",
-			"text": "behaviorHeader",
-			"size": 3
-		},
-		"pollingInterval": {
-			"type": "number",
-			"label": "pollingInterval",
-			"newLine": true,
-			"xs": 12,
-			"sm": 6,
-			"md": 4,
-			"lg": 3,
-			"xl": 3,
-			"default": 60,
-			"min": 10,
-			"max": 3600
-		},
-		"transitionTime": {
-			"type": "number",
-			"label": "transitionTime",
-			"newLine": false,
-			"xs": 12,
-			"sm": 6,
-			"md": 4,
-			"lg": 3,
-			"xl": 3,
-			"default": 4,
-			"min": 0,
-			"max": 65535
-		},
-		"_remoteHeader": {
-			"type": "header",
-			"text": "remoteHeader",
-			"size": 3
-		},
-		"autoApplyColorWheel": {
-			"type": "checkbox",
-			"label": "autoApplyColorWheel",
-			"newLine": true,
-			"xs": 12,
-			"sm": 12,
-			"md": 12,
-			"lg": 12,
-			"xl": 12,
-			"default": true
-		},
-		"watchdogMinutes": {
-			"type": "number",
-			"label": "watchdogMinutes",
-			"newLine": true,
-			"xs": 12,
-			"sm": 6,
-			"md": 4,
-			"lg": 3,
-			"xl": 3,
-			"default": 120,
-			"min": 0,
-			"max": 10080
+		"tabGroups": {
+			"type": "tab",
+			"label": "tabGroups",
+			"items": {
+				"groupsPanel": {
+					"type": "custom",
+					"url": "build/panels/GroupsPanel.js",
+					"name": "GroupsPanel",
+					"sm": 12
+				}
+			}
 		}
 	}
 }

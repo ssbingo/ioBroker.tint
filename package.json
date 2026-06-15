@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Müller Licht Tint Steuerung via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",
@@ -61,11 +61,12 @@
 	],
 	"scripts": {
 		"prebuild": "rimraf admin/build",
-		"build": "build-adapter react",
+		"build": "build-adapter react && npm run build:panels",
 		"watch": "build-adapter react --watch",
 		"prebuild:react": "rimraf admin/build",
 		"build:react": "build-adapter react",
 		"watch:react": "build-adapter react --watch",
+		"build:panels": "mkdir -p admin/build/panels && esbuild admin/src/panels/LightsPanel.jsx admin/src/panels/GroupsPanel.jsx --bundle --format=iife --platform=browser --define:process.env.NODE_ENV=\\\"production\\\" --outdir=admin/build/panels",
 		"test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
 		"test:package": "mocha test/package --exit",
 		"test:integration": "mocha test/integration --exit",

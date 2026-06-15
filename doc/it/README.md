@@ -48,6 +48,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: schede luci e gruppi nelle impostazioni dell'adattatore; gestione gruppi (creare, modificare, eliminare); Node.js >= 22 richiesto
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Versione iniziale: luci, gruppi, scene, telecomando Tint con ruota dei colori
 

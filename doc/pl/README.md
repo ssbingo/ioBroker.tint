@@ -48,6 +48,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.2.0 (2026-06-15)
+* (ssbingo) Admin UI: zakładki świateł i grup w ustawieniach adaptera; zarządzanie grupami (tworzenie, edycja, usuwanie); wymagany Node.js >= 22
+
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Pierwsza wersja: światła, grupy, sceny, pilot Tint z kołem kolorów
 
