@@ -10,5 +10,46 @@
 	"transitionTime": "Übergangszeit (×100 ms)",
 	"remoteHeader": "Tint-Fernbedienung",
 	"autoApplyColorWheel": "Farbrad automatisch auf Leuchten anwenden",
-	"watchdogMinutes": "Fernbedienung Watchdog (Minuten)"
+	"watchdogMinutes": "Fernbedienung Watchdog (Minuten)",
+
+	"tabLights": "Lichter",
+	"tabGroups": "Gruppen",
+
+	"colName": "Name",
+	"colModel": "Modell",
+	"colManufacturer": "Hersteller",
+	"colReachable": "Erreichbar",
+	"colOnOff": "An/Aus",
+	"colBrightness": "Helligkeit",
+	"colLightCount": "Lampen",
+	"colAllOn": "Alle an",
+	"colAnyOn": "Mind. eine an",
+	"colScenes": "Szenen",
+	"colActions": "Aktionen",
+
+	"btnNewGroup": "Neue Gruppe",
+	"btnRefresh": "Aktualisieren",
+	"btnEdit": "Bearbeiten",
+	"btnDelete": "Löschen",
+	"btnSave": "Speichern",
+	"btnCancel": "Abbrechen",
+
+	"dlgNewGroup": "Neue Gruppe anlegen",
+	"dlgEditGroup": "Gruppe bearbeiten",
+	"dlgGroupName": "Gruppenname",
+	"dlgSelectLights": "Lampen auswählen",
+
+	"stateOn": "An",
+	"stateOff": "Aus",
+	"stateYes": "Ja",
+	"stateNo": "Nein",
+
+	"msgLoading": "Lade Daten …",
+	"msgNoLights": "Keine Lampen gefunden",
+	"msgNoGroups": "Keine Gruppen gefunden",
+	"msgNotConnected": "Adapter nicht verbunden. Bitte Instanz und deCONZ-Verbindung prüfen.",
+	"msgError": "Fehler",
+	"msgConfirmDelete": "Gruppe \"%s\" wirklich löschen?",
+	"msgSaving": "Speichern …",
+	"msgDeleting": "Löschen …"
 }

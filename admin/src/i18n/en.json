@@ -10,5 +10,46 @@
 	"transitionTime": "Transition time (×100 ms)",
 	"remoteHeader": "Tint Remote",
 	"autoApplyColorWheel": "Auto-apply color wheel to lights",
-	"watchdogMinutes": "Remote watchdog (minutes)"
+	"watchdogMinutes": "Remote watchdog (minutes)",
+
+	"tabLights": "Lights",
+	"tabGroups": "Groups",
+
+	"colName": "Name",
+	"colModel": "Model",
+	"colManufacturer": "Manufacturer",
+	"colReachable": "Reachable",
+	"colOnOff": "On/Off",
+	"colBrightness": "Brightness",
+	"colLightCount": "Lights",
+	"colAllOn": "All on",
+	"colAnyOn": "Any on",
+	"colScenes": "Scenes",
+	"colActions": "Actions",
+
+	"btnNewGroup": "New group",
+	"btnRefresh": "Refresh",
+	"btnEdit": "Edit",
+	"btnDelete": "Delete",
+	"btnSave": "Save",
+	"btnCancel": "Cancel",
+
+	"dlgNewGroup": "Create new group",
+	"dlgEditGroup": "Edit group",
+	"dlgGroupName": "Group name",
+	"dlgSelectLights": "Select lights",
+
+	"stateOn": "On",
+	"stateOff": "Off",
+	"stateYes": "Yes",
+	"stateNo": "No",
+
+	"msgLoading": "Loading data…",
+	"msgNoLights": "No lights found",
+	"msgNoGroups": "No groups found",
+	"msgNotConnected": "Adapter not connected. Please check the instance and deCONZ connection.",
+	"msgError": "Error",
+	"msgConfirmDelete": "Really delete group \"%s\"?",
+	"msgSaving": "Saving…",
+	"msgDeleting": "Deleting…"
 }

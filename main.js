@@ -53,6 +53,7 @@ class Tint extends utils.Adapter {
 
 		this.on('ready', this.onReady.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
+		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
 	}
 
@@ -504,6 +505,67 @@ class Tint extends utils.Adapter {
 		}
 		if (a.effect !== undefined) {
 			await this._set(`${p}.action.effect`, a.effect);
+		}
+	}
+
+	// ─────────────────────────────────────────────────────────────────────────
+	// Admin message handler (sendTo)
+	// ─────────────────────────────────────────────────────────────────────────
+
+	/**
+	 * Handle sendTo messages from the admin UI.
+	 *
+	 * @param {ioBroker.Message} obj - Message object
+	 */
+	async onMessage(obj) {
+		if (!obj || !obj.command) return;
+
+		const respond = (result) => {
+			if (obj.callback) this.sendTo(obj.from, obj.command, result, obj.callback);
+		};
+
+		if (!this._api) {
+			respond({ error: 'Adapter not connected to deCONZ' });
+			return;
+		}
+
+		try {
+			switch (obj.command) {
+				case 'getLights':
+					respond({ lights: await this._api.getLights() });
+					break;
+
+				case 'getGroups':
+					respond({ groups: await this._api.getGroups() });
+					break;
+
+				case 'createGroup': {
+					const res = await this._api.createGroup(obj.message.name, obj.message.lights || []);
+					await this._discoverGroups();
+					respond({ ok: true, result: res });
+					break;
+				}
+
+				case 'updateGroup': {
+					await this._api.updateGroup(obj.message.id, obj.message.name, obj.message.lights || []);
+					await this._discoverGroups();
+					respond({ ok: true });
+					break;
+				}
+
+				case 'deleteGroup': {
+					await this._api.deleteGroup(obj.message.id);
+					await this._discoverGroups();
+					respond({ ok: true });
+					break;
+				}
+
+				default:
+					respond({ error: `Unknown command: ${obj.command}` });
+			}
+		} catch (err) {
+			this.log.error(`onMessage ${obj.command} failed: ${err.message}`);
+			respond({ error: err.message });
 		}
 	}
 
