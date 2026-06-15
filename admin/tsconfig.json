@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"strict": false,
+		"noImplicitAny": false,
+		"lib": ["ES2018", "DOM"],
+		"target": "ES2018",
+		"module": "ES2020",
+		"moduleResolution": "bundler",
+		"jsx": "react",
+		"outDir": "./build"
+	},
+	"include": [
+		"./src/**/*.tsx",
+		"./src/**/*.ts",
+		"./src/**/*.jsx",
+		"./src/**/*.js"
+	]
+}
