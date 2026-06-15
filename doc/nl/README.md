@@ -48,6 +48,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Bugfix: panels waren leeg omdat `window.React` geen global is in admin 7
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin UI: lampen- en groepentabbladen in adapterinstellingen; groepsbeheer (maken, bewerken, verwijderen); Node.js >= 22 vereist
 

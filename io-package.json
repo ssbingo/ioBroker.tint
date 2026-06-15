@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.0",
+		"version": "0.2.1",
 		"news": {
+			"0.2.1": {
+				"en": "Fix: panels were empty because window.React is not a global in admin 7",
+				"de": "Bugfix: Panels waren leer, weil window.React in Admin 7 kein Global ist",
+				"ru": "Исправление: панели были пустыми, так как window.React не является глобальным в admin 7",
+				"pt": "Correção: os painéis estavam vazios porque window.React não é global no admin 7",
+				"nl": "Bugfix: panels waren leeg omdat window.React geen global is in admin 7",
+				"fr": "Correctif: les panneaux étaient vides car window.React n'est pas un global dans admin 7",
+				"it": "Correzione: i pannelli erano vuoti perché window.React non è un global in admin 7",
+				"es": "Corrección: los paneles estaban vacíos porque window.React no es un global en admin 7",
+				"pl": "Poprawka: panele były puste, ponieważ window.React nie jest globalnym w admin 7",
+				"uk": "Виправлення: панелі були порожніми, оскільки window.React не є глобальним в admin 7",
+				"zh-cn": "修复：面板为空，因为window.React在admin 7中不是全局变量"
+			},
 			"0.2.0": {
 				"en": "Admin UI: lights and groups tabs in adapter settings; group management (create, edit, delete); Node.js >= 22 required",
 				"de": "Admin-UI: Lampen- und Gruppen-Tabs in den Adaptereinstellungen; Gruppenverwaltung (erstellen, bearbeiten, löschen); Node.js >= 22 erforderlich",

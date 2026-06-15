@@ -18,12 +18,15 @@ function GroupsPanelApp({ socket, instance, lang }) {
 }
 
 /**
- * Outer shell: returned into admin's React tree (uses window.React).
- * Inner app: mounted into a dedicated div via our own ReactDOM root.
- * This avoids hook conflicts between admin's React and our bundled React.
+ * Outer shell: returned into admin's React tree.
+ * Uses our bundled React.createElement for the host div — React elements are
+ * plain objects ($$typeof: Symbol.for('react.element')) and admin's reconciler
+ * handles host elements ('div') from any React version.
+ * The inner app runs in a separate ReactDOM root to avoid hook-dispatcher
+ * conflicts between admin's React and our bundled React.
  */
 function GroupsPanel(props) {
-	return window.React.createElement('div', {
+	return React.createElement('div', {
 		style: { width: '100%', fontFamily: 'Roboto, Arial, sans-serif' },
 		ref: function (el) {
 			if (el) {

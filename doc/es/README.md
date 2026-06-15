@@ -48,6 +48,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Corrección: los paneles estaban vacíos porque `window.React` no es un global en admin 7
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin UI: pestañas de luces y grupos en la configuración del adaptador; gestión de grupos (crear, editar, eliminar); Node.js >= 22 requerido
 

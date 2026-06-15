@@ -116,6 +116,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Bugfix: Panels waren leer, weil `window.React` in Admin 7 kein Global ist
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin-UI: Lampen- und Gruppen-Tabs in den Adaptereinstellungen; Gruppenverwaltung (erstellen, bearbeiten, löschen); Node.js >= 22 erforderlich
 

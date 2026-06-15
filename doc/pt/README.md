@@ -48,6 +48,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Correção: os painéis estavam vazios porque `window.React` não é global no admin 7
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin UI: abas de luzes e grupos nas configurações do adaptador; gestão de grupos (criar, editar, eliminar); necessário Node.js >= 22
 

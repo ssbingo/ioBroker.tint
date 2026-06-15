@@ -48,6 +48,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Correzione: i pannelli erano vuoti perché `window.React` non è un global in admin 7
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin UI: schede luci e gruppi nelle impostazioni dell'adattatore; gestione gruppi (creare, modificare, eliminare); Node.js >= 22 richiesto
 

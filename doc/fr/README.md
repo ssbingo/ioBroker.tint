@@ -48,6 +48,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Correctif: les panneaux étaient vides car `window.React` n'est pas un global dans admin 7
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin UI: onglets lampes et groupes dans les paramètres de l'adaptateur; gestion des groupes (créer, modifier, supprimer); Node.js >= 22 requis
 

@@ -142,6 +142,9 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.1 (2026-06-15)
+* (ssbingo) Fix: panels were empty because `window.React` is not a global in admin 7
+
 ### 0.2.0 (2026-06-15)
 * (ssbingo) Admin UI: lights and groups overview tabs inside the adapter settings dialog
 * (ssbingo) Group management: create, edit, and delete deCONZ groups from the admin UI
