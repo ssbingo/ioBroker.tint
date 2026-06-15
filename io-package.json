@@ -61,8 +61,17 @@
 		"compact": true,
 		"connectionType": "local",
 		"dataSource": "push",
+		"adminTab": {
+			"name": {
+				"en": "tint",
+				"de": "tint"
+			},
+			"fa-icon": "lightbulb-o",
+			"ignoreConfigUpdate": false
+		},
 		"adminUI": {
-			"config": "json"
+			"config": "json",
+			"tab": "html"
 		},
 		"dependencies": [
 			{
