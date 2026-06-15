@@ -12,103 +12,141 @@
 
 ## tint adapter for ioBroker
 
-Müller Licht Tint Steuerung
+Control **Müller Licht tint** Zigbee smart lights via a **deCONZ / ConBee** gateway.
+This adapter provides full control over individual lights, light groups, and scenes, and
+decodes every button and color-wheel event from the Tint remote control.
 
-## Developer manual
-This section is intended for the developer. It can be deleted later.
+Other languages: [Deutsch](doc/de/README.md) · [Русский](doc/ru/README.md) · [Português](doc/pt/README.md) · [Nederlands](doc/nl/README.md) · [Français](doc/fr/README.md) · [Italiano](doc/it/README.md) · [Español](doc/es/README.md) · [Polski](doc/pl/README.md) · [Українська](doc/uk/README.md) · [中文](doc/zh-cn/README.md)
 
-### DISCLAIMER
+## DISCLAIMER
 
-Please make sure that you consider copyrights and trademarks when you use names or logos of a company and add a disclaimer to your README.
-You can check other adapters for examples or ask in the developer community. Using a name or logo of a company without permission may cause legal problems for you.
+The name **Müller Licht** and the product name **tint** are trademarks of Müller-Licht International GmbH.
+This adapter is an independent, community project and is **not** affiliated with or endorsed by Müller-Licht.
+The adapter communicates exclusively through the open deCONZ REST API provided by dresden elektronik.
 
-### Getting started
+## Features
 
-You are almost done, only a few steps left:
-1. Clone the repository from GitHub to a directory on your PC:
-	```bash
-	git clone https://github.com/ssbingo/ioBroker.tint
-	```
+- **Lights** – switch, dim, change color temperature (2000–6500 K), set RGB color (hex, XY, hue/saturation)
+- **Light effects** – colorloop, sunset, party, worklight, campfire, romance, nightlight
+- **Groups** – control all lights in a group with a single state
+- **Scenes** – recall named scenes per group
+- **Tint remote** – full decoding of button events (short press, hold, release) and zone selection (1–3 / all)
+- **Color wheel** – CIE XY coordinates and hex color derived from every wheel position change; optional auto-apply to the active zone
+- **Color temperature wheel** – color temperature value in Kelvin delivered per remote event
+- **Real-time push** – deCONZ WebSocket for instant state updates (no polling delay)
+- **Fallback polling** – configurable REST polling interval for resilience
+- **Battery & reachability** – monitored for every remote
 
-1. Head over to [main.js](main.js) and start programming!
+## Requirements
 
-### Best Practices
-We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
-check them out. If you're already experienced, you should also take a look at them - you might learn something new :)
+- deCONZ / ConBee gateway (ConBee I/II/III or RaspBee) with deCONZ software ≥ 2.x
+- Müller Licht tint bulbs already paired to the deCONZ gateway
+- deCONZ API key (unlock via the deCONZ app or Phoscon web interface)
+- Node.js ≥ 20
 
-### State Roles
-When creating state objects, it is important to use the correct role for the state. The role defines how the state should be interpreted by visualizations and other adapters. For a list of available roles and their meanings, please refer to the [state roles documentation](https://www.iobroker.net/#en/documentation/dev/stateroles.md).
+## Installation
 
-**Important:** Do not invent your own custom role names. If you need a role that is not part of the official list, please contact the ioBroker developer community for guidance and discussion about adding new roles.
+Install via the ioBroker admin panel (search for **tint**) or from the command line:
 
-### Scripts in `package.json`
-Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
-| Script name | Description |
-|-------------|-------------|
-| `build` | Compile the React sources. |
-| `watch` | Compile the React sources and watch for changes. |
-| `test:js` | Executes the tests you defined in `*.test.js` files. |
-| `test:package` | Ensures your `package.json` and `io-package.json` are valid. |
-| `test:integration` | Tests the adapter startup with an actual instance of ioBroker. |
-| `test` | Performs a minimal test run on package files and your tests. |
-| `check` | Performs a type-check on your code (without compiling anything). |
-| `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
-| `translate` | Translates texts in your adapter to all required languages, see [`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) for more details. |
-| `release` | Creates a new release, see [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) for more details. |
-
-### Configuring the compilation
-The adapter template uses [esbuild](https://esbuild.github.io/) to compile TypeScript and/or React code. You can configure many compilation settings 
-either in `tsconfig.json` or by changing options for the build tasks. These options are described in detail in the
-[`@iobroker/adapter-dev` documentation](https://github.com/ioBroker/adapter-dev#compile-adapter-files).
-
-### Writing tests
-When done right, testing code is invaluable, because it gives you the 
-confidence to change your code while knowing exactly if and when 
-something breaks. A good read on the topic of test-driven development 
-is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
-Although writing tests before the code might seem strange at first, but it has very 
-clear upsides.
-
-The template provides you with basic tests for the adapter startup and package files.
-It is recommended that you add your own tests into the mix.
-
-### Publishing the adapter
-Using GitHub Actions, you can enable automatic releases on npm whenever you push a new git tag that matches the form 
-`v<major>.<minor>.<patch>`. We **strongly recommend** that you do. The necessary steps are described in `.github/workflows/test-and-release.yml`.
-
-Since you installed the release script, you can create a new
-release simply by calling:
 ```bash
-npm run release
-```
-Additional command line options for the release script are explained in the
-[release-script documentation](https://github.com/AlCalzone/release-script#command-line).
-
-To get your adapter released in ioBroker, please refer to the documentation 
-of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
-
-### Test the adapter manually with dev-server
-Please use `dev-server` to test and debug your adapter.
-
-You may install and start `dev-server` by calling from your dev directory:
-```bash
-npm install --global @iobroker/dev-server
-dev-server setup
-dev-server watch
+iobroker add tint
 ```
 
-Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev-server#readme) for more details.
+## Configuration
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| IP address | `192.168.1.100` | IP address of the deCONZ / ConBee gateway |
+| REST port | `80` | HTTP port of the deCONZ REST API |
+| WebSocket port | `443` | WebSocket port used by deCONZ for push events |
+| API key | *(empty)* | deCONZ API key (unlock in Phoscon / deCONZ settings) |
+| Polling interval | `60` | Fallback REST poll interval in seconds |
+| Auto-apply color wheel | `true` | Automatically set the chosen color on the active zone when the remote color wheel is turned |
+| Transition time | `4` | Default light transition time in steps of 100 ms (4 = 400 ms) |
+| Watchdog (minutes) | `120` | Watchdog timeout; adapter reconnects after this many minutes without a WebSocket event |
+
+### Obtaining a deCONZ API key
+
+1. Open the Phoscon web interface (usually `http://<gateway-ip>/pwa`).
+2. Go to **Settings → Gateway → Advanced**.
+3. Click **Authenticate app** and copy the generated API key.
+
+Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway → Allow new connections** then call `/api` POST endpoint.
+
+## Object structure
+
+### Lights (`lights.<id>.*`)
+
+| State | Type | R/W | Description |
+|-------|------|-----|-------------|
+| `info.name` | string | R | Light name from deCONZ |
+| `info.modelid` | string | R | Model identifier |
+| `info.manufacturer` | string | R | Manufacturer name |
+| `info.reachable` | boolean | R | Zigbee reachability |
+| `info.uniqueid` | string | R | Zigbee IEEE address |
+| `state.on` | boolean | R/W | On / off |
+| `state.brightness` | number (%) | R/W | Brightness 0–100 % |
+| `state.colorTemp` | number (K) | R/W | Color temperature 2000–6500 K |
+| `state.hue` | number | R/W | Hue 0–65535 |
+| `state.saturation` | number | R/W | Saturation 0–254 |
+| `state.hex` | string | R/W | RGB color as `#RRGGBB` hex string |
+| `state.x` | number | R/W | CIE x chromaticity (raw) |
+| `state.y` | number | R/W | CIE y chromaticity (raw) |
+| `state.colorMode` | string | R | Active color mode (`ct`, `xy`, `hs`) |
+| `state.effect` | string | R/W | Light effect (`none`, `colorloop`, …) |
+| `state.effectSpeed` | number | R/W | Effect speed 0–255 |
+| `state.transitionTime` | number (×100 ms) | R/W | Per-light transition time override |
+
+### Groups (`groups.<id>.*`)
+
+| State | Type | R/W | Description |
+|-------|------|-----|-------------|
+| `info.name` | string | R | Group name |
+| `info.memberCount` | number | R | Number of lights in the group |
+| `info.allOn` | boolean | R | `true` when all lights in the group are on |
+| `info.anyOn` | boolean | R | `true` when at least one light is on |
+| `action.on` | boolean | R/W | Switch all lights in the group |
+| `action.brightness` | number (%) | R/W | Group brightness 0–100 % |
+| `action.colorTemp` | number (K) | R/W | Group color temperature 2000–6500 K |
+| `action.hex` | string | R/W | Group RGB color as `#RRGGBB` |
+| `action.effect` | string | R/W | Group light effect |
+| `action.transitionTime` | number (×100 ms) | R/W | Group transition time override |
+| `action.activateScene` | string | R/W | Write a scene name to recall it |
+| `scenes.<name>` | boolean | R/W | Set to `true` to recall this scene |
+
+### Remotes (`remotes.<id>.*`)
+
+| State | Type | R/W | Description |
+|-------|------|-----|-------------|
+| `info.name` | string | R | Remote name |
+| `info.battery` | number (%) | R | Battery charge level |
+| `info.reachable` | boolean | R | Zigbee reachability |
+| `info.lastSeen` | string | R | Last seen timestamp |
+| `button.lastEvent` | number | R | Raw deCONZ button event code |
+| `button.lastEventName` | string | R | Human-readable event name |
+| `button.pressType` | string | R | `short`, `hold`, or `release` |
+| `button.activeZone` | number | R | Active zone: 0 = all, 1–3 = zone 1–3 |
+| `colorWheel.angle` | number (°) | R | Color wheel angle 0–359 ° |
+| `colorWheel.x` | number | R | CIE x of the selected color |
+| `colorWheel.y` | number | R | CIE y of the selected color |
+| `colorWheel.hex` | string | R | Selected color as `#RRGGBB` |
+| `colorWheel.triggered` | boolean | R | Pulses `true` on each wheel event |
+| `colorTemp.value` | number (K) | R | Selected color temperature in Kelvin |
+| `colorTemp.mired` | number | R | Selected color temperature in mired |
+| `colorTemp.pressType` | string | R | `short` or `hold` |
 
 ## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
-* (ssbingo) initial release
+### 0.1.0 (2026-06-15)
+* (ssbingo) Initial release: lights, groups, scenes, Tint remote with color wheel
 
 ## License
+
 MIT License
 
 Copyright (c) 2026 ssbingo <s.sternitzke@online.de>
