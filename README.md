@@ -142,6 +142,9 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Add automatic API key pairing: new "Request API key from deCONZ" button in the Settings tab
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Fix tab labels: "Leuchten" and "Gruppen" now shown correctly (i18n keys added to `admin/i18n/`)
 * (ssbingo) Add static description text above each panel tab (always visible, even when panel fails to load)

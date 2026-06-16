@@ -48,6 +48,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Emparejamiento automatico de clave API anadido: nuevo boton en Ajustes solicita la clave a deCONZ y la rellena automaticamente
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Etiquetas corregidas · Descripciones añadidas · UX mejorado con comprobación alive y timeout
 

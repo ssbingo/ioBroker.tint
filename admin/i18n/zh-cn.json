@@ -14,5 +14,8 @@
 	"tabLights": "灯具",
 	"tabGroups": "群组",
 	"descLightsTab": "所有与deCONZ网关配对的灯具及其当前状态。",
-	"descGroupsTab": "管理灯具群组：创建新群组、编辑成员或删除群组。更改直接应用于您的deCONZ网关。"
+	"descGroupsTab": "管理灯具群组：创建新群组、编辑成员或删除群组。更改直接应用于您的deCONZ网关。",
+	"pairingHeader": "API密钥",
+	"pairingHint": "在浏览器中打开Phoscon (http://IP:端口/)，进入☰→网关→验证应用。您有60秒钟时间点击下方按钮。API密钥将自动填入。",
+	"btnRequestApiKey": "从deCONZ请求API密钥"
 }

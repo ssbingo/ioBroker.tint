@@ -14,5 +14,8 @@
 	"tabLights": "Luci",
 	"tabGroups": "Gruppi",
 	"descLightsTab": "Tutte le luci associate al tuo gateway deCONZ e il loro stato attuale.",
-	"descGroupsTab": "Gestisci i gruppi di luci: crea nuovi gruppi, modifica la composizione o elimina gruppi esistenti. Le modifiche vengono applicate direttamente al tuo gateway deCONZ."
+	"descGroupsTab": "Gestisci i gruppi di luci: crea nuovi gruppi, modifica la composizione o elimina gruppi esistenti. Le modifiche vengono applicate direttamente al tuo gateway deCONZ.",
+	"pairingHeader": "Chiave API",
+	"pairingHint": "Apri Phoscon nel browser (http://IP:Porta/), vai su ☰ → Gateway → Autentica app. Hai 60 secondi per fare clic sul pulsante sottostante. La chiave API verrà compilata automaticamente.",
+	"btnRequestApiKey": "Richiedi chiave API a deCONZ"
 }

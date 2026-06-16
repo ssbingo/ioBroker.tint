@@ -48,6 +48,9 @@
 
 ## 更新日志
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Added automatic API key pairing: new button in Settings requests the key from deCONZ and fills it in automatically
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) 修正选项卡标签 · 添加描述 · 通过alive检查和超时改进UX
 

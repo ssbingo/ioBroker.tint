@@ -48,6 +48,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Couplage automatique de cle API ajoute: nouveau bouton dans les Parametres demande la cle a deCONZ et la remplit automatiquement
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Libellés corrigés · Descriptions ajoutées · UX amélioré avec vérification alive et délai d'attente
 

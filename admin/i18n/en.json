@@ -14,5 +14,8 @@
 	"tabLights": "Lights",
 	"tabGroups": "Groups",
 	"descLightsTab": "All lights paired with your deCONZ gateway and their current status.",
-	"descGroupsTab": "Manage light groups: create, edit membership, or delete groups. Changes are applied directly to your deCONZ gateway."
+	"descGroupsTab": "Manage light groups: create, edit membership, or delete groups. Changes are applied directly to your deCONZ gateway.",
+	"pairingHeader": "API Key",
+	"pairingHint": "Open Phoscon in your browser (http://IP:Port/), then go to ☰ → Gateway → Authenticate app. You have 60 seconds to click the button below. The API key will be filled in automatically.",
+	"btnRequestApiKey": "Request API key from deCONZ"
 }

@@ -14,5 +14,8 @@
 	"tabLights": "Leuchten",
 	"tabGroups": "Gruppen",
 	"descLightsTab": "Alle mit Ihrem deCONZ-Gateway gekoppelten Leuchten und deren aktueller Status.",
-	"descGroupsTab": "Leuchtgruppen verwalten: Neue Gruppen anlegen, Zugehörigkeit bearbeiten oder Gruppen löschen. Änderungen werden direkt an Ihr deCONZ-Gateway übertragen."
+	"descGroupsTab": "Leuchtgruppen verwalten: Neue Gruppen anlegen, Zugehörigkeit bearbeiten oder Gruppen löschen. Änderungen werden direkt an Ihr deCONZ-Gateway übertragen.",
+	"pairingHeader": "API-Schlüssel",
+	"pairingHint": "Öffnen Sie Phoscon im Browser (http://IP:Port/), gehen Sie zu ☰ → Gateway → App verbinden. Sie haben dann 60 Sekunden, um den Button unten zu klicken. Der API-Schlüssel wird automatisch eingetragen.",
+	"btnRequestApiKey": "API-Schlüssel von deCONZ anfordern"
 }

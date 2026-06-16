@@ -49,5 +49,8 @@
 	"msgAdapterOffline": "L'istanza dell'adattatore non è in esecuzione. Avviarla prima nella vista delle istanze di ioBroker.",
 	"msgTimeout": "Nessuna risposta dall'adattatore (timeout). L'istanza è in esecuzione?",
 	"lightsCount": "luce/luci trovata/e",
-	"groupsCount": "gruppo/i trovato/i"
+	"groupsCount": "gruppo/i trovato/i",
+	"pairingHeader": "Chiave API",
+	"pairingHint": "Apri Phoscon nel browser (http://IP:Porta/), vai su ☰ → Gateway → Autentica app. Hai 60 secondi per fare clic sul pulsante sottostante. La chiave API verrà compilata automaticamente.",
+	"btnRequestApiKey": "Richiedi chiave API a deCONZ"
 }

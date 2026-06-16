@@ -49,5 +49,8 @@
 	"msgAdapterOffline": "The adapter instance is not running. Please start it first in the ioBroker instances view.",
 	"msgTimeout": "No response from adapter (timeout). Is the instance running?",
 	"lightsCount": "light(s) found",
-	"groupsCount": "group(s) found"
+	"groupsCount": "group(s) found",
+	"pairingHeader": "API Key",
+	"pairingHint": "Open Phoscon in your browser (http://IP:Port/), then go to ☰ → Gateway → Authenticate app. You have 60 seconds to click the button below. The API key will be filled in automatically.",
+	"btnRequestApiKey": "Request API key from deCONZ"
 }

@@ -14,5 +14,8 @@
 	"tabLights": "Luces",
 	"tabGroups": "Grupos",
 	"descLightsTab": "Todas las luces emparejadas con su gateway deCONZ y su estado actual.",
-	"descGroupsTab": "Gestione grupos de luces: cree nuevos grupos, edite su composición o elimínelos. Los cambios se aplican directamente a su gateway deCONZ."
+	"descGroupsTab": "Gestione grupos de luces: cree nuevos grupos, edite su composición o elimínelos. Los cambios se aplican directamente a su gateway deCONZ.",
+	"pairingHeader": "Clave API",
+	"pairingHint": "Abra Phoscon en su navegador (http://IP:Puerto/), vaya a ☰ → Gateway → Autenticar app. Tiene 60 segundos para hacer clic en el botón de abajo. La clave API se rellenará automáticamente.",
+	"btnRequestApiKey": "Solicitar clave API a deCONZ"
 }

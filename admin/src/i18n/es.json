@@ -49,5 +49,8 @@
 	"msgAdapterOffline": "La instancia del adaptador no está en ejecución. Por favor, iníciela primero en la vista de instancias de ioBroker.",
 	"msgTimeout": "Sin respuesta del adaptador (tiempo de espera agotado). ¿Está en ejecución la instancia?",
 	"lightsCount": "luz/luces encontrada(s)",
-	"groupsCount": "grupo(s) encontrado(s)"
+	"groupsCount": "grupo(s) encontrado(s)",
+	"pairingHeader": "Clave API",
+	"pairingHint": "Abra Phoscon en su navegador (http://IP:Puerto/), vaya a ☰ → Gateway → Autenticar app. Tiene 60 segundos para hacer clic en el botón de abajo. La clave API se rellenará automáticamente.",
+	"btnRequestApiKey": "Solicitar clave API a deCONZ"
 }

@@ -48,6 +48,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Automatisch API-sleutel koppelen toegevoegd: nieuwe knop in Instellingen vraagt de sleutel op bij deCONZ en vult deze automatisch in
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Tablabels gecorrigeerd · Beschrijvingen toegevoegd · UX verbeterd met alive-check en timeout
 

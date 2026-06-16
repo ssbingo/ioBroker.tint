@@ -524,6 +524,25 @@ class Tint extends utils.Adapter {
 			if (obj.callback) this.sendTo(obj.from, obj.command, result, obj.callback);
 		};
 
+		// pair does not require an existing connection — it IS how the connection is bootstrapped
+		if (obj.command === 'pair') {
+			const ip = obj.message?.ip || this.config.ip;
+			const port = Number(obj.message?.port) || this.config.port;
+			if (!ip) {
+				respond({ error: 'IP address is required. Please enter the deCONZ IP address first.' });
+				return;
+			}
+			try {
+				const apiKey = await DeconzApi.pair(ip, port);
+				this.log.info(`deCONZ pairing successful. API key received.`);
+				respond({ apiKey });
+			} catch (err) {
+				this.log.warn(`deCONZ pairing failed: ${err.message}`);
+				respond({ error: err.message });
+			}
+			return;
+		}
+
 		if (!this._api) {
 			respond({ error: 'Adapter not connected to deCONZ' });
 			return;

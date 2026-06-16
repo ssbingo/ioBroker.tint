@@ -49,5 +49,8 @@
 	"msgAdapterOffline": "L'instance de l'adaptateur n'est pas démarrée. Veuillez d'abord la démarrer dans la vue des instances ioBroker.",
 	"msgTimeout": "Pas de réponse de l'adaptateur (délai dépassé). L'instance est-elle en cours d'exécution ?",
 	"lightsCount": "lampe(s) trouvée(s)",
-	"groupsCount": "groupe(s) trouvé(s)"
+	"groupsCount": "groupe(s) trouvé(s)",
+	"pairingHeader": "Clé API",
+	"pairingHint": "Ouvrez Phoscon dans votre navigateur (http://IP:Port/), allez dans ☰ → Passerelle → Authentifier l'application. Vous avez 60 secondes pour cliquer sur le bouton ci-dessous. La clé API sera remplie automatiquement.",
+	"btnRequestApiKey": "Demander la clé API à deCONZ"
 }

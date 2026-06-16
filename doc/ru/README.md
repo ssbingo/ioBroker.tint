@@ -48,6 +48,9 @@
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Dobavleno avtomaticheskoe sopryazhenie API-klyucha: novaya knopka v nastroykakh otpravlyaet zapros v deCONZ i zapolnyaet klyuch
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Исправлены названия вкладок · Добавлены описания · Улучшен UX с alive-проверкой и таймаутом
 

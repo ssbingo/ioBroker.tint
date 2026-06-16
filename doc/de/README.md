@@ -116,6 +116,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Automatisches API-Schluessel-Pairing hinzugefuegt: neuer Button in den Einstellungen fordert den Schluessel von deCONZ an und traegt ihn automatisch ein
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Tab-Bezeichnungen korrigiert (Leuchten/Gruppen) · Statische Beschreibungen ergänzt · UX mit Alive-Prüfung, sendTo-Timeout, Statusbalken verbessert
 

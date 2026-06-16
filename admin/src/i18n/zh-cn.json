@@ -49,5 +49,8 @@
 	"msgAdapterOffline": "适配器实例未运行。请先在ioBroker实例视图中启动它。",
 	"msgTimeout": "适配器无响应（超时）。实例是否正在运行？",
 	"lightsCount": "个灯具已找到",
-	"groupsCount": "个群组已找到"
+	"groupsCount": "个群组已找到",
+	"pairingHeader": "API密钥",
+	"pairingHint": "在浏览器中打开Phoscon (http://IP:端口/)，进入☰→网关→验证应用。您有60秒钟时间点击下方按钮。API密钥将自动填入。",
+	"btnRequestApiKey": "从deCONZ请求API密钥"
 }

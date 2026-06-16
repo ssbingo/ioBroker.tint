@@ -48,6 +48,9 @@
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Dodano avtomatychne spoluchen. API-klyucha: nova knopka v Nalashtuvannyakh zapytue klyuch u deCONZ i avtomatychno yoho vnosyt'
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Виправлено підписи вкладок · Додано описи · Покращено UX з перевіркою alive та таймаутом
 

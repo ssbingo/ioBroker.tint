@@ -49,5 +49,8 @@
 	"msgAdapterOffline": "Instancja adaptera nie jest uruchomiona. Uruchom ją najpierw w widoku instancji ioBroker.",
 	"msgTimeout": "Brak odpowiedzi od adaptera (przekroczenie czasu). Czy instancja jest uruchomiona?",
 	"lightsCount": "lampa/lampy znaleziono",
-	"groupsCount": "grupa/grupy znaleziono"
+	"groupsCount": "grupa/grupy znaleziono",
+	"pairingHeader": "Klucz API",
+	"pairingHint": "Otwórz Phoscon w przeglądarce (http://IP:Port/), przejdź do ☰ → Bramka → Uwierzytelnij aplikację. Masz 60 sekund na kliknięcie przycisku poniżej. Klucz API zostanie wypełniony automatycznie.",
+	"btnRequestApiKey": "Pobierz klucz API z deCONZ"
 }

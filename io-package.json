@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.2",
+		"version": "0.2.3",
 		"news": {
+			"0.2.3": {
+				"en": "Add automatic API key pairing: button in Settings tab sends a pairing request to deCONZ and fills in the key",
+				"de": "Automatisches API-Schlüssel-Pairing: Button in Einstellungen sendet Pairinganfrage an deCONZ und trägt den Schlüssel automatisch ein",
+				"ru": "Автоматическое сопряжение API-ключа: кнопка в настройках отправляет запрос на сопряжение в deCONZ и заполняет ключ",
+				"pt": "Emparelhamento automático de chave API: botão nas definições envia pedido de emparelhamento ao deCONZ e preenche a chave",
+				"nl": "Automatisch API-sleutel koppelen: knop in instellingen stuurt een koppelingsverzoek naar deCONZ en vult de sleutel in",
+				"fr": "Couplage automatique de clé API: bouton dans les paramètres envoie une demande de couplage à deCONZ et remplit la clé",
+				"it": "Accoppiamento automatico chiave API: il pulsante nelle impostazioni invia una richiesta di accoppiamento a deCONZ e inserisce la chiave",
+				"es": "Emparejamiento automático de clave API: botón en ajustes envía solicitud de emparejamiento a deCONZ y rellena la clave",
+				"pl": "Automatyczne parowanie klucza API: przycisk w ustawieniach wysyła żądanie parowania do deCONZ i wypełnia klucz",
+				"uk": "Автоматичне сполучення API-ключа: кнопка в налаштуваннях надсилає запит на сполучення до deCONZ і заповнює ключ",
+				"zh-cn": "自动API密钥配对：设置中的按钮向deCONZ发送配对请求并自动填写密钥"
+			},
 			"0.2.2": {
 				"en": "Fix tab labels (Lights/Groups), add static descriptions, improve UX with alive-check and sendTo timeout",
 				"de": "Tab-Bezeichnungen korrigiert (Leuchten/Gruppen), statische Beschreibungen ergänzt, UX verbessert mit Alive-Prüfung und sendTo-Timeout",

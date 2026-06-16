@@ -48,6 +48,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.2.3 (2026-06-15)
+* (ssbingo) Dodano automatyczne parowanie klucza API: nowy przycisk w Ustawieniach pobiera klucz z deCONZ i automatycznie go wpisuje
+
 ### 0.2.2 (2026-06-15)
 * (ssbingo) Poprawiono etykiety · Dodano opisy · Poprawiono UX z kontrolą alive i limitem czasu
 
