@@ -48,6 +48,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Correctif: bouton de couplage toujours visible en panneau personnalisé; bundles ajoutés à git (onglets vides corrigés)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

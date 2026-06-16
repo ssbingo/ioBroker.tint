@@ -48,6 +48,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Corrección: botón de emparejamiento siempre visible como panel personalizado; bundles añadidos a git (pestañas vacías corregidas)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

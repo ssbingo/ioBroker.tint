@@ -48,6 +48,9 @@
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Виправлення: кнопка сполучення завжди видима як власна панель; бандли додано до git (порожні вкладки виправлено)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

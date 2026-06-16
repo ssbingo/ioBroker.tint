@@ -48,6 +48,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Poprawka: przycisk parowania zawsze widoczny jako niestandardowy panel; bundle dodane do git (puste zakładki naprawione)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

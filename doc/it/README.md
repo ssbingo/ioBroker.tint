@@ -48,6 +48,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Correzione: pulsante di pairing sempre visibile come pannello personalizzato; bundle aggiunti a git (schede vuote risolte)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

@@ -117,30 +117,12 @@
 					"min": 0,
 					"max": 10080
 				},
-				"_pairingHeader": {
-					"type": "header",
-					"text": "pairingHeader",
-					"size": 3,
-					"newLine": true
-				},
-				"_pairingHint": {
-					"type": "staticText",
-					"text": "pairingHint",
+				"_pairingPanel": {
+					"type": "custom",
+					"url": "build/panels/PairingPanel.js",
+					"name": "PairingPanel",
 					"newLine": true,
 					"sm": 12
-				},
-				"_pairingBtn": {
-					"type": "sendTo",
-					"command": "pair",
-					"jsonData": "{\"ip\": \"{ip}\", \"port\": {port}}",
-					"button": "btnRequestApiKey",
-					"result": {
-						"apiKey": "apiKey"
-					},
-					"newLine": true,
-					"sm": 12,
-					"variant": "contained",
-					"color": "primary"
 				}
 			}
 		},

@@ -48,6 +48,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Correção: botão de emparelhamento sempre visível como painel personalizado; bundles adicionados ao git (abas vazias resolvidas)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

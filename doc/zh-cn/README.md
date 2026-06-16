@@ -48,6 +48,9 @@
 
 ## 更新日志
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) 修复：配对按钮作为自定义面板始终可见；面板包已提交至git（空标签页问题已解决）
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

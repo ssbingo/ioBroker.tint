@@ -116,6 +116,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Bugfix: Pairing-Button als Custom-Panel immer sichtbar; Panel-Bundles in Git eingecheckt (leere Leuchten/Gruppen-Tabs behoben)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

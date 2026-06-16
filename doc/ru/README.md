@@ -48,6 +48,9 @@
 
 ## Changelog
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Исправление: кнопка сопряжения всегда видима как пользовательская панель; бандлы добавлены в git (пустые вкладки исправлены)
+
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 

@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.4",
+		"version": "0.2.5",
 		"news": {
+			"0.2.5": {
+				"en": "Fix: pairing button now uses a custom panel (always visible); commit panel bundles to git so GitHub installs work without a build step",
+				"de": "Bugfix: Pairing-Button als Custom-Panel (immer sichtbar); Panel-Bundles in Git eingecheckt, sodass GitHub-Installationen ohne Build-Schritt funktionieren",
+				"ru": "Исправление: кнопка сопряжения теперь использует пользовательский компонент (всегда видима); бандлы панелей добавлены в git",
+				"pt": "Correção: botão de emparelhamento agora usa painel personalizado (sempre visível); bundles de painel adicionados ao git",
+				"nl": "Bugfix: koppelknop gebruikt nu aangepast panel (altijd zichtbaar); panel-bundles in git gezet",
+				"fr": "Correctif: bouton de couplage utilise désormais un panneau personnalisé (toujours visible); bundles de panneau ajoutés à git",
+				"it": "Correzione: il pulsante di pairing ora usa un pannello personalizzato (sempre visibile); bundle panel aggiunti a git",
+				"es": "Corrección: el botón de emparejamiento ahora usa un panel personalizado (siempre visible); bundles de panel añadidos a git",
+				"pl": "Poprawka: przycisk parowania teraz używa niestandardowego panelu (zawsze widoczny); bundle paneli dodane do git",
+				"uk": "Виправлення: кнопка сполучення тепер використовує власну панель (завжди видима); бандли панелей додано до git",
+				"zh-cn": "修复：配对按钮现在使用自定义面板（始终可见）；面板包已提交至git"
+			},
 			"0.2.4": {
 				"en": "Improve pairing UX: click button first, adapter polls deCONZ every 3 s until pairing window opens (up to 60 s) — no more time pressure",
 				"de": "Pairing-UX verbessert: zuerst Button klicken, Adapter prüft alle 3 s ob das Pairing-Fenster offen ist (bis 60 s) — kein Zeitdruck mehr",

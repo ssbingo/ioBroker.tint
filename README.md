@@ -142,6 +142,10 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.5 (2026-06-16)
+* (ssbingo) Fix: pairing button now implemented as a custom panel component — always visible regardless of adapter alive state
+* (ssbingo) Fix: commit panel build bundles to git so GitHub installs work without a manual build step (empty Leuchten/Gruppen tabs resolved)
+
 ### 0.2.4 (2026-06-15)
 * (ssbingo) Improve pairing UX: click button first, adapter polls deCONZ every 3 s until pairing window opens (up to 60 s) — no more time pressure
 
