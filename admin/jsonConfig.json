@@ -116,8 +116,14 @@
 					"default": 120,
 					"min": 0,
 					"max": 10080
-				},
-				"_pairingPanel": {
+				}
+			}
+		},
+		"tabPairing": {
+			"type": "tab",
+			"label": "tabPairing",
+			"items": {
+				"pairingPanel": {
 					"type": "custom",
 					"url": "build/panels/PairingPanel.js",
 					"name": "PairingPanel",
