@@ -116,6 +116,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.2.4 (2026-06-16)
+* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Automatisches API-Schluessel-Pairing hinzugefuegt: neuer Button in den Einstellungen fordert den Schluessel von deCONZ an und traegt ihn automatisch ein
 

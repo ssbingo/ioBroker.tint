@@ -524,7 +524,9 @@ class Tint extends utils.Adapter {
 			if (obj.callback) this.sendTo(obj.from, obj.command, result, obj.callback);
 		};
 
-		// pair does not require an existing connection — it IS how the connection is bootstrapped
+		// pair does not require an existing connection — it IS how the connection is bootstrapped.
+		// Polls deCONZ every 3 s until the pairing window is detected (null → retry)
+		// or up to 60 s (matching deCONZ's own pairing window duration).
 		if (obj.command === 'pair') {
 			const ip = obj.message?.ip || this.config.ip;
 			const port = Number(obj.message?.port) || this.config.port;
@@ -532,14 +534,30 @@ class Tint extends utils.Adapter {
 				respond({ error: 'IP address is required. Please enter the deCONZ IP address first.' });
 				return;
 			}
-			try {
-				const apiKey = await DeconzApi.pair(ip, port);
-				this.log.info(`deCONZ pairing successful. API key received.`);
-				respond({ apiKey });
-			} catch (err) {
-				this.log.warn(`deCONZ pairing failed: ${err.message}`);
-				respond({ error: err.message });
-			}
+			const POLL_MS = 3000;
+			const TIMEOUT_MS = 60000;
+			const deadline = Date.now() + TIMEOUT_MS;
+
+			const tryPair = async () => {
+				try {
+					const apiKey = await DeconzApi.pair(ip, port);
+					if (apiKey !== null) {
+						this.log.info('deCONZ pairing successful — API key received.');
+						respond({ apiKey });
+						return;
+					}
+					// null = pairing window not open yet
+					if (Date.now() >= deadline) {
+						respond({ error: 'Pairing timeout (60 s). Please open the pairing window in deCONZ/Phoscon first.' });
+						return;
+					}
+					setTimeout(tryPair, POLL_MS);
+				} catch (err) {
+					this.log.warn(`deCONZ pairing failed: ${err.message}`);
+					respond({ error: err.message });
+				}
+			};
+			tryPair();
 			return;
 		}
 

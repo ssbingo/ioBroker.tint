@@ -48,6 +48,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.2.4 (2026-06-16)
+* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Automatisch API-sleutel koppelen toegevoegd: nieuwe knop in Instellingen vraagt de sleutel op bij deCONZ en vult deze automatisch in
 

@@ -16,6 +16,6 @@
 	"descLightsTab": "Wszystkie lampy sparowane z bramką deCONZ i ich bieżący stan.",
 	"descGroupsTab": "Zarządzaj grupami lamp: twórz nowe grupy, edytuj skład lub usuwaj grupy. Zmiany są stosowane bezpośrednio w bramce deCONZ.",
 	"pairingHeader": "Klucz API",
-	"pairingHint": "Otwórz Phoscon w przeglądarce (http://IP:Port/), przejdź do ☰ → Bramka → Uwierzytelnij aplikację. Masz 60 sekund na kliknięcie przycisku poniżej. Klucz API zostanie wypełniony automatycznie.",
-	"btnRequestApiKey": "Pobierz klucz API z deCONZ"
+	"pairingHint": "Najpierw kliknij przycisk poniżej, a następnie otwórz Phoscon w przeglądarce i przejdź do ☰ → Bramka → Uwierzytelnij aplikację. Adapter automatycznie wykryje okno parowania (co 3 s, do 60 s) i wpisze klucz.",
+	"btnRequestApiKey": "Czekaj na parowanie deCONZ…"
 }

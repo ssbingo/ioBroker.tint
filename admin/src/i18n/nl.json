@@ -51,6 +51,6 @@
 	"lightsCount": "lamp(en) gevonden",
 	"groupsCount": "groep(en) gevonden",
 	"pairingHeader": "API-sleutel",
-	"pairingHint": "Open Phoscon in uw browser (http://IP:Port/), ga naar ☰ → Gateway → App koppelen. U heeft dan 60 seconden om op de onderstaande knop te klikken. De API-sleutel wordt automatisch ingevuld.",
-	"btnRequestApiKey": "API-sleutel opvragen bij deCONZ"
+	"pairingHint": "Klik eerst op de knop hieronder en open dan Phoscon in uw browser via ☰ → Gateway → App koppelen. De adapter detecteert het koppelvenster automatisch (elke 3 s, tot 60 s) en vult de sleutel in.",
+	"btnRequestApiKey": "Wachten op deCONZ-koppeling…"
 }

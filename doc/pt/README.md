@@ -48,6 +48,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.2.4 (2026-06-16)
+* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Emparelhamento automatico de chave API adicionado: novo botao nas Definicoes solicita a chave ao deCONZ e preenche-a automaticamente
 

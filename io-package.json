@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.3",
+		"version": "0.2.4",
 		"news": {
+			"0.2.4": {
+				"en": "Improve pairing UX: click button first, adapter polls deCONZ every 3 s until pairing window opens (up to 60 s) — no more time pressure",
+				"de": "Pairing-UX verbessert: zuerst Button klicken, Adapter prüft alle 3 s ob das Pairing-Fenster offen ist (bis 60 s) — kein Zeitdruck mehr",
+				"ru": "Улучшен UX сопряжения: сначала нажмите кнопку, адаптер опрашивает deCONZ каждые 3 с (до 60 с) — больше нет спешки",
+				"pt": "UX de emparelhamento melhorado: clique primeiro no botão, o adaptador verifica deCONZ a cada 3 s (até 60 s) — sem pressão de tempo",
+				"nl": "Koppel-UX verbeterd: klik eerst op knop, adapter controleert deCONZ elke 3 s (tot 60 s) — geen tijdsdruk meer",
+				"fr": "UX de couplage amélioré: cliquez d'abord sur le bouton, l'adaptateur interroge deCONZ toutes les 3 s (jusqu'à 60 s) — plus de pression temporelle",
+				"it": "UX accoppiamento migliorato: clicca prima il pulsante, l'adattatore controlla deCONZ ogni 3 s (fino a 60 s) — nessuna pressione temporale",
+				"es": "UX de emparejamiento mejorado: haga clic primero en el botón, el adaptador sondea deCONZ cada 3 s (hasta 60 s) — sin presión de tiempo",
+				"pl": "Poprawiony UX parowania: najpierw kliknij przycisk, adapter odpytuje deCONZ co 3 s (do 60 s) — bez presji czasu",
+				"uk": "Покращено UX сполучення: спочатку натисніть кнопку, адаптер опитує deCONZ кожні 3 с (до 60 с) — без поспіху",
+				"zh-cn": "改进配对用户体验：先点击按钮，适配器每3秒轮询deCONZ（最多60秒）——不再有时间压力"
+			},
 			"0.2.3": {
 				"en": "Add automatic API key pairing: button in Settings tab sends a pairing request to deCONZ and fills in the key",
 				"de": "Automatisches API-Schlüssel-Pairing: Button in Einstellungen sendet Pairinganfrage an deCONZ und trägt den Schlüssel automatisch ein",

@@ -51,6 +51,6 @@
 	"lightsCount": "luz/luces encontrada(s)",
 	"groupsCount": "grupo(s) encontrado(s)",
 	"pairingHeader": "Clave API",
-	"pairingHint": "Abra Phoscon en su navegador (http://IP:Puerto/), vaya a ☰ → Gateway → Autenticar app. Tiene 60 segundos para hacer clic en el botón de abajo. La clave API se rellenará automáticamente.",
-	"btnRequestApiKey": "Solicitar clave API a deCONZ"
+	"pairingHint": "Haga clic primero en el botón de abajo y luego abra Phoscon en su navegador y vaya a ☰ → Gateway → Autenticar app. El adaptador detecta automáticamente la ventana de emparejamiento (cada 3 s, hasta 60 s) y rellena la clave.",
+	"btnRequestApiKey": "Esperar emparejamiento deCONZ…"
 }

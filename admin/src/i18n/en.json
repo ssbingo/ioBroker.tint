@@ -51,6 +51,6 @@
 	"lightsCount": "light(s) found",
 	"groupsCount": "group(s) found",
 	"pairingHeader": "API Key",
-	"pairingHint": "Open Phoscon in your browser (http://IP:Port/), then go to ☰ → Gateway → Authenticate app. You have 60 seconds to click the button below. The API key will be filled in automatically.",
-	"btnRequestApiKey": "Request API key from deCONZ"
+	"pairingHint": "Click the button below first, then open Phoscon in your browser (http://IP:Port/) and go to ☰ → Gateway → Authenticate app. The adapter detects the pairing window automatically (polls every 3 s for up to 60 s) and fills in the API key.",
+	"btnRequestApiKey": "Wait for deCONZ pairing…"
 }

@@ -48,6 +48,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.2.4 (2026-06-16)
+* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Aggiunto accoppiamento automatico chiave API: nuovo pulsante in Impostazioni richiede la chiave a deCONZ e la compila automaticamente
 

@@ -48,6 +48,9 @@
 
 ## 更新日志
 
+### 0.2.4 (2026-06-16)
+* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Added automatic API key pairing: new button in Settings requests the key from deCONZ and fills it in automatically
 

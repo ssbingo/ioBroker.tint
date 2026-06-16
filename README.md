@@ -142,6 +142,9 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.2.4 (2026-06-15)
+* (ssbingo) Improve pairing UX: click button first, adapter polls deCONZ every 3 s until pairing window opens (up to 60 s) — no more time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Add automatic API key pairing: new "Request API key from deCONZ" button in the Settings tab
 

@@ -48,6 +48,9 @@
 
 ## Changelog
 
+### 0.2.4 (2026-06-16)
+* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
+
 ### 0.2.3 (2026-06-15)
 * (ssbingo) Dodano avtomatychne spoluchen. API-klyucha: nova knopka v Nalashtuvannyakh zapytue klyuch u deCONZ i avtomatychno yoho vnosyt'
 

@@ -16,6 +16,6 @@
 	"descLightsTab": "Todas as luzes emparelhadas com o seu gateway deCONZ e o respetivo estado atual.",
 	"descGroupsTab": "Gira grupos de luzes: crie, edite a composição ou elimine grupos. As alterações são aplicadas diretamente ao seu gateway deCONZ.",
 	"pairingHeader": "Chave API",
-	"pairingHint": "Abra o Phoscon no browser (http://IP:Porto/), vá a ☰ → Gateway → Autenticar app. Terá 60 segundos para clicar no botão abaixo. A chave API será preenchida automaticamente.",
-	"btnRequestApiKey": "Solicitar chave API ao deCONZ"
+	"pairingHint": "Clique primeiro no botão abaixo, depois abra o Phoscon no browser e vá a ☰ → Gateway → Autenticar app. O adaptador deteta a janela de emparelhamento automaticamente (a cada 3 s, até 60 s) e preenche a chave.",
+	"btnRequestApiKey": "Aguardar emparelhamento deCONZ…"
 }
