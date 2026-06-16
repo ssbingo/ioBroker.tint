@@ -18,5 +18,5 @@
   "pairingHeader": "Klucz API",
   "pairingHint": "Najpierw kliknij przycisk poniżej, a następnie otwórz Phoscon w przeglądarce i przejdź do ☰ → Bramka → Uwierzytelnij aplikację. Adapter automatycznie wykryje okno parowania (co 3 s, do 60 s) i wpisze klucz.",
   "btnRequestApiKey": "Czekaj na parowanie deCONZ…",
-  "tabPairing": "Klucz API"
+  "btnScanApiKey": "deCONZ Pairing"
 }

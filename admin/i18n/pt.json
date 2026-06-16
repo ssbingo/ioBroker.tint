@@ -18,5 +18,5 @@
   "pairingHeader": "Chave API",
   "pairingHint": "Clique primeiro no botão abaixo, depois abra o Phoscon no browser e vá a ☰ → Gateway → Autenticar app. O adaptador deteta a janela de emparelhamento automaticamente (a cada 3 s, até 60 s) e preenche a chave.",
   "btnRequestApiKey": "Aguardar emparelhamento deCONZ…",
-  "tabPairing": "Chave API"
+  "btnScanApiKey": "deCONZ Pairing"
 }
