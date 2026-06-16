@@ -106,7 +106,9 @@ function PairingPanelApp({ data, socket, instance, onChange, lang }) {
         setStatus('busy');
         setMessage(t(lang, 'waiting'));
 
-        socket.emit('sendTo', `tint.${instance}`, 'pair', { ip, port }, function (res) {
+        // admin 7 exposes socket.sendTo(); fall back to socket.emit() for older admin builds
+        const target = `tint.${instance}`;
+        const onResult = function (res) {
             if (res && res.apiKey) {
                 if (typeof onChange === 'function') {
                     onChange(Object.assign({}, data, { apiKey: res.apiKey }));
@@ -117,7 +119,12 @@ function PairingPanelApp({ data, socket, instance, onChange, lang }) {
                 setStatus('error');
                 setMessage(t(lang, 'error') + ((res && res.error) || 'Unknown'));
             }
-        });
+        };
+        if (typeof socket.sendTo === 'function') {
+            socket.sendTo(target, 'pair', { ip, port }, onResult);
+        } else {
+            socket.emit('sendTo', target, 'pair', { ip, port }, onResult);
+        }
     }
 
     const isPairing = status === 'busy';
