@@ -16,9 +16,9 @@ const TRANSLATIONS = { en, de, ru, pt, nl, fr, it, es, pl, uk, 'zh-cn': zhCn };
  * Returns a translation function for the given language.
  *
  * @param {string} lang - BCP-47 language tag, e.g. "de" or "zh-cn"
- * @returns {function(string): string}
+ * @returns {function(string): string} Translation function that maps a key to its localised string
  */
 export function createT(lang) {
 	const dict = TRANSLATIONS[lang] || TRANSLATIONS['en'];
-	return (key) => dict[key] || TRANSLATIONS['en'][key] || key;
+	return key => dict[key] || TRANSLATIONS['en'][key] || key;
 }
