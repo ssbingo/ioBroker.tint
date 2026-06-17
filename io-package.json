@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.5",
+		"version": "0.2.6",
 		"news": {
+			"0.2.6": {
+				"en": "Fix: replace sendTo button with custom PairButton component for reliable API key retrieval and visual feedback",
+				"de": "Bugfix: sendTo-Button durch eigene PairButton-Komponente ersetzt — zuverlässige API-Schlüssel-Abfrage mit Statusanzeige",
+				"ru": "Исправление: кнопка sendTo заменена собственным компонентом PairButton — надёжное получение API-ключа с визуальной обратной связью",
+				"pt": "Correção: botão sendTo substituído por componente PairButton personalizado — obtenção fiável da chave API com feedback visual",
+				"nl": "Bugfix: sendTo-knop vervangen door eigen PairButton-component — betrouwbaar ophalen van API-sleutel met statusweergave",
+				"fr": "Correctif: bouton sendTo remplacé par un composant PairButton personnalisé — récupération fiable de la clé API avec retour visuel",
+				"it": "Correzione: pulsante sendTo sostituito da componente PairButton personalizzato — recupero affidabile della chiave API con feedback visivo",
+				"es": "Corrección: botón sendTo reemplazado por componente PairButton personalizado — obtención fiable de clave API con feedback visual",
+				"pl": "Poprawka: przycisk sendTo zastąpiony własnym komponentem PairButton — niezawodne pobieranie klucza API z informacją zwrotną",
+				"uk": "Виправлення: кнопку sendTo замінено власним компонентом PairButton — надійне отримання API-ключа з візуальним відгуком",
+				"zh-cn": "修复：将sendTo按钮替换为自定义PairButton组件，可靠获取API密钥并提供视觉反馈"
+			},
 			"0.2.5": {
 				"en": "Fix: pairing button now uses a custom panel (always visible); commit panel bundles to git so GitHub installs work without a build step",
 				"de": "Bugfix: Pairing-Button als Custom-Panel (immer sichtbar); Panel-Bundles in Git eingecheckt, sodass GitHub-Installationen ohne Build-Schritt funktionieren",

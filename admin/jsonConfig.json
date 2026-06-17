@@ -58,21 +58,15 @@
 					"xl": 5
 				},
 				"_pairBtn": {
-					"type": "sendTo",
-					"command": "pair",
-					"jsonData": "{\"ip\":\"{ip}\",\"port\":{port}}",
-					"label": "btnScanApiKey",
-					"result": {
-						"apiKey": "apiKey"
-					},
+					"type": "custom",
+					"url": "build/panels/PairButton.js",
+					"name": "PairButton",
 					"newLine": false,
 					"xs": 12,
 					"sm": 4,
 					"md": 3,
 					"lg": 2,
-					"xl": 2,
-					"variant": "outlined",
-					"color": "primary"
+					"xl": 2
 				},
 				"_behaviorHeader": {
 					"type": "header",

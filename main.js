@@ -530,6 +530,7 @@ class Tint extends utils.Adapter {
 		if (obj.command === 'pair') {
 			const ip = obj.message?.ip || this.config.ip;
 			const port = Number(obj.message?.port) || this.config.port;
+			this.log.info(`deCONZ pairing started — target: ${ip}:${port}`);
 			if (!ip) {
 				respond({ error: 'IP address is required. Please enter the deCONZ IP address first.' });
 				return;
