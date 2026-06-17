@@ -18,5 +18,6 @@
   "pairingHeader": "API Key",
   "pairingHint": "Click the button below first, then open Phoscon in your browser (http://IP:Port/) and go to ☰ → Gateway → Authenticate app. The adapter detects the pairing window automatically (polls every 3 s for up to 60 s) and fills in the API key.",
   "btnRequestApiKey": "Wait for deCONZ pairing…",
-  "btnScanApiKey": "deCONZ Pairing"
+  "btnScanApiKey": "deCONZ Pairing",
+  "confirmPairQuestion": "Open Phoscon: ☰ → Gateway → Authenticate app — then click OK. The adapter will fetch the API key automatically."
 }

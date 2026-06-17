@@ -18,5 +18,6 @@
   "pairingHeader": "API-sleutel",
   "pairingHint": "Klik eerst op de knop hieronder en open dan Phoscon in uw browser via ☰ → Gateway → App koppelen. De adapter detecteert het koppelvenster automatisch (elke 3 s, tot 60 s) en vult de sleutel in.",
   "btnRequestApiKey": "Wachten op deCONZ-koppeling…",
-  "btnScanApiKey": "deCONZ Pairing"
+  "btnScanApiKey": "deCONZ Pairing",
+  "confirmPairQuestion": "Open Phoscon: ☰ → Gateway → App authenticeren — klik dan op OK. De adapter haalt de API-sleutel automatisch op."
 }

@@ -58,9 +58,18 @@
 					"xl": 5
 				},
 				"_pairBtn": {
-					"type": "custom",
-					"url": "build/panels/PairButton.js",
-					"name": "PairButton",
+					"type": "sendTo",
+					"command": "pair",
+					"jsonData": "{\"ip\": \"${data.ip}\", \"port\": ${data.port || 80}}",
+					"label": "deCONZ Pairing",
+					"result": {
+						"apiKey": "apiKey"
+					},
+					"timeout": 65000,
+					"showProcess": true,
+					"confirm": {
+						"question": "confirmPairQuestion"
+					},
 					"newLine": false,
 					"xs": 12,
 					"sm": 4,
