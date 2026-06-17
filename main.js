@@ -82,10 +82,13 @@ class Tint extends utils.Adapter {
 		this.log.debug(`API key configured: ${apiKey ? `yes (${apiKey.length} chars)` : 'NOT SET'}`);
 
 		if (!ip || !apiKey) {
-			this.log.error(
-				'Adapter cannot start — IP address or API key is not configured. ' +
-					'Please open the adapter settings and fill in all required fields.',
+			this.log.warn(
+				'Adapter not fully configured — IP address or API key is missing. ' +
+					'Use the "deCONZ Pairing" button in the adapter settings to obtain the API key.',
 			);
+			// Subscribe to a dummy pattern so adapter-core keeps the event loop alive
+			// and onMessage() remains reachable for the pairing sendTo command.
+			await this.subscribeStatesAsync('info.connection');
 			return;
 		}
 
@@ -683,8 +686,8 @@ class Tint extends utils.Adapter {
 		// Polls deCONZ every 3 s until the pairing window is detected (null → retry)
 		// or up to 60 s (matching deCONZ's own pairing window duration).
 		if (obj.command === 'pair') {
-			const ip = obj.message?.ip || this.config.ip;
-			const port = Number(obj.message?.port) || this.config.port;
+			const ip = (obj.message?.ip || this.config.ip || '').trim();
+			const port = Number(obj.message?.port) || Number(this.config.port) || 80;
 			this.log.info(`Pairing command received — target: ${ip}:${port}`);
 			if (!ip) {
 				this.log.warn('Pairing aborted — no IP address available (not in message and not configured)');

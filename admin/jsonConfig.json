@@ -60,16 +60,12 @@
 				"_pairBtn": {
 					"type": "sendTo",
 					"command": "pair",
-					"jsonData": "{\"ip\": \"${data.ip}\", \"port\": ${data.port || 80}}",
+					"jsonData": "{\"ip\": \"${data.ip}\", \"port\": \"${data.port}\"}",
 					"label": "deCONZ Pairing",
 					"result": {
 						"apiKey": "apiKey"
 					},
 					"timeout": 65000,
-					"showProcess": true,
-					"confirm": {
-						"question": "confirmPairQuestion"
-					},
 					"newLine": false,
 					"xs": 12,
 					"sm": 4,
