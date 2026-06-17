@@ -72,19 +72,19 @@ class Tint extends utils.Adapter {
 
 		this.log.info(
 			`Adapter starting — ` +
-			`deCONZ REST: ${ip}:${port || 80}, ` +
-			`WebSocket: ${ip}:${wsPort || 443}, ` +
-			`poll: ${pollingInterval || 60}s, ` +
-			`watchdog: ${watchdogMinutes || 120}min, ` +
-			`transitionTime: ${transitionTime ?? 4}×100ms, ` +
-			`autoColorWheel: ${autoApplyColorWheel}`,
+				`deCONZ REST: ${ip}:${port || 80}, ` +
+				`WebSocket: ${ip}:${wsPort || 443}, ` +
+				`poll: ${pollingInterval || 60}s, ` +
+				`watchdog: ${watchdogMinutes || 120}min, ` +
+				`transitionTime: ${transitionTime ?? 4}×100ms, ` +
+				`autoColorWheel: ${autoApplyColorWheel}`,
 		);
 		this.log.debug(`API key configured: ${apiKey ? `yes (${apiKey.length} chars)` : 'NOT SET'}`);
 
 		if (!ip || !apiKey) {
 			this.log.error(
 				'Adapter cannot start — IP address or API key is not configured. ' +
-				'Please open the adapter settings and fill in all required fields.',
+					'Please open the adapter settings and fill in all required fields.',
 			);
 			return;
 		}
@@ -102,8 +102,8 @@ class Tint extends utils.Adapter {
 		if (!ok) {
 			this.log.error(
 				`Cannot connect to deCONZ at ${ip}:${port || 80} — ` +
-				'verify that the IP address, port, and API key are correct, ' +
-				'and that the deCONZ gateway is reachable.',
+					'verify that the IP address, port, and API key are correct, ' +
+					'and that the deCONZ gateway is reachable.',
 			);
 			return;
 		}
@@ -191,9 +191,9 @@ class Tint extends utils.Adapter {
 		await this._discoverRemotes();
 		this.log.info(
 			`Discovery complete: ` +
-			`${Object.keys(this._lightMap).length} light(s), ` +
-			`${Object.keys(this._groupMap).length} group(s), ` +
-			`${Object.keys(this._remoteMap).length} remote(s)`,
+				`${Object.keys(this._lightMap).length} light(s), ` +
+				`${Object.keys(this._groupMap).length} group(s), ` +
+				`${Object.keys(this._remoteMap).length} remote(s)`,
 		);
 	}
 
@@ -208,17 +208,19 @@ class Tint extends utils.Adapter {
 				this._lightMap[id] = light.name;
 				this.log.debug(
 					`  Light ${id}: "${light.name}" — ` +
-					`model=${light.modelid || 'unknown'}, ` +
-					`manufacturer=${light.manufacturername || 'unknown'}, ` +
-					`reachable=${light.state?.reachable}, ` +
-					`on=${light.state?.on}, ` +
-					`bri=${light.state?.bri}`,
+						`model=${light.modelid || 'unknown'}, ` +
+						`manufacturer=${light.manufacturername || 'unknown'}, ` +
+						`reachable=${light.state?.reachable}, ` +
+						`on=${light.state?.on}, ` +
+						`bri=${light.state?.bri}`,
 				);
 				await this._createLightObjects(id, light);
 				await this._updateLightStates(id, light);
 			}
 			const count = Object.keys(lights).length;
-			const names = Object.values(lights).map(l => `"${l.name}"`).join(', ');
+			const names = Object.values(lights)
+				.map(l => `"${l.name}"`)
+				.join(', ');
 			this.log.info(`Discovered ${count} light(s): ${names}`);
 		} catch (err) {
 			this.log.error(`Light discovery failed: ${err.message}`);
@@ -244,14 +246,16 @@ class Tint extends utils.Adapter {
 				const sceneNames = Object.keys(sceneMap);
 				this.log.debug(
 					`  Group ${id}: "${group.name}" — ` +
-					`members=[${(group.lights || []).join(', ')}], ` +
-					`scenes=[${sceneNames.join(', ') || '(none)'}]`,
+						`members=[${(group.lights || []).join(', ')}], ` +
+						`scenes=[${sceneNames.join(', ') || '(none)'}]`,
 				);
 				await this._createGroupObjects(id, group);
 				await this._updateGroupStates(id, group);
 			}
 			const count = Object.keys(groups).length;
-			const names = Object.values(groups).map(g => `"${g.name}"`).join(', ');
+			const names = Object.values(groups)
+				.map(g => `"${g.name}"`)
+				.join(', ');
 			this.log.info(`Discovered ${count} group(s): ${names}`);
 		} catch (err) {
 			this.log.error(`Group discovery failed: ${err.message}`);
@@ -267,23 +271,23 @@ class Tint extends utils.Adapter {
 			const sensors = await this._api.getSensors();
 			for (const [id, sensor] of Object.entries(sensors)) {
 				if (!sensor.type || !sensor.type.includes('Switch')) {
-					this.log.debug(
-						`  Sensor ${id}: "${sensor.name}" type="${sensor.type}" — not a Switch, skipping`,
-					);
+					this.log.debug(`  Sensor ${id}: "${sensor.name}" type="${sensor.type}" — not a Switch, skipping`);
 					continue;
 				}
 				this._remoteMap[id] = sensor.name;
 				this.log.debug(
 					`  Remote ${id}: "${sensor.name}" — ` +
-					`type=${sensor.type}, ` +
-					`battery=${sensor.config?.battery}%, ` +
-					`reachable=${sensor.config?.reachable}`,
+						`type=${sensor.type}, ` +
+						`battery=${sensor.config?.battery}%, ` +
+						`reachable=${sensor.config?.reachable}`,
 				);
 				await this._createRemoteObjects(id, sensor);
 				await this._updateRemoteInfo(id, sensor);
 			}
 			const count = Object.keys(this._remoteMap).length;
-			const names = Object.values(this._remoteMap).map(n => `"${n}"`).join(', ');
+			const names = Object.values(this._remoteMap)
+				.map(n => `"${n}"`)
+				.join(', ');
 			this.log.info(`Discovered ${count} remote(s): ${names || '(none)'}`);
 		} catch (err) {
 			this.log.error(`Remote discovery failed: ${err.message}`);
@@ -394,9 +398,9 @@ class Tint extends utils.Adapter {
 
 		this.log.debug(
 			`Syncing light ${id} ("${light.name}"): ` +
-			`on=${s.on}, bri=${s.bri} (${briToPercent(s.bri ?? 0)}%), ` +
-			`ct=${s.ct}mired, colormode=${s.colormode || 'n/a'}, ` +
-			`reachable=${s.reachable}`,
+				`on=${s.on}, bri=${s.bri} (${briToPercent(s.bri ?? 0)}%), ` +
+				`ct=${s.ct}mired, colormode=${s.colormode || 'n/a'}, ` +
+				`reachable=${s.reachable}`,
 		);
 
 		await this._set(`${p}.info.name`, light.name);
@@ -443,9 +447,9 @@ class Tint extends utils.Adapter {
 
 		this.log.debug(
 			`Syncing group ${id} ("${group.name}"): ` +
-			`allOn=${st.all_on}, anyOn=${st.any_on}, ` +
-			`action.on=${act.on}, action.bri=${act.bri} (${briToPercent(act.bri ?? 0)}%), ` +
-			`action.ct=${act.ct}mired`,
+				`allOn=${st.all_on}, anyOn=${st.any_on}, ` +
+				`action.on=${act.on}, action.bri=${act.bri} (${briToPercent(act.bri ?? 0)}%), ` +
+				`action.ct=${act.ct}mired`,
 		);
 
 		await this._set(`${p}.info.name`, group.name);
@@ -476,9 +480,9 @@ class Tint extends utils.Adapter {
 
 		this.log.debug(
 			`Syncing remote ${id} ("${sensor.name}"): ` +
-			`reachable=${sensor.config?.reachable}, ` +
-			`battery=${sensor.config?.battery}%, ` +
-			`lastSeen=${sensor.lastseen || 'n/a'}`,
+				`reachable=${sensor.config?.reachable}, ` +
+				`battery=${sensor.config?.battery}%, ` +
+				`lastSeen=${sensor.lastseen || 'n/a'}`,
 		);
 
 		await this._set(`${p}.info.name`, sensor.name);
@@ -526,14 +530,10 @@ class Tint extends utils.Adapter {
 					this.log.debug(`WS group ${id} changed event has no state or action payload — skipping`);
 				}
 			} else if (r === 'sensors' && state && state.buttonevent !== undefined) {
-				this.log.debug(
-					`WS sensor ${id} button event: ${state.buttonevent} — dispatching to RemoteHandler`,
-				);
+				this.log.debug(`WS sensor ${id} button event: ${state.buttonevent} — dispatching to RemoteHandler`);
 				await this._remote.handleEvent(id, state, config, attr);
 			} else {
-				this.log.debug(
-					`WS changed event for r="${r}" id="${id}" has no relevant payload — skipping`,
-				);
+				this.log.debug(`WS changed event for r="${r}" id="${id}" has no relevant payload — skipping`);
 			}
 		} else if (e === 'added') {
 			this.log.info(`WS: new ${r} (id=${id}) detected — triggering full re-discovery`);
@@ -665,15 +665,14 @@ class Tint extends utils.Adapter {
 		}
 
 		this.log.debug(
-			`Admin command received: "${obj.command}" from "${obj.from}"` +
-			(obj.message ? `  data=${JSON.stringify(obj.message)}` : ''),
+			`Admin command received: "${obj.command}" from "${obj.from}"${
+				obj.message ? `  data=${JSON.stringify(obj.message)}` : ''
+			}`,
 		);
 
-		const respond = (result) => {
+		const respond = result => {
 			if (obj.callback) {
-				this.log.debug(
-					`Responding to "${obj.command}": ${JSON.stringify(result).slice(0, 200)}`,
-				);
+				this.log.debug(`Responding to "${obj.command}": ${JSON.stringify(result).slice(0, 200)}`);
 				this.sendTo(obj.from, obj.command, result, obj.callback);
 			} else {
 				this.log.debug(`No callback for "${obj.command}" — response discarded`);
@@ -712,7 +711,7 @@ class Tint extends utils.Adapter {
 					if (Date.now() >= deadline) {
 						this.log.warn(
 							`Pairing timed out after ${attempt} attempt(s) — ` +
-							'pairing window was never detected within 60 s',
+								'pairing window was never detected within 60 s',
 						);
 						respond({
 							error: 'Pairing timeout (60 s). Please open the pairing window in deCONZ/Phoscon first.',
@@ -720,8 +719,7 @@ class Tint extends utils.Adapter {
 						return;
 					}
 					this.log.debug(
-						`Pairing: window not yet open — retrying in ${POLL_MS / 1000}s ` +
-						`(${remaining}s remaining)`,
+						`Pairing: window not yet open — retrying in ${POLL_MS / 1000}s ` + `(${remaining}s remaining)`,
 					);
 					setTimeout(tryPair, POLL_MS);
 				} catch (err) {
@@ -754,7 +752,7 @@ class Tint extends utils.Adapter {
 				case 'createGroup': {
 					this.log.info(
 						`Admin: create group command — name="${obj.message.name}", ` +
-						`lights=[${(obj.message.lights || []).join(', ')}]`,
+							`lights=[${(obj.message.lights || []).join(', ')}]`,
 					);
 					const res = await this._api.createGroup(obj.message.name, obj.message.lights || []);
 					this.log.debug('Admin: re-discovering groups after create');
@@ -766,7 +764,7 @@ class Tint extends utils.Adapter {
 				case 'updateGroup': {
 					this.log.info(
 						`Admin: update group command — id=${obj.message.id}, ` +
-						`name="${obj.message.name}", lights=[${(obj.message.lights || []).join(', ')}]`,
+							`name="${obj.message.name}", lights=[${(obj.message.lights || []).join(', ')}]`,
 					);
 					await this._api.updateGroup(obj.message.id, obj.message.name, obj.message.lights || []);
 					this.log.debug('Admin: re-discovering groups after update');
@@ -822,7 +820,7 @@ class Tint extends utils.Adapter {
 
 		this.log.debug(
 			`State change: ${id} = ${JSON.stringify(state.val)} ` +
-			`(resource=${resource}, deconzId=${deconzId}, channel=${channel}, state=${stateName})`,
+				`(resource=${resource}, deconzId=${deconzId}, channel=${channel}, state=${stateName})`,
 		);
 
 		try {
@@ -863,34 +861,29 @@ class Tint extends utils.Adapter {
 				body = { on: true, bri: percentToBri(Number(val)), transitiontime: transitionTime };
 				this.log.info(
 					`Light ${lightId} ("${name}"): brightness → ${val}% ` +
-					`(bri=${percentToBri(Number(val))}, transition=${transitionTime}×100ms)`,
+						`(bri=${percentToBri(Number(val))}, transition=${transitionTime}×100ms)`,
 				);
 				break;
 			case 'colorTemp':
 				body = { ct: kelvinToMired(Number(val)), transitiontime: transitionTime };
 				this.log.info(
 					`Light ${lightId} ("${name}"): color temperature → ${val}K ` +
-					`(${kelvinToMired(Number(val))} mired)`,
+						`(${kelvinToMired(Number(val))} mired)`,
 				);
 				break;
 			case 'hue':
 				body = { hue: Number(val), transitiontime: transitionTime };
-				this.log.debug(
-					`Light ${lightId} ("${name}"): hue → ${val}`,
-				);
+				this.log.debug(`Light ${lightId} ("${name}"): hue → ${val}`);
 				break;
 			case 'saturation':
 				body = { sat: Number(val), transitiontime: transitionTime };
-				this.log.debug(
-					`Light ${lightId} ("${name}"): saturation → ${val}`,
-				);
+				this.log.debug(`Light ${lightId} ("${name}"): saturation → ${val}`);
 				break;
 			case 'hex': {
 				const [x, y] = hexToXy(String(val));
 				body = { xy: [x, y], transitiontime: transitionTime };
 				this.log.info(
-					`Light ${lightId} ("${name}"): color → ${val} ` +
-					`(xy=[${x.toFixed(4)}, ${y.toFixed(4)}])`,
+					`Light ${lightId} ("${name}"): color → ${val} ` + `(xy=[${x.toFixed(4)}, ${y.toFixed(4)}])`,
 				);
 				break;
 			}
@@ -903,7 +896,7 @@ class Tint extends utils.Adapter {
 				body = { xy: [xVal, yVal], transitiontime: transitionTime };
 				this.log.debug(
 					`Light ${lightId} ("${name}"): CIE ${stateName} → ${val} ` +
-					`(xy=[${xVal.toFixed(4)}, ${yVal.toFixed(4)}])`,
+						`(xy=[${xVal.toFixed(4)}, ${yVal.toFixed(4)}])`,
 				);
 				break;
 			}
@@ -920,9 +913,7 @@ class Tint extends utils.Adapter {
 				return;
 		}
 
-		this.log.debug(
-			`Light ${lightId} ("${name}"): PUT /lights/${lightId}/state ${JSON.stringify(body)}`,
-		);
+		this.log.debug(`Light ${lightId} ("${name}"): PUT /lights/${lightId}/state ${JSON.stringify(body)}`);
 		await this._api.setLightState(lightId, body);
 	}
 
@@ -947,22 +938,21 @@ class Tint extends utils.Adapter {
 				body = { on: true, bri: percentToBri(Number(val)), transitiontime: transitionTime };
 				this.log.info(
 					`Group ${groupId} ("${name}"): brightness → ${val}% ` +
-					`(bri=${percentToBri(Number(val))}, transition=${transitionTime}×100ms)`,
+						`(bri=${percentToBri(Number(val))}, transition=${transitionTime}×100ms)`,
 				);
 				break;
 			case 'colorTemp':
 				body = { ct: kelvinToMired(Number(val)), transitiontime: transitionTime };
 				this.log.info(
 					`Group ${groupId} ("${name}"): color temperature → ${val}K ` +
-					`(${kelvinToMired(Number(val))} mired)`,
+						`(${kelvinToMired(Number(val))} mired)`,
 				);
 				break;
 			case 'hex': {
 				const [x, y] = hexToXy(String(val));
 				body = { xy: [x, y], transitiontime: transitionTime };
 				this.log.info(
-					`Group ${groupId} ("${name}"): color → ${val} ` +
-					`(xy=[${x.toFixed(4)}, ${y.toFixed(4)}])`,
+					`Group ${groupId} ("${name}"): color → ${val} ` + `(xy=[${x.toFixed(4)}, ${y.toFixed(4)}])`,
 				);
 				break;
 			}
@@ -975,13 +965,13 @@ class Tint extends utils.Adapter {
 				const sceneId = sceneMap[String(val)];
 				this.log.debug(
 					`Group ${groupId} ("${name}"): activateScene "${val}" — ` +
-					`sceneId=${sceneId !== undefined ? sceneId : 'NOT FOUND'}, ` +
-					`available: [${Object.keys(sceneMap).join(', ')}]`,
+						`sceneId=${sceneId !== undefined ? sceneId : 'NOT FOUND'}, ` +
+						`available: [${Object.keys(sceneMap).join(', ')}]`,
 				);
 				if (sceneId === undefined) {
 					this.log.warn(
 						`Group ${groupId} ("${name}"): scene "${val}" not found — ` +
-						`available scenes: [${Object.keys(sceneMap).join(', ')}]`,
+							`available scenes: [${Object.keys(sceneMap).join(', ')}]`,
 					);
 					return;
 				}
@@ -990,15 +980,11 @@ class Tint extends utils.Adapter {
 				return;
 			}
 			default:
-				this.log.warn(
-					`Group ${groupId} ("${name}"): unknown action "${stateName}" — no API call made`,
-				);
+				this.log.warn(`Group ${groupId} ("${name}"): unknown action "${stateName}" — no API call made`);
 				return;
 		}
 
-		this.log.debug(
-			`Group ${groupId} ("${name}"): PUT /groups/${groupId}/action ${JSON.stringify(body)}`,
-		);
+		this.log.debug(`Group ${groupId} ("${name}"): PUT /groups/${groupId}/action ${JSON.stringify(body)}`);
 		await this._api.setGroupAction(groupId, body);
 	}
 
@@ -1023,14 +1009,14 @@ class Tint extends utils.Adapter {
 
 		this.log.debug(
 			`Scene trigger: group ${groupId} ("${groupName}"), ` +
-			`sceneName="${sceneName}", sceneId=${sceneId !== undefined ? sceneId : 'NOT FOUND'}, ` +
-			`all scenes: [${Object.keys(sceneMap).join(', ')}]`,
+				`sceneName="${sceneName}", sceneId=${sceneId !== undefined ? sceneId : 'NOT FOUND'}, ` +
+				`all scenes: [${Object.keys(sceneMap).join(', ')}]`,
 		);
 
 		if (sceneId === undefined) {
 			this.log.warn(
 				`Scene "${sceneName}" not found in group ${groupId} ("${groupName}") — ` +
-				`available: [${Object.keys(sceneMap).join(', ')}]`,
+					`available: [${Object.keys(sceneMap).join(', ')}]`,
 			);
 			return;
 		}
@@ -1059,9 +1045,7 @@ class Tint extends utils.Adapter {
 	 */
 	async _onColorWheelEvent(sensorId, x, y, _hex, _angle) {
 		if (!this.config.autoApplyColorWheel) {
-			this.log.debug(
-				`Color wheel event from sensor ${sensorId} — autoApplyColorWheel is disabled, skipping`,
-			);
+			this.log.debug(`Color wheel event from sensor ${sensorId} — autoApplyColorWheel is disabled, skipping`);
 			return;
 		}
 
@@ -1072,8 +1056,8 @@ class Tint extends utils.Adapter {
 		if (zone === 0) {
 			this.log.debug(
 				`Color wheel auto-apply: sensor=${sensorId}, zone=0 (all lights), ` +
-				`xy=[${x.toFixed(4)}, ${y.toFixed(4)}], hex=${_hex}, ` +
-				`applying to ${Object.keys(this._lightMap).length} light(s)`,
+					`xy=[${x.toFixed(4)}, ${y.toFixed(4)}], hex=${_hex}, ` +
+					`applying to ${Object.keys(this._lightMap).length} light(s)`,
 			);
 			for (const lightId of Object.keys(this._lightMap)) {
 				this.log.debug(`  → light ${lightId} ("${this._lightMap[lightId]}")`);
@@ -1083,17 +1067,15 @@ class Tint extends utils.Adapter {
 						on: true,
 						transitiontime: this.config.transitionTime ?? 4,
 					})
-					.catch((err) => {
-						this.log.warn(
-							`Color wheel: failed to apply to light ${lightId}: ${err.message}`,
-						);
+					.catch(err => {
+						this.log.warn(`Color wheel: failed to apply to light ${lightId}: ${err.message}`);
 					});
 			}
 		} else {
 			const groupNum = ZONE_GROUPS[zone];
 			this.log.debug(
 				`Color wheel auto-apply: sensor=${sensorId}, zone=${zone} → groupId=${groupNum}, ` +
-				`xy=[${x.toFixed(4)}, ${y.toFixed(4)}], hex=${_hex}`,
+					`xy=[${x.toFixed(4)}, ${y.toFixed(4)}], hex=${_hex}`,
 			);
 			let applied = false;
 			for (const [groupId] of Object.entries(this._groupMap)) {
@@ -1106,10 +1088,8 @@ class Tint extends utils.Adapter {
 							on: true,
 							transitiontime: this.config.transitionTime ?? 4,
 						})
-						.catch((err) => {
-							this.log.warn(
-								`Color wheel: failed to apply to group ${groupId}: ${err.message}`,
-							);
+						.catch(err => {
+							this.log.warn(`Color wheel: failed to apply to group ${groupId}: ${err.message}`);
 						});
 					applied = true;
 					break;
@@ -1175,13 +1155,10 @@ class Tint extends utils.Adapter {
 					this.log.debug(`Poll: group ${id} not in groupMap — skipping (run discovery first)`);
 				}
 			}
-			this.log.debug(
-				`Fallback poll complete — updated ${lightUpdated} light(s), ${groupUpdated} group(s)`,
-			);
+			this.log.debug(`Fallback poll complete — updated ${lightUpdated} light(s), ${groupUpdated} group(s)`);
 		} catch (err) {
 			this.log.warn(
-				`Fallback poll failed: ${err.message} — ` +
-				`will retry in ${this.config.pollingInterval || 60}s`,
+				`Fallback poll failed: ${err.message} — ` + `will retry in ${this.config.pollingInterval || 60}s`,
 			);
 		}
 	}
