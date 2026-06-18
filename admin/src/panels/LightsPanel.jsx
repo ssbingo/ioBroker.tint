@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import LightsTab from '../components/LightsTab';
 import { createT } from './i18n.js';
 
-function LightsPanelApp({ socket, instance, lang, alive }) {
+function LightsPanelApp({ socket, instance, systemConfig, alive }) {
+	const lang = systemConfig?.language;
 	const t = createT(lang || 'en');
 
 	const sendToAdapter = useCallback(

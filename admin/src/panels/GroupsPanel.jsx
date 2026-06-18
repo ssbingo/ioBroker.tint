@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import GroupsTab from '../components/GroupsTab';
 import { createT } from './i18n.js';
 
-function GroupsPanelApp({ socket, instance, lang, alive }) {
+function GroupsPanelApp({ socket, instance, systemConfig, alive }) {
+	const lang = systemConfig?.language;
 	const t = createT(lang || 'en');
 
 	const sendToAdapter = useCallback(
