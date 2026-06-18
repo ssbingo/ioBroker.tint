@@ -151,6 +151,7 @@
 					"type": "custom",
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/LightsPanel",
+					"bundlerType": "module",
 					"newLine": true,
 					"sm": 12
 				}
@@ -174,6 +175,7 @@
 					"type": "custom",
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/GroupsPanel",
+					"bundlerType": "module",
 					"newLine": true,
 					"sm": 12
 				}
