@@ -101,8 +101,8 @@ class Tint extends utils.Adapter {
 		});
 
 		this.log.debug('Testing deCONZ connection...');
-		const ok = await this._api.testConnection();
-		if (!ok) {
+		const gatewayConfig = await this._api.getConfig();
+		if (!gatewayConfig || !gatewayConfig.name) {
 			this.log.error(
 				`Cannot connect to deCONZ at ${ip}:${port || 80} — ` +
 					'verify that the IP address, port, and API key are correct, ' +
@@ -110,8 +110,22 @@ class Tint extends utils.Adapter {
 			);
 			return;
 		}
+		this.log.info(
+			`Gateway info — name: "${gatewayConfig.name}", firmware: ${gatewayConfig.swversion || 'n/a'}, ` +
+				`model: ${gatewayConfig.modelid || 'unknown'}, api: v${gatewayConfig.apiversion || 'n/a'}`,
+		);
 		this.setState('info.connection', true, true);
 		this.log.info(`Successfully connected to deCONZ at ${ip}:${port || 80}`);
+
+		// deCONZ reports the websocket port it actually listens on; this is authoritative
+		// and frequently differs from any value the user guessed/configured.
+		const effectiveWsPort = gatewayConfig.websocketport || wsPort || 443;
+		if (gatewayConfig.websocketport && gatewayConfig.websocketport !== wsPort) {
+			this.log.info(
+				`deCONZ reports websocket port ${gatewayConfig.websocketport} ` +
+					`(configured: ${wsPort || 'default 443'}) — using the port reported by deCONZ`,
+			);
+		}
 
 		this.log.debug('Creating RemoteHandler');
 		this._remote = new RemoteHandler(this, this._onColorWheelEvent.bind(this));
@@ -119,10 +133,10 @@ class Tint extends utils.Adapter {
 		this.log.info('Starting device discovery...');
 		await this._discoverAll();
 
-		this.log.debug(`Opening WebSocket to ws://${ip}:${wsPort || 443}`);
+		this.log.debug(`Opening WebSocket to ws://${ip}:${effectiveWsPort}`);
 		this._ws = new DeconzWebSocket({
 			ip,
-			wsPort: wsPort || 443,
+			wsPort: effectiveWsPort,
 			log: this.log,
 			onEvent: this._onWsEvent.bind(this),
 			onOpen: () => {
