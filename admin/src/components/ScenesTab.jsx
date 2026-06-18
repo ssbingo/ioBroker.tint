@@ -7,11 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { isPlug } from './deviceCategory';
 
 const useStyles = makeStyles((theme) => ({
 	root: { padding: theme.spacing(0, 0, 2, 0) },
@@ -71,8 +69,6 @@ const useStyles = makeStyles((theme) => ({
 	tableRow: {
 		'&:hover': { background: theme.palette.action.hover },
 	},
-	reachable: { color: '#2e7d32', fontWeight: 'bold' },
-	unreachable: { color: '#c62828', fontWeight: 'bold' },
 
 	center: {
 		display: 'flex',
@@ -89,27 +85,51 @@ function StatusDot({ classes, ok, loading }) {
 	return <span className={`${classes.dot} ${ok ? classes.dotOk : ok === null ? classes.dotIdle : classes.dotError}`} />;
 }
 
-export default function LightsTab({ sendToAdapter, t, alive }) {
+export default function ScenesTab({ sendToAdapter, t, alive }) {
 	const classes = useStyles();
-	const [lights, setLights] = useState(null);
+	const [scenes, setScenes] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
+	const [activatingKey, setActivatingKey] = useState(null);
 
 	const load = useCallback(async () => {
 		setLoading(true);
 		setError('');
-		const res = await sendToAdapter('getLights', {});
+		const res = await sendToAdapter('getGroups', {});
 		setLoading(false);
 		if (res && res.error) {
 			setError(res.error);
-		} else if (res && res.lights) {
-			setLights(res.lights);
+			return;
+		}
+		if (res && res.groups) {
+			const rows = [];
+			for (const [groupId, group] of Object.entries(res.groups)) {
+				for (const scene of group.scenes || []) {
+					rows.push({ groupId, groupName: group.name, sceneId: scene.id, sceneName: scene.name });
+				}
+			}
+			setScenes(rows);
 		}
 	}, [sendToAdapter]);
 
 	useEffect(() => {
 		if (alive !== false) load();
 	}, [load, alive]);
+
+	const activate = async (row) => {
+		const key = `${row.groupId}/${row.sceneId}`;
+		setActivatingKey(key);
+		setError('');
+		const res = await sendToAdapter('activateScene', {
+			groupId: row.groupId,
+			sceneId: row.sceneId,
+			sceneName: row.sceneName,
+		});
+		setActivatingKey(null);
+		if (res && res.error) {
+			setError(res.error);
+		}
+	};
 
 	/* Adapter offline */
 	if (alive === false) {
@@ -121,22 +141,21 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 		);
 	}
 
-	const rows = lights ? Object.entries(lights).filter(([, light]) => !isPlug(light)) : [];
-	const dotOk = !error && lights !== null;
+	const rows = scenes || [];
 
 	return (
 		<div className={classes.root}>
 
 			{/* Status / action bar */}
 			<div className={classes.bar}>
-				<StatusDot classes={classes} ok={error ? false : lights !== null ? true : null} loading={loading} />
+				<StatusDot classes={classes} ok={error ? false : scenes !== null ? true : null} loading={loading} />
 				<Typography variant="body2" color="textSecondary">
-					{loading && !lights
+					{loading && !scenes
 						? t('msgLoading')
 						: error
 						? t('msgNotConnected')
-						: lights !== null
-						? `${rows.length} ${t('lightsCount')}`
+						: scenes !== null
+						? `${rows.length} ${t('scenesCount')}`
 						: '–'}
 				</Typography>
 				<div className={classes.spacer} />
@@ -156,80 +175,54 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 			)}
 
 			{/* Loading spinner (initial load) */}
-			{loading && !lights && (
+			{loading && !scenes && (
 				<div className={classes.center}>
 					<CircularProgress size={36} />
 					<Typography variant="body2">{t('msgLoading')}</Typography>
 				</div>
 			)}
 
-			{/* No lights */}
-			{!loading && !error && lights !== null && rows.length === 0 && (
+			{/* No scenes */}
+			{!loading && !error && scenes !== null && rows.length === 0 && (
 				<div className={`${classes.alert} ${classes.alertInfo}`}>
 					<span>ℹ</span>
-					<span>{t('msgNoLights')}</span>
+					<span>{t('msgNoScenes')}</span>
 				</div>
 			)}
 
-			{/* Lights table */}
+			{/* Scenes table */}
 			{rows.length > 0 && (
 				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
 						<TableHead className={classes.tableHead}>
 							<TableRow>
-								<TableCell><strong>{t('colName')}</strong></TableCell>
-								<TableCell><strong>{t('colModel')}</strong></TableCell>
-								<TableCell><strong>{t('colManufacturer')}</strong></TableCell>
-								<TableCell align="center"><strong>{t('colReachable')}</strong></TableCell>
-								<TableCell align="center"><strong>{t('colOnOff')}</strong></TableCell>
-								<TableCell align="right"><strong>{t('colBrightness')}</strong></TableCell>
+								<TableCell><strong>{t('colGroup')}</strong></TableCell>
+								<TableCell><strong>{t('colScene')}</strong></TableCell>
+								<TableCell align="right"><strong>{t('colActions')}</strong></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{rows.map(([id, light]) => {
-								const s = light.state || {};
-								const briPct = s.bri != null ? Math.round(s.bri / 2.54) : null;
+							{rows.map((row) => {
+								const key = `${row.groupId}/${row.sceneId}`;
+								const isActivating = activatingKey === key;
 								return (
-									<TableRow key={id} className={classes.tableRow}>
+									<TableRow key={key} className={classes.tableRow}>
 										<TableCell>
-											<Typography variant="body2"><strong>{light.name}</strong></Typography>
-											<Typography variant="caption" color="textSecondary">ID {id}</Typography>
-										</TableCell>
-										<TableCell>
-											<Typography variant="body2">{light.modelid || '–'}</Typography>
+											<Typography variant="body2">{row.groupName}</Typography>
 										</TableCell>
 										<TableCell>
-											<Typography variant="body2">{light.manufacturername || '–'}</Typography>
-										</TableCell>
-										<TableCell align="center">
-											<span className={s.reachable ? classes.reachable : classes.unreachable}>
-												{s.reachable ? '✔' : '✗'}
-											</span>
-										</TableCell>
-										<TableCell align="center">
-											<Chip
-												label={s.on ? t('stateOn') : t('stateOff')}
-												size="small"
-												style={{
-													background: s.on ? '#fff3e0' : '#f5f5f5',
-													color: s.on ? '#e65100' : '#757575',
-													fontWeight: 600,
-													fontSize: '0.7rem',
-													height: 20,
-												}}
-											/>
+											<Typography variant="body2"><strong>{row.sceneName}</strong></Typography>
 										</TableCell>
 										<TableCell align="right">
-											{s.reachable && briPct !== null ? (
-												<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 6 }}>
-													<div style={{ width: 48, height: 5, background: '#e0e0e0', borderRadius: 3, overflow: 'hidden' }}>
-														<div style={{ width: `${briPct}%`, height: '100%', background: '#ff9800', borderRadius: 3 }} />
-													</div>
-													<Typography variant="caption">{briPct} %</Typography>
-												</div>
-											) : (
-												<Typography variant="body2" color="textSecondary">–</Typography>
-											)}
+											<Button
+												size="small"
+												variant="outlined"
+												onClick={() => activate(row)}
+												disabled={activatingKey !== null}
+												startIcon={isActivating ? <CircularProgress size={14} /> : undefined}
+											>
+												{t('btnActivate')}
+											</Button>
 										</TableCell>
 									</TableRow>
 								);

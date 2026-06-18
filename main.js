@@ -802,6 +802,20 @@ class Tint extends utils.Adapter {
 					break;
 				}
 
+				case 'activateScene': {
+					const { groupId, sceneId, sceneName } = obj.message || {};
+					if (!groupId || sceneId === undefined || !sceneName) {
+						respond({ error: 'groupId, sceneId and sceneName are required' });
+						break;
+					}
+					this.log.info(
+						`Admin: activate scene command — group=${groupId}, scene="${sceneName}" (id=${sceneId})`,
+					);
+					await this._recallScene(groupId, sceneId, sceneName);
+					respond({ ok: true });
+					break;
+				}
+
 				default:
 					this.log.warn(`Admin: unknown command "${obj.command}" — no handler registered`);
 					respond({ error: `Unknown command: ${obj.command}` });
@@ -1040,8 +1054,22 @@ class Tint extends utils.Adapter {
 			);
 			return;
 		}
+		await this._recallScene(groupId, sceneId, sceneName);
+	}
+
+	/**
+	 * Recall a scene on deCONZ and sync the boolean scene states of the group
+	 * so exactly the recalled scene's state reads true.
+	 *
+	 * @param {string} groupId - deCONZ group id
+	 * @param {number} sceneId - deCONZ scene id
+	 * @param {string} sceneName - Scene name (key in this._sceneMap[groupId])
+	 */
+	async _recallScene(groupId, sceneId, sceneName) {
 		await this._api.recallScene(groupId, sceneId);
+		const groupName = this._groupMap[groupId]?.name || `id=${groupId}`;
 		this.log.info(`Group ${groupId} ("${groupName}"): recalled scene "${sceneName}" (id=${sceneId})`);
+		const sceneMap = this._sceneMap[groupId] || {};
 		for (const name of Object.keys(sceneMap)) {
 			const safe = name.replace(/[^a-zA-Z0-9_]/g, '_');
 			await this._set(`groups.${groupId}.scenes.${safe}`, name === sceneName);

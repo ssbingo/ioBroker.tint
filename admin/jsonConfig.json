@@ -180,6 +180,54 @@
 					"sm": 12
 				}
 			}
+		},
+		"tabPlugs": {
+			"type": "panel",
+			"label": "tabPlugs",
+			"items": {
+				"plugsDesc": {
+					"type": "staticText",
+					"text": "descPlugsTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"plugsDivider": {
+					"type": "divider",
+					"sm": 12
+				},
+				"plugsPanel": {
+					"type": "custom",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/PlugsPanel",
+					"bundlerType": "module",
+					"newLine": true,
+					"sm": 12
+				}
+			}
+		},
+		"tabScenes": {
+			"type": "panel",
+			"label": "tabScenes",
+			"items": {
+				"scenesDesc": {
+					"type": "staticText",
+					"text": "descScenesTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"scenesDivider": {
+					"type": "divider",
+					"sm": 12
+				},
+				"scenesPanel": {
+					"type": "custom",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/ScenesPanel",
+					"bundlerType": "module",
+					"newLine": true,
+					"sm": 12
+				}
+			}
 		}
 	}
 }

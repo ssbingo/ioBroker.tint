@@ -89,7 +89,7 @@ function StatusDot({ classes, ok, loading }) {
 	return <span className={`${classes.dot} ${ok ? classes.dotOk : ok === null ? classes.dotIdle : classes.dotError}`} />;
 }
 
-export default function LightsTab({ sendToAdapter, t, alive }) {
+export default function PlugsTab({ sendToAdapter, t, alive }) {
 	const classes = useStyles();
 	const [lights, setLights] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -121,7 +121,7 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 		);
 	}
 
-	const rows = lights ? Object.entries(lights).filter(([, light]) => !isPlug(light)) : [];
+	const rows = lights ? Object.entries(lights).filter(([, light]) => isPlug(light)) : [];
 	const dotOk = !error && lights !== null;
 
 	return (
@@ -136,7 +136,7 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 						: error
 						? t('msgNotConnected')
 						: lights !== null
-						? `${rows.length} ${t('lightsCount')}`
+						? `${rows.length} ${t('plugsCount')}`
 						: '–'}
 				</Typography>
 				<div className={classes.spacer} />
@@ -163,15 +163,15 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 				</div>
 			)}
 
-			{/* No lights */}
+			{/* No plugs */}
 			{!loading && !error && lights !== null && rows.length === 0 && (
 				<div className={`${classes.alert} ${classes.alertInfo}`}>
 					<span>ℹ</span>
-					<span>{t('msgNoLights')}</span>
+					<span>{t('msgNoPlugs')}</span>
 				</div>
 			)}
 
-			{/* Lights table */}
+			{/* Plugs table */}
 			{rows.length > 0 && (
 				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
@@ -182,13 +182,11 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 								<TableCell><strong>{t('colManufacturer')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colReachable')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colOnOff')}</strong></TableCell>
-								<TableCell align="right"><strong>{t('colBrightness')}</strong></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							{rows.map(([id, light]) => {
 								const s = light.state || {};
-								const briPct = s.bri != null ? Math.round(s.bri / 2.54) : null;
 								return (
 									<TableRow key={id} className={classes.tableRow}>
 										<TableCell>
@@ -218,18 +216,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 													height: 20,
 												}}
 											/>
-										</TableCell>
-										<TableCell align="right">
-											{s.reachable && briPct !== null ? (
-												<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 6 }}>
-													<div style={{ width: 48, height: 5, background: '#e0e0e0', borderRadius: 3, overflow: 'hidden' }}>
-														<div style={{ width: `${briPct}%`, height: '100%', background: '#ff9800', borderRadius: 3 }} />
-													</div>
-													<Typography variant="caption">{briPct} %</Typography>
-												</div>
-											) : (
-												<Typography variant="body2" color="textSecondary">–</Typography>
-											)}
 										</TableCell>
 									</TableRow>
 								);
