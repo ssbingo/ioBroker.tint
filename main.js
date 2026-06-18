@@ -706,7 +706,10 @@ class Tint extends utils.Adapter {
 					const apiKey = await DeconzApi.pair(ip, port, this.log);
 					if (apiKey !== null) {
 						this.log.info(`Pairing successful after ${attempt} attempt(s) — API key received`);
-						respond({ apiKey });
+						// admin's sendTo button only writes values back into the config form
+						// when the response carries them under `native` and the jsonConfig
+						// item has `useNative: true` — a bare top-level key is ignored.
+						respond({ native: { apiKey } });
 						return;
 					}
 					// null = pairing window not open yet

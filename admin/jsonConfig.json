@@ -62,9 +62,7 @@
 					"command": "pair",
 					"jsonData": "{\"ip\": \"${data.ip}\", \"port\": \"${data.port}\"}",
 					"label": "deCONZ Pairing",
-					"result": {
-						"apiKey": "apiKey"
-					},
+					"useNative": true,
 					"timeout": 65000,
 					"newLine": false,
 					"xs": 12,
