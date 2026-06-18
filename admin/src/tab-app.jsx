@@ -57,9 +57,7 @@ class TabApp extends GenericApp {
 	 * @returns {Promise<object>}
 	 */
 	_send(command, data) {
-		return new Promise((resolve) => {
-			this.socket.sendTo(`tint.${this.instance}`, command, data || {}, resolve);
-		});
+		return this.socket.sendTo(`tint.${this.instance}`, command, data || {});
 	}
 
 	render() {

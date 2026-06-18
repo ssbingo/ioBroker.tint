@@ -13,9 +13,12 @@ function GroupsPanelApp({ socket, instance, lang, alive }) {
 					() => resolve({ error: t('msgTimeout') }),
 					10000,
 				);
-				socket.sendTo(`tint.${instance}`, command, data || {}, (result) => {
+				socket.sendTo(`tint.${instance}`, command, data || {}).then((result) => {
 					clearTimeout(tid);
 					resolve(result);
+				}).catch((err) => {
+					clearTimeout(tid);
+					resolve({ error: err?.message || String(err) });
 				});
 			}),
 		// eslint-disable-next-line react-hooks/exhaustive-deps
