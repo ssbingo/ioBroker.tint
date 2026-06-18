@@ -3,7 +3,7 @@
 	"type": "tabs",
 	"items": {
 		"tabSettings": {
-			"type": "tab",
+			"type": "panel",
 			"label": "tint adapter settings",
 			"items": {
 				"_connectionHeader": {
@@ -134,7 +134,7 @@
 			}
 		},
 		"tabLights": {
-			"type": "tab",
+			"type": "panel",
 			"label": "tabLights",
 			"items": {
 				"lightsDesc": {
@@ -157,7 +157,7 @@
 			}
 		},
 		"tabGroups": {
-			"type": "tab",
+			"type": "panel",
 			"label": "tabGroups",
 			"items": {
 				"groupsDesc": {
