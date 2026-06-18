@@ -49,4 +49,4 @@ function GroupsPanel(props) {
 	});
 }
 
-window.GroupsPanel = GroupsPanel;
+export default GroupsPanel;

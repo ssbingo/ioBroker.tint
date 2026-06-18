@@ -49,4 +49,4 @@ function LightsPanel(props) {
 	});
 }
 
-window.LightsPanel = LightsPanel;
+export default LightsPanel;

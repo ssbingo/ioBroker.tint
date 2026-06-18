@@ -149,8 +149,8 @@
 				},
 				"lightsPanel": {
 					"type": "custom",
-					"url": "build/panels/LightsPanel.js",
-					"name": "LightsPanel",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/LightsPanel",
 					"newLine": true,
 					"sm": 12
 				}
@@ -172,8 +172,8 @@
 				},
 				"groupsPanel": {
 					"type": "custom",
-					"url": "build/panels/GroupsPanel.js",
-					"name": "GroupsPanel",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/GroupsPanel",
 					"newLine": true,
 					"sm": 12
 				}
