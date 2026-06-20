@@ -10,11 +10,16 @@ const DeconzApi = require('./lib/deconz-api');
 const DeconzWebSocket = require('./lib/deconz-ws');
 const RemoteHandler = require('./lib/remote-handler');
 const { briToPercent, percentToBri, miredToKelvin, kelvinToMired, xyToHex, hexToXy } = require('./lib/color-utils');
+const { isPlug } = require('./lib/device-category');
 const {
 	lightDevice,
 	lightInfoChannel,
 	lightStateChannel,
 	LIGHT_STATES,
+	plugDevice,
+	plugInfoChannel,
+	plugStateChannel,
+	PLUG_STATES,
 	groupDevice,
 	groupInfoChannel,
 	groupActionChannel,
@@ -47,6 +52,7 @@ class Tint extends utils.Adapter {
 		this._stopped = false;
 
 		this._lightMap = {};
+		this._plugMap = {};
 		this._groupMap = {};
 		this._remoteMap = {};
 		this._sceneMap = {};
@@ -150,8 +156,11 @@ class Tint extends utils.Adapter {
 		});
 		this._ws.connect();
 
-		this.log.info('Subscribing to state changes: lights.*.state.*, groups.*.action.*, groups.*.scenes.*');
+		this.log.info(
+			'Subscribing to state changes: lights.*.state.*, plugs.*.state.*, groups.*.action.*, groups.*.scenes.*',
+		);
 		await this.subscribeStatesAsync('lights.*.state.*');
+		await this.subscribeStatesAsync('plugs.*.state.*');
 		await this.subscribeStatesAsync('groups.*.action.*');
 		await this.subscribeStatesAsync('groups.*.scenes.*');
 
@@ -203,42 +212,59 @@ class Tint extends utils.Adapter {
 	 */
 	async _discoverAll() {
 		this.log.debug('Starting full device discovery (lights → groups → remotes)');
+		// Reset before re-populating so removed devices/groups/scenes don't
+		// linger in memory — _reconcileObjectTree() relies on these reflecting
+		// exactly what deCONZ reports right now.
+		this._lightMap = {};
+		this._plugMap = {};
+		this._groupMap = {};
+		this._remoteMap = {};
+		this._sceneMap = {};
 		await this._discoverLights();
 		await this._discoverGroups();
 		await this._discoverRemotes();
+		await this._reconcileObjectTree();
 		this.log.info(
 			`Discovery complete: ` +
 				`${Object.keys(this._lightMap).length} light(s), ` +
+				`${Object.keys(this._plugMap).length} plug(s), ` +
 				`${Object.keys(this._groupMap).length} group(s), ` +
 				`${Object.keys(this._remoteMap).length} remote(s)`,
 		);
 	}
 
 	/**
-	 * Discover all lights and create their state objects.
+	 * Discover all lights and smart plugs, creating their state objects under
+	 * lights.* or plugs.* respectively.
 	 */
 	async _discoverLights() {
 		try {
 			this.log.debug('Discovering lights...');
 			const lights = await this._api.getLights();
 			for (const [id, light] of Object.entries(lights)) {
-				this._lightMap[id] = light.name;
 				this.log.debug(
-					`  Light ${id}: "${light.name}" — ` +
+					`  ${isPlug(light) ? 'Plug' : 'Light'} ${id}: "${light.name}" — ` +
 						`model=${light.modelid || 'unknown'}, ` +
 						`manufacturer=${light.manufacturername || 'unknown'}, ` +
 						`reachable=${light.state?.reachable}, ` +
 						`on=${light.state?.on}, ` +
 						`bri=${light.state?.bri}`,
 				);
-				await this._createLightObjects(id, light);
-				await this._updateLightStates(id, light);
+				if (isPlug(light)) {
+					this._plugMap[id] = light.name;
+					await this._createPlugObjects(id, light);
+					await this._updatePlugStates(id, light);
+				} else {
+					this._lightMap[id] = light.name;
+					await this._createLightObjects(id, light);
+					await this._updateLightStates(id, light);
+				}
 			}
 			const count = Object.keys(lights).length;
 			const names = Object.values(lights)
 				.map(l => `"${l.name}"`)
 				.join(', ');
-			this.log.info(`Discovered ${count} light(s): ${names}`);
+			this.log.info(`Discovered ${count} light(s)/plug(s): ${names}`);
 		} catch (err) {
 			this.log.error(`Light discovery failed: ${err.message}`);
 		}
@@ -311,6 +337,51 @@ class Tint extends utils.Adapter {
 		}
 	}
 
+	/**
+	 * Remove ioBroker objects under the lights/plugs/groups/remotes namespaces
+	 * that no longer correspond to anything deCONZ reported in the discovery
+	 * that just ran (e.g. a deleted light, a renamed/removed scene). Relies on
+	 * _lightMap/_plugMap/_groupMap/_remoteMap/_sceneMap having just been reset
+	 * and fully re-populated by _discoverLights/_discoverGroups/_discoverRemotes.
+	 */
+	async _reconcileObjectTree() {
+		try {
+			const expected = new Set([
+				...Object.keys(this._lightMap).map(id => `lights.${id}`),
+				...Object.keys(this._plugMap).map(id => `plugs.${id}`),
+				...Object.keys(this._groupMap).map(id => `groups.${id}`),
+				...Object.keys(this._remoteMap).map(id => `remotes.${id}`),
+			]);
+			const prefixes = ['lights.', 'plugs.', 'groups.', 'remotes.'];
+			const devices = await this.getDevicesAsync();
+			for (const dev of devices) {
+				const relId = dev._id.slice(this.namespace.length + 1);
+				if (!prefixes.some(p => relId.startsWith(p))) {
+					continue;
+				}
+				if (!expected.has(relId)) {
+					this.log.info(`Removing stale object tree "${relId}" (no longer present in deCONZ)`);
+					await this.delObjectAsync(relId, { recursive: true });
+				}
+			}
+
+			// Orphaned scene states inside groups we keep (renamed/deleted scenes)
+			for (const [groupId, sceneMap] of Object.entries(this._sceneMap)) {
+				const expectedScenes = new Set(Object.keys(sceneMap).map(name => name.replace(/[^a-zA-Z0-9_]/g, '_')));
+				const existing = await this.getStatesOfAsync(`groups.${groupId}`, 'scenes').catch(() => []);
+				for (const st of existing || []) {
+					const safeKey = st._id.split('.').pop();
+					if (!expectedScenes.has(safeKey)) {
+						this.log.info(`Removing stale scene state "${st._id}"`);
+						await this.delObjectAsync(st._id.slice(this.namespace.length + 1));
+					}
+				}
+			}
+		} catch (err) {
+			this.log.error(`Object tree reconciliation failed: ${err.message}`);
+		}
+	}
+
 	// ─────────────────────────────────────────────────────────────────────────
 	// Object creation
 	// ─────────────────────────────────────────────────────────────────────────
@@ -330,6 +401,23 @@ class Tint extends utils.Adapter {
 			await this.extendObjectAsync(`lights.${id}.${def.sub}`, buildStateObj(`lights.${id}`, def));
 		}
 		this.log.debug(`Objects for light ${id} ready`);
+	}
+
+	/**
+	 * Create all ioBroker objects for a smart plug/switch.
+	 *
+	 * @param {string} id - deCONZ light id
+	 * @param {object} light - deCONZ light object
+	 */
+	async _createPlugObjects(id, light) {
+		this.log.debug(`Creating/updating objects for plug ${id} ("${light.name}")`);
+		await this.extendObjectAsync(`plugs.${id}`, plugDevice(id, light.name));
+		await this.extendObjectAsync(`plugs.${id}.info`, plugInfoChannel(id));
+		await this.extendObjectAsync(`plugs.${id}.state`, plugStateChannel(id));
+		for (const def of PLUG_STATES) {
+			await this.extendObjectAsync(`plugs.${id}.${def.sub}`, buildStateObj(`plugs.${id}`, def));
+		}
+		this.log.debug(`Objects for plug ${id} ready`);
 	}
 
 	/**
@@ -452,6 +540,27 @@ class Tint extends utils.Adapter {
 	}
 
 	/**
+	 * Sync states of a single smart plug/switch from its deCONZ object.
+	 * Plugs only get info.* and state.on — no brightness/color support.
+	 *
+	 * @param {string} id - deCONZ light id
+	 * @param {object} light - deCONZ light object
+	 */
+	async _updatePlugStates(id, light) {
+		const s = light.state || {};
+		const p = `plugs.${id}`;
+
+		this.log.debug(`Syncing plug ${id} ("${light.name}"): on=${s.on}, reachable=${s.reachable}`);
+
+		await this._set(`${p}.info.name`, light.name);
+		await this._set(`${p}.info.modelid`, light.modelid || '');
+		await this._set(`${p}.info.manufacturer`, light.manufacturername || '');
+		await this._set(`${p}.info.reachable`, s.reachable ?? false);
+		await this._set(`${p}.info.uniqueid`, light.uniqueid || '');
+		await this._set(`${p}.state.on`, s.on ?? false);
+	}
+
+	/**
 	 * Sync all states of a single group from its deCONZ object.
 	 *
 	 * @param {string} id - deCONZ group id
@@ -532,8 +641,13 @@ class Tint extends utils.Adapter {
 
 		if (e === 'changed') {
 			if (r === 'lights' && state) {
-				this.log.debug(`WS light ${id} state changed: ${JSON.stringify(state)}`);
-				await this._applyLightStateUpdate(id, state);
+				if (this._plugMap[id]) {
+					this.log.debug(`WS plug ${id} state changed: ${JSON.stringify(state)}`);
+					await this._applyPlugStateUpdate(id, state);
+				} else {
+					this.log.debug(`WS light ${id} state changed: ${JSON.stringify(state)}`);
+					await this._applyLightStateUpdate(id, state);
+				}
 			} else if (r === 'groups') {
 				if (state) {
 					this.log.debug(`WS group ${id} state changed: ${JSON.stringify(state)}`);
@@ -610,6 +724,31 @@ class Tint extends utils.Adapter {
 		}
 		if (s.colorspeed !== undefined) {
 			await this._set(`${p}.state.effectSpeed`, s.colorspeed);
+		}
+	}
+
+	/**
+	 * Apply a partial plug state update received via WebSocket.
+	 * Plugs only get state.on and info.reachable — no brightness/color support.
+	 *
+	 * @param {string} id - deCONZ light id
+	 * @param {object} s - Partial state object
+	 */
+	async _applyPlugStateUpdate(id, s) {
+		if (!this._plugMap[id]) {
+			this.log.debug(`WS: plug ${id} not in plugMap — skipping state update`);
+			return;
+		}
+		const name = this._plugMap[id];
+		const p = `plugs.${id}`;
+		this.log.debug(`Applying WS state update for plug ${id} ("${name}"): ${JSON.stringify(s)}`);
+
+		if (s.on !== undefined) {
+			await this._set(`${p}.state.on`, s.on);
+		}
+		if (s.reachable !== undefined) {
+			this.log.debug(`Plug ${id} ("${name}") reachability changed: ${s.reachable}`);
+			await this._set(`${p}.info.reachable`, s.reachable);
 		}
 	}
 
@@ -858,7 +997,7 @@ class Tint extends utils.Adapter {
 		);
 
 		try {
-			if (resource === 'lights' && channel === 'state') {
+			if ((resource === 'lights' || resource === 'plugs') && channel === 'state') {
 				await this._handleLightCommand(deconzId, stateName, state.val);
 			} else if (resource === 'groups') {
 				if (channel === 'action') {
@@ -883,7 +1022,7 @@ class Tint extends utils.Adapter {
 	 */
 	async _handleLightCommand(lightId, stateName, val) {
 		const transitionTime = this.config.transitionTime ?? 4;
-		const name = this._lightMap[lightId] || `id=${lightId}`;
+		const name = this._lightMap[lightId] || this._plugMap[lightId] || `id=${lightId}`;
 		let body = {};
 
 		switch (stateName) {
@@ -1180,17 +1319,22 @@ class Tint extends utils.Adapter {
 	 */
 	async _pollAll() {
 		const lightCount = Object.keys(this._lightMap).length;
+		const plugCount = Object.keys(this._plugMap).length;
 		const groupCount = Object.keys(this._groupMap).length;
-		this.log.debug(`Fallback poll starting — ${lightCount} light(s), ${groupCount} group(s)`);
+		this.log.debug(`Fallback poll starting — ${lightCount} light(s), ${plugCount} plug(s), ${groupCount} group(s)`);
 		try {
 			const lights = await this._api.getLights();
 			let lightUpdated = 0;
+			let plugUpdated = 0;
 			for (const [id, light] of Object.entries(lights)) {
 				if (this._lightMap[id]) {
 					await this._updateLightStates(id, light);
 					lightUpdated++;
+				} else if (this._plugMap[id]) {
+					await this._updatePlugStates(id, light);
+					plugUpdated++;
 				} else {
-					this.log.debug(`Poll: light ${id} not in lightMap — skipping (run discovery first)`);
+					this.log.debug(`Poll: light ${id} not in lightMap/plugMap — skipping (run discovery first)`);
 				}
 			}
 			const groups = await this._api.getGroups();
@@ -1203,7 +1347,9 @@ class Tint extends utils.Adapter {
 					this.log.debug(`Poll: group ${id} not in groupMap — skipping (run discovery first)`);
 				}
 			}
-			this.log.debug(`Fallback poll complete — updated ${lightUpdated} light(s), ${groupUpdated} group(s)`);
+			this.log.debug(
+				`Fallback poll complete — updated ${lightUpdated} light(s), ${plugUpdated} plug(s), ${groupUpdated} group(s)`,
+			);
 		} catch (err) {
 			this.log.warn(
 				`Fallback poll failed: ${err.message} — ` + `will retry in ${this.config.pollingInterval || 60}s`,
