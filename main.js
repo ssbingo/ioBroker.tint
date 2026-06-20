@@ -10,7 +10,7 @@ const DeconzApi = require('./lib/deconz-api');
 const DeconzWebSocket = require('./lib/deconz-ws');
 const RemoteHandler = require('./lib/remote-handler');
 const { briToPercent, percentToBri, miredToKelvin, kelvinToMired, xyToHex, hexToXy } = require('./lib/color-utils');
-const { isPlug } = require('./lib/device-category');
+const { isPlug, isCover, isTintRemote } = require('./lib/device-category');
 const {
 	lightDevice,
 	lightInfoChannel,
@@ -32,6 +32,23 @@ const {
 	REMOTE_BUTTON_STATES,
 	REMOTE_COLORWHEEL_STATES,
 	REMOTE_COLORTEMP_STATES,
+	switchDevice,
+	switchChannel,
+	SWITCH_INFO_STATES,
+	SWITCH_BUTTON_STATES,
+	sensorDevice,
+	sensorChannel,
+	SENSOR_INFO_STATES,
+	SENSOR_VALUE_STATES,
+	SENSOR_GENERIC_VALUE_STATE,
+	coverDevice,
+	coverInfoChannel,
+	coverStateChannel,
+	COVER_STATES,
+	thermostatDevice,
+	thermostatInfoChannel,
+	thermostatStateChannel,
+	THERMOSTAT_STATES,
 	buildStateObj,
 } = require('./lib/objects');
 
@@ -53,8 +70,12 @@ class Tint extends utils.Adapter {
 
 		this._lightMap = {};
 		this._plugMap = {};
+		this._coverMap = {};
 		this._groupMap = {};
 		this._remoteMap = {};
+		this._switchMap = {};
+		this._sensorMap = {};
+		this._thermostatMap = {};
 		this._sceneMap = {};
 
 		this.on('ready', this.onReady.bind(this));
@@ -157,10 +178,13 @@ class Tint extends utils.Adapter {
 		this._ws.connect();
 
 		this.log.info(
-			'Subscribing to state changes: lights.*.state.*, plugs.*.state.*, groups.*.action.*, groups.*.scenes.*',
+			'Subscribing to state changes: lights.*.state.*, plugs.*.state.*, covers.*.state.*, ' +
+				'thermostats.*.state.setpoint, groups.*.action.*, groups.*.scenes.*',
 		);
 		await this.subscribeStatesAsync('lights.*.state.*');
 		await this.subscribeStatesAsync('plugs.*.state.*');
+		await this.subscribeStatesAsync('covers.*.state.*');
+		await this.subscribeStatesAsync('thermostats.*.state.setpoint');
 		await this.subscribeStatesAsync('groups.*.action.*');
 		await this.subscribeStatesAsync('groups.*.scenes.*');
 
@@ -217,8 +241,12 @@ class Tint extends utils.Adapter {
 		// exactly what deCONZ reports right now.
 		this._lightMap = {};
 		this._plugMap = {};
+		this._coverMap = {};
 		this._groupMap = {};
 		this._remoteMap = {};
+		this._switchMap = {};
+		this._sensorMap = {};
+		this._thermostatMap = {};
 		this._sceneMap = {};
 		await this._discoverLights();
 		await this._discoverGroups();
@@ -228,22 +256,27 @@ class Tint extends utils.Adapter {
 			`Discovery complete: ` +
 				`${Object.keys(this._lightMap).length} light(s), ` +
 				`${Object.keys(this._plugMap).length} plug(s), ` +
+				`${Object.keys(this._coverMap).length} cover(s), ` +
 				`${Object.keys(this._groupMap).length} group(s), ` +
-				`${Object.keys(this._remoteMap).length} remote(s)`,
+				`${Object.keys(this._remoteMap).length} remote(s), ` +
+				`${Object.keys(this._switchMap).length} switch(es), ` +
+				`${Object.keys(this._sensorMap).length} sensor(s), ` +
+				`${Object.keys(this._thermostatMap).length} thermostat(s)`,
 		);
 	}
 
 	/**
-	 * Discover all lights and smart plugs, creating their state objects under
-	 * lights.* or plugs.* respectively.
+	 * Discover all lights, smart plugs, and window coverings, creating their
+	 * state objects under lights.*, plugs.*, or covers.* respectively.
 	 */
 	async _discoverLights() {
 		try {
 			this.log.debug('Discovering lights...');
 			const lights = await this._api.getLights();
 			for (const [id, light] of Object.entries(lights)) {
+				const category = isPlug(light) ? 'Plug' : isCover(light) ? 'Cover' : 'Light';
 				this.log.debug(
-					`  ${isPlug(light) ? 'Plug' : 'Light'} ${id}: "${light.name}" — ` +
+					`  ${category} ${id}: "${light.name}" — ` +
 						`model=${light.modelid || 'unknown'}, ` +
 						`manufacturer=${light.manufacturername || 'unknown'}, ` +
 						`reachable=${light.state?.reachable}, ` +
@@ -254,6 +287,10 @@ class Tint extends utils.Adapter {
 					this._plugMap[id] = light.name;
 					await this._createPlugObjects(id, light);
 					await this._updatePlugStates(id, light);
+				} else if (isCover(light)) {
+					this._coverMap[id] = light.name;
+					await this._createCoverObjects(id, light);
+					await this._updateCoverStates(id, light);
 				} else {
 					this._lightMap[id] = light.name;
 					await this._createLightObjects(id, light);
@@ -264,7 +301,7 @@ class Tint extends utils.Adapter {
 			const names = Object.values(lights)
 				.map(l => `"${l.name}"`)
 				.join(', ');
-			this.log.info(`Discovered ${count} light(s)/plug(s): ${names}`);
+			this.log.info(`Discovered ${count} light(s)/plug(s)/cover(s): ${names}`);
 		} catch (err) {
 			this.log.error(`Light discovery failed: ${err.message}`);
 		}
@@ -306,53 +343,90 @@ class Tint extends utils.Adapter {
 	}
 
 	/**
-	 * Discover all sensors (remotes) and create state objects.
+	 * Discover all sensors and create state objects: Tint remotes (remotes.*),
+	 * generic Zigbee switches (switches.*), thermostats (thermostats.*), and
+	 * everything else as a read-only sensor (sensors.*).
 	 */
 	async _discoverRemotes() {
 		try {
-			this.log.debug('Discovering remote sensors...');
+			this.log.debug('Discovering sensors...');
 			const sensors = await this._api.getSensors();
 			for (const [id, sensor] of Object.entries(sensors)) {
-				if (!sensor.type || !sensor.type.includes('Switch')) {
-					this.log.debug(`  Sensor ${id}: "${sensor.name}" type="${sensor.type}" — not a Switch, skipping`);
-					continue;
+				if (sensor.type === 'ZHAThermostat') {
+					this._thermostatMap[id] = sensor.name;
+					this.log.debug(`  Thermostat ${id}: "${sensor.name}" — battery=${sensor.config?.battery}%`);
+					await this._createThermostatObjects(id, sensor);
+					await this._updateThermostatStates(id, sensor);
+				} else if (sensor.type && sensor.type.includes('Switch')) {
+					if (isTintRemote(sensor)) {
+						this._remoteMap[id] = sensor.name;
+						this.log.debug(
+							`  Remote ${id}: "${sensor.name}" — ` +
+								`type=${sensor.type}, ` +
+								`battery=${sensor.config?.battery}%, ` +
+								`reachable=${sensor.config?.reachable}`,
+						);
+						await this._createRemoteObjects(id, sensor);
+						await this._updateRemoteInfo(id, sensor);
+					} else {
+						this._switchMap[id] = sensor.name;
+						this.log.debug(
+							`  Switch ${id}: "${sensor.name}" — ` +
+								`type=${sensor.type}, manufacturer=${sensor.manufacturername || 'unknown'}`,
+						);
+						await this._createSwitchObjects(id, sensor);
+						await this._updateSwitchInfo(id, sensor);
+					}
+				} else {
+					this._sensorMap[id] = sensor.name;
+					this.log.debug(`  Sensor ${id}: "${sensor.name}" — type=${sensor.type}`);
+					await this._createSensorObjects(id, sensor);
+					await this._updateSensorStates(id, sensor);
 				}
-				this._remoteMap[id] = sensor.name;
-				this.log.debug(
-					`  Remote ${id}: "${sensor.name}" — ` +
-						`type=${sensor.type}, ` +
-						`battery=${sensor.config?.battery}%, ` +
-						`reachable=${sensor.config?.reachable}`,
-				);
-				await this._createRemoteObjects(id, sensor);
-				await this._updateRemoteInfo(id, sensor);
 			}
-			const count = Object.keys(this._remoteMap).length;
-			const names = Object.values(this._remoteMap)
-				.map(n => `"${n}"`)
-				.join(', ');
-			this.log.info(`Discovered ${count} remote(s): ${names || '(none)'}`);
+			const count = Object.keys(sensors).length;
+			this.log.info(
+				`Discovered ${count} sensor(s) total: ` +
+					`${Object.keys(this._remoteMap).length} remote(s), ` +
+					`${Object.keys(this._switchMap).length} switch(es), ` +
+					`${Object.keys(this._sensorMap).length} sensor(s), ` +
+					`${Object.keys(this._thermostatMap).length} thermostat(s)`,
+			);
 		} catch (err) {
-			this.log.error(`Remote discovery failed: ${err.message}`);
+			this.log.error(`Sensor discovery failed: ${err.message}`);
 		}
 	}
 
 	/**
-	 * Remove ioBroker objects under the lights/plugs/groups/remotes namespaces
-	 * that no longer correspond to anything deCONZ reported in the discovery
-	 * that just ran (e.g. a deleted light, a renamed/removed scene). Relies on
-	 * _lightMap/_plugMap/_groupMap/_remoteMap/_sceneMap having just been reset
-	 * and fully re-populated by _discoverLights/_discoverGroups/_discoverRemotes.
+	 * Remove ioBroker objects under the lights/plugs/covers/groups/remotes/
+	 * switches/sensors/thermostats namespaces that no longer correspond to
+	 * anything deCONZ reported in the discovery that just ran (e.g. a deleted
+	 * light, a renamed/removed scene). Relies on all the _xxxMap fields having
+	 * just been reset and fully re-populated by _discoverLights/
+	 * _discoverGroups/_discoverRemotes.
 	 */
 	async _reconcileObjectTree() {
 		try {
 			const expected = new Set([
 				...Object.keys(this._lightMap).map(id => `lights.${id}`),
 				...Object.keys(this._plugMap).map(id => `plugs.${id}`),
+				...Object.keys(this._coverMap).map(id => `covers.${id}`),
 				...Object.keys(this._groupMap).map(id => `groups.${id}`),
 				...Object.keys(this._remoteMap).map(id => `remotes.${id}`),
+				...Object.keys(this._switchMap).map(id => `switches.${id}`),
+				...Object.keys(this._sensorMap).map(id => `sensors.${id}`),
+				...Object.keys(this._thermostatMap).map(id => `thermostats.${id}`),
 			]);
-			const prefixes = ['lights.', 'plugs.', 'groups.', 'remotes.'];
+			const prefixes = [
+				'lights.',
+				'plugs.',
+				'covers.',
+				'groups.',
+				'remotes.',
+				'switches.',
+				'sensors.',
+				'thermostats.',
+			];
 			const devices = await this.getDevicesAsync();
 			for (const dev of devices) {
 				const relId = dev._id.slice(this.namespace.length + 1);
@@ -421,6 +495,23 @@ class Tint extends utils.Adapter {
 	}
 
 	/**
+	 * Create all ioBroker objects for a window covering motor.
+	 *
+	 * @param {string} id - deCONZ light id
+	 * @param {object} light - deCONZ light object
+	 */
+	async _createCoverObjects(id, light) {
+		this.log.debug(`Creating/updating objects for cover ${id} ("${light.name}")`);
+		await this.extendObjectAsync(`covers.${id}`, coverDevice(id, light.name));
+		await this.extendObjectAsync(`covers.${id}.info`, coverInfoChannel(id));
+		await this.extendObjectAsync(`covers.${id}.state`, coverStateChannel(id));
+		for (const def of COVER_STATES) {
+			await this.extendObjectAsync(`covers.${id}.${def.sub}`, buildStateObj(`covers.${id}`, def));
+		}
+		this.log.debug(`Objects for cover ${id} ready`);
+	}
+
+	/**
 	 * Create all ioBroker objects for a group including scene boolean states.
 	 *
 	 * @param {string} id - deCONZ group id
@@ -485,6 +576,60 @@ class Tint extends utils.Adapter {
 			await this.extendObjectAsync(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
 		}
 		this.log.debug(`Objects for remote ${id} ready`);
+	}
+
+	/**
+	 * Create all ioBroker objects for a generic (non-Tint) Zigbee switch.
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} sensor - deCONZ sensor object
+	 */
+	async _createSwitchObjects(id, sensor) {
+		this.log.debug(`Creating/updating objects for switch ${id} ("${sensor.name}")`);
+		await this.extendObjectAsync(`switches.${id}`, switchDevice(id, sensor.name));
+		await this.extendObjectAsync(`switches.${id}.info`, switchChannel(id, 'info', 'Info'));
+		await this.extendObjectAsync(`switches.${id}.button`, switchChannel(id, 'button', 'Button'));
+		for (const def of [...SWITCH_INFO_STATES, ...SWITCH_BUTTON_STATES]) {
+			await this.extendObjectAsync(`switches.${id}.${def.sub}`, buildStateObj(`switches.${id}`, def));
+		}
+		this.log.debug(`Objects for switch ${id} ready`);
+	}
+
+	/**
+	 * Create all ioBroker objects for a generic sensor. Only the value
+	 * state(s) relevant to this sensor's deCONZ "type" get created — unknown
+	 * types fall back to a single generic raw-value state.
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} sensor - deCONZ sensor object
+	 */
+	async _createSensorObjects(id, sensor) {
+		this.log.debug(`Creating/updating objects for sensor ${id} ("${sensor.name}")`);
+		await this.extendObjectAsync(`sensors.${id}`, sensorDevice(id, sensor.name));
+		await this.extendObjectAsync(`sensors.${id}.info`, sensorChannel(id, 'info', 'Info'));
+		await this.extendObjectAsync(`sensors.${id}.value`, sensorChannel(id, 'value', 'Value'));
+		const valueStates = SENSOR_VALUE_STATES[sensor.type] || [SENSOR_GENERIC_VALUE_STATE];
+		for (const def of [...SENSOR_INFO_STATES, ...valueStates]) {
+			await this.extendObjectAsync(`sensors.${id}.${def.sub}`, buildStateObj(`sensors.${id}`, def));
+		}
+		this.log.debug(`Objects for sensor ${id} ready (type=${sensor.type})`);
+	}
+
+	/**
+	 * Create all ioBroker objects for a thermostat.
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} sensor - deCONZ sensor object
+	 */
+	async _createThermostatObjects(id, sensor) {
+		this.log.debug(`Creating/updating objects for thermostat ${id} ("${sensor.name}")`);
+		await this.extendObjectAsync(`thermostats.${id}`, thermostatDevice(id, sensor.name));
+		await this.extendObjectAsync(`thermostats.${id}.info`, thermostatInfoChannel(id));
+		await this.extendObjectAsync(`thermostats.${id}.state`, thermostatStateChannel(id));
+		for (const def of THERMOSTAT_STATES) {
+			await this.extendObjectAsync(`thermostats.${id}.${def.sub}`, buildStateObj(`thermostats.${id}`, def));
+		}
+		this.log.debug(`Objects for thermostat ${id} ready`);
 	}
 
 	// ─────────────────────────────────────────────────────────────────────────
@@ -561,6 +706,29 @@ class Tint extends utils.Adapter {
 	}
 
 	/**
+	 * Sync states of a single window covering from its deCONZ object.
+	 * deCONZ's "lift" is the percentage CLOSED (0=open, 100=closed); ioBroker's
+	 * level.blind role is the opposite (0=closed, 100=open), hence 100-lift.
+	 *
+	 * @param {string} id - deCONZ light id
+	 * @param {object} light - deCONZ light object
+	 */
+	async _updateCoverStates(id, light) {
+		const s = light.state || {};
+		const p = `covers.${id}`;
+		const position = s.lift !== undefined ? 100 - s.lift : s.open ? 100 : 0;
+
+		this.log.debug(`Syncing cover ${id} ("${light.name}"): lift=${s.lift}, open=${s.open}, position=${position}`);
+
+		await this._set(`${p}.info.name`, light.name);
+		await this._set(`${p}.info.modelid`, light.modelid || '');
+		await this._set(`${p}.info.manufacturer`, light.manufacturername || '');
+		await this._set(`${p}.info.reachable`, s.reachable ?? false);
+		await this._set(`${p}.info.uniqueid`, light.uniqueid || '');
+		await this._set(`${p}.state.position`, position);
+	}
+
+	/**
 	 * Sync all states of a single group from its deCONZ object.
 	 *
 	 * @param {string} id - deCONZ group id
@@ -621,6 +789,141 @@ class Tint extends utils.Adapter {
 		}
 	}
 
+	/**
+	 * Sync info states of a generic (non-Tint) Zigbee switch.
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} sensor - deCONZ sensor object
+	 */
+	async _updateSwitchInfo(id, sensor) {
+		const p = `switches.${id}`;
+
+		this.log.debug(
+			`Syncing switch ${id} ("${sensor.name}"): ` +
+				`reachable=${sensor.config?.reachable}, buttonevent=${sensor.state?.buttonevent}`,
+		);
+
+		await this._set(`${p}.info.name`, sensor.name);
+		await this._set(`${p}.info.reachable`, sensor.config?.reachable ?? false);
+		if (sensor.config?.battery !== undefined) {
+			await this._set(`${p}.info.battery`, sensor.config.battery);
+		}
+		if (sensor.lastseen) {
+			await this._set(`${p}.info.lastSeen`, sensor.lastseen);
+		}
+		if (sensor.state?.buttonevent !== undefined) {
+			await this._set(`${p}.button.lastEvent`, sensor.state.buttonevent);
+		}
+	}
+
+	/**
+	 * Sync states of a generic sensor from its deCONZ object. Only the
+	 * value(s) relevant to its type are written — see SENSOR_VALUE_STATES in
+	 * lib/objects.js for the type → state mapping and the scaling notes
+	 * there (deCONZ reports temperature/humidity in hundredths, etc.).
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} sensor - deCONZ sensor object
+	 */
+	async _updateSensorStates(id, sensor) {
+		const s = sensor.state || {};
+		const p = `sensors.${id}`;
+
+		this.log.debug(`Syncing sensor ${id} ("${sensor.name}"): type=${sensor.type}, state=${JSON.stringify(s)}`);
+
+		await this._set(`${p}.info.name`, sensor.name);
+		await this._set(`${p}.info.reachable`, sensor.config?.reachable ?? false);
+		if (sensor.config?.battery !== undefined) {
+			await this._set(`${p}.info.battery`, sensor.config.battery);
+		}
+		if (sensor.lastseen) {
+			await this._set(`${p}.info.lastSeen`, sensor.lastseen);
+		}
+
+		switch (sensor.type) {
+			case 'ZHATemperature':
+				if (s.temperature !== undefined) {
+					await this._set(`${p}.value.temperature`, s.temperature / 100);
+				}
+				break;
+			case 'ZHAHumidity':
+				if (s.humidity !== undefined) {
+					await this._set(`${p}.value.humidity`, s.humidity / 100);
+				}
+				break;
+			case 'ZHAPressure':
+				if (s.pressure !== undefined) {
+					await this._set(`${p}.value.pressure`, s.pressure);
+				}
+				break;
+			case 'ZHAOpenClose':
+				if (s.open !== undefined) {
+					await this._set(`${p}.value.open`, s.open);
+				}
+				break;
+			case 'ZHAPresence':
+				if (s.presence !== undefined) {
+					await this._set(`${p}.value.presence`, s.presence);
+				}
+				break;
+			case 'ZHALightLevel': {
+				let lux = s.lux;
+				if (lux === undefined && s.lightlevel !== undefined) {
+					lux = Math.round(Math.pow(10, (s.lightlevel - 1) / 10000));
+				}
+				if (lux !== undefined) {
+					await this._set(`${p}.value.brightness`, lux);
+				}
+				break;
+			}
+			case 'ZHAPower':
+				if (s.power !== undefined) {
+					await this._set(`${p}.value.power`, s.power);
+				}
+				break;
+			case 'ZHAConsumption':
+				if (s.consumption !== undefined) {
+					await this._set(`${p}.value.consumption`, s.consumption / 1000);
+				}
+				break;
+			default:
+				await this._set(`${p}.value.raw`, JSON.stringify(s));
+		}
+	}
+
+	/**
+	 * Sync states of a single thermostat from its deCONZ object. deCONZ
+	 * reports temperature/heatsetpoint in hundredths of a degree Celsius.
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} sensor - deCONZ sensor object
+	 */
+	async _updateThermostatStates(id, sensor) {
+		const s = sensor.state || {};
+		const c = sensor.config || {};
+		const p = `thermostats.${id}`;
+
+		this.log.debug(
+			`Syncing thermostat ${id} ("${sensor.name}"): ` +
+				`temperature=${s.temperature}, valve=${s.valve}, heatsetpoint=${c.heatsetpoint}`,
+		);
+
+		await this._set(`${p}.info.name`, sensor.name);
+		await this._set(`${p}.info.reachable`, c.reachable ?? false);
+		if (c.battery !== undefined) {
+			await this._set(`${p}.info.battery`, c.battery);
+		}
+		if (s.temperature !== undefined) {
+			await this._set(`${p}.state.temperature`, s.temperature / 100);
+		}
+		if (s.valve !== undefined) {
+			await this._set(`${p}.state.valve`, s.valve);
+		}
+		if (c.heatsetpoint !== undefined) {
+			await this._set(`${p}.state.setpoint`, c.heatsetpoint / 100);
+		}
+	}
+
 	// ─────────────────────────────────────────────────────────────────────────
 	// WebSocket event handler
 	// ─────────────────────────────────────────────────────────────────────────
@@ -644,6 +947,9 @@ class Tint extends utils.Adapter {
 				if (this._plugMap[id]) {
 					this.log.debug(`WS plug ${id} state changed: ${JSON.stringify(state)}`);
 					await this._applyPlugStateUpdate(id, state);
+				} else if (this._coverMap[id]) {
+					this.log.debug(`WS cover ${id} state changed: ${JSON.stringify(state)}`);
+					await this._applyCoverStateUpdate(id, state);
 				} else {
 					this.log.debug(`WS light ${id} state changed: ${JSON.stringify(state)}`);
 					await this._applyLightStateUpdate(id, state);
@@ -660,9 +966,32 @@ class Tint extends utils.Adapter {
 				if (!state && !action) {
 					this.log.debug(`WS group ${id} changed event has no state or action payload — skipping`);
 				}
-			} else if (r === 'sensors' && state && state.buttonevent !== undefined) {
-				this.log.debug(`WS sensor ${id} button event: ${state.buttonevent} — dispatching to RemoteHandler`);
-				await this._remote.handleEvent(id, state, config, attr);
+			} else if (r === 'sensors') {
+				if (this._remoteMap[id] && state && state.buttonevent !== undefined) {
+					this.log.debug(`WS remote ${id} button event: ${state.buttonevent} — dispatching to RemoteHandler`);
+					await this._remote.handleEvent(id, state, config, attr);
+				} else if (this._switchMap[id] && state && state.buttonevent !== undefined) {
+					this.log.debug(`WS switch ${id} button event: ${state.buttonevent}`);
+					await this._set(`switches.${id}.button.lastEvent`, state.buttonevent);
+				} else if (this._thermostatMap[id] && (state || config)) {
+					this.log.debug(
+						`WS thermostat ${id} changed: state=${JSON.stringify(state)} config=${JSON.stringify(config)}`,
+					);
+					if (state?.temperature !== undefined) {
+						await this._set(`thermostats.${id}.state.temperature`, state.temperature / 100);
+					}
+					if (state?.valve !== undefined) {
+						await this._set(`thermostats.${id}.state.valve`, state.valve);
+					}
+					if (config?.heatsetpoint !== undefined) {
+						await this._set(`thermostats.${id}.state.setpoint`, config.heatsetpoint / 100);
+					}
+				} else if (this._sensorMap[id] && state) {
+					this.log.debug(`WS sensor ${id} state changed: ${JSON.stringify(state)}`);
+					await this._applySensorStateUpdate(id, state);
+				} else {
+					this.log.debug(`WS sensor ${id} changed event has no relevant payload — skipping`);
+				}
 			} else {
 				this.log.debug(`WS changed event for r="${r}" id="${id}" has no relevant payload — skipping`);
 			}
@@ -749,6 +1078,70 @@ class Tint extends utils.Adapter {
 		if (s.reachable !== undefined) {
 			this.log.debug(`Plug ${id} ("${name}") reachability changed: ${s.reachable}`);
 			await this._set(`${p}.info.reachable`, s.reachable);
+		}
+	}
+
+	/**
+	 * Apply a partial cover state update received via WebSocket.
+	 *
+	 * @param {string} id - deCONZ light id
+	 * @param {object} s - Partial state object
+	 */
+	async _applyCoverStateUpdate(id, s) {
+		if (!this._coverMap[id]) {
+			this.log.debug(`WS: cover ${id} not in coverMap — skipping state update`);
+			return;
+		}
+		const name = this._coverMap[id];
+		const p = `covers.${id}`;
+		this.log.debug(`Applying WS state update for cover ${id} ("${name}"): ${JSON.stringify(s)}`);
+
+		if (s.lift !== undefined) {
+			await this._set(`${p}.state.position`, 100 - s.lift);
+		} else if (s.open !== undefined) {
+			await this._set(`${p}.state.position`, s.open ? 100 : 0);
+		}
+		if (s.reachable !== undefined) {
+			await this._set(`${p}.info.reachable`, s.reachable);
+		}
+	}
+
+	/**
+	 * Apply a partial sensor state update received via WebSocket. Field
+	 * names already uniquely identify the metric, so no need to know the
+	 * sensor's deCONZ "type" here — see lib/objects.js#SENSOR_VALUE_STATES
+	 * for the same field→state mapping used at discovery time.
+	 *
+	 * @param {string} id - deCONZ sensor id
+	 * @param {object} s - Partial state object
+	 */
+	async _applySensorStateUpdate(id, s) {
+		const p = `sensors.${id}`;
+		if (s.temperature !== undefined) {
+			await this._set(`${p}.value.temperature`, s.temperature / 100);
+		}
+		if (s.humidity !== undefined) {
+			await this._set(`${p}.value.humidity`, s.humidity / 100);
+		}
+		if (s.pressure !== undefined) {
+			await this._set(`${p}.value.pressure`, s.pressure);
+		}
+		if (s.open !== undefined) {
+			await this._set(`${p}.value.open`, s.open);
+		}
+		if (s.presence !== undefined) {
+			await this._set(`${p}.value.presence`, s.presence);
+		}
+		if (s.power !== undefined) {
+			await this._set(`${p}.value.power`, s.power);
+		}
+		if (s.consumption !== undefined) {
+			await this._set(`${p}.value.consumption`, s.consumption / 1000);
+		}
+		if (s.lux !== undefined) {
+			await this._set(`${p}.value.brightness`, s.lux);
+		} else if (s.lightlevel !== undefined) {
+			await this._set(`${p}.value.brightness`, Math.round(Math.pow(10, (s.lightlevel - 1) / 10000)));
 		}
 	}
 
@@ -999,6 +1392,10 @@ class Tint extends utils.Adapter {
 		try {
 			if ((resource === 'lights' || resource === 'plugs') && channel === 'state') {
 				await this._handleLightCommand(deconzId, stateName, state.val);
+			} else if (resource === 'covers' && channel === 'state') {
+				await this._handleCoverCommand(deconzId, stateName, state.val);
+			} else if (resource === 'thermostats' && channel === 'state') {
+				await this._handleThermostatCommand(deconzId, stateName, state.val);
 			} else if (resource === 'groups') {
 				if (channel === 'action') {
 					await this._handleGroupCommand(deconzId, stateName, state.val);
@@ -1088,6 +1485,63 @@ class Tint extends utils.Adapter {
 
 		this.log.debug(`Light ${lightId} ("${name}"): PUT /lights/${lightId}/state ${JSON.stringify(body)}`);
 		await this._api.setLightState(lightId, body);
+	}
+
+	/**
+	 * Send a command to a window covering. Covers are technically /lights
+	 * entries in deCONZ, so this reuses setLightState — only the ioBroker
+	 * state names and the lift/position conversion differ from real lights.
+	 *
+	 * @param {string} coverId - deCONZ light id
+	 * @param {string} stateName - State name e.g. "position", "stop"
+	 * @param {unknown} val - New value
+	 */
+	async _handleCoverCommand(coverId, stateName, val) {
+		const name = this._coverMap[coverId] || `id=${coverId}`;
+		let body = {};
+
+		switch (stateName) {
+			case 'position': {
+				const lift = 100 - Number(val);
+				body = { lift };
+				this.log.info(`Cover ${coverId} ("${name}"): position → ${val}% (lift=${lift})`);
+				break;
+			}
+			case 'stop':
+				if (!val) {
+					this.log.debug(`Cover ${coverId} ("${name}"): stop set to false — no action`);
+					return;
+				}
+				body = { stop: true };
+				this.log.info(`Cover ${coverId} ("${name}"): stop`);
+				break;
+			default:
+				this.log.warn(`Cover ${coverId} ("${name}"): unknown state "${stateName}" — no API call made`);
+				return;
+		}
+
+		this.log.debug(`Cover ${coverId} ("${name}"): PUT /lights/${coverId}/state ${JSON.stringify(body)}`);
+		await this._api.setLightState(coverId, body);
+	}
+
+	/**
+	 * Send a command to a thermostat. deCONZ exposes the heating setpoint via
+	 * config, not state — see DeconzApi.setSensorConfig().
+	 *
+	 * @param {string} thermostatId - deCONZ sensor id
+	 * @param {string} stateName - State name e.g. "setpoint"
+	 * @param {unknown} val - New value
+	 */
+	async _handleThermostatCommand(thermostatId, stateName, val) {
+		const name = this._thermostatMap[thermostatId] || `id=${thermostatId}`;
+
+		if (stateName !== 'setpoint') {
+			this.log.warn(`Thermostat ${thermostatId} ("${name}"): unknown state "${stateName}" — no API call made`);
+			return;
+		}
+		const heatsetpoint = Math.round(Math.max(5, Math.min(32, Number(val))) * 100);
+		this.log.info(`Thermostat ${thermostatId} ("${name}"): setpoint → ${val}°C (heatsetpoint=${heatsetpoint})`);
+		await this._api.setSensorConfig(thermostatId, { heatsetpoint });
 	}
 
 	/**
@@ -1320,12 +1774,19 @@ class Tint extends utils.Adapter {
 	async _pollAll() {
 		const lightCount = Object.keys(this._lightMap).length;
 		const plugCount = Object.keys(this._plugMap).length;
+		const coverCount = Object.keys(this._coverMap).length;
 		const groupCount = Object.keys(this._groupMap).length;
-		this.log.debug(`Fallback poll starting — ${lightCount} light(s), ${plugCount} plug(s), ${groupCount} group(s)`);
+		const sensorCount = Object.keys(this._sensorMap).length;
+		const thermostatCount = Object.keys(this._thermostatMap).length;
+		this.log.debug(
+			`Fallback poll starting — ${lightCount} light(s), ${plugCount} plug(s), ${coverCount} cover(s), ` +
+				`${groupCount} group(s), ${sensorCount} sensor(s), ${thermostatCount} thermostat(s)`,
+		);
 		try {
 			const lights = await this._api.getLights();
 			let lightUpdated = 0;
 			let plugUpdated = 0;
+			let coverUpdated = 0;
 			for (const [id, light] of Object.entries(lights)) {
 				if (this._lightMap[id]) {
 					await this._updateLightStates(id, light);
@@ -1333,8 +1794,13 @@ class Tint extends utils.Adapter {
 				} else if (this._plugMap[id]) {
 					await this._updatePlugStates(id, light);
 					plugUpdated++;
+				} else if (this._coverMap[id]) {
+					await this._updateCoverStates(id, light);
+					coverUpdated++;
 				} else {
-					this.log.debug(`Poll: light ${id} not in lightMap/plugMap — skipping (run discovery first)`);
+					this.log.debug(
+						`Poll: light ${id} not in lightMap/plugMap/coverMap — skipping (run discovery first)`,
+					);
 				}
 			}
 			const groups = await this._api.getGroups();
@@ -1347,8 +1813,22 @@ class Tint extends utils.Adapter {
 					this.log.debug(`Poll: group ${id} not in groupMap — skipping (run discovery first)`);
 				}
 			}
+			const sensors = await this._api.getSensors();
+			let sensorUpdated = 0;
+			let thermostatUpdated = 0;
+			for (const [id, sensor] of Object.entries(sensors)) {
+				if (this._sensorMap[id]) {
+					await this._updateSensorStates(id, sensor);
+					sensorUpdated++;
+				} else if (this._thermostatMap[id]) {
+					await this._updateThermostatStates(id, sensor);
+					thermostatUpdated++;
+				}
+			}
 			this.log.debug(
-				`Fallback poll complete — updated ${lightUpdated} light(s), ${plugUpdated} plug(s), ${groupUpdated} group(s)`,
+				`Fallback poll complete — updated ${lightUpdated} light(s), ${plugUpdated} plug(s), ` +
+					`${coverUpdated} cover(s), ${groupUpdated} group(s), ${sensorUpdated} sensor(s), ` +
+					`${thermostatUpdated} thermostat(s)`,
 			);
 		} catch (err) {
 			this.log.warn(
