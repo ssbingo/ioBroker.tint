@@ -228,6 +228,102 @@
 					"sm": 12
 				}
 			}
+		},
+		"tabCovers": {
+			"type": "panel",
+			"label": "tabCovers",
+			"items": {
+				"coversDesc": {
+					"type": "staticText",
+					"text": "descCoversTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"coversDivider": {
+					"type": "divider",
+					"sm": 12
+				},
+				"coversPanel": {
+					"type": "custom",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/CoversPanel",
+					"bundlerType": "module",
+					"newLine": true,
+					"sm": 12
+				}
+			}
+		},
+		"tabSwitches": {
+			"type": "panel",
+			"label": "tabSwitches",
+			"items": {
+				"switchesDesc": {
+					"type": "staticText",
+					"text": "descSwitchesTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"switchesDivider": {
+					"type": "divider",
+					"sm": 12
+				},
+				"switchesPanel": {
+					"type": "custom",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/SwitchesPanel",
+					"bundlerType": "module",
+					"newLine": true,
+					"sm": 12
+				}
+			}
+		},
+		"tabSensors": {
+			"type": "panel",
+			"label": "tabSensors",
+			"items": {
+				"sensorsDesc": {
+					"type": "staticText",
+					"text": "descSensorsTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"sensorsDivider": {
+					"type": "divider",
+					"sm": 12
+				},
+				"sensorsPanel": {
+					"type": "custom",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/SensorsPanel",
+					"bundlerType": "module",
+					"newLine": true,
+					"sm": 12
+				}
+			}
+		},
+		"tabThermostats": {
+			"type": "panel",
+			"label": "tabThermostats",
+			"items": {
+				"thermostatsDesc": {
+					"type": "staticText",
+					"text": "descThermostatsTab",
+					"newLine": true,
+					"sm": 12
+				},
+				"thermostatsDivider": {
+					"type": "divider",
+					"sm": 12
+				},
+				"thermostatsPanel": {
+					"type": "custom",
+					"url": "build/customComponents.js",
+					"name": "tintComponents/Components/ThermostatsPanel",
+					"bundlerType": "module",
+					"newLine": true,
+					"sm": 12
+				}
+			}
 		}
 	}
 }

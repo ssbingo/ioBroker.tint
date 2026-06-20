@@ -1301,6 +1301,11 @@ class Tint extends utils.Adapter {
 					respond({ groups: await this._api.getGroups() });
 					break;
 
+				case 'getSensors':
+					this.log.debug('Admin: returning sensor list');
+					respond({ sensors: await this._api.getSensors() });
+					break;
+
 				case 'createGroup': {
 					this.log.info(
 						`Admin: create group command — name="${obj.message.name}", ` +
