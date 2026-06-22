@@ -66,6 +66,7 @@ class Tint extends utils.Adapter {
 		this._ws = null;
 		this._remote = null;
 		this._pollTimer = null;
+		this._rediscoverTimer = null;
 		this._stopped = false;
 
 		this._lightMap = {};
@@ -217,6 +218,11 @@ class Tint extends utils.Adapter {
 				this.clearTimeout(this._pollTimer);
 				this._pollTimer = null;
 			}
+			if (this._rediscoverTimer) {
+				this.log.debug('Clearing pending re-discovery timer');
+				this.clearTimeout(this._rediscoverTimer);
+				this._rediscoverTimer = null;
+			}
 
 			this.setState('info.connection', false, true);
 			this.log.info('Adapter stopped — all resources cleaned up');
@@ -235,6 +241,7 @@ class Tint extends utils.Adapter {
 	 * Discover all deCONZ resources and create ioBroker objects.
 	 */
 	async _discoverAll() {
+		const startedAt = Date.now();
 		this.log.debug('Starting full device discovery (lights → groups → remotes)');
 		// Reset before re-populating so removed devices/groups/scenes don't
 		// linger in memory — _reconcileObjectTree() relies on these reflecting
@@ -252,8 +259,9 @@ class Tint extends utils.Adapter {
 		await this._discoverGroups();
 		await this._discoverRemotes();
 		await this._reconcileObjectTree();
+		const elapsedMs = Date.now() - startedAt;
 		this.log.info(
-			`Discovery complete: ` +
+			`Discovery complete in ${elapsedMs} ms: ` +
 				`${Object.keys(this._lightMap).length} light(s), ` +
 				`${Object.keys(this._plugMap).length} plug(s), ` +
 				`${Object.keys(this._coverMap).length} cover(s), ` +
@@ -263,6 +271,12 @@ class Tint extends utils.Adapter {
 				`${Object.keys(this._sensorMap).length} sensor(s), ` +
 				`${Object.keys(this._thermostatMap).length} thermostat(s)`,
 		);
+		if (elapsedMs > 3000) {
+			this.log.warn(
+				`Discovery took ${elapsedMs} ms — unusually slow. This can momentarily strain the ioBroker ` +
+					'host (large objects-DB write burst) and is worth investigating if it happens repeatedly.',
+			);
+		}
 	}
 
 	/**
@@ -469,10 +483,10 @@ class Tint extends utils.Adapter {
 	async _createLightObjects(id, light) {
 		this.log.debug(`Creating/updating objects for light ${id} ("${light.name}")`);
 		await this.extendObjectAsync(`lights.${id}`, lightDevice(id, light.name));
-		await this.extendObjectAsync(`lights.${id}.info`, lightInfoChannel(id));
-		await this.extendObjectAsync(`lights.${id}.state`, lightStateChannel(id));
+		await this.setObjectNotExistsAsync(`lights.${id}.info`, lightInfoChannel(id));
+		await this.setObjectNotExistsAsync(`lights.${id}.state`, lightStateChannel(id));
 		for (const def of LIGHT_STATES) {
-			await this.extendObjectAsync(`lights.${id}.${def.sub}`, buildStateObj(`lights.${id}`, def));
+			await this.setObjectNotExistsAsync(`lights.${id}.${def.sub}`, buildStateObj(`lights.${id}`, def));
 		}
 		this.log.debug(`Objects for light ${id} ready`);
 	}
@@ -486,10 +500,10 @@ class Tint extends utils.Adapter {
 	async _createPlugObjects(id, light) {
 		this.log.debug(`Creating/updating objects for plug ${id} ("${light.name}")`);
 		await this.extendObjectAsync(`plugs.${id}`, plugDevice(id, light.name));
-		await this.extendObjectAsync(`plugs.${id}.info`, plugInfoChannel(id));
-		await this.extendObjectAsync(`plugs.${id}.state`, plugStateChannel(id));
+		await this.setObjectNotExistsAsync(`plugs.${id}.info`, plugInfoChannel(id));
+		await this.setObjectNotExistsAsync(`plugs.${id}.state`, plugStateChannel(id));
 		for (const def of PLUG_STATES) {
-			await this.extendObjectAsync(`plugs.${id}.${def.sub}`, buildStateObj(`plugs.${id}`, def));
+			await this.setObjectNotExistsAsync(`plugs.${id}.${def.sub}`, buildStateObj(`plugs.${id}`, def));
 		}
 		this.log.debug(`Objects for plug ${id} ready`);
 	}
@@ -503,10 +517,10 @@ class Tint extends utils.Adapter {
 	async _createCoverObjects(id, light) {
 		this.log.debug(`Creating/updating objects for cover ${id} ("${light.name}")`);
 		await this.extendObjectAsync(`covers.${id}`, coverDevice(id, light.name));
-		await this.extendObjectAsync(`covers.${id}.info`, coverInfoChannel(id));
-		await this.extendObjectAsync(`covers.${id}.state`, coverStateChannel(id));
+		await this.setObjectNotExistsAsync(`covers.${id}.info`, coverInfoChannel(id));
+		await this.setObjectNotExistsAsync(`covers.${id}.state`, coverStateChannel(id));
 		for (const def of COVER_STATES) {
-			await this.extendObjectAsync(`covers.${id}.${def.sub}`, buildStateObj(`covers.${id}`, def));
+			await this.setObjectNotExistsAsync(`covers.${id}.${def.sub}`, buildStateObj(`covers.${id}`, def));
 		}
 		this.log.debug(`Objects for cover ${id} ready`);
 	}
@@ -520,20 +534,20 @@ class Tint extends utils.Adapter {
 	async _createGroupObjects(id, group) {
 		this.log.debug(`Creating/updating objects for group ${id} ("${group.name}")`);
 		await this.extendObjectAsync(`groups.${id}`, groupDevice(id, group.name));
-		await this.extendObjectAsync(`groups.${id}.info`, groupInfoChannel(id));
-		await this.extendObjectAsync(`groups.${id}.action`, groupActionChannel(id));
-		await this.extendObjectAsync(`groups.${id}.scenes`, groupScenesChannel(id));
+		await this.setObjectNotExistsAsync(`groups.${id}.info`, groupInfoChannel(id));
+		await this.setObjectNotExistsAsync(`groups.${id}.action`, groupActionChannel(id));
+		await this.setObjectNotExistsAsync(`groups.${id}.scenes`, groupScenesChannel(id));
 		for (const def of GROUP_INFO_STATES) {
-			await this.extendObjectAsync(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
+			await this.setObjectNotExistsAsync(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
 		}
 		for (const def of GROUP_ACTION_STATES) {
-			await this.extendObjectAsync(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
+			await this.setObjectNotExistsAsync(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
 		}
 		const sceneMap = this._sceneMap[id] || {};
 		for (const sceneName of Object.keys(sceneMap)) {
 			const safeKey = sceneName.replace(/[^a-zA-Z0-9_]/g, '_');
 			this.log.debug(`  Creating scene state: groups.${id}.scenes.${safeKey} ("${sceneName}")`);
-			await this.extendObjectAsync(`groups.${id}.scenes.${safeKey}`, {
+			await this.setObjectNotExistsAsync(`groups.${id}.scenes.${safeKey}`, {
 				_id: `groups.${id}.scenes.${safeKey}`,
 				type: 'state',
 				common: {
@@ -565,7 +579,7 @@ class Tint extends utils.Adapter {
 			['colorWheel', 'Color Wheel'],
 			['colorTemp', 'Color Temp'],
 		]) {
-			await this.extendObjectAsync(`remotes.${id}.${sub}`, remoteChannel(id, sub, name));
+			await this.setObjectNotExistsAsync(`remotes.${id}.${sub}`, remoteChannel(id, sub, name));
 		}
 		for (const def of [
 			...REMOTE_INFO_STATES,
@@ -573,7 +587,7 @@ class Tint extends utils.Adapter {
 			...REMOTE_COLORWHEEL_STATES,
 			...REMOTE_COLORTEMP_STATES,
 		]) {
-			await this.extendObjectAsync(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
+			await this.setObjectNotExistsAsync(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
 		}
 		this.log.debug(`Objects for remote ${id} ready`);
 	}
@@ -587,10 +601,10 @@ class Tint extends utils.Adapter {
 	async _createSwitchObjects(id, sensor) {
 		this.log.debug(`Creating/updating objects for switch ${id} ("${sensor.name}")`);
 		await this.extendObjectAsync(`switches.${id}`, switchDevice(id, sensor.name));
-		await this.extendObjectAsync(`switches.${id}.info`, switchChannel(id, 'info', 'Info'));
-		await this.extendObjectAsync(`switches.${id}.button`, switchChannel(id, 'button', 'Button'));
+		await this.setObjectNotExistsAsync(`switches.${id}.info`, switchChannel(id, 'info', 'Info'));
+		await this.setObjectNotExistsAsync(`switches.${id}.button`, switchChannel(id, 'button', 'Button'));
 		for (const def of [...SWITCH_INFO_STATES, ...SWITCH_BUTTON_STATES]) {
-			await this.extendObjectAsync(`switches.${id}.${def.sub}`, buildStateObj(`switches.${id}`, def));
+			await this.setObjectNotExistsAsync(`switches.${id}.${def.sub}`, buildStateObj(`switches.${id}`, def));
 		}
 		this.log.debug(`Objects for switch ${id} ready`);
 	}
@@ -606,11 +620,11 @@ class Tint extends utils.Adapter {
 	async _createSensorObjects(id, sensor) {
 		this.log.debug(`Creating/updating objects for sensor ${id} ("${sensor.name}")`);
 		await this.extendObjectAsync(`sensors.${id}`, sensorDevice(id, sensor.name));
-		await this.extendObjectAsync(`sensors.${id}.info`, sensorChannel(id, 'info', 'Info'));
-		await this.extendObjectAsync(`sensors.${id}.value`, sensorChannel(id, 'value', 'Value'));
+		await this.setObjectNotExistsAsync(`sensors.${id}.info`, sensorChannel(id, 'info', 'Info'));
+		await this.setObjectNotExistsAsync(`sensors.${id}.value`, sensorChannel(id, 'value', 'Value'));
 		const valueStates = SENSOR_VALUE_STATES[sensor.type] || [SENSOR_GENERIC_VALUE_STATE];
 		for (const def of [...SENSOR_INFO_STATES, ...valueStates]) {
-			await this.extendObjectAsync(`sensors.${id}.${def.sub}`, buildStateObj(`sensors.${id}`, def));
+			await this.setObjectNotExistsAsync(`sensors.${id}.${def.sub}`, buildStateObj(`sensors.${id}`, def));
 		}
 		this.log.debug(`Objects for sensor ${id} ready (type=${sensor.type})`);
 	}
@@ -624,10 +638,10 @@ class Tint extends utils.Adapter {
 	async _createThermostatObjects(id, sensor) {
 		this.log.debug(`Creating/updating objects for thermostat ${id} ("${sensor.name}")`);
 		await this.extendObjectAsync(`thermostats.${id}`, thermostatDevice(id, sensor.name));
-		await this.extendObjectAsync(`thermostats.${id}.info`, thermostatInfoChannel(id));
-		await this.extendObjectAsync(`thermostats.${id}.state`, thermostatStateChannel(id));
+		await this.setObjectNotExistsAsync(`thermostats.${id}.info`, thermostatInfoChannel(id));
+		await this.setObjectNotExistsAsync(`thermostats.${id}.state`, thermostatStateChannel(id));
 		for (const def of THERMOSTAT_STATES) {
-			await this.extendObjectAsync(`thermostats.${id}.${def.sub}`, buildStateObj(`thermostats.${id}`, def));
+			await this.setObjectNotExistsAsync(`thermostats.${id}.${def.sub}`, buildStateObj(`thermostats.${id}`, def));
 		}
 		this.log.debug(`Objects for thermostat ${id} ready`);
 	}
@@ -996,14 +1010,38 @@ class Tint extends utils.Adapter {
 				this.log.debug(`WS changed event for r="${r}" id="${id}" has no relevant payload — skipping`);
 			}
 		} else if (e === 'added') {
-			this.log.info(`WS: new ${r} (id=${id}) detected — triggering full re-discovery`);
-			await this._discoverAll();
+			this.log.info(`WS: new ${r} (id=${id}) detected — scheduling full re-discovery`);
+			this._scheduleRediscover();
 		} else if (e === 'deleted') {
-			this.log.info(`WS: ${r} id=${id} was removed from deCONZ — re-discovering to update object tree`);
-			await this._discoverAll();
+			this.log.info(`WS: ${r} id=${id} was removed from deCONZ — scheduling re-discovery to update object tree`);
+			this._scheduleRediscover();
 		} else {
 			this.log.debug(`WS event type "${e}" for r="${r}" id="${id}" — no handler, ignoring`);
 		}
+	}
+
+	/**
+	 * Debounce repeated added/deleted WS events into a single _discoverAll()
+	 * call. deCONZ can emit several such events in quick succession (e.g.
+	 * after a brief network hiccup causes it to re-announce multiple
+	 * devices) — without debouncing, each one would trigger its own full
+	 * discovery pass back-to-back, multiplying the object-tree write load
+	 * for no benefit (one discovery after the dust settles covers all of
+	 * them).
+	 */
+	_scheduleRediscover() {
+		if (this._stopped) {
+			this.log.debug('_scheduleRediscover called after stop — ignoring');
+			return;
+		}
+		if (this._rediscoverTimer) {
+			this.log.debug('Re-discovery already scheduled — coalescing this trigger into it');
+			return;
+		}
+		this._rediscoverTimer = this.setTimeout(() => {
+			this._rediscoverTimer = null;
+			this._discoverAll().catch(err => this.log.error(`Scheduled re-discovery failed: ${err.message}`));
+		}, 2000);
 	}
 
 	/**
