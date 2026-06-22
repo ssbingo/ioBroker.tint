@@ -11,6 +11,7 @@ const DeconzWebSocket = require('./lib/deconz-ws');
 const RemoteHandler = require('./lib/remote-handler');
 const { briToPercent, percentToBri, miredToKelvin, kelvinToMired, xyToHex, hexToXy } = require('./lib/color-utils');
 const { isPlug, isCover, isTintRemote } = require('./lib/device-category');
+const { trimLightForAdmin, trimGroupForAdmin } = require('./lib/admin-projections');
 const {
 	lightDevice,
 	lightInfoChannel,
@@ -1329,15 +1330,27 @@ class Tint extends utils.Adapter {
 
 		try {
 			switch (obj.command) {
-				case 'getLights':
-					this.log.debug('Admin: returning light list');
-					respond({ lights: await this._api.getLights() });
+				case 'getLights': {
+					const lights = await this._api.getLights();
+					const trimmed = {};
+					for (const [id, light] of Object.entries(lights)) {
+						trimmed[id] = trimLightForAdmin(light);
+					}
+					this.log.debug(`Admin: returning light list (${Object.keys(trimmed).length} light(s), trimmed)`);
+					respond({ lights: trimmed });
 					break;
+				}
 
-				case 'getGroups':
-					this.log.debug('Admin: returning group list');
-					respond({ groups: await this._api.getGroups() });
+				case 'getGroups': {
+					const groups = await this._api.getGroups();
+					const trimmed = {};
+					for (const [id, group] of Object.entries(groups)) {
+						trimmed[id] = trimGroupForAdmin(group);
+					}
+					this.log.debug(`Admin: returning group list (${Object.keys(trimmed).length} group(s), trimmed)`);
+					respond({ groups: trimmed });
 					break;
+				}
 
 				case 'getSensors':
 					this.log.debug('Admin: returning sensor list');
