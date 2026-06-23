@@ -162,6 +162,9 @@
 
 ## 更新日志
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) 修复：徽标（admin/tint.png）尺寸为300×358（非正方形），仓库检查器对此提出警告；已用透明边框填充至358×358，内容未被裁剪或拉伸变形
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) 仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置
 
@@ -173,9 +176,6 @@
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) 修复：设备标签页不再在admin中触发错误的"切换主机"警告（React 18 + MUI v6现已与admin共享）；移除遗留的侧边栏"tint"标签
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) 修复：将sendTo按钮替换为自定义PairButton组件，可靠获取API密钥并提供视觉反馈
 
 ## 文档
 

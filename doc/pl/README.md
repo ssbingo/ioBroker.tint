@@ -162,6 +162,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) Poprawka: logo (admin/tint.png) miało wymiary 300×358 (nie kwadrat), na co wskazywał checker repozytorium; uzupełnione do 358×358 przezroczystą ramką, bez przycinania czy zniekształcania treści
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Porządki w repozytorium: minimalna wersja admin podniesiona do 7.6.20, usunięto wpisy common.news dla wersji nigdy nieopublikowanych na npm, użyto this.setTimeout() w pętli odpytywania parowania, dodano słowo kluczowe ioBroker, tsconfig przeniesiono na @tsconfig/node22, usunięto przestarzały .prettierignore, dodano konfigurację dependabot
 
@@ -173,9 +176,6 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Poprawka: zakładki urządzeń nie wywołują już fałszywego ostrzeżenia "zmień hosta" w admin (React 18 + MUI v6 są teraz współdzielone z admin); usunięto przestarzałą zakładkę boczną "tint"
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) Poprawka: przycisk sendTo zastąpiony własnym komponentem PairButton — niezawodne pobieranie klucza API z informacją zwrotną
 
 ## Dokumentacja
 

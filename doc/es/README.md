@@ -162,6 +162,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) Corrección: el logo (admin/tint.png) era de 300×358 (no cuadrado), lo que señalaba el verificador del repositorio; rellenado a 358×358 con borde transparente, sin recortar ni distorsionar el contenido
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Mantenimiento del repositorio: versión mínima de admin elevada a 7.6.20, eliminadas las entradas de common.news para versiones nunca publicadas en npm, uso de this.setTimeout() en el bucle de sondeo de emparejamiento, añadida la palabra clave ioBroker, tsconfig migrado a @tsconfig/node22, eliminado el .prettierignore obsoleto, añadida la configuración de dependabot
 
@@ -173,9 +176,6 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Corrección: las pestañas de dispositivos ya no generan una falsa advertencia de "cambiar de host" en admin (React 18 + MUI v6 ahora compartidos con admin); eliminada la pestaña lateral obsoleta "tint"
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) Corrección: botón sendTo reemplazado por componente PairButton personalizado — obtención fiable de clave API con feedback visual
 
 ## Documentación
 

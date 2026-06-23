@@ -162,6 +162,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) Bugfix: Logo (admin/tint.png) war 300×358 (nicht quadratisch), was der Repository-Checker bemängelt; auf 358×358 mit transparentem Rand aufgefüllt, kein Bildinhalt beschnitten oder verzerrt
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Repository-Hygiene: Mindest-Admin-Version auf 7.6.20 angehoben, common.news-Einträge für nie auf npm veröffentlichte Versionen entfernt, this.setTimeout() in der Pairing-Polling-Schleife verwendet, ioBroker-Keyword ergänzt, tsconfig auf @tsconfig/node22 migriert, veraltete .prettierignore entfernt, Dependabot-Konfiguration ergänzt
 
@@ -173,9 +176,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Bugfix: Geräte-Tabs lösen keine falsche "Host wechseln"-Warnung in Admin mehr aus (React 18 + MUI v6 werden jetzt mit Admin geteilt statt separat gebündelt); veralteten Sidebar-Tab "tint" entfernt
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) Bugfix: sendTo-Button durch eigene PairButton-Komponente ersetzt — zuverlässige API-Schlüssel-Abfrage mit Statusanzeige
 
 ## Dokumentation
 

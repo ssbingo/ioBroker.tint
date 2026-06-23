@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) Fix: logo (admin/tint.png) was 300×358 (not square), which the repository checker flags; padded to 358×358 with a transparent border, no content cropped or distorted
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config
 
@@ -196,9 +199,6 @@ iobroker add tint
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Fix: device tabs in admin no longer trigger a false "switch host" warning — React 18 and @mui/material v6 are now shared with admin's host instead of being bundled separately (panel bundle size drops from ~411 KB to ~66 KB)
 * (ssbingo) Fix: remove leftover legacy "tint" sidebar tab (admin/tab_m.html) — superseded by the jsonConfig device tabs
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) Fix: pairing button replaced with a custom PairButton component — no longer relies on admin's result-mapping for encrypted fields; shows inline status ("Key received — please Save!" / error text)
 
 ## Documentation
 

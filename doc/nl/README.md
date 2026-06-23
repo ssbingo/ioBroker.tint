@@ -162,6 +162,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) Bugfix: logo (admin/tint.png) was 300×358 (niet vierkant), wat de repository-checker meldde; opgevuld tot 358×358 met transparante rand, geen inhoud bijgesneden of vervormd
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Repository-onderhoud: minimale admin-versie verhoogd naar 7.6.20, common.news-items voor nooit op npm gepubliceerde versies verwijderd, this.setTimeout() gebruikt in de koppel-pollinglus, ioBroker-keyword toegevoegd, tsconfig gemigreerd naar @tsconfig/node22, verouderde .prettierignore verwijderd, dependabot-configuratie toegevoegd
 
@@ -173,9 +176,6 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Bugfix: apparaattabbladen geven niet langer een onterechte "host wisselen"-waarschuwing in admin (React 18 + MUI v6 nu gedeeld met admin); verouderd zijbalktabblad "tint" verwijderd
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) Bugfix: sendTo-knop vervangen door eigen PairButton-component — betrouwbaar ophalen van API-sleutel met statusweergave
 
 ## Documentatie
 

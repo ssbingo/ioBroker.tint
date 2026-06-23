@@ -162,6 +162,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.3.4 (2026-06-23)
+* (ssbingo) Correzione: il logo (admin/tint.png) era 300×358 (non quadrato), segnalato dal checker del repository; riempito a 358×358 con bordo trasparente, senza ritagliare o distorcere il contenuto
+
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Pulizia del repository: versione minima di admin portata a 7.6.20, rimosse le voci di common.news per versioni mai pubblicate su npm, usato this.setTimeout() nel ciclo di polling dell'accoppiamento, aggiunta la parola chiave ioBroker, tsconfig migrato a @tsconfig/node22, rimosso il .prettierignore obsoleto, aggiunta la configurazione dependabot
 
@@ -173,9 +176,6 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Correzione: le schede dispositivo non generano più un falso avviso "cambia host" in admin (React 18 + MUI v6 ora condivisi con admin); rimossa la vecchia scheda laterale "tint"
-
-### 0.2.6 (2026-06-17)
-* (ssbingo) Correzione: pulsante sendTo sostituito da componente PairButton personalizzato — recupero affidabile della chiave API con feedback visivo
 
 ## Documentazione
 

@@ -4,6 +4,9 @@ This file holds changelog entries moved out of `README.md`'s `## Changelog`
 section once it exceeds 5 entries. See `README.md` for the current
 changelog.
 
+### 0.2.6 (2026-06-17)
+* (ssbingo) Fix: pairing button replaced with a custom PairButton component — no longer relies on admin's result-mapping for encrypted fields; shows inline status ("Key received — please Save!" / error text)
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Fix: pairing button now implemented as a custom panel component — always visible regardless of adapter alive state
 * (ssbingo) Fix: commit panel build bundles to git so GitHub installs work without a manual build step (empty Leuchten/Gruppen tabs resolved)

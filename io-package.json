@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.3",
+		"version": "0.3.4",
 		"news": {
+			"0.3.4": {
+				"en": "Fix: logo (admin/tint.png) was 300×358 (not square), which the repository checker flags; padded to 358×358 with a transparent border, no content cropped or distorted",
+				"de": "Bugfix: Logo (admin/tint.png) war 300×358 (nicht quadratisch), was der Repository-Checker bemängelt; auf 358×358 mit transparentem Rand aufgefüllt, kein Bildinhalt beschnitten oder verzerrt",
+				"ru": "Исправление: логотип (admin/tint.png) был 300×358 (не квадратный), на что указывал репозиторный чекер; дополнен до 358×358 прозрачной рамкой, без обрезки или искажения содержимого",
+				"pt": "Correção: o logótipo (admin/tint.png) tinha 300×358 (não era quadrado), o que o verificador do repositório assinalava; preenchido para 358×358 com borda transparente, sem cortar ou distorcer o conteúdo",
+				"nl": "Bugfix: logo (admin/tint.png) was 300×358 (niet vierkant), wat de repository-checker meldde; opgevuld tot 358×358 met transparante rand, geen inhoud bijgesneden of vervormd",
+				"fr": "Correctif : le logo (admin/tint.png) était en 300×358 (non carré), ce que signalait le vérificateur du dépôt ; complété à 358×358 avec une bordure transparente, sans rogner ni déformer le contenu",
+				"it": "Correzione: il logo (admin/tint.png) era 300×358 (non quadrato), segnalato dal checker del repository; riempito a 358×358 con bordo trasparente, senza ritagliare o distorcere il contenuto",
+				"es": "Corrección: el logo (admin/tint.png) era de 300×358 (no cuadrado), lo que señalaba el verificador del repositorio; rellenado a 358×358 con borde transparente, sin recortar ni distorsionar el contenido",
+				"pl": "Poprawka: logo (admin/tint.png) miało wymiary 300×358 (nie kwadrat), na co wskazywał checker repozytorium; uzupełnione do 358×358 przezroczystą ramką, bez przycinania czy zniekształcania treści",
+				"uk": "Виправлення: логотип (admin/tint.png) мав розмір 300×358 (не квадратний), на що вказував чекер репозиторію; доповнено до 358×358 прозорою рамкою, без обрізання чи спотворення вмісту",
+				"zh-cn": "修复：徽标（admin/tint.png）尺寸为300×358（非正方形），仓库检查器对此提出警告；已用透明边框填充至358×358，内容未被裁剪或拉伸变形"
+			},
 			"0.3.3": {
 				"en": "Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config",
 				"de": "Repository-Hygiene: Mindest-Admin-Version auf 7.6.20 angehoben, common.news-Einträge für nie auf npm veröffentlichte Versionen entfernt, this.setTimeout() in der Pairing-Polling-Schleife verwendet, ioBroker-Keyword ergänzt, tsconfig auf @tsconfig/node22 migriert, veraltete .prettierignore entfernt, Dependabot-Konfiguration ergänzt",
