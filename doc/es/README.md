@@ -162,6 +162,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Mantenimiento del repositorio: versión mínima de admin elevada a 7.6.20, eliminadas las entradas de common.news para versiones nunca publicadas en npm, uso de this.setTimeout() en el bucle de sondeo de emparejamiento, añadida la palabra clave ioBroker, tsconfig migrado a @tsconfig/node22, eliminado el .prettierignore obsoleto, añadida la configuración de dependabot
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Eliminada la línea redundante "Other languages" del README.md (ya presente en la sección Documentation); deshabilitada la notificación de versión de Sentry en CI (fallaba sin token configurado)
 
@@ -173,9 +176,6 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Corrección: botón sendTo reemplazado por componente PairButton personalizado — obtención fiable de clave API con feedback visual
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Corrección: botón de emparejamiento siempre visible como panel personalizado; bundles añadidos a git (pestañas vacías corregidas)
 
 ## Documentación
 

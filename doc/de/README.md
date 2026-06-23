@@ -162,6 +162,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Repository-Hygiene: Mindest-Admin-Version auf 7.6.20 angehoben, common.news-Einträge für nie auf npm veröffentlichte Versionen entfernt, this.setTimeout() in der Pairing-Polling-Schleife verwendet, ioBroker-Keyword ergänzt, tsconfig auf @tsconfig/node22 migriert, veraltete .prettierignore entfernt, Dependabot-Konfiguration ergänzt
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Redundante "Other languages"-Zeile aus der README.md entfernt (steht bereits im Documentation-Abschnitt); Sentry-Release-Benachrichtigung in der CI deaktiviert (schlug ohne konfigurierten Token fehl)
 
@@ -173,9 +176,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Bugfix: sendTo-Button durch eigene PairButton-Komponente ersetzt — zuverlässige API-Schlüssel-Abfrage mit Statusanzeige
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Bugfix: Pairing-Button als Custom-Panel immer sichtbar; Panel-Bundles in Git eingecheckt (leere Leuchten/Gruppen-Tabs behoben)
 
 ## Dokumentation
 

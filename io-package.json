@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.2",
+		"version": "0.3.3",
 		"news": {
+			"0.3.3": {
+				"en": "Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config",
+				"de": "Repository-Hygiene: Mindest-Admin-Version auf 7.6.20 angehoben, common.news-Einträge für nie auf npm veröffentlichte Versionen entfernt, this.setTimeout() in der Pairing-Polling-Schleife verwendet, ioBroker-Keyword ergänzt, tsconfig auf @tsconfig/node22 migriert, veraltete .prettierignore entfernt, Dependabot-Konfiguration ergänzt",
+				"ru": "Гигиена репозитория: минимальная версия admin повышена до 7.6.20, удалены записи common.news для версий, никогда не опубликованных на npm, использован this.setTimeout() в цикле опроса сопряжения, добавлено ключевое слово ioBroker, tsconfig перенесён на @tsconfig/node22, удалён устаревший .prettierignore, добавлена конфигурация dependabot",
+				"pt": "Manutenção do repositório: versão mínima do admin elevada para 7.6.20, removidas entradas de common.news para versões nunca publicadas no npm, uso de this.setTimeout() no loop de polling de emparelhamento, adicionada palavra-chave ioBroker, tsconfig migrado para @tsconfig/node22, removido .prettierignore obsoleto, adicionada configuração do dependabot",
+				"nl": "Repository-onderhoud: minimale admin-versie verhoogd naar 7.6.20, common.news-items voor nooit op npm gepubliceerde versies verwijderd, this.setTimeout() gebruikt in de koppel-pollinglus, ioBroker-keyword toegevoegd, tsconfig gemigreerd naar @tsconfig/node22, verouderde .prettierignore verwijderd, dependabot-configuratie toegevoegd",
+				"fr": "Hygiène du dépôt : version minimale d'admin portée à 7.6.20, suppression des entrées common.news pour des versions jamais publiées sur npm, utilisation de this.setTimeout() dans la boucle de sondage de couplage, ajout du mot-clé ioBroker, migration de tsconfig vers @tsconfig/node22, suppression du .prettierignore obsolète, ajout de la configuration dependabot",
+				"it": "Pulizia del repository: versione minima di admin portata a 7.6.20, rimosse le voci di common.news per versioni mai pubblicate su npm, usato this.setTimeout() nel ciclo di polling dell'accoppiamento, aggiunta la parola chiave ioBroker, tsconfig migrato a @tsconfig/node22, rimosso il .prettierignore obsoleto, aggiunta la configurazione dependabot",
+				"es": "Mantenimiento del repositorio: versión mínima de admin elevada a 7.6.20, eliminadas las entradas de common.news para versiones nunca publicadas en npm, uso de this.setTimeout() en el bucle de sondeo de emparejamiento, añadida la palabra clave ioBroker, tsconfig migrado a @tsconfig/node22, eliminado el .prettierignore obsoleto, añadida la configuración de dependabot",
+				"pl": "Porządki w repozytorium: minimalna wersja admin podniesiona do 7.6.20, usunięto wpisy common.news dla wersji nigdy nieopublikowanych na npm, użyto this.setTimeout() w pętli odpytywania parowania, dodano słowo kluczowe ioBroker, tsconfig przeniesiono na @tsconfig/node22, usunięto przestarzały .prettierignore, dodano konfigurację dependabot",
+				"uk": "Гігієна репозиторію: мінімальну версію admin підвищено до 7.6.20, видалено записи common.news для версій, які ніколи не публікувалися на npm, використано this.setTimeout() у циклі опитування сполучення, додано ключове слово ioBroker, tsconfig перенесено на @tsconfig/node22, видалено застарілий .prettierignore, додано конфігурацію dependabot",
+				"zh-cn": "仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置"
+			},
 			"0.3.2": {
 				"en": "Remove redundant \"Other languages\" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)",
 				"de": "Redundante \"Other languages\"-Zeile aus der README.md entfernt (steht bereits im Documentation-Abschnitt); Sentry-Release-Benachrichtigung in der CI deaktiviert (schlug ohne konfigurierten Token fehl)",
@@ -41,110 +54,6 @@
 				"pl": "Poprawka: zakładki urządzeń nie wywołują już fałszywego ostrzeżenia \"zmień hosta\" w admin (React 18 + MUI v6 są teraz współdzielone z admin); usunięto przestarzałą zakładkę boczną \"tint\"",
 				"uk": "Виправлення: вкладки пристроїв більше не викликають хибне попередження \"змінити хост\" в admin (React 18 + MUI v6 тепер спільні з admin); видалено застарілу бічну вкладку \"tint\"",
 				"zh-cn": "修复：设备标签页不再在admin中触发错误的“切换主机”警告（React 18 + MUI v6现已与admin共享）；移除遗留的侧边栏“tint”标签"
-			},
-			"0.2.6": {
-				"en": "Fix: replace sendTo button with custom PairButton component for reliable API key retrieval and visual feedback",
-				"de": "Bugfix: sendTo-Button durch eigene PairButton-Komponente ersetzt — zuverlässige API-Schlüssel-Abfrage mit Statusanzeige",
-				"ru": "Исправление: кнопка sendTo заменена собственным компонентом PairButton — надёжное получение API-ключа с визуальной обратной связью",
-				"pt": "Correção: botão sendTo substituído por componente PairButton personalizado — obtenção fiável da chave API com feedback visual",
-				"nl": "Bugfix: sendTo-knop vervangen door eigen PairButton-component — betrouwbaar ophalen van API-sleutel met statusweergave",
-				"fr": "Correctif: bouton sendTo remplacé par un composant PairButton personnalisé — récupération fiable de la clé API avec retour visuel",
-				"it": "Correzione: pulsante sendTo sostituito da componente PairButton personalizzato — recupero affidabile della chiave API con feedback visivo",
-				"es": "Corrección: botón sendTo reemplazado por componente PairButton personalizado — obtención fiable de clave API con feedback visual",
-				"pl": "Poprawka: przycisk sendTo zastąpiony własnym komponentem PairButton — niezawodne pobieranie klucza API z informacją zwrotną",
-				"uk": "Виправлення: кнопку sendTo замінено власним компонентом PairButton — надійне отримання API-ключа з візуальним відгуком",
-				"zh-cn": "修复：将sendTo按钮替换为自定义PairButton组件，可靠获取API密钥并提供视觉反馈"
-			},
-			"0.2.5": {
-				"en": "Fix: pairing button now uses a custom panel (always visible); commit panel bundles to git so GitHub installs work without a build step",
-				"de": "Bugfix: Pairing-Button als Custom-Panel (immer sichtbar); Panel-Bundles in Git eingecheckt, sodass GitHub-Installationen ohne Build-Schritt funktionieren",
-				"ru": "Исправление: кнопка сопряжения теперь использует пользовательский компонент (всегда видима); бандлы панелей добавлены в git",
-				"pt": "Correção: botão de emparelhamento agora usa painel personalizado (sempre visível); bundles de painel adicionados ao git",
-				"nl": "Bugfix: koppelknop gebruikt nu aangepast panel (altijd zichtbaar); panel-bundles in git gezet",
-				"fr": "Correctif: bouton de couplage utilise désormais un panneau personnalisé (toujours visible); bundles de panneau ajoutés à git",
-				"it": "Correzione: il pulsante di pairing ora usa un pannello personalizzato (sempre visibile); bundle panel aggiunti a git",
-				"es": "Corrección: el botón de emparejamiento ahora usa un panel personalizado (siempre visible); bundles de panel añadidos a git",
-				"pl": "Poprawka: przycisk parowania teraz używa niestandardowego panelu (zawsze widoczny); bundle paneli dodane do git",
-				"uk": "Виправлення: кнопка сполучення тепер використовує власну панель (завжди видима); бандли панелей додано до git",
-				"zh-cn": "修复：配对按钮现在使用自定义面板（始终可见）；面板包已提交至git"
-			},
-			"0.2.4": {
-				"en": "Improve pairing UX: click button first, adapter polls deCONZ every 3 s until pairing window opens (up to 60 s) — no more time pressure",
-				"de": "Pairing-UX verbessert: zuerst Button klicken, Adapter prüft alle 3 s ob das Pairing-Fenster offen ist (bis 60 s) — kein Zeitdruck mehr",
-				"ru": "Улучшен UX сопряжения: сначала нажмите кнопку, адаптер опрашивает deCONZ каждые 3 с (до 60 с) — больше нет спешки",
-				"pt": "UX de emparelhamento melhorado: clique primeiro no botão, o adaptador verifica deCONZ a cada 3 s (até 60 s) — sem pressão de tempo",
-				"nl": "Koppel-UX verbeterd: klik eerst op knop, adapter controleert deCONZ elke 3 s (tot 60 s) — geen tijdsdruk meer",
-				"fr": "UX de couplage amélioré: cliquez d'abord sur le bouton, l'adaptateur interroge deCONZ toutes les 3 s (jusqu'à 60 s) — plus de pression temporelle",
-				"it": "UX accoppiamento migliorato: clicca prima il pulsante, l'adattatore controlla deCONZ ogni 3 s (fino a 60 s) — nessuna pressione temporale",
-				"es": "UX de emparejamiento mejorado: haga clic primero en el botón, el adaptador sondea deCONZ cada 3 s (hasta 60 s) — sin presión de tiempo",
-				"pl": "Poprawiony UX parowania: najpierw kliknij przycisk, adapter odpytuje deCONZ co 3 s (do 60 s) — bez presji czasu",
-				"uk": "Покращено UX сполучення: спочатку натисніть кнопку, адаптер опитує deCONZ кожні 3 с (до 60 с) — без поспіху",
-				"zh-cn": "改进配对用户体验：先点击按钮，适配器每3秒轮询deCONZ（最多60秒）——不再有时间压力"
-			},
-			"0.2.3": {
-				"en": "Add automatic API key pairing: button in Settings tab sends a pairing request to deCONZ and fills in the key",
-				"de": "Automatisches API-Schlüssel-Pairing: Button in Einstellungen sendet Pairinganfrage an deCONZ und trägt den Schlüssel automatisch ein",
-				"ru": "Автоматическое сопряжение API-ключа: кнопка в настройках отправляет запрос на сопряжение в deCONZ и заполняет ключ",
-				"pt": "Emparelhamento automático de chave API: botão nas definições envia pedido de emparelhamento ao deCONZ e preenche a chave",
-				"nl": "Automatisch API-sleutel koppelen: knop in instellingen stuurt een koppelingsverzoek naar deCONZ en vult de sleutel in",
-				"fr": "Couplage automatique de clé API: bouton dans les paramètres envoie une demande de couplage à deCONZ et remplit la clé",
-				"it": "Accoppiamento automatico chiave API: il pulsante nelle impostazioni invia una richiesta di accoppiamento a deCONZ e inserisce la chiave",
-				"es": "Emparejamiento automático de clave API: botón en ajustes envía solicitud de emparejamiento a deCONZ y rellena la clave",
-				"pl": "Automatyczne parowanie klucza API: przycisk w ustawieniach wysyła żądanie parowania do deCONZ i wypełnia klucz",
-				"uk": "Автоматичне сполучення API-ключа: кнопка в налаштуваннях надсилає запит на сполучення до deCONZ і заповнює ключ",
-				"zh-cn": "自动API密钥配对：设置中的按钮向deCONZ发送配对请求并自动填写密钥"
-			},
-			"0.2.2": {
-				"en": "Fix tab labels (Lights/Groups), add static descriptions, improve UX with alive-check and sendTo timeout",
-				"de": "Tab-Bezeichnungen korrigiert (Leuchten/Gruppen), statische Beschreibungen ergänzt, UX verbessert mit Alive-Prüfung und sendTo-Timeout",
-				"ru": "Исправлены названия вкладок, добавлены описания, улучшен UX с проверкой alive и таймаутом sendTo",
-				"pt": "Corrigidas etiquetas de separadores, adicionadas descrições estáticas, UX melhorado com verificação alive e timeout sendTo",
-				"nl": "Tablabels gecorrigeerd, statische beschrijvingen toegevoegd, UX verbeterd met alive-check en sendTo-timeout",
-				"fr": "Libellés d'onglets corrigés, descriptions statiques ajoutées, UX amélioré avec vérification alive et délai sendTo",
-				"it": "Corrette etichette delle schede, aggiunte descrizioni statiche, UX migliorato con controllo alive e timeout sendTo",
-				"es": "Corregidas etiquetas de pestañas, añadidas descripciones estáticas, UX mejorado con comprobación alive y timeout sendTo",
-				"pl": "Poprawiono etykiety zakładek, dodano opisy statyczne, poprawiono UX z kontrolą alive i limitem czasu sendTo",
-				"uk": "Виправлено підписи вкладок, додано статичні описи, покращено UX з перевіркою alive та таймаутом sendTo",
-				"zh-cn": "修正选项卡标签，添加静态描述，通过alive检查和sendTo超时改进用户体验"
-			},
-			"0.2.1": {
-				"en": "Fix: panels were empty because window.React is not a global in admin 7",
-				"de": "Bugfix: Panels waren leer, weil window.React in Admin 7 kein Global ist",
-				"ru": "Исправление: панели были пустыми, так как window.React не является глобальным в admin 7",
-				"pt": "Correção: os painéis estavam vazios porque window.React não é global no admin 7",
-				"nl": "Bugfix: panels waren leeg omdat window.React geen global is in admin 7",
-				"fr": "Correctif: les panneaux étaient vides car window.React n'est pas un global dans admin 7",
-				"it": "Correzione: i pannelli erano vuoti perché window.React non è un global in admin 7",
-				"es": "Corrección: los paneles estaban vacíos porque window.React no es un global en admin 7",
-				"pl": "Poprawka: panele były puste, ponieważ window.React nie jest globalnym w admin 7",
-				"uk": "Виправлення: панелі були порожніми, оскільки window.React не є глобальним в admin 7",
-				"zh-cn": "修复：面板为空，因为window.React在admin 7中不是全局变量"
-			},
-			"0.2.0": {
-				"en": "Admin UI: lights and groups tabs in adapter settings; group management (create, edit, delete); Node.js >= 22 required",
-				"de": "Admin-UI: Lampen- und Gruppen-Tabs in den Adaptereinstellungen; Gruppenverwaltung (erstellen, bearbeiten, löschen); Node.js >= 22 erforderlich",
-				"ru": "Admin UI: вкладки светильников и групп в настройках адаптера; управление группами (создание, редактирование, удаление); требуется Node.js >= 22",
-				"pt": "Admin UI: abas de luzes e grupos nas configurações do adaptador; gestão de grupos (criar, editar, eliminar); necessário Node.js >= 22",
-				"nl": "Admin UI: lampen- en groepentabbladen in adapterinstellingen; groepsbeheer (maken, bewerken, verwijderen); Node.js >= 22 vereist",
-				"fr": "Admin UI: onglets lampes et groupes dans les paramètres de l'adaptateur; gestion des groupes (créer, modifier, supprimer); Node.js >= 22 requis",
-				"it": "Admin UI: schede luci e gruppi nelle impostazioni dell'adattatore; gestione gruppi (creare, modificare, eliminare); Node.js >= 22 richiesto",
-				"es": "Admin UI: pestañas de luces y grupos en la configuración del adaptador; gestión de grupos (crear, editar, eliminar); Node.js >= 22 requerido",
-				"pl": "Admin UI: zakładki świateł i grup w ustawieniach adaptera; zarządzanie grupami (tworzenie, edycja, usuwanie); wymagany Node.js >= 22",
-				"uk": "Admin UI: вкладки ламп та груп у налаштуваннях адаптера; керування групами (створення, редагування, видалення); потрібен Node.js >= 22",
-				"zh-cn": "管理界面：适配器设置中的灯具和群组选项卡；群组管理（创建、编辑、删除）；需要Node.js >= 22"
-			},
-			"0.1.0": {
-				"en": "Initial release: lights, groups, scenes, Tint remote with color wheel",
-				"de": "Erstveröffentlichung: Lampen, Gruppen, Szenen, Tint-Fernbedienung mit Farbrad",
-				"ru": "Первый выпуск: лампы, группы, сцены, пульт Tint с цветовым колесом",
-				"pt": "Lançamento inicial: luzes, grupos, cenas, controlo remoto Tint com roda de cores",
-				"nl": "Eerste versie: lampen, groepen, scènes, Tint-afstandsbediening met kleurenwiel",
-				"fr": "Version initiale: lampes, groupes, scènes, télécommande Tint avec roue chromatique",
-				"it": "Versione iniziale: luci, gruppi, scene, telecomando Tint con ruota dei colori",
-				"es": "Versión inicial: luces, grupos, escenas, mando a distancia Tint con rueda de colores",
-				"pl": "Pierwsza wersja: światła, grupy, sceny, pilot Tint z kołem kolorów",
-				"uk": "Перший випуск: лампи, групи, сцени, пульт Tint із колесом кольорів",
-				"zh-cn": "初始版本：灯具、群组、场景、带色轮的Tint遥控器"
 			}
 		},
 		"titleLang": {
@@ -211,7 +120,7 @@
 		],
 		"globalDependencies": [
 			{
-				"admin": ">=7.0.23"
+				"admin": ">=7.6.20"
 			}
 		]
 	},

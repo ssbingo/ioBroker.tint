@@ -162,6 +162,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Porządki w repozytorium: minimalna wersja admin podniesiona do 7.6.20, usunięto wpisy common.news dla wersji nigdy nieopublikowanych na npm, użyto this.setTimeout() w pętli odpytywania parowania, dodano słowo kluczowe ioBroker, tsconfig przeniesiono na @tsconfig/node22, usunięto przestarzały .prettierignore, dodano konfigurację dependabot
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Usunięto zbędną linię "Other languages" z README.md (jest już w sekcji Documentation); wyłączono powiadomienie o wydaniu Sentry w CI (kończyło się błędem bez skonfigurowanego tokenu)
 
@@ -173,9 +176,6 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Poprawka: przycisk sendTo zastąpiony własnym komponentem PairButton — niezawodne pobieranie klucza API z informacją zwrotną
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Poprawka: przycisk parowania zawsze widoczny jako niestandardowy panel; bundle dodane do git (puste zakładki naprawione)
 
 ## Dokumentacja
 

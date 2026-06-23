@@ -162,6 +162,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Pulizia del repository: versione minima di admin portata a 7.6.20, rimosse le voci di common.news per versioni mai pubblicate su npm, usato this.setTimeout() nel ciclo di polling dell'accoppiamento, aggiunta la parola chiave ioBroker, tsconfig migrato a @tsconfig/node22, rimosso il .prettierignore obsoleto, aggiunta la configurazione dependabot
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Rimossa la riga ridondante "Other languages" dal README.md (già presente nella sezione Documentation); disabilitata la notifica di rilascio Sentry nella CI (falliva senza token configurato)
 
@@ -173,9 +176,6 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Correzione: pulsante sendTo sostituito da componente PairButton personalizzato — recupero affidabile della chiave API con feedback visivo
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Correzione: pulsante di pairing sempre visibile come pannello personalizzato; bundle aggiunti a git (schede vuote risolte)
 
 ## Documentazione
 

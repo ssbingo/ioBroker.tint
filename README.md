@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Remove redundant "Other languages" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)
 
@@ -196,10 +199,6 @@ iobroker add tint
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Fix: pairing button replaced with a custom PairButton component — no longer relies on admin's result-mapping for encrypted fields; shows inline status ("Key received — please Save!" / error text)
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Fix: pairing button now implemented as a custom panel component — always visible regardless of adapter alive state
-* (ssbingo) Fix: commit panel build bundles to git so GitHub installs work without a manual build step (empty Leuchten/Gruppen tabs resolved)
 
 ## Documentation
 

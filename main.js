@@ -1312,7 +1312,7 @@ class Tint extends utils.Adapter {
 					this.log.debug(
 						`Pairing: window not yet open — retrying in ${POLL_MS / 1000}s ` + `(${remaining}s remaining)`,
 					);
-					setTimeout(tryPair, POLL_MS);
+					this.setTimeout(tryPair, POLL_MS);
 				} catch (err) {
 					this.log.error(`Pairing failed on attempt #${attempt}: ${err.message}`);
 					respond({ error: err.message });

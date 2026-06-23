@@ -162,6 +162,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Hygiène du dépôt : version minimale d'admin portée à 7.6.20, suppression des entrées common.news pour des versions jamais publiées sur npm, utilisation de this.setTimeout() dans la boucle de sondage de couplage, ajout du mot-clé ioBroker, migration de tsconfig vers @tsconfig/node22, suppression du .prettierignore obsolète, ajout de la configuration dependabot
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Suppression de la ligne redondante "Other languages" du README.md (déjà présente dans la section Documentation) ; désactivation de la notification de release Sentry dans la CI (échouait sans jeton configuré)
 
@@ -173,9 +176,6 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Correctif: bouton sendTo remplacé par un composant PairButton personnalisé — récupération fiable de la clé API avec retour visuel
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Correctif: bouton de couplage toujours visible en panneau personnalisé; bundles ajoutés à git (onglets vides corrigés)
 
 ## Documentation
 

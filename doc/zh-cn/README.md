@@ -162,6 +162,9 @@
 
 ## 更新日志
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) 仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) 移除README.md中多余的"Other languages"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）
 
@@ -173,9 +176,6 @@
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) 修复：将sendTo按钮替换为自定义PairButton组件，可靠获取API密钥并提供视觉反馈
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) 修复：配对按钮作为自定义面板始终可见；面板包已提交至git（空标签页问题已解决）
 
 ## 文档
 

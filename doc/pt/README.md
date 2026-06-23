@@ -162,6 +162,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Manutenção do repositório: versão mínima do admin elevada para 7.6.20, removidas entradas de common.news para versões nunca publicadas no npm, uso de this.setTimeout() no loop de polling de emparelhamento, adicionada palavra-chave ioBroker, tsconfig migrado para @tsconfig/node22, removido .prettierignore obsoleto, adicionada configuração do dependabot
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Removida a linha redundante "Other languages" do README.md (já presente na secção Documentation); desativada a notificação de lançamento do Sentry no CI (falhava sem token configurado)
 
@@ -173,9 +176,6 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Correção: botão sendTo substituído por componente PairButton personalizado — obtenção fiável da chave API com feedback visual
-
-### 0.2.5 (2026-06-16)
-* (ssbingo) Correção: botão de emparelhamento sempre visível como painel personalizado; bundles adicionados ao git (abas vazias resolvidas)
 
 ## Documentação
 
