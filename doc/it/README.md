@@ -48,6 +48,12 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Correzione: le schede dispositivo non generano più un falso avviso "cambia host" in admin (React 18 + MUI v6 ora condivisi con admin); rimossa la vecchia scheda laterale "tint"
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Correzione: pulsante sendTo sostituito da componente PairButton personalizzato — recupero affidabile della chiave API con feedback visivo
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Correzione: pulsante di pairing sempre visibile come pannello personalizzato; bundle aggiunti a git (schede vuote risolte)
 
@@ -68,6 +74,21 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Versione iniziale: luci, gruppi, scene, telecomando Tint con ruota dei colori
+
+## Documentazione
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+I changelog meno recenti si trovano in [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Licenza
 

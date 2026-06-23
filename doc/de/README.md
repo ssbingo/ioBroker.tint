@@ -116,6 +116,12 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Bugfix: Geräte-Tabs lösen keine falsche "Host wechseln"-Warnung in Admin mehr aus (React 18 + MUI v6 werden jetzt mit Admin geteilt statt separat gebündelt); veralteten Sidebar-Tab "tint" entfernt
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Bugfix: sendTo-Button durch eigene PairButton-Komponente ersetzt — zuverlässige API-Schlüssel-Abfrage mit Statusanzeige
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Bugfix: Pairing-Button als Custom-Panel immer sichtbar; Panel-Bundles in Git eingecheckt (leere Leuchten/Gruppen-Tabs behoben)
 
@@ -136,6 +142,21 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Erstveröffentlichung: Lampen, Gruppen, Szenen, Tint-Fernbedienung mit Farbrad
+
+## Dokumentation
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Ältere Änderungsprotokolle findest du in [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Lizenz
 

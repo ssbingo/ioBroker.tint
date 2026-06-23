@@ -48,6 +48,12 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Correctif: les onglets d'appareils ne déclenchent plus un faux avertissement "changer d'hôte" dans admin (React 18 + MUI v6 désormais partagés avec admin); suppression de l'ancien onglet latéral "tint"
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Correctif: bouton sendTo remplacé par un composant PairButton personnalisé — récupération fiable de la clé API avec retour visuel
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Correctif: bouton de couplage toujours visible en panneau personnalisé; bundles ajoutés à git (onglets vides corrigés)
 
@@ -68,6 +74,21 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Version initiale : lampes, groupes, scènes, télécommande Tint avec roue chromatique
+
+## Documentation
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Les anciens journaux des modifications se trouvent dans [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Licence
 

@@ -176,6 +176,21 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Initial release: lights, groups, scenes, Tint remote with color wheel
 
+## Documentation
+
+- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
+- 🇷🇺 [Документация на русском](doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
+- 🇫🇷 [Documentation française](doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](doc/it/README.md)
+- 🇪🇸 [Documentación en español](doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
+- 🇺🇦 [Документація українською](doc/uk/README.md)
+- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+
+Older changelogs can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+
 ## License
 
 MIT License

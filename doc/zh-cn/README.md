@@ -48,6 +48,12 @@
 
 ## 更新日志
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) 修复：设备标签页不再在admin中触发错误的"切换主机"警告（React 18 + MUI v6现已与admin共享）；移除遗留的侧边栏"tint"标签
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) 修复：将sendTo按钮替换为自定义PairButton组件，可靠获取API密钥并提供视觉反馈
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) 修复：配对按钮作为自定义面板始终可见；面板包已提交至git（空标签页问题已解决）
 
@@ -68,6 +74,21 @@
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) 初始版本：灯具、群组、场景、带色轮的Tint遥控器
+
+## 文档
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+
+较旧的更新日志可在 [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md) 中找到。
 
 ## 许可证
 

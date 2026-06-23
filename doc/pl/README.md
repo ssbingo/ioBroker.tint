@@ -48,6 +48,12 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Poprawka: zakładki urządzeń nie wywołują już fałszywego ostrzeżenia "zmień hosta" w admin (React 18 + MUI v6 są teraz współdzielone z admin); usunięto przestarzałą zakładkę boczną "tint"
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Poprawka: przycisk sendTo zastąpiony własnym komponentem PairButton — niezawodne pobieranie klucza API z informacją zwrotną
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Poprawka: przycisk parowania zawsze widoczny jako niestandardowy panel; bundle dodane do git (puste zakładki naprawione)
 
@@ -68,6 +74,21 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Pierwsza wersja: światła, grupy, sceny, pilot Tint z kołem kolorów
+
+## Dokumentacja
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Starsze wpisy dziennika zmian znajdziesz w [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Licencja
 

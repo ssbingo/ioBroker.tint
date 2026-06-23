@@ -48,6 +48,12 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Bugfix: apparaattabbladen geven niet langer een onterechte "host wisselen"-waarschuwing in admin (React 18 + MUI v6 nu gedeeld met admin); verouderd zijbalktabblad "tint" verwijderd
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Bugfix: sendTo-knop vervangen door eigen PairButton-component — betrouwbaar ophalen van API-sleutel met statusweergave
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Bugfix: koppelknop altijd zichtbaar als aangepast panel; bundles in git (lege tabbladen opgelost)
 
@@ -68,6 +74,21 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Eerste versie: lampen, groepen, scènes, Tint-afstandsbediening met kleurenwiel
+
+## Documentatie
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Oudere wijzigingslogboeken zijn te vinden in [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Licentie
 

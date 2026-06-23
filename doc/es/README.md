@@ -48,6 +48,12 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Corrección: las pestañas de dispositivos ya no generan una falsa advertencia de "cambiar de host" en admin (React 18 + MUI v6 ahora compartidos con admin); eliminada la pestaña lateral obsoleta "tint"
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Corrección: botón sendTo reemplazado por componente PairButton personalizado — obtención fiable de clave API con feedback visual
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Corrección: botón de emparejamiento siempre visible como panel personalizado; bundles añadidos a git (pestañas vacías corregidas)
 
@@ -68,6 +74,21 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Versión inicial: luces, grupos, escenas, mando a distancia Tint con rueda de colores
+
+## Documentación
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Los registros de cambios anteriores se encuentran en [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Licencia
 

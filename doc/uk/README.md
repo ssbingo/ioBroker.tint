@@ -48,6 +48,12 @@
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Виправлення: вкладки пристроїв більше не викликають хибне попередження "змінити хост" в admin (React 18 + MUI v6 тепер спільні з admin); видалено застарілу бічну вкладку "tint"
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Виправлення: кнопку sendTo замінено власним компонентом PairButton — надійне отримання API-ключа з візуальним відгуком
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Виправлення: кнопка сполучення завжди видима як власна панель; бандли додано до git (порожні вкладки виправлено)
 
@@ -68,6 +74,21 @@
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Перший випуск: лампи, групи, сцени, пульт Tint із колесом кольорів
+
+## Документація
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇵🇹 [Documentação portuguesa](../pt/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Старіші записи журналу змін можна знайти у файлі [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Ліцензія
 

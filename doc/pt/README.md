@@ -48,6 +48,12 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Correção: as abas de dispositivos já não geram um aviso falso de "mudar de host" no admin (React 18 + MUI v6 agora partilhados com o admin); removida a aba lateral "tint" obsoleta
+
+### 0.2.6 (2026-06-17)
+* (ssbingo) Correção: botão sendTo substituído por componente PairButton personalizado — obtenção fiável da chave API com feedback visual
+
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Correção: botão de emparelhamento sempre visível como painel personalizado; bundles adicionados ao git (abas vazias resolvidas)
 
@@ -68,6 +74,21 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ### 0.1.0 (2026-06-15)
 * (ssbingo) Lançamento inicial: luzes, grupos, cenas, controlo remoto Tint com roda de cores
+
+## Documentação
+
+- 🇬🇧 [English documentation](../../README.md)
+- 🇩🇪 [Deutsche Dokumentation](../de/README.md)
+- 🇷🇺 [Документация на русском](../ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](../nl/README.md)
+- 🇫🇷 [Documentation française](../fr/README.md)
+- 🇮🇹 [Documentazione italiana](../it/README.md)
+- 🇪🇸 [Documentación en español](../es/README.md)
+- 🇵🇱 [Dokumentacja polska](../pl/README.md)
+- 🇺🇦 [Документація українською](../uk/README.md)
+- 🇨🇳 [简体中文文档](../zh-cn/README.md)
+
+Os registos de alterações mais antigos encontram-se em [CHANGELOG_OLD.md](../../CHANGELOG_OLD.md).
 
 ## Licença
 
