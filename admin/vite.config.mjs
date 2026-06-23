@@ -14,7 +14,19 @@ export default defineConfig({
 			name: 'tintComponents',
 			filename: 'customComponents.js',
 			exposes: { './Components': resolve(__dirname, 'src/panels/index.js') },
-			shared: {},
+			// Share these with admin's own host bundle (confirmed via its
+			// mf-manifest.json: react/react-dom 18.3.1, @mui/material 6.5.0,
+			// @emotion/* 11.x) instead of bundling our own copies — avoids a
+			// 400+ KB remote chunk that can otherwise block the browser's main
+			// thread long enough to disrupt admin's host-alive heartbeat
+			// handling (HostSelectors component).
+			shared: {
+				react: { singleton: true, requiredVersion: '*' },
+				'react-dom': { singleton: true, requiredVersion: '*' },
+				'@mui/material': { singleton: true, requiredVersion: '*' },
+				'@emotion/react': { singleton: true, requiredVersion: '*' },
+				'@emotion/styled': { singleton: true, requiredVersion: '*' },
+			},
 			dts: false,
 		}),
 	],

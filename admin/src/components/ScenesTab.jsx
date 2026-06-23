@@ -1,92 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-	root: { padding: theme.spacing(0, 0, 2, 0) },
-
-	/* Status / action bar */
-	bar: {
-		display: 'flex',
-		alignItems: 'center',
-		gap: theme.spacing(1),
-		padding: theme.spacing(1, 2),
-		marginBottom: theme.spacing(2),
-		background: theme.palette.type === 'dark' ? 'rgba(255,255,255,0.04)' : '#f5f5f5',
-		borderRadius: theme.shape.borderRadius,
-		border: `1px solid ${theme.palette.divider}`,
-	},
-	dot: {
-		width: 10,
-		height: 10,
-		borderRadius: '50%',
-		flexShrink: 0,
-		transition: 'background 0.3s',
-	},
-	dotOk: { backgroundColor: '#4caf50' },
-	dotError: { backgroundColor: '#f44336' },
-	dotIdle: { backgroundColor: '#bdbdbd' },
-	spacer: { flex: 1 },
-
-	/* Alerts */
-	alert: {
-		display: 'flex',
-		alignItems: 'flex-start',
-		gap: theme.spacing(1),
-		padding: theme.spacing(1.5, 2),
-		borderRadius: theme.shape.borderRadius,
-		marginBottom: theme.spacing(2),
-		fontSize: '0.875rem',
-		lineHeight: 1.5,
-	},
-	alertError: {
-		background: '#fdecea',
-		border: '1px solid #ef9a9a',
-		color: '#b71c1c',
-	},
-	alertWarn: {
-		background: '#fff8e1',
-		border: '1px solid #ffe082',
-		color: '#7b5000',
-	},
-	alertInfo: {
-		background: '#e3f2fd',
-		border: '1px solid #90caf9',
-		color: '#0d47a1',
-	},
-
-	/* Table */
-	tableHead: { background: theme.palette.type === 'dark' ? 'rgba(255,255,255,0.06)' : '#fafafa' },
-	tableRow: {
-		'&:hover': { background: theme.palette.action.hover },
-	},
-
-	center: {
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		padding: theme.spacing(4),
-		gap: theme.spacing(1),
-		color: theme.palette.text.secondary,
-	},
-}));
-
-function StatusDot({ classes, ok, loading }) {
-	if (loading) return <CircularProgress size={10} />;
-	return <span className={`${classes.dot} ${ok ? classes.dotOk : ok === null ? classes.dotIdle : classes.dotError}`} />;
-}
+import { useState, useEffect, useCallback } from 'react';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
+import StatusDot from './StatusDot';
+import { barSx, spacerSx, alertSx, alertErrorSx, alertWarnSx, alertInfoSx, tableHeadSx, tableRowSx, centerSx } from './tabStyles';
 
 export default function ScenesTab({ sendToAdapter, t, alive }) {
-	const classes = useStyles();
 	const [scenes, setScenes] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
@@ -134,21 +61,21 @@ export default function ScenesTab({ sendToAdapter, t, alive }) {
 	/* Adapter offline */
 	if (alive === false) {
 		return (
-			<div className={`${classes.alert} ${classes.alertWarn}`}>
+			<Box sx={[alertSx, alertWarnSx]}>
 				<span>⚠️</span>
 				<span><strong>{t('msgAdapterOffline')}</strong></span>
-			</div>
+			</Box>
 		);
 	}
 
 	const rows = scenes || [];
 
 	return (
-		<div className={classes.root}>
+		<Box sx={{ padding: '0 0 16px 0' }}>
 
 			{/* Status / action bar */}
-			<div className={classes.bar}>
-				<StatusDot classes={classes} ok={error ? false : scenes !== null ? true : null} loading={loading} />
+			<Box sx={barSx}>
+				<StatusDot ok={error ? false : scenes !== null ? true : null} loading={loading} />
 				<Typography variant="body2" color="textSecondary">
 					{loading && !scenes
 						? t('msgLoading')
@@ -158,43 +85,43 @@ export default function ScenesTab({ sendToAdapter, t, alive }) {
 						? `${rows.length} ${t('scenesCount')}`
 						: '–'}
 				</Typography>
-				<div className={classes.spacer} />
+				<Box sx={spacerSx} />
 				<Button variant="outlined" size="small" onClick={load} disabled={loading}>
 					{loading ? <CircularProgress size={14} /> : t('btnRefresh')}
 				</Button>
-			</div>
+			</Box>
 
 			{/* Error */}
 			{error && (
-				<div className={`${classes.alert} ${classes.alertError}`}>
+				<Box sx={[alertSx, alertErrorSx]}>
 					<span>✖</span>
 					<div>
 						<strong>{t('msgError')}:</strong> {error}
 					</div>
-				</div>
+				</Box>
 			)}
 
 			{/* Loading spinner (initial load) */}
 			{loading && !scenes && (
-				<div className={classes.center}>
+				<Box sx={centerSx}>
 					<CircularProgress size={36} />
 					<Typography variant="body2">{t('msgLoading')}</Typography>
-				</div>
+				</Box>
 			)}
 
 			{/* No scenes */}
 			{!loading && !error && scenes !== null && rows.length === 0 && (
-				<div className={`${classes.alert} ${classes.alertInfo}`}>
+				<Box sx={[alertSx, alertInfoSx]}>
 					<span>ℹ</span>
 					<span>{t('msgNoScenes')}</span>
-				</div>
+				</Box>
 			)}
 
 			{/* Scenes table */}
 			{rows.length > 0 && (
 				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
-						<TableHead className={classes.tableHead}>
+						<TableHead sx={tableHeadSx}>
 							<TableRow>
 								<TableCell><strong>{t('colGroup')}</strong></TableCell>
 								<TableCell><strong>{t('colScene')}</strong></TableCell>
@@ -206,7 +133,7 @@ export default function ScenesTab({ sendToAdapter, t, alive }) {
 								const key = `${row.groupId}/${row.sceneId}`;
 								const isActivating = activatingKey === key;
 								return (
-									<TableRow key={key} className={classes.tableRow}>
+									<TableRow key={key} sx={tableRowSx}>
 										<TableCell>
 											<Typography variant="body2">{row.groupName}</Typography>
 										</TableCell>
@@ -231,6 +158,6 @@ export default function ScenesTab({ sendToAdapter, t, alive }) {
 					</Table>
 				</TableContainer>
 			)}
-		</div>
+		</Box>
 	);
 }

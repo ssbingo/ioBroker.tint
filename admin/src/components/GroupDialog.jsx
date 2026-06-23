@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
 
-const useStyles = makeStyles((theme) => ({
-	nameField: { marginBottom: theme.spacing(2) },
-	lightList: {
-		maxHeight: 320,
-		overflowY: 'auto',
-		border: '1px solid ' + theme.palette.divider,
-		borderRadius: theme.shape.borderRadius,
-		padding: theme.spacing(0, 1),
-	},
-	lightLabel: { fontSize: '0.875rem' },
-	lightSub: { color: theme.palette.text.secondary, fontSize: '0.75rem' },
-}));
+const lightListSx = {
+	maxHeight: 320,
+	overflowY: 'auto',
+	border: '1px solid',
+	borderColor: 'divider',
+	borderRadius: 1,
+	padding: '0 8px',
+};
+const lightSubSx = { color: 'text.secondary', fontSize: '0.75rem' };
 
 /**
  * @param {object} props
@@ -34,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
  * @param {function(string): string} props.t
  */
 export default function GroupDialog({ open, group, allLights, onSave, onClose, t }) {
-	const classes = useStyles();
 	const [name, setName] = useState('');
 	const [selected, setSelected] = useState({});
 	const [saving, setSaving] = useState(false);
@@ -73,11 +69,19 @@ export default function GroupDialog({ open, group, allLights, onSave, onClose, t
 	const isEdit = !!group;
 
 	return (
-		<Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth disableBackdropClick={saving}>
+		<Dialog
+			open={open}
+			onClose={(event, reason) => {
+				if (reason === 'backdropClick' && saving) return;
+				onClose();
+			}}
+			maxWidth="xs"
+			fullWidth
+		>
 			<DialogTitle>{isEdit ? t('dlgEditGroup') : t('dlgNewGroup')}</DialogTitle>
 			<DialogContent>
 				<TextField
-					className={classes.nameField}
+					sx={{ marginBottom: 2 }}
 					label={t('dlgGroupName')}
 					value={name}
 					onChange={(e) => { setName(e.target.value); setNameError(false); }}
@@ -90,9 +94,9 @@ export default function GroupDialog({ open, group, allLights, onSave, onClose, t
 					size="small"
 				/>
 				<Typography variant="subtitle2" gutterBottom>{t('dlgSelectLights')}</Typography>
-				<div className={classes.lightList}>
+				<Box sx={lightListSx}>
 					{lightEntries.length === 0 ? (
-						<Typography variant="body2" style={{ padding: 8 }}>{t('msgNoLights')}</Typography>
+						<Typography variant="body2" sx={{ padding: '8px' }}>{t('msgNoLights')}</Typography>
 					) : (
 						lightEntries.map(([id, light]) => (
 							<FormControlLabel
@@ -108,16 +112,16 @@ export default function GroupDialog({ open, group, allLights, onSave, onClose, t
 								}
 								label={
 									<span>
-										<span className={classes.lightLabel}>{light.name}</span>
+										<span style={{ fontSize: '0.875rem' }}>{light.name}</span>
 										{light.modelid && (
-											<span className={classes.lightSub}> ({light.modelid})</span>
+											<Box component="span" sx={lightSubSx}> ({light.modelid})</Box>
 										)}
 									</span>
 								}
 							/>
 						))
 					)}
-				</div>
+				</Box>
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={onClose} disabled={saving}>{t('btnCancel')}</Button>

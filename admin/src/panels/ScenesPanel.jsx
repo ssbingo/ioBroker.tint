@@ -1,19 +1,15 @@
-import React, { useCallback } from 'react';
-import ReactDOM from 'react-dom';
+import { useCallback } from 'react';
 import ScenesTab from '../components/ScenesTab';
 import { createT } from './i18n.js';
 
-function ScenesPanelApp({ socket, instance, systemConfig, alive }) {
+export default function ScenesPanel({ socket, instance, systemConfig, alive }) {
 	const lang = systemConfig?.language;
 	const t = createT(lang || 'en');
 
 	const sendToAdapter = useCallback(
 		(command, data) =>
 			new Promise((resolve) => {
-				const tid = setTimeout(
-					() => resolve({ error: t('msgTimeout') }),
-					10000,
-				);
+				const tid = setTimeout(() => resolve({ error: t('msgTimeout') }), 10000);
 				socket.sendTo(`tint.${instance}`, command, data || {}).then((result) => {
 					clearTimeout(tid);
 					resolve(result);
@@ -28,29 +24,3 @@ function ScenesPanelApp({ socket, instance, systemConfig, alive }) {
 
 	return <ScenesTab sendToAdapter={sendToAdapter} t={t} alive={alive} />;
 }
-
-/**
- * Outer shell returned into admin's React tree (no hooks, no React version conflict).
- * The inner app runs in its own ReactDOM root so hook dispatchers stay isolated.
- * setTimeout defers mount to the next tick, outside admin's commit phase.
- */
-function ScenesPanel(props) {
-	return React.createElement('div', {
-		style: { width: '100%', fontFamily: 'Roboto, Arial, sans-serif' },
-		ref: function (el) {
-			if (!el) return;
-			setTimeout(function () {
-				try {
-					ReactDOM.render(React.createElement(ScenesPanelApp, props), el);
-				} catch (err) {
-					el.innerHTML =
-						'<p style="color:#c62828;padding:12px;background:#fdecea;border-radius:4px;margin:0">⚠ Panel error: ' +
-						err.message +
-						'</p>';
-				}
-			}, 0);
-		},
-	});
-}
-
-export default ScenesPanel;
