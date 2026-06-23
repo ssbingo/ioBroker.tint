@@ -35,18 +35,135 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Configuratie
 
-| Parameter | Standaard | Beschrijving |
-|-----------|-----------|--------------|
-| IP-adres | `192.168.1.100` | IP-adres van de deCONZ / ConBee gateway |
-| REST-poort | `80` | HTTP-poort van de deCONZ REST-API |
-| WebSocket-poort | `443` | WebSocket-poort voor deCONZ push-events |
-| API-sleutel | *(leeg)* | deCONZ API-sleutel |
-| Poll-interval | `60` | Fallback REST-polling-interval in seconden |
-| Kleurenwiel automatisch toepassen | `true` | Gekozen kleur automatisch instellen op de actieve zone |
-| Overgangstijd | `4` | Standaard lichtovergangstijd in stappen van 100 ms (4 = 400 ms) |
-| Watchdog (minuten) | `120` | Watchdog-timeout; adapter herverbindt na N minuten zonder WebSocket-event |
+## Objectstructuur
+
+### Lampen (`lights.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Lampnaam uit deCONZ |
+| `info.modelid` | string | R | Model-ID |
+| `info.manufacturer` | string | R | Fabrikantnaam |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `info.uniqueid` | string | R | Zigbee IEEE-adres |
+| `state.on` | boolean | R/W | Aan / uit |
+| `state.brightness` | getal (%) | R/W | Helderheid 0–100 % |
+| `state.colorTemp` | getal (K) | R/W | Kleurtemperatuur 2000–6500 K |
+| `state.hue` | getal | R/W | Tint 0–65535 |
+| `state.saturation` | getal | R/W | Verzadiging 0–254 |
+| `state.hex` | string | R/W | RGB-kleur als `#RRGGBB` hex-string |
+| `state.x` | getal | R/W | CIE x-chromaticiteit (ruw) |
+| `state.y` | getal | R/W | CIE y-chromaticiteit (ruw) |
+| `state.colorMode` | string | R | Actieve kleurmodus (`ct`, `xy`, `hs`) |
+| `state.effect` | string | R/W | Lichteffect (`none`, `colorloop`, …) |
+| `state.effectSpeed` | getal | R/W | Effectsnelheid 0–255 |
+| `state.transitionTime` | getal (×100 ms) | R/W | Overgangstijd specifiek voor deze lamp |
+
+### Groepen (`groups.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Groepsnaam |
+| `info.memberCount` | getal | R | Aantal lampen in de groep |
+| `info.allOn` | boolean | R | `true` als alle lampen in de groep aan staan |
+| `info.anyOn` | boolean | R | `true` als minstens één lamp aan staat |
+| `action.on` | boolean | R/W | Alle lampen in de groep schakelen |
+| `action.brightness` | getal (%) | R/W | Groepshelderheid 0–100 % |
+| `action.colorTemp` | getal (K) | R/W | Groepskleurtemperatuur 2000–6500 K |
+| `action.hex` | string | R/W | Groeps-RGB-kleur als `#RRGGBB` |
+| `action.effect` | string | R/W | Lichteffect van de groep |
+| `action.transitionTime` | getal (×100 ms) | R/W | Overgangstijd van de groep |
+| `action.activateScene` | string | R/W | Schrijf een scènenaam om deze op te roepen |
+| `scenes.<name>` | boolean | R/W | Zet op `true` om deze scène op te roepen |
+
+### Afstandsbedieningen (`remotes.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Naam van de afstandsbediening |
+| `info.battery` | getal (%) | R | Batterijniveau |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `info.lastSeen` | string | R | Tijdstempel laatst gezien |
+| `button.lastEvent` | getal | R | Ruwe deCONZ-knopgebeurteniscode |
+| `button.lastEventName` | string | R | Leesbare gebeurtenisnaam |
+| `button.pressType` | string | R | `short`, `hold` of `release` |
+| `button.activeZone` | getal | R | Actieve zone: 0 = alle, 1–3 = zone 1–3 |
+| `colorWheel.angle` | getal (°) | R | Hoek van het kleurenwiel 0–359 ° |
+| `colorWheel.x` | getal | R | CIE x van de gekozen kleur |
+| `colorWheel.y` | getal | R | CIE y van de gekozen kleur |
+| `colorWheel.hex` | string | R | Gekozen kleur als `#RRGGBB` |
+| `colorWheel.triggered` | boolean | R | Wordt kort `true` bij elke wielgebeurtenis |
+| `colorTemp.value` | getal (K) | R | Gekozen kleurtemperatuur in Kelvin |
+| `colorTemp.mired` | getal | R | Gekozen kleurtemperatuur in mired |
+| `colorTemp.pressType` | string | R | `short` of `hold` |
+
+### Stekkers (`plugs.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Stekkernaam uit deCONZ |
+| `info.modelid` | string | R | Model-ID |
+| `info.manufacturer` | string | R | Fabrikantnaam |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `info.uniqueid` | string | R | Zigbee IEEE-adres |
+| `state.on` | boolean | R/W | Aan / uit |
+
+### Rolluiken (`covers.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Naam van het rolluik uit deCONZ |
+| `info.modelid` | string | R | Model-ID |
+| `info.manufacturer` | string | R | Fabrikantnaam |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `info.uniqueid` | string | R | Zigbee IEEE-adres |
+| `state.position` | getal (%) | R/W | Positie, 0 = dicht, 100 = open |
+| `state.stop` | boolean | R/W | Schrijf `true` om de beweging te stoppen |
+
+### Schakelaars (`switches.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Naam van de schakelaar uit deCONZ |
+| `info.battery` | getal (%) | R | Batterijniveau |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `info.lastSeen` | string | R | Tijdstempel laatst gezien |
+| `button.lastEvent` | getal | R | Ruwe deCONZ-knopgebeurteniscode |
+| `button.lastEventName` | string | R | Leesbare gebeurtenisnaam |
+
+### Sensoren (`sensors.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Naam van de sensor uit deCONZ |
+| `info.battery` | getal (%) | R | Batterijniveau |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `info.lastSeen` | string | R | Tijdstempel laatst gezien |
+| `value.temperature` | getal (°C) | R | Temperatuur (ZHATemperature-sensoren) |
+| `value.humidity` | getal (%) | R | Luchtvochtigheid (ZHAHumidity-sensoren) |
+| `value.pressure` | getal (hPa) | R | Luchtdruk (ZHAPressure-sensoren) |
+| `value.open` | boolean | R | Open/dicht-status (ZHAOpenClose-sensoren) |
+| `value.presence` | boolean | R | Beweging gedetecteerd (ZHAPresence-sensoren) |
+| `value.brightness` | getal (lux) | R | Lichtniveau (ZHALightLevel-sensoren) |
+| `value.power` | getal (W) | R | Stroomverbruik (ZHAPower-sensoren) |
+| `value.consumption` | getal (kWh) | R | Energieverbruik (ZHAConsumption-sensoren) |
+| `value.raw` | mixed | R | Ruwe waarde als fallback voor onbekende sensortypes |
+
+### Thermostaten (`thermostats.<id>.*`)
+
+| Datapunt | Type | R/W | Beschrijving |
+|---|---|---|---|
+| `info.name` | string | R | Naam van de thermostaat uit deCONZ |
+| `info.battery` | getal (%) | R | Batterijniveau |
+| `info.reachable` | boolean | R | Zigbee-bereikbaarheid |
+| `state.temperature` | getal (°C) | R | Gemeten temperatuur |
+| `state.valve` | getal (%) | R | Klepopeningspercentage |
+| `state.setpoint` | getal (°C) | R/W | Doeltemperatuur, 5–32 °C |
 
 ## Changelog
+
+### 0.3.1 (2026-06-23)
+* (ssbingo) Objectstructuurdocumentatie (Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten) in alle 11 README-bestanden voltooid; changelog beperkt tot 5 items, oudere geschiedenis verplaatst naar CHANGELOG_OLD.md
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Bugfix: apparaattabbladen geven niet langer een onterechte "host wisselen"-waarschuwing in admin (React 18 + MUI v6 nu gedeeld met admin); verouderd zijbalktabblad "tint" verwijderd
@@ -59,21 +176,6 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
-
-### 0.2.3 (2026-06-15)
-* (ssbingo) Automatisch API-sleutel koppelen toegevoegd: nieuwe knop in Instellingen vraagt de sleutel op bij deCONZ en vult deze automatisch in
-
-### 0.2.2 (2026-06-15)
-* (ssbingo) Tablabels gecorrigeerd · Beschrijvingen toegevoegd · UX verbeterd met alive-check en timeout
-
-### 0.2.1 (2026-06-15)
-* (ssbingo) Bugfix: panels waren leeg omdat `window.React` geen global is in admin 7
-
-### 0.2.0 (2026-06-15)
-* (ssbingo) Admin UI: lampen- en groepentabbladen in adapterinstellingen; groepsbeheer (maken, bewerken, verwijderen); Node.js >= 22 vereist
-
-### 0.1.0 (2026-06-15)
-* (ssbingo) Eerste versie: lampen, groepen, scènes, Tint-afstandsbediening met kleurenwiel
 
 ## Documentatie
 

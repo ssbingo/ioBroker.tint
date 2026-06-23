@@ -35,18 +35,135 @@
 
 ## Налаштування
 
-| Параметр | За замовчуванням | Опис |
-|----------|-----------------|------|
-| IP-адреса | `192.168.1.100` | IP-адреса шлюзу deCONZ / ConBee |
-| REST-порт | `80` | HTTP-порт REST API deCONZ |
-| WebSocket-порт | `443` | Порт WebSocket для push-подій deCONZ |
-| API-ключ | *(порожній)* | API-ключ deCONZ |
-| Інтервал опиту | `60` | Резервний інтервал REST-опиту в секундах |
-| Автозастосування колеса кольорів | `true` | Автоматично встановлювати обраний колір на активну зону |
-| Час переходу | `4` | Стандартний час переходу світла кроками по 100 мс (4 = 400 мс) |
-| Watchdog (хвилини) | `120` | Тайм-аут watchdog; перепідключення через N хвилин без WebSocket-події |
+## Структура об'єктів
+
+### Лампи (`lights.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва лампи з deCONZ |
+| `info.modelid` | string | R | Ідентифікатор моделі |
+| `info.manufacturer` | string | R | Назва виробника |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `info.uniqueid` | string | R | IEEE-адреса Zigbee |
+| `state.on` | boolean | R/W | Увімкнено / вимкнено |
+| `state.brightness` | число (%) | R/W | Яскравість 0–100 % |
+| `state.colorTemp` | число (K) | R/W | Колірна температура 2000–6500 K |
+| `state.hue` | число | R/W | Відтінок 0–65535 |
+| `state.saturation` | число | R/W | Насиченість 0–254 |
+| `state.hex` | string | R/W | RGB-колір у вигляді hex-рядка `#RRGGBB` |
+| `state.x` | число | R/W | CIE x хроматичність (необроблене значення) |
+| `state.y` | число | R/W | CIE y хроматичність (необроблене значення) |
+| `state.colorMode` | string | R | Активний режим кольору (`ct`, `xy`, `hs`) |
+| `state.effect` | string | R/W | Світловий ефект (`none`, `colorloop`, …) |
+| `state.effectSpeed` | число | R/W | Швидкість ефекту 0–255 |
+| `state.transitionTime` | число (×100 ms) | R/W | Індивідуальний час переходу для цієї лампи |
+
+### Групи (`groups.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва групи |
+| `info.memberCount` | число | R | Кількість ламп у групі |
+| `info.allOn` | boolean | R | `true`, якщо всі лампи групи увімкнені |
+| `info.anyOn` | boolean | R | `true`, якщо хоча б одна лампа увімкнена |
+| `action.on` | boolean | R/W | Увімкнення/вимкнення всіх ламп групи |
+| `action.brightness` | число (%) | R/W | Яскравість групи 0–100 % |
+| `action.colorTemp` | число (K) | R/W | Колірна температура групи 2000–6500 K |
+| `action.hex` | string | R/W | RGB-колір групи як `#RRGGBB` |
+| `action.effect` | string | R/W | Світловий ефект групи |
+| `action.transitionTime` | число (×100 ms) | R/W | Час переходу групи |
+| `action.activateScene` | string | R/W | Запишіть назву сцени, щоб викликати її |
+| `scenes.<name>` | boolean | R/W | Встановіть `true`, щоб викликати цю сцену |
+
+### Пульти (`remotes.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва пульта |
+| `info.battery` | число (%) | R | Рівень заряду батареї |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `info.lastSeen` | string | R | Час останнього контакту |
+| `button.lastEvent` | число | R | Необроблений код події кнопки від deCONZ |
+| `button.lastEventName` | string | R | Зрозуміла назва події |
+| `button.pressType` | string | R | `short`, `hold` або `release` |
+| `button.activeZone` | число | R | Активна зона: 0 = всі, 1–3 = зона 1–3 |
+| `colorWheel.angle` | число (°) | R | Кут колеса кольорів 0–359 ° |
+| `colorWheel.x` | число | R | CIE x вибраного кольору |
+| `colorWheel.y` | число | R | CIE y вибраного кольору |
+| `colorWheel.hex` | string | R | Вибраний колір як `#RRGGBB` |
+| `colorWheel.triggered` | boolean | R | Короткочасно набуває `true` при кожній події колеса |
+| `colorTemp.value` | число (K) | R | Вибрана колірна температура в Кельвінах |
+| `colorTemp.mired` | число | R | Вибрана колірна температура в міред |
+| `colorTemp.pressType` | string | R | `short` або `hold` |
+
+### Розетки (`plugs.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва розетки з deCONZ |
+| `info.modelid` | string | R | Ідентифікатор моделі |
+| `info.manufacturer` | string | R | Назва виробника |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `info.uniqueid` | string | R | IEEE-адреса Zigbee |
+| `state.on` | boolean | R/W | Увімкнено / вимкнено |
+
+### Жалюзі (`covers.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва жалюзі з deCONZ |
+| `info.modelid` | string | R | Ідентифікатор моделі |
+| `info.manufacturer` | string | R | Назва виробника |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `info.uniqueid` | string | R | IEEE-адреса Zigbee |
+| `state.position` | число (%) | R/W | Положення, 0 = закрито, 100 = відкрито |
+| `state.stop` | boolean | R/W | Запишіть `true`, щоб зупинити рух |
+
+### Вимикачі (`switches.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва вимикача з deCONZ |
+| `info.battery` | число (%) | R | Рівень заряду батареї |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `info.lastSeen` | string | R | Час останнього контакту |
+| `button.lastEvent` | число | R | Необроблений код події кнопки від deCONZ |
+| `button.lastEventName` | string | R | Зрозуміла назва події |
+
+### Датчики (`sensors.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва датчика з deCONZ |
+| `info.battery` | число (%) | R | Рівень заряду батареї |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `info.lastSeen` | string | R | Час останнього контакту |
+| `value.temperature` | число (°C) | R | Температура (датчики ZHATemperature) |
+| `value.humidity` | число (%) | R | Вологість (датчики ZHAHumidity) |
+| `value.pressure` | число (hPa) | R | Атмосферний тиск (датчики ZHAPressure) |
+| `value.open` | boolean | R | Стан відкрито/закрито (датчики ZHAOpenClose) |
+| `value.presence` | boolean | R | Виявлено рух (датчики ZHAPresence) |
+| `value.brightness` | число (lux) | R | Рівень освітленості (датчики ZHALightLevel) |
+| `value.power` | число (W) | R | Споживана потужність (датчики ZHAPower) |
+| `value.consumption` | число (kWh) | R | Споживання енергії (датчики ZHAConsumption) |
+| `value.raw` | mixed | R | Резервне необроблене значення для нерозпізнаних типів датчиків |
+
+### Термостати (`thermostats.<id>.*`)
+
+| Параметр | Тип | R/W | Опис |
+|---|---|---|---|
+| `info.name` | string | R | Назва термостата з deCONZ |
+| `info.battery` | число (%) | R | Рівень заряду батареї |
+| `info.reachable` | boolean | R | Доступність Zigbee |
+| `state.temperature` | число (°C) | R | Виміряна температура |
+| `state.valve` | число (%) | R | Відсоток відкриття клапана |
+| `state.setpoint` | число (°C) | R/W | Цільова температура, 5–32 °C |
 
 ## Changelog
+
+### 0.3.1 (2026-06-23)
+* (ssbingo) Завершено документацію структури об'єктів (Розетки, Жалюзі, Вимикачі, Датчики, Термостати) у всіх 11 файлах README; журнал змін обмежено 5 записами, старішу історію перенесено до CHANGELOG_OLD.md
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Виправлення: вкладки пристроїв більше не викликають хибне попередження "змінити хост" в admin (React 18 + MUI v6 тепер спільні з admin); видалено застарілу бічну вкладку "tint"
@@ -59,21 +176,6 @@
 
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
-
-### 0.2.3 (2026-06-15)
-* (ssbingo) Dodano avtomatychne spoluchen. API-klyucha: nova knopka v Nalashtuvannyakh zapytue klyuch u deCONZ i avtomatychno yoho vnosyt'
-
-### 0.2.2 (2026-06-15)
-* (ssbingo) Виправлено підписи вкладок · Додано описи · Покращено UX з перевіркою alive та таймаутом
-
-### 0.2.1 (2026-06-15)
-* (ssbingo) Виправлення: панелі були порожніми, оскільки `window.React` не є глобальним в admin 7
-
-### 0.2.0 (2026-06-15)
-* (ssbingo) Admin UI: вкладки ламп та груп у налаштуваннях адаптера; керування групами (створення, редагування, видалення); потрібен Node.js >= 22
-
-### 0.1.0 (2026-06-15)
-* (ssbingo) Перший випуск: лампи, групи, сцени, пульт Tint із колесом кольорів
 
 ## Документація
 

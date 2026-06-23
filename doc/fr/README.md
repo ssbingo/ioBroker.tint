@@ -35,18 +35,135 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Configuration
 
-| Paramètre | Défaut | Description |
-|-----------|--------|-------------|
-| Adresse IP | `192.168.1.100` | Adresse IP de la passerelle deCONZ / ConBee |
-| Port REST | `80` | Port HTTP de l'API REST deCONZ |
-| Port WebSocket | `443` | Port WebSocket pour les événements push deCONZ |
-| Clé API | *(vide)* | Clé API deCONZ |
-| Intervalle de polling | `60` | Intervalle de polling REST de secours en secondes |
-| Appliquer automatiquement la roue chromatique | `true` | Définir automatiquement la couleur choisie sur la zone active |
-| Temps de transition | `4` | Temps de transition lumineux par défaut par pas de 100 ms (4 = 400 ms) |
-| Watchdog (minutes) | `120` | Délai d'expiration du watchdog ; reconnexion après N minutes sans événement WebSocket |
+## Structure des objets
+
+### Lampes (`lights.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom de la lampe dans deCONZ |
+| `info.modelid` | string | R | Identifiant du modèle |
+| `info.manufacturer` | string | R | Nom du fabricant |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `info.uniqueid` | string | R | Adresse IEEE Zigbee |
+| `state.on` | boolean | R/W | Allumé / éteint |
+| `state.brightness` | nombre (%) | R/W | Luminosité 0–100 % |
+| `state.colorTemp` | nombre (K) | R/W | Température de couleur 2000–6500 K |
+| `state.hue` | nombre | R/W | Teinte 0–65535 |
+| `state.saturation` | nombre | R/W | Saturation 0–254 |
+| `state.hex` | string | R/W | Couleur RGB sous forme de chaîne hex `#RRGGBB` |
+| `state.x` | nombre | R/W | Chromaticité CIE x (brute) |
+| `state.y` | nombre | R/W | Chromaticité CIE y (brute) |
+| `state.colorMode` | string | R | Mode de couleur actif (`ct`, `xy`, `hs`) |
+| `state.effect` | string | R/W | Effet lumineux (`none`, `colorloop`, …) |
+| `state.effectSpeed` | nombre | R/W | Vitesse de l'effet 0–255 |
+| `state.transitionTime` | nombre (×100 ms) | R/W | Temps de transition spécifique à la lampe |
+
+### Groupes (`groups.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom du groupe |
+| `info.memberCount` | nombre | R | Nombre de lampes dans le groupe |
+| `info.allOn` | boolean | R | `true` quand toutes les lampes du groupe sont allumées |
+| `info.anyOn` | boolean | R | `true` quand au moins une lampe est allumée |
+| `action.on` | boolean | R/W | Allumer/éteindre toutes les lampes du groupe |
+| `action.brightness` | nombre (%) | R/W | Luminosité du groupe 0–100 % |
+| `action.colorTemp` | nombre (K) | R/W | Température de couleur du groupe 2000–6500 K |
+| `action.hex` | string | R/W | Couleur RGB du groupe sous forme `#RRGGBB` |
+| `action.effect` | string | R/W | Effet lumineux du groupe |
+| `action.transitionTime` | nombre (×100 ms) | R/W | Temps de transition du groupe |
+| `action.activateScene` | string | R/W | Écrire le nom d'une scène pour la rappeler |
+| `scenes.<name>` | boolean | R/W | Mettre à `true` pour rappeler cette scène |
+
+### Télécommandes (`remotes.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom de la télécommande |
+| `info.battery` | nombre (%) | R | Niveau de batterie |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `info.lastSeen` | string | R | Horodatage de la dernière connexion |
+| `button.lastEvent` | nombre | R | Code d'événement de bouton brut de deCONZ |
+| `button.lastEventName` | string | R | Nom d'événement lisible |
+| `button.pressType` | string | R | `short`, `hold` ou `release` |
+| `button.activeZone` | nombre | R | Zone active : 0 = toutes, 1–3 = zone 1–3 |
+| `colorWheel.angle` | nombre (°) | R | Angle de la roue chromatique 0–359 ° |
+| `colorWheel.x` | nombre | R | CIE x de la couleur sélectionnée |
+| `colorWheel.y` | nombre | R | CIE y de la couleur sélectionnée |
+| `colorWheel.hex` | string | R | Couleur sélectionnée sous forme `#RRGGBB` |
+| `colorWheel.triggered` | boolean | R | Passe brièvement à `true` à chaque événement de la roue |
+| `colorTemp.value` | nombre (K) | R | Température de couleur sélectionnée en Kelvin |
+| `colorTemp.mired` | nombre | R | Température de couleur sélectionnée en mired |
+| `colorTemp.pressType` | string | R | `short` ou `hold` |
+
+### Prises (`plugs.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom de la prise dans deCONZ |
+| `info.modelid` | string | R | Identifiant du modèle |
+| `info.manufacturer` | string | R | Nom du fabricant |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `info.uniqueid` | string | R | Adresse IEEE Zigbee |
+| `state.on` | boolean | R/W | Allumé / éteint |
+
+### Volets (`covers.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom du volet dans deCONZ |
+| `info.modelid` | string | R | Identifiant du modèle |
+| `info.manufacturer` | string | R | Nom du fabricant |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `info.uniqueid` | string | R | Adresse IEEE Zigbee |
+| `state.position` | nombre (%) | R/W | Position, 0 = fermé, 100 = ouvert |
+| `state.stop` | boolean | R/W | Écrire `true` pour arrêter le mouvement |
+
+### Interrupteurs (`switches.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom de l'interrupteur dans deCONZ |
+| `info.battery` | nombre (%) | R | Niveau de batterie |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `info.lastSeen` | string | R | Horodatage de la dernière connexion |
+| `button.lastEvent` | nombre | R | Code d'événement de bouton brut de deCONZ |
+| `button.lastEventName` | string | R | Nom d'événement lisible |
+
+### Capteurs (`sensors.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom du capteur dans deCONZ |
+| `info.battery` | nombre (%) | R | Niveau de batterie |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `info.lastSeen` | string | R | Horodatage de la dernière connexion |
+| `value.temperature` | nombre (°C) | R | Température (capteurs ZHATemperature) |
+| `value.humidity` | nombre (%) | R | Humidité (capteurs ZHAHumidity) |
+| `value.pressure` | nombre (hPa) | R | Pression atmosphérique (capteurs ZHAPressure) |
+| `value.open` | boolean | R | État ouvert/fermé (capteurs ZHAOpenClose) |
+| `value.presence` | boolean | R | Mouvement détecté (capteurs ZHAPresence) |
+| `value.brightness` | nombre (lux) | R | Niveau de lumière (capteurs ZHALightLevel) |
+| `value.power` | nombre (W) | R | Puissance consommée (capteurs ZHAPower) |
+| `value.consumption` | nombre (kWh) | R | Consommation d'énergie (capteurs ZHAConsumption) |
+| `value.raw` | mixed | R | Valeur brute de repli pour les types de capteur non reconnus |
+
+### Thermostats (`thermostats.<id>.*`)
+
+| État | Type | R/W | Description |
+|---|---|---|---|
+| `info.name` | string | R | Nom du thermostat dans deCONZ |
+| `info.battery` | nombre (%) | R | Niveau de batterie |
+| `info.reachable` | boolean | R | Accessibilité Zigbee |
+| `state.temperature` | nombre (°C) | R | Température mesurée |
+| `state.valve` | nombre (%) | R | Pourcentage d'ouverture de la vanne |
+| `state.setpoint` | nombre (°C) | R/W | Température cible, 5–32 °C |
 
 ## Changelog
+
+### 0.3.1 (2026-06-23)
+* (ssbingo) Documentation de la structure des objets complétée (Prises, Volets, Interrupteurs, Capteurs, Thermostats) dans les 11 fichiers README ; changelog limité à 5 entrées, historique plus ancien déplacé vers CHANGELOG_OLD.md
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Correctif: les onglets d'appareils ne déclenchent plus un faux avertissement "changer d'hôte" dans admin (React 18 + MUI v6 désormais partagés avec admin); suppression de l'ancien onglet latéral "tint"
@@ -59,21 +176,6 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
-
-### 0.2.3 (2026-06-15)
-* (ssbingo) Couplage automatique de cle API ajoute: nouveau bouton dans les Parametres demande la cle a deCONZ et la remplit automatiquement
-
-### 0.2.2 (2026-06-15)
-* (ssbingo) Libellés corrigés · Descriptions ajoutées · UX amélioré avec vérification alive et délai d'attente
-
-### 0.2.1 (2026-06-15)
-* (ssbingo) Correctif: les panneaux étaient vides car `window.React` n'est pas un global dans admin 7
-
-### 0.2.0 (2026-06-15)
-* (ssbingo) Admin UI: onglets lampes et groupes dans les paramètres de l'adaptateur; gestion des groupes (créer, modifier, supprimer); Node.js >= 22 requis
-
-### 0.1.0 (2026-06-15)
-* (ssbingo) Version initiale : lampes, groupes, scènes, télécommande Tint avec roue chromatique
 
 ## Documentation
 

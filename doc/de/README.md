@@ -35,29 +35,12 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Konfiguration
 
-| Parameter | Standard | Beschreibung |
-|-----------|----------|--------------|
-| IP-Adresse | `192.168.1.100` | IP-Adresse des deCONZ / ConBee Gateways |
-| REST-Port | `80` | HTTP-Port der deCONZ REST-API |
-| WebSocket-Port | `443` | WebSocket-Port für Push-Ereignisse von deCONZ |
-| API-Schlüssel | *(leer)* | deCONZ API-Schlüssel (in Phoscon / deCONZ-Einstellungen freischalten) |
-| Abfrageintervall | `60` | Fallback REST-Abfrageintervall in Sekunden |
-| Farbrad automatisch anwenden | `true` | Gewählte Farbe automatisch auf die aktive Zone setzen, wenn das Farbrad der Fernbedienung gedreht wird |
-| Übergangszeit | `4` | Standard-Lichtübergangszeit in Schritten von 100 ms (4 = 400 ms) |
-| Watchdog (Minuten) | `120` | Watchdog-Timeout; Adapter stellt Verbindung wieder her nach so vielen Minuten ohne WebSocket-Ereignis |
-
-### API-Schlüssel ermitteln
-
-1. Phoscon-Webinterface öffnen (meistens `http://<gateway-ip>/pwa`).
-2. **Einstellungen → Gateway → Erweitert** aufrufen.
-3. Auf **App authentifizieren** klicken und den generierten API-Schlüssel kopieren.
-
 ## Objektstruktur
 
 ### Lampen (`lights.<id>.*`)
 
 | Datenpunkt | Typ | R/W | Beschreibung |
-|------------|-----|-----|--------------|
+|---|---|---|---|
 | `info.name` | string | R | Lampennamen aus deCONZ |
 | `info.modelid` | string | R | Modell-ID |
 | `info.manufacturer` | string | R | Herstellername |
@@ -74,12 +57,12 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 | `state.colorMode` | string | R | Aktiver Farbmodus (`ct`, `xy`, `hs`) |
 | `state.effect` | string | R/W | Lichteffekt (`none`, `colorloop`, …) |
 | `state.effectSpeed` | Zahl | R/W | Effektgeschwindigkeit 0–255 |
-| `state.transitionTime` | Zahl (×100 ms) | R/W | Übergangszeit-Überschreibung pro Lampe |
+| `state.transitionTime` | Zahl (×100 ms) | R/W | Übergangszeit-Überschreibung pro Lampe |
 
 ### Gruppen (`groups.<id>.*`)
 
 | Datenpunkt | Typ | R/W | Beschreibung |
-|------------|-----|-----|--------------|
+|---|---|---|---|
 | `info.name` | string | R | Gruppenname |
 | `info.memberCount` | Zahl | R | Anzahl der Lampen in der Gruppe |
 | `info.allOn` | boolean | R | `true` wenn alle Lampen der Gruppe an sind |
@@ -89,14 +72,14 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 | `action.colorTemp` | Zahl (K) | R/W | Gruppen-Farbtemperatur 2000–6500 K |
 | `action.hex` | string | R/W | Gruppen-RGB-Farbe als `#RRGGBB` |
 | `action.effect` | string | R/W | Gruppen-Lichteffekt |
-| `action.transitionTime` | Zahl (×100 ms) | R/W | Gruppen-Übergangszeit-Überschreibung |
+| `action.transitionTime` | Zahl (×100 ms) | R/W | Gruppen-Übergangszeit-Überschreibung |
 | `action.activateScene` | string | R/W | Szene durch Schreiben des Namens abrufen |
 | `scenes.<name>` | boolean | R/W | `true` setzen, um die Szene abzurufen |
 
 ### Fernbedienungen (`remotes.<id>.*`)
 
 | Datenpunkt | Typ | R/W | Beschreibung |
-|------------|-----|-----|--------------|
+|---|---|---|---|
 | `info.name` | string | R | Name der Fernbedienung |
 | `info.battery` | Zahl (%) | R | Akkustand |
 | `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
@@ -114,7 +97,73 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 | `colorTemp.mired` | Zahl | R | Gewählte Farbtemperatur in Mired |
 | `colorTemp.pressType` | string | R | `short` oder `hold` |
 
+### Steckdosen (`plugs.<id>.*`)
+
+| Datenpunkt | Typ | R/W | Beschreibung |
+|---|---|---|---|
+| `info.name` | string | R | Steckdosenname aus deCONZ |
+| `info.modelid` | string | R | Modell-ID |
+| `info.manufacturer` | string | R | Herstellername |
+| `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
+| `info.uniqueid` | string | R | Zigbee IEEE-Adresse |
+| `state.on` | boolean | R/W | Ein / Aus |
+
+### Rollos (`covers.<id>.*`)
+
+| Datenpunkt | Typ | R/W | Beschreibung |
+|---|---|---|---|
+| `info.name` | string | R | Rollo-Name aus deCONZ |
+| `info.modelid` | string | R | Modell-ID |
+| `info.manufacturer` | string | R | Herstellername |
+| `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
+| `info.uniqueid` | string | R | Zigbee IEEE-Adresse |
+| `state.position` | Zahl (%) | R/W | Position, 0 = geschlossen, 100 = offen |
+| `state.stop` | boolean | R/W | `true` schreiben, um die Bewegung zu stoppen |
+
+### Schalter (`switches.<id>.*`)
+
+| Datenpunkt | Typ | R/W | Beschreibung |
+|---|---|---|---|
+| `info.name` | string | R | Schaltername aus deCONZ |
+| `info.battery` | Zahl (%) | R | Akkustand |
+| `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
+| `info.lastSeen` | string | R | Zuletzt gesehen Zeitstempel |
+| `button.lastEvent` | Zahl | R | Roher deCONZ-Tastenereignis-Code |
+| `button.lastEventName` | string | R | Lesbarer Ereignisname |
+
+### Sensoren (`sensors.<id>.*`)
+
+| Datenpunkt | Typ | R/W | Beschreibung |
+|---|---|---|---|
+| `info.name` | string | R | Sensorname aus deCONZ |
+| `info.battery` | Zahl (%) | R | Akkustand |
+| `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
+| `info.lastSeen` | string | R | Zuletzt gesehen Zeitstempel |
+| `value.temperature` | Zahl (°C) | R | Temperatur (ZHATemperature-Sensoren) |
+| `value.humidity` | Zahl (%) | R | Luftfeuchtigkeit (ZHAHumidity-Sensoren) |
+| `value.pressure` | Zahl (hPa) | R | Luftdruck (ZHAPressure-Sensoren) |
+| `value.open` | boolean | R | Offen/Geschlossen-Zustand (ZHAOpenClose-Sensoren) |
+| `value.presence` | boolean | R | Bewegung erkannt (ZHAPresence-Sensoren) |
+| `value.brightness` | Zahl (lux) | R | Helligkeit (ZHALightLevel-Sensoren) |
+| `value.power` | Zahl (W) | R | Leistungsaufnahme (ZHAPower-Sensoren) |
+| `value.consumption` | Zahl (kWh) | R | Energieverbrauch (ZHAConsumption-Sensoren) |
+| `value.raw` | mixed | R | Rohwert-Fallback für nicht erkannte Sensortypen |
+
+### Thermostate (`thermostats.<id>.*`)
+
+| Datenpunkt | Typ | R/W | Beschreibung |
+|---|---|---|---|
+| `info.name` | string | R | Thermostatname aus deCONZ |
+| `info.battery` | Zahl (%) | R | Akkustand |
+| `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
+| `state.temperature` | Zahl (°C) | R | Gemessene Temperatur |
+| `state.valve` | Zahl (%) | R | Ventilöffnung in Prozent |
+| `state.setpoint` | Zahl (°C) | R/W | Zieltemperatur, 5–32 °C |
+
 ## Changelog
+
+### 0.3.1 (2026-06-23)
+* (ssbingo) Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Bugfix: Geräte-Tabs lösen keine falsche "Host wechseln"-Warnung in Admin mehr aus (React 18 + MUI v6 werden jetzt mit Admin geteilt statt separat gebündelt); veralteten Sidebar-Tab "tint" entfernt
@@ -127,21 +176,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
-
-### 0.2.3 (2026-06-15)
-* (ssbingo) Automatisches API-Schluessel-Pairing hinzugefuegt: neuer Button in den Einstellungen fordert den Schluessel von deCONZ an und traegt ihn automatisch ein
-
-### 0.2.2 (2026-06-15)
-* (ssbingo) Tab-Bezeichnungen korrigiert (Leuchten/Gruppen) · Statische Beschreibungen ergänzt · UX mit Alive-Prüfung, sendTo-Timeout, Statusbalken verbessert
-
-### 0.2.1 (2026-06-15)
-* (ssbingo) Bugfix: Panels waren leer, weil `window.React` in Admin 7 kein Global ist
-
-### 0.2.0 (2026-06-15)
-* (ssbingo) Admin-UI: Lampen- und Gruppen-Tabs in den Adaptereinstellungen; Gruppenverwaltung (erstellen, bearbeiten, löschen); Node.js >= 22 erforderlich
-
-### 0.1.0 (2026-06-15)
-* (ssbingo) Erstveröffentlichung: Lampen, Gruppen, Szenen, Tint-Fernbedienung mit Farbrad
 
 ## Dokumentation
 

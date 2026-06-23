@@ -35,18 +35,135 @@
 
 ## 配置
 
-| 参数 | 默认值 | 描述 |
-|------|--------|------|
-| IP地址 | `192.168.1.100` | deCONZ / ConBee网关的IP地址 |
-| REST端口 | `80` | deCONZ REST API的HTTP端口 |
-| WebSocket端口 | `443` | deCONZ推送事件的WebSocket端口 |
-| API密钥 | *(空)* | deCONZ API密钥 |
-| 轮询间隔 | `60` | 备用REST轮询间隔（秒） |
-| 自动应用色轮 | `true` | 转动遥控器色轮时自动将选定颜色应用到活动区域 |
-| 过渡时间 | `4` | 默认灯光过渡时间（以100毫秒为步长，4 = 400毫秒） |
-| 看门狗（分钟） | `120` | 看门狗超时；N分钟内无WebSocket事件后重新连接 |
+## 对象结构
+
+### 灯具 (`lights.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 来自deCONZ的灯具名称 |
+| `info.modelid` | string | R | 型号标识 |
+| `info.manufacturer` | string | R | 制造商名称 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `info.uniqueid` | string | R | Zigbee IEEE地址 |
+| `state.on` | boolean | R/W | 开 / 关 |
+| `state.brightness` | 数字 (%) | R/W | 亮度 0–100 % |
+| `state.colorTemp` | 数字 (K) | R/W | 色温 2000–6500 K |
+| `state.hue` | 数字 | R/W | 色调 0–65535 |
+| `state.saturation` | 数字 | R/W | 饱和度 0–254 |
+| `state.hex` | string | R/W | RGB颜色，十六进制字符串 `#RRGGBB` |
+| `state.x` | 数字 | R/W | CIE x色度（原始值） |
+| `state.y` | 数字 | R/W | CIE y色度（原始值） |
+| `state.colorMode` | string | R | 当前色彩模式（`ct`、`xy`、`hs`） |
+| `state.effect` | string | R/W | 灯光效果（`none`、`colorloop`……） |
+| `state.effectSpeed` | 数字 | R/W | 效果速度 0–255 |
+| `state.transitionTime` | 数字 (×100 ms) | R/W | 单灯过渡时间覆盖 |
+
+### 分组 (`groups.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 分组名称 |
+| `info.memberCount` | 数字 | R | 分组内灯具数量 |
+| `info.allOn` | boolean | R | 分组内所有灯具开启时为 `true` |
+| `info.anyOn` | boolean | R | 分组内至少一个灯具开启时为 `true` |
+| `action.on` | boolean | R/W | 开关分组内所有灯具 |
+| `action.brightness` | 数字 (%) | R/W | 分组亮度 0–100 % |
+| `action.colorTemp` | 数字 (K) | R/W | 分组色温 2000–6500 K |
+| `action.hex` | string | R/W | 分组RGB颜色 `#RRGGBB` |
+| `action.effect` | string | R/W | 分组灯光效果 |
+| `action.transitionTime` | 数字 (×100 ms) | R/W | 分组过渡时间覆盖 |
+| `action.activateScene` | string | R/W | 写入场景名称以调用该场景 |
+| `scenes.<name>` | boolean | R/W | 设为 `true` 以调用该场景 |
+
+### 遥控器 (`remotes.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 遥控器名称 |
+| `info.battery` | 数字 (%) | R | 电池电量 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `info.lastSeen` | string | R | 最后在线时间戳 |
+| `button.lastEvent` | 数字 | R | deCONZ原始按键事件代码 |
+| `button.lastEventName` | string | R | 可读事件名称 |
+| `button.pressType` | string | R | `short`、`hold` 或 `release` |
+| `button.activeZone` | 数字 | R | 活动区域：0 = 全部，1–3 = 区域1–3 |
+| `colorWheel.angle` | 数字 (°) | R | 色轮角度 0–359 ° |
+| `colorWheel.x` | 数字 | R | 所选颜色的CIE x值 |
+| `colorWheel.y` | 数字 | R | 所选颜色的CIE y值 |
+| `colorWheel.hex` | string | R | 所选颜色，格式为 `#RRGGBB` |
+| `colorWheel.triggered` | boolean | R | 每次色轮事件时短暂变为 `true` |
+| `colorTemp.value` | 数字 (K) | R | 所选色温（开尔文） |
+| `colorTemp.mired` | 数字 | R | 所选色温（mired） |
+| `colorTemp.pressType` | string | R | `short` 或 `hold` |
+
+### 插座 (`plugs.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 来自deCONZ的插座名称 |
+| `info.modelid` | string | R | 型号标识 |
+| `info.manufacturer` | string | R | 制造商名称 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `info.uniqueid` | string | R | Zigbee IEEE地址 |
+| `state.on` | boolean | R/W | 开 / 关 |
+
+### 窗帘 (`covers.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 来自deCONZ的窗帘名称 |
+| `info.modelid` | string | R | 型号标识 |
+| `info.manufacturer` | string | R | 制造商名称 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `info.uniqueid` | string | R | Zigbee IEEE地址 |
+| `state.position` | 数字 (%) | R/W | 位置，0 = 关闭，100 = 打开 |
+| `state.stop` | boolean | R/W | 写入 `true` 以停止移动 |
+
+### 开关 (`switches.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 来自deCONZ的开关名称 |
+| `info.battery` | 数字 (%) | R | 电池电量 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `info.lastSeen` | string | R | 最后在线时间戳 |
+| `button.lastEvent` | 数字 | R | deCONZ原始按键事件代码 |
+| `button.lastEventName` | string | R | 可读事件名称 |
+
+### 传感器 (`sensors.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 来自deCONZ的传感器名称 |
+| `info.battery` | 数字 (%) | R | 电池电量 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `info.lastSeen` | string | R | 最后在线时间戳 |
+| `value.temperature` | 数字 (°C) | R | 温度（ZHATemperature传感器） |
+| `value.humidity` | 数字 (%) | R | 湿度（ZHAHumidity传感器） |
+| `value.pressure` | 数字 (hPa) | R | 气压（ZHAPressure传感器） |
+| `value.open` | boolean | R | 开/关状态（ZHAOpenClose传感器） |
+| `value.presence` | boolean | R | 检测到运动（ZHAPresence传感器） |
+| `value.brightness` | 数字 (lux) | R | 光照水平（ZHALightLevel传感器） |
+| `value.power` | 数字 (W) | R | 功率（ZHAPower传感器） |
+| `value.consumption` | 数字 (kWh) | R | 能耗（ZHAConsumption传感器） |
+| `value.raw` | mixed | R | 未识别传感器类型的原始值回退 |
+
+### 温控器 (`thermostats.<id>.*`)
+
+| 状态点 | 类型 | R/W | 说明 |
+|---|---|---|---|
+| `info.name` | string | R | 来自deCONZ的温控器名称 |
+| `info.battery` | 数字 (%) | R | 电池电量 |
+| `info.reachable` | boolean | R | Zigbee可达性 |
+| `state.temperature` | 数字 (°C) | R | 测得温度 |
+| `state.valve` | 数字 (%) | R | 阀门开启百分比 |
+| `state.setpoint` | 数字 (°C) | R/W | 目标温度，5–32 °C |
 
 ## 更新日志
+
+### 0.3.1 (2026-06-23)
+* (ssbingo) 完成了对象结构文档（插座、窗帘、开关、传感器、温控器）在全部11个README文件中的补充；更新日志限制为5条，较旧的历史记录已移至CHANGELOG_OLD.md
 
 ### 0.3.0 (2026-06-23)
 * (ssbingo) 修复：设备标签页不再在admin中触发错误的"切换主机"警告（React 18 + MUI v6现已与admin共享）；移除遗留的侧边栏"tint"标签
@@ -59,21 +176,6 @@
 
 ### 0.2.4 (2026-06-16)
 * (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
-
-### 0.2.3 (2026-06-15)
-* (ssbingo) Added automatic API key pairing: new button in Settings requests the key from deCONZ and fills it in automatically
-
-### 0.2.2 (2026-06-15)
-* (ssbingo) 修正选项卡标签 · 添加描述 · 通过alive检查和超时改进UX
-
-### 0.2.1 (2026-06-15)
-* (ssbingo) 修复：面板为空，因为`window.React`在admin 7中不是全局变量
-
-### 0.2.0 (2026-06-15)
-* (ssbingo) 管理界面：适配器设置中的灯具和群组选项卡；群组管理（创建、编辑、删除）；需要Node.js >= 22
-
-### 0.1.0 (2026-06-15)
-* (ssbingo) 初始版本：灯具、群组、场景、带色轮的Tint遥控器
 
 ## 文档
 

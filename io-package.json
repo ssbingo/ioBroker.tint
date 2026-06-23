@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.0",
+		"version": "0.3.1",
 		"news": {
+			"0.3.1": {
+				"en": "Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md",
+				"de": "Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben",
+				"ru": "Завершена документация структуры объектов (Розетки, Жалюзи, Выключатели, Датчики, Термостаты) во всех 11 файлах README; changelog ограничен 5 записями, более старая история перемещена в CHANGELOG_OLD.md",
+				"pt": "Documentação da estrutura de objetos concluída (Tomadas, Estores, Interruptores, Sensores, Termostatos) em todos os 11 ficheiros README; changelog limitado a 5 entradas, histórico mais antigo movido para CHANGELOG_OLD.md",
+				"nl": "Objectstructuurdocumentatie (Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten) in alle 11 README-bestanden voltooid; changelog beperkt tot 5 items, oudere geschiedenis verplaatst naar CHANGELOG_OLD.md",
+				"fr": "Documentation de la structure des objets complétée (Prises, Volets, Interrupteurs, Capteurs, Thermostats) dans les 11 fichiers README ; changelog limité à 5 entrées, historique plus ancien déplacé vers CHANGELOG_OLD.md",
+				"it": "Documentazione della struttura degli oggetti completata (Prese, Tapparelle, Interruttori, Sensori, Termostati) in tutti gli 11 file README; changelog limitato a 5 voci, cronologia precedente spostata in CHANGELOG_OLD.md",
+				"es": "Documentación de la estructura de objetos completada (Enchufes, Persianas, Interruptores, Sensores, Termostatos) en los 11 archivos README; changelog limitado a 5 entradas, historial anterior movido a CHANGELOG_OLD.md",
+				"pl": "Uzupełniono dokumentację struktury obiektów (Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty) we wszystkich 11 plikach README; dziennik zmian ograniczony do 5 wpisów, starsza historia przeniesiona do CHANGELOG_OLD.md",
+				"uk": "Завершено документацію структури об'єктів (Розетки, Жалюзі, Вимикачі, Датчики, Термостати) у всіх 11 файлах README; журнал змін обмежено 5 записами, старішу історію перенесено до CHANGELOG_OLD.md",
+				"zh-cn": "完成了对象结构文档（插座、窗帘、开关、传感器、温控器）在全部11个README文件中的补充；更新日志限制为5条，较旧的历史记录已移至CHANGELOG_OLD.md"
+			},
 			"0.3.0": {
 				"en": "Fix: device tabs no longer trigger a false \"switch host\" warning in admin (React 18 + MUI v6 now shared with admin instead of bundled separately); remove leftover legacy \"tint\" sidebar tab",
 				"de": "Bugfix: Geräte-Tabs lösen keine falsche \"Host wechseln\"-Warnung in Admin mehr aus (React 18 + MUI v6 werden jetzt mit Admin geteilt statt separat gebündelt); veralteten Sidebar-Tab \"tint\" entfernt",
