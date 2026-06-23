@@ -162,6 +162,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Usunięto zbędną linię "Other languages" z README.md (jest już w sekcji Documentation); wyłączono powiadomienie o wydaniu Sentry w CI (kończyło się błędem bez skonfigurowanego tokenu)
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Uzupełniono dokumentację struktury obiektów (Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty) we wszystkich 11 plikach README; dziennik zmian ograniczony do 5 wpisów, starsza historia przeniesiona do CHANGELOG_OLD.md
 
@@ -173,9 +176,6 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Poprawka: przycisk parowania zawsze widoczny jako niestandardowy panel; bundle dodane do git (puste zakładki naprawione)
-
-### 0.2.4 (2026-06-16)
-* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 
 ## Dokumentacja
 

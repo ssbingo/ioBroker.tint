@@ -16,8 +16,6 @@ Control **Müller Licht tint** Zigbee smart lights via a **deCONZ / ConBee** gat
 This adapter provides full control over individual lights, light groups, and scenes, and
 decodes every button and color-wheel event from the Tint remote control.
 
-Other languages: [Deutsch](doc/de/README.md) · [Русский](doc/ru/README.md) · [Português](doc/pt/README.md) · [Nederlands](doc/nl/README.md) · [Français](doc/fr/README.md) · [Italiano](doc/it/README.md) · [Español](doc/es/README.md) · [Polski](doc/pl/README.md) · [Українська](doc/uk/README.md) · [中文](doc/zh-cn/README.md)
-
 ## DISCLAIMER
 
 The name **Müller Licht** and the product name **tint** are trademarks of Müller-Licht International GmbH.
@@ -186,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Remove redundant "Other languages" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md
 
@@ -199,9 +200,6 @@ iobroker add tint
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Fix: pairing button now implemented as a custom panel component — always visible regardless of adapter alive state
 * (ssbingo) Fix: commit panel build bundles to git so GitHub installs work without a manual build step (empty Leuchten/Gruppen tabs resolved)
-
-### 0.2.4 (2026-06-15)
-* (ssbingo) Improve pairing UX: click button first, adapter polls deCONZ every 3 s until pairing window opens (up to 60 s) — no more time pressure
 
 ## Documentation
 

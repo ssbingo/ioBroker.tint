@@ -162,6 +162,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Redundante "Other languages"-Zeile aus der README.md entfernt (steht bereits im Documentation-Abschnitt); Sentry-Release-Benachrichtigung in der CI deaktiviert (schlug ohne konfigurierten Token fehl)
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben
 
@@ -173,9 +176,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Bugfix: Pairing-Button als Custom-Panel immer sichtbar; Panel-Bundles in Git eingecheckt (leere Leuchten/Gruppen-Tabs behoben)
-
-### 0.2.4 (2026-06-16)
-* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 
 ## Dokumentation
 

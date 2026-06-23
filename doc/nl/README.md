@@ -162,6 +162,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Overbodige "Other languages"-regel uit README.md verwijderd (staat al in de Documentation-sectie); Sentry-release-melding in CI uitgeschakeld (mislukte zonder geconfigureerde token)
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Objectstructuurdocumentatie (Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten) in alle 11 README-bestanden voltooid; changelog beperkt tot 5 items, oudere geschiedenis verplaatst naar CHANGELOG_OLD.md
 
@@ -173,9 +176,6 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Bugfix: koppelknop altijd zichtbaar als aangepast panel; bundles in git (lege tabbladen opgelost)
-
-### 0.2.4 (2026-06-16)
-* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 
 ## Documentatie
 

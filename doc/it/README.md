@@ -162,6 +162,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ## Changelog
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Rimossa la riga ridondante "Other languages" dal README.md (già presente nella sezione Documentation); disabilitata la notifica di rilascio Sentry nella CI (falliva senza token configurato)
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Documentazione della struttura degli oggetti completata (Prese, Tapparelle, Interruttori, Sensori, Termostati) in tutti gli 11 file README; changelog limitato a 5 voci, cronologia precedente spostata in CHANGELOG_OLD.md
 
@@ -173,9 +176,6 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Correzione: pulsante di pairing sempre visibile come pannello personalizzato; bundle aggiunti a git (schede vuote risolte)
-
-### 0.2.4 (2026-06-16)
-* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 
 ## Documentazione
 

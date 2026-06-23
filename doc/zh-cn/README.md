@@ -162,6 +162,9 @@
 
 ## 更新日志
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) 移除README.md中多余的"Other languages"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) 完成了对象结构文档（插座、窗帘、开关、传感器、温控器）在全部11个README文件中的补充；更新日志限制为5条，较旧的历史记录已移至CHANGELOG_OLD.md
 
@@ -173,9 +176,6 @@
 
 ### 0.2.5 (2026-06-16)
 * (ssbingo) 修复：配对按钮作为自定义面板始终可见；面板包已提交至git（空标签页问题已解决）
-
-### 0.2.4 (2026-06-16)
-* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 
 ## 文档
 

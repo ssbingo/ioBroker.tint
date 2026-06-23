@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.1",
+		"version": "0.3.2",
 		"news": {
+			"0.3.2": {
+				"en": "Remove redundant \"Other languages\" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)",
+				"de": "Redundante \"Other languages\"-Zeile aus der README.md entfernt (steht bereits im Documentation-Abschnitt); Sentry-Release-Benachrichtigung in der CI deaktiviert (schlug ohne konfigurierten Token fehl)",
+				"ru": "Удалена избыточная строка \"Other languages\" из README.md (уже есть в разделе Documentation); отключено уведомление о релизе Sentry в CI (завершалось ошибкой без настроенного токена)",
+				"pt": "Removida a linha redundante \"Other languages\" do README.md (já presente na secção Documentation); desativada a notificação de lançamento do Sentry no CI (falhava sem token configurado)",
+				"nl": "Overbodige \"Other languages\"-regel uit README.md verwijderd (staat al in de Documentation-sectie); Sentry-release-melding in CI uitgeschakeld (mislukte zonder geconfigureerde token)",
+				"fr": "Suppression de la ligne redondante \"Other languages\" du README.md (déjà présente dans la section Documentation) ; désactivation de la notification de release Sentry dans la CI (échouait sans jeton configuré)",
+				"it": "Rimossa la riga ridondante \"Other languages\" dal README.md (già presente nella sezione Documentation); disabilitata la notifica di rilascio Sentry nella CI (falliva senza token configurato)",
+				"es": "Eliminada la línea redundante \"Other languages\" del README.md (ya presente en la sección Documentation); deshabilitada la notificación de versión de Sentry en CI (fallaba sin token configurado)",
+				"pl": "Usunięto zbędną linię \"Other languages\" z README.md (jest już w sekcji Documentation); wyłączono powiadomienie o wydaniu Sentry w CI (kończyło się błędem bez skonfigurowanego tokenu)",
+				"uk": "Видалено зайвий рядок \"Other languages\" з README.md (уже є в розділі Documentation); вимкнено сповіщення про реліз Sentry в CI (завершувалося помилкою без налаштованого токена)",
+				"zh-cn": "移除README.md中多余的\"Other languages\"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）"
+			},
 			"0.3.1": {
 				"en": "Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md",
 				"de": "Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben",

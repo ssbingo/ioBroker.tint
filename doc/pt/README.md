@@ -162,6 +162,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Removida a linha redundante "Other languages" do README.md (já presente na secção Documentation); desativada a notificação de lançamento do Sentry no CI (falhava sem token configurado)
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Documentação da estrutura de objetos concluída (Tomadas, Estores, Interruptores, Sensores, Termostatos) em todos os 11 ficheiros README; changelog limitado a 5 entradas, histórico mais antigo movido para CHANGELOG_OLD.md
 
@@ -173,9 +176,6 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ### 0.2.5 (2026-06-16)
 * (ssbingo) Correção: botão de emparelhamento sempre visível como painel personalizado; bundles adicionados ao git (abas vazias resolvidas)
-
-### 0.2.4 (2026-06-16)
-* (ssbingo) Pairing UX improved: click button first, adapter polls deCONZ every 3s (max 60s) - no time pressure
 
 ## Documentação
 
