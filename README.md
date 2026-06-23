@@ -142,6 +142,10 @@ Alternatively unlock via the deCONZ desktop app: **Menu → Settings → Gateway
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.0 (2026-06-23)
+* (ssbingo) Fix: device tabs in admin no longer trigger a false "switch host" warning — React 18 and @mui/material v6 are now shared with admin's host instead of being bundled separately (panel bundle size drops from ~411 KB to ~66 KB)
+* (ssbingo) Fix: remove leftover legacy "tint" sidebar tab (admin/tab_m.html) — superseded by the jsonConfig device tabs
+
 ### 0.2.6 (2026-06-17)
 * (ssbingo) Fix: pairing button replaced with a custom PairButton component — no longer relies on admin's result-mapping for encrypted fields; shows inline status ("Key received — please Save!" / error text)
 

@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.2.6",
+		"version": "0.3.0",
 		"news": {
+			"0.3.0": {
+				"en": "Fix: device tabs no longer trigger a false \"switch host\" warning in admin (React 18 + MUI v6 now shared with admin instead of bundled separately); remove leftover legacy \"tint\" sidebar tab",
+				"de": "Bugfix: Geräte-Tabs lösen keine falsche \"Host wechseln\"-Warnung in Admin mehr aus (React 18 + MUI v6 werden jetzt mit Admin geteilt statt separat gebündelt); veralteten Sidebar-Tab \"tint\" entfernt",
+				"ru": "Исправление: вкладки устройств больше не вызывают ложное предупреждение \"сменить хост\" в админке (React 18 + MUI v6 теперь общие с админкой); удалена устаревшая вкладка \"tint\" в боковой панели",
+				"pt": "Correção: as abas de dispositivos já não geram um aviso falso de \"mudar de host\" no admin (React 18 + MUI v6 agora partilhados com o admin); removida a aba lateral \"tint\" obsoleta",
+				"nl": "Bugfix: apparaattabbladen geven niet langer een onterechte \"host wisselen\"-waarschuwing in admin (React 18 + MUI v6 nu gedeeld met admin); verouderd zijbalktabblad \"tint\" verwijderd",
+				"fr": "Correctif: les onglets d'appareils ne déclenchent plus un faux avertissement \"changer d'hôte\" dans admin (React 18 + MUI v6 désormais partagés avec admin); suppression de l'ancien onglet latéral \"tint\"",
+				"it": "Correzione: le schede dispositivo non generano più un falso avviso \"cambia host\" in admin (React 18 + MUI v6 ora condivisi con admin); rimossa la vecchia scheda laterale \"tint\"",
+				"es": "Corrección: las pestañas de dispositivos ya no generan una falsa advertencia de \"cambiar de host\" en admin (React 18 + MUI v6 ahora compartidos con admin); eliminada la pestaña lateral obsoleta \"tint\"",
+				"pl": "Poprawka: zakładki urządzeń nie wywołują już fałszywego ostrzeżenia \"zmień hosta\" w admin (React 18 + MUI v6 są teraz współdzielone z admin); usunięto przestarzałą zakładkę boczną \"tint\"",
+				"uk": "Виправлення: вкладки пристроїв більше не викликають хибне попередження \"змінити хост\" в admin (React 18 + MUI v6 тепер спільні з admin); видалено застарілу бічну вкладку \"tint\"",
+				"zh-cn": "修复：设备标签页不再在admin中触发错误的“切换主机”警告（React 18 + MUI v6现已与admin共享）；移除遗留的侧边栏“tint”标签"
+			},
 			"0.2.6": {
 				"en": "Fix: replace sendTo button with custom PairButton component for reliable API key retrieval and visual feedback",
 				"de": "Bugfix: sendTo-Button durch eigene PairButton-Komponente ersetzt — zuverlässige API-Schlüssel-Abfrage mit Statusanzeige",
