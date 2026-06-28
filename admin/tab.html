@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tint</title>
-    <link rel="stylesheet" href="./build/tab.css">
 </head>
 <body>
     <div id="root" style="height:100vh;overflow:auto"></div>
-    <!-- Admin serves socket.io at the same origin; loaded before the bundle so window.io is ready -->
-    <script src="/socket.io/socket.io.js"></script>
+    <!-- /lib/js/socket.io.js is the socket client Admin itself uses; it sets window.io as a callable function.
+         /socket.io/socket.io.js (the WS-server endpoint) sets io as a namespace object, not a function. -->
+    <script src="/lib/js/socket.io.js"></script>
     <script src="./build/tab.js"></script>
 </body>
 </html>
