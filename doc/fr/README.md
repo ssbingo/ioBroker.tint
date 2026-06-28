@@ -165,6 +165,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Correctif : @mui/material devDep ramené de v9 à v6 — le bundle fallback v9 faisait planter Emotion v6 d'Admin lors de la négociation des modules partagés MF, empêchant l'ouverture des paramètres
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Ajout d'un onglet de la barre latérale Admin pour le contrôle des appareils (Éclairages, Groupes, Prises, Volets, Interrupteurs, Capteurs, Thermostats) ; activation via « enableAdminTab » dans l'onglet Connexion des paramètres de l'adaptateur
 ### 0.3.7 (2026-06-28)

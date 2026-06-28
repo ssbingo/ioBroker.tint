@@ -165,6 +165,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Corrección: @mui/material devDep revertido de v9 a v6 — el bundle fallback v9 causaba crash en Emotion v6 de Admin durante la negociación de módulos compartidos MF, impidiendo abrir la configuración
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Añadida pestaña de la barra lateral Admin para control de dispositivos (Luces, Grupos, Enchufes, Persianas, Interruptores, Sensores, Termostatos); activar mediante "enableAdminTab" en la pestaña Conexión de la configuración del adaptador
 ### 0.3.7 (2026-06-28)

@@ -165,6 +165,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Bugfix: @mui/material devDep von v9 auf v6 zurückgesetzt — das v9-Fallback-Bundle hat beim MF-Shared-Module-Abgleich Admins Emotion v6 zum Absturz gebracht und verhinderte das Öffnen der Adaptereinstellungen
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Admin-Seitenleisten-Tab zur Gerätesteuerung hinzugefügt (Leuchten, Gruppen, Steckdosen, Rollos, Schalter, Sensoren, Thermostate); Aktivierung über „enableAdminTab" im Verbindungs-Tab der Adaptereinstellungen
 ### 0.3.7 (2026-06-28)

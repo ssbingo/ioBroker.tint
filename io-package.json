@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.8",
+		"version": "0.3.9",
 		"news": {
+			"0.3.9": {
+				"en": "Fix: downgrade @mui/material devDep from v9 to v6 to match Admin host — v9 fallback bundle crashed Admin Emotion v6 during MF shared-module negotiation, preventing adapter settings from opening",
+				"de": "Bugfix: @mui/material devDep von v9 auf v6 zurückgesetzt — das v9-Fallback-Bundle hat beim MF-Shared-Module-Abgleich Admins Emotion v6 zum Absturz gebracht und verhinderte das Öffnen der Adaptereinstellungen",
+				"ru": "Исправление: @mui/material devDep снижен с v9 до v6 — fallback-бандл v9 вызывал сбой Emotion v6 Admin при согласовании shared-модулей MF, что мешало открыть настройки адаптера",
+				"pt": "Correção: @mui/material devDep revertido de v9 para v6 — o pacote fallback v9 causava crash do Emotion v6 do Admin durante a negociação de módulos compartilhados MF, impedindo a abertura das configurações",
+				"nl": "Bugfix: @mui/material devDep teruggezet van v9 naar v6 — het v9-fallback-bundel bracht Admins Emotion v6 tot een crash bij MF shared-module-onderhandeling, waardoor de adapterinstellingen niet konden worden geopend",
+				"fr": "Correctif : @mui/material devDep ramené de v9 à v6 — le bundle fallback v9 faisait planter Emotion v6 d'Admin lors de la négociation des modules partagés MF, empêchant l'ouverture des paramètres",
+				"it": "Correzione: @mui/material devDep da v9 a v6 — il bundle fallback v9 causava crash di Emotion v6 di Admin durante la negoziazione MF, impedendo apertura impostazioni dell'adattatore",
+				"es": "Corrección: @mui/material devDep revertido de v9 a v6 — el bundle fallback v9 causaba crash en Emotion v6 de Admin durante la negociación de módulos compartidos MF, impidiendo abrir la configuración",
+				"pl": "Poprawka: @mui/material devDep obniżony z v9 do v6 — pakiet fallback v9 powodował crash Emotion v6 Admina podczas negocjacji modułów współdzielonych MF, uniemożliwiając otwarcie ustawień",
+				"uk": "Виправлення: @mui/material devDep знижено з v9 до v6 — fallback-бандл v9 спричиняв збій Emotion v6 Admin під час узгодження спільних модулів MF, що унеможливлювало відкриття налаштувань",
+				"zh-cn": "修复：将@mui/material devDep从v9降级至v6——v9回退包在MF共享模块协商期间导致Admin的Emotion v6崩溃，阻止了适配器设置页面的打开"
+			},
 			"0.3.8": {
 				"en": "Add admin sidebar tab for device control (Lights, Groups, Plugs, Covers, Switches, Sensors, Thermostats); activate via adapter settings Connection tab",
 				"de": "Admin-Seitenleisten-Tab zur Gerätesteuerung hinzugefügt (Leuchten, Gruppen, Steckdosen, Rollos, Schalter, Sensoren, Thermostate); Aktivierung über Verbindungs-Tab in den Adaptereinstellungen",
@@ -54,19 +67,6 @@
 				"pl": "Aktualizacje zależności: vite 8.1, @vitejs/plugin-react v6 (zgodność z Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
 				"uk": "Оновлення залежностей: vite 8.1, @vitejs/plugin-react v6 (сумісність з Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
 				"zh-cn": "依赖更新：vite 8.1、@vitejs/plugin-react v6（Vite 8兼容性）、@module-federation/vite 1.16.10、@mui/material devDep 9.1.2、axios 1.18.1、@types/node 26、CI testing-action-check v2"
-			},
-			"0.3.4": {
-				"en": "Fix: logo (admin/tint.png) was 300×358 (not square), which the repository checker flags; padded to 358×358 with a transparent border, no content cropped or distorted",
-				"de": "Bugfix: Logo (admin/tint.png) war 300×358 (nicht quadratisch), was der Repository-Checker bemängelt; auf 358×358 mit transparentem Rand aufgefüllt, kein Bildinhalt beschnitten oder verzerrt",
-				"ru": "Исправление: логотип (admin/tint.png) был 300×358 (не квадратный), на что указывал репозиторный чекер; дополнен до 358×358 прозрачной рамкой, без обрезки или искажения содержимого",
-				"pt": "Correção: o logótipo (admin/tint.png) tinha 300×358 (não era quadrado), o que o verificador do repositório assinalava; preenchido para 358×358 com borda transparente, sem cortar ou distorcer o conteúdo",
-				"nl": "Bugfix: logo (admin/tint.png) was 300×358 (niet vierkant), wat de repository-checker meldde; opgevuld tot 358×358 met transparante rand, geen inhoud bijgesneden of vervormd",
-				"fr": "Correctif : le logo (admin/tint.png) était en 300×358 (non carré), ce que signalait le vérificateur du dépôt ; complété à 358×358 avec une bordure transparente, sans rogner ni déformer le contenu",
-				"it": "Correzione: il logo (admin/tint.png) era 300×358 (non quadrato), segnalato dal checker del repository; riempito a 358×358 con bordo trasparente, senza ritagliare o distorcere il contenuto",
-				"es": "Corrección: el logo (admin/tint.png) era de 300×358 (no cuadrado), lo que señalaba el verificador del repositorio; rellenado a 358×358 con borde transparente, sin recortar ni distorsionar el contenido",
-				"pl": "Poprawka: logo (admin/tint.png) miało wymiary 300×358 (nie kwadrat), na co wskazywał checker repozytorium; uzupełnione do 358×358 przezroczystą ramką, bez przycinania czy zniekształcania treści",
-				"uk": "Виправлення: логотип (admin/tint.png) мав розмір 300×358 (не квадратний), на що вказував чекер репозиторію; доповнено до 358×358 прозорою рамкою, без обрізання чи спотворення вмісту",
-				"zh-cn": "修复：徽标（admin/tint.png）尺寸为300×358（非正方形），仓库检查器对此提出警告；已用透明边框填充至358×358，内容未被裁剪或拉伸变形"
 			}
 		},
 		"titleLang": {

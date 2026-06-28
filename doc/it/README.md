@@ -165,6 +165,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Correzione: @mui/material devDep da v9 a v6 — il bundle fallback v9 causava crash di Emotion v6 di Admin durante la negoziazione MF, impedendo apertura impostazioni dell'adattatore
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Aggiunto tab della barra laterale Admin per il controllo dei dispositivi (Luci, Gruppi, Prese, Tende, Interruttori, Sensori, Termostati); attivare tramite "enableAdminTab" nella scheda Connessione delle impostazioni dell'adattatore
 ### 0.3.7 (2026-06-28)

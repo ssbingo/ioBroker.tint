@@ -165,6 +165,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Poprawka: @mui/material devDep obniżony z v9 do v6 — pakiet fallback v9 powodował crash Emotion v6 Admina podczas negocjacji modułów współdzielonych MF, uniemożliwiając otwarcie ustawień
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Dodano kartę paska bocznego Admin do sterowania urządzeniami (Oświetlenie, Grupy, Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty); aktywacja przez „enableAdminTab" w zakładce Połączenie ustawień adaptera
 ### 0.3.7 (2026-06-28)

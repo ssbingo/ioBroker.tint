@@ -165,6 +165,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Correção: @mui/material devDep revertido de v9 para v6 — o pacote fallback v9 causava crash do Emotion v6 do Admin durante a negociação de módulos compartilhados MF, impedindo a abertura das configurações
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Separador da barra lateral Admin adicionado para controlo de dispositivos (Luzes, Grupos, Tomadas, Estores, Interruptores, Sensores, Termostatos); ativar via "enableAdminTab" no separador Ligação das definições do adaptador
 ### 0.3.7 (2026-06-28)

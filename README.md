@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Fix: downgrade @mui/material devDep from v9 to v6 — v9 fallback bundle crashed Admin Emotion v6 during MF shared-module negotiation, preventing adapter settings from opening
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Add admin sidebar tab for device control (Lights, Groups, Plugs, Covers, Switches, Sensors, Thermostats); activate via "enableAdminTab" in adapter settings Connection tab
 ### 0.3.7 (2026-06-28)

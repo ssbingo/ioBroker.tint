@@ -165,6 +165,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 
 
+### 0.3.9 (2026-06-28)
+* (ssbingo) Bugfix: @mui/material devDep teruggezet van v9 naar v6 — het v9-fallback-bundel bracht Admins Emotion v6 tot een crash bij MF shared-module-onderhandeling, waardoor de adapterinstellingen niet konden worden geopend
+
 ### 0.3.8 (2026-06-28)
 * (ssbingo) Admin-zijbalk tab toegevoegd voor apparaatbediening (Verlichting, Groepen, Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten); activeren via "enableAdminTab" op het tabblad Verbinding in de adapterinstellingen
 ### 0.3.7 (2026-06-28)

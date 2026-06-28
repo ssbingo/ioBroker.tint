@@ -134,8 +134,7 @@
 				"_adminTabHeader": {
 					"type": "header",
 					"text": "adminTabSection",
-					"size": 3,
-					"newLine": true
+					"size": 3
 				},
 				"enableAdminTab": {
 					"type": "checkbox",
