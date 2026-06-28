@@ -7,9 +7,9 @@
 </head>
 <body>
     <div id="root" style="height:100vh;overflow:auto"></div>
-    <!-- /lib/js/socket.io.js is the socket client Admin itself uses; it sets window.io as a callable function.
-         /socket.io/socket.io.js (the WS-server endpoint) sets io as a namespace object, not a function. -->
-    <script src="/lib/js/socket.io.js"></script>
+    <!-- ioBroker's socket client: exposes window.io as an object with a .connect() method.
+         @iobroker/socket-client (bundled in tab.js) calls window.io.connect() internally. -->
+    <script src="/socket.io/socket.io.js"></script>
     <script src="./build/tab.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ const CATEGORIES = [
 	{ key: 'thermostats', Component: ThermostatsTab,  labelKey: 'tabThermostats' },
 ];
 
-export default function TabApp({ socket, instance, lang, themeType }) {
+export default function TabApp({ connection, instance, lang, themeType }) {
 	const [tabIndex, setTabIndex] = useState(0);
 	const [alive, setAlive] = useState(false);
 	const t = createT(lang || 'en');
@@ -32,33 +32,24 @@ export default function TabApp({ socket, instance, lang, themeType }) {
 	useEffect(() => {
 		const aliveId = `system.adapter.tint.${instance}.alive`;
 
-		socket.emit('getState', aliveId, (_err, st) => {
-			setAlive(!!st?.val);
-		});
+		connection.getState(aliveId)
+			.then(st => setAlive(!!st?.val))
+			.catch(() => {});
 
-		const onStateChange = (id, st) => {
-			if (id === aliveId) setAlive(!!st?.val);
-		};
-		socket.on('stateChange', onStateChange);
-		socket.emit('subscribe', aliveId);
+		const onStateChange = (_id, st) => setAlive(!!st?.val);
+		connection.subscribeState(aliveId, onStateChange);
 
 		return () => {
-			socket.off('stateChange', onStateChange);
-			socket.emit('unsubscribe', aliveId);
+			connection.unsubscribeState(aliveId, onStateChange);
 		};
-	}, [socket, instance]);
+	}, [connection, instance]);
 
 	const sendToAdapter = useCallback(
 		(command, data) =>
-			new Promise((resolve) => {
-				const tid = setTimeout(() => resolve({ error: t('msgTimeout') }), 10000);
-				socket.emit('sendTo', `tint.${instance}`, command, data || {}, (result) => {
-					clearTimeout(tid);
-					resolve(result ?? {});
-				});
-			}),
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[socket, instance, lang],
+			connection.sendTo(`tint.${instance}`, command, data || {})
+				.then(result => result ?? {})
+				.catch(err => ({ error: err?.message || String(err) })),
+		[connection, instance],
 	);
 
 	const { Component } = CATEGORIES[tabIndex];
