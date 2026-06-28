@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.3 (2026-06-28)
+* (ssbingo) Fix: replace @ts-ignore with @ts-expect-error (ESLint ban-ts-comment rule); fix dependabot.yml cooldown to use scalar integer instead of nested object
+
 ### 0.4.2 (2026-06-28)
 * (ssbingo) Upgrade React devDep to 19 and TypeScript to 6 to satisfy ioBroker checker W0083; fix tsconfig.check.json (exclude admin/src JSX files, add mocha types, disable strictNullChecks for JS files); fix type errors in main.js (Number cast for CIE xy coords, String cast for sceneId, JSDoc for _set val param)
 

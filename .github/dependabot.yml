@@ -4,8 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    cooldown:
-      default: 7
+    cooldown: 7
     open-pull-requests-limit: 15
     ignore:
       # @types/node must stay at ^22 — our Node.js engine target is 22 LTS;

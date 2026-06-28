@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.2",
+		"version": "0.4.3",
 		"news": {
-			"0.4.2": {
-				"en": "Upgrade React to 19 and TypeScript to 6; fix tsconfig.check.json to exclude admin/src JSX files and add mocha types; fix type errors in main.js (Number cast for CIE xy, String cast for sceneId, JSDoc for _set val param)",
-				"de": "React auf 19 und TypeScript auf 6 aktualisiert; tsconfig.check.json korrigiert (admin/src-JSX-Dateien ausgeschlossen, mocha-Typen ergänzt); Typfehler in main.js behoben (Number-Cast für CIE-xy, String-Cast für sceneId, JSDoc für _set)",
-				"ru": "Обновление React до 19 и TypeScript до 6; исправлен tsconfig.check.json (исключены JSX-файлы admin/src, добавлены типы mocha); исправлены ошибки типов в main.js (Number для CIE xy, String для sceneId, JSDoc для _set)",
-				"pt": "Atualização do React para 19 e TypeScript para 6; corrigido tsconfig.check.json (excluídos ficheiros JSX admin/src, adicionados tipos mocha); corrigidos erros de tipos em main.js (cast Number para CIE xy, String para sceneId, JSDoc para _set)",
-				"nl": "React bijgewerkt naar 19 en TypeScript naar 6; tsconfig.check.json gecorrigeerd (admin/src JSX-bestanden uitgesloten, mocha-typen toegevoegd); typefouten opgelost in main.js (Number-cast voor CIE xy, String-cast voor sceneId, JSDoc voor _set)",
-				"fr": "Mise à jour de React vers 19 et TypeScript vers 6 ; correction de tsconfig.check.json (exclusion des fichiers JSX admin/src, ajout des types mocha) ; correction des erreurs de types dans main.js (cast Number pour CIE xy, String pour sceneId, JSDoc pour _set)",
-				"it": "Aggiornamento React a 19 e TypeScript a 6; corretto tsconfig.check.json (esclusi file JSX admin/src, aggiunti tipi mocha); corretti errori di tipo in main.js (cast Number per CIE xy, String per sceneId, JSDoc per _set)",
-				"es": "Actualización de React a 19 y TypeScript a 6; corregido tsconfig.check.json (excluidos archivos JSX admin/src, añadidos tipos mocha); corregidos errores de tipos en main.js (cast Number para CIE xy, String para sceneId, JSDoc para _set)",
-				"pl": "Aktualizacja React do 19 i TypeScript do 6; poprawiono tsconfig.check.json (wykluczono pliki JSX admin/src, dodano typy mocha); naprawiono błędy typów w main.js (rzutowanie Number dla CIE xy, String dla sceneId, JSDoc dla _set)",
-				"uk": "Оновлено React до 19 та TypeScript до 6; виправлено tsconfig.check.json (виключено JSX-файли admin/src, додано типи mocha); виправлено помилки типів у main.js (Number для CIE xy, String для sceneId, JSDoc для _set)",
-				"zh-cn": "将React升级至19，TypeScript升级至6；修复tsconfig.check.json（排除admin/src的JSX文件，添加mocha类型）；修复main.js中的类型错误（CIE xy的Number转换、sceneId的String转换、_set的JSDoc参数类型）"
+			"0.4.3": {
+				"en": "Fix: replace @ts-ignore with @ts-expect-error in main.js (ESLint ban-ts-comment rule); fix dependabot.yml cooldown syntax to use scalar integer instead of nested object",
+				"de": "Bugfix: @ts-ignore durch @ts-expect-error in main.js ersetzt (ESLint ban-ts-comment-Regel); dependabot.yml-Cooldown-Syntax auf einfachen Integer-Wert korrigiert",
+				"ru": "Исправление: @ts-ignore заменён на @ts-expect-error в main.js (правило ESLint ban-ts-comment); синтаксис cooldown в dependabot.yml исправлен на скалярное целое число",
+				"pt": "Correção: @ts-ignore substituído por @ts-expect-error em main.js (regra ESLint ban-ts-comment); sintaxe de cooldown do dependabot.yml corrigida para valor inteiro escalar",
+				"nl": "Bugfix: @ts-ignore vervangen door @ts-expect-error in main.js (ESLint ban-ts-comment-regel); cooldown-syntaxis in dependabot.yml gecorrigeerd naar scalar integer",
+				"fr": "Correctif : @ts-ignore remplacé par @ts-expect-error dans main.js (règle ESLint ban-ts-comment) ; syntaxe cooldown du dependabot.yml corrigée en entier scalaire",
+				"it": "Correzione: @ts-ignore sostituito con @ts-expect-error in main.js (regola ESLint ban-ts-comment); sintassi cooldown di dependabot.yml corretta con intero scalare",
+				"es": "Corrección: @ts-ignore reemplazado por @ts-expect-error en main.js (regla ESLint ban-ts-comment); sintaxis de cooldown de dependabot.yml corregida a entero escalar",
+				"pl": "Poprawka: @ts-ignore zastąpiony przez @ts-expect-error w main.js (reguła ESLint ban-ts-comment); składnia cooldown w dependabot.yml poprawiona na skalarną liczbę całkowitą",
+				"uk": "Виправлення: @ts-ignore замінено на @ts-expect-error в main.js (правило ESLint ban-ts-comment); синтаксис cooldown у dependabot.yml виправлено на скалярне ціле число",
+				"zh-cn": "修复：将main.js中的@ts-ignore替换为@ts-expect-error（ESLint的ban-ts-comment规则）；将dependabot.yml的cooldown语法修正为标量整数值"
 			}
 		},
 		"titleLang": {

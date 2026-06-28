@@ -1906,7 +1906,7 @@ class Tint extends utils.Adapter {
 	 * Admin must be reloaded for the change to take effect.
 	 */
 	async _applyAdminTabSetting() {
-		// @ts-ignore – enableAdminTab is part of native config (io-package.json), not in AdapterConfig type
+		// @ts-expect-error – enableAdminTab is part of native config (io-package.json), not in AdapterConfig type
 		const enable = !!this.config.enableAdminTab;
 		try {
 			const obj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
