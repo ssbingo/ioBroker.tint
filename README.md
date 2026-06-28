@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.5 (2026-06-28)
+* (ssbingo) Bump React to 19.2.7, @types/react to 19.2.17, @types/react-dom to 19.2.3 (minor updates within React 19); add .github/auto-merge.yml for Dependabot automerge configuration (S8914)
+
 ### 0.4.4 (2026-06-28)
 * (ssbingo) Fix dependabot.yml cooldown syntax: correct key is "default-days" (object property per schema) instead of integer or "default"
 

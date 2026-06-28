@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.4",
+		"version": "0.4.5",
 		"news": {
-			"0.4.4": {
-				"en": "Fix dependabot.yml cooldown syntax: correct key is \"default-days\" (object property) instead of integer or \"default\"",
-				"de": "dependabot.yml-Cooldown-Syntax korrigiert: korrekter Schlüssel ist \"default-days\" (Objekt-Eigenschaft) statt Integer oder \"default\"",
-				"ru": "Исправлен синтаксис cooldown в dependabot.yml: правильный ключ — \"default-days\" (свойство объекта), а не целое число или \"default\"",
-				"pt": "Corrigida a sintaxe de cooldown do dependabot.yml: a chave correta é \"default-days\" (propriedade de objeto) e não um inteiro ou \"default\"",
-				"nl": "Cooldown-syntaxis in dependabot.yml gecorrigeerd: de juiste sleutel is \"default-days\" (objecteigenschap) in plaats van integer of \"default\"",
-				"fr": "Syntaxe cooldown de dependabot.yml corrigée : la clé correcte est \"default-days\" (propriété objet) et non un entier ou \"default\"",
-				"it": "Corretta la sintassi cooldown di dependabot.yml: la chiave corretta è \"default-days\" (proprietà oggetto) e non un intero o \"default\"",
-				"es": "Corregida la sintaxis de cooldown de dependabot.yml: la clave correcta es \"default-days\" (propiedad de objeto) en lugar de un entero o \"default\"",
-				"pl": "Poprawiono składnię cooldown w dependabot.yml: prawidłowy klucz to \"default-days\" (właściwość obiektu), a nie liczba całkowita lub \"default\"",
-				"uk": "Виправлено синтаксис cooldown у dependabot.yml: правильний ключ — \"default-days\" (властивість об'єкта), а не ціле число або \"default\"",
-				"zh-cn": "修正dependabot.yml的cooldown语法：正确的键名为\"default-days\"（对象属性），而非整数或\"default\""
+			"0.4.5": {
+				"en": "Bump React to 19.2.7 and @types/react to 19.2.17/19.2.3 (minor updates within React 19); add .github/auto-merge.yml for Dependabot automerge configuration (S8914)",
+				"de": "React auf 19.2.7 und @types/react auf 19.2.17/19.2.3 aktualisiert (Minor-Updates innerhalb React 19); .github/auto-merge.yml für Dependabot-Automerge-Konfiguration hinzugefügt (S8914)",
+				"ru": "React обновлён до 19.2.7, @types/react до 19.2.17/19.2.3 (минорные обновления в рамках React 19); добавлен .github/auto-merge.yml для конфигурации автоматического слияния Dependabot (S8914)",
+				"pt": "React atualizado para 19.2.7 e @types/react para 19.2.17/19.2.3 (atualizações menores no React 19); adicionado .github/auto-merge.yml para configuração de automerge do Dependabot (S8914)",
+				"nl": "React bijgewerkt naar 19.2.7 en @types/react naar 19.2.17/19.2.3 (minor-updates binnen React 19); .github/auto-merge.yml toegevoegd voor Dependabot automerge-configuratie (S8914)",
+				"fr": "React mis à jour vers 19.2.7 et @types/react vers 19.2.17/19.2.3 (mises à jour mineures dans React 19) ; ajout de .github/auto-merge.yml pour la configuration d'automerge Dependabot (S8914)",
+				"it": "React aggiornato a 19.2.7 e @types/react a 19.2.17/19.2.3 (aggiornamenti minori in React 19); aggiunto .github/auto-merge.yml per la configurazione automerge di Dependabot (S8914)",
+				"es": "React actualizado a 19.2.7 y @types/react a 19.2.17/19.2.3 (actualizaciones menores en React 19); añadido .github/auto-merge.yml para configuración de automerge de Dependabot (S8914)",
+				"pl": "React zaktualizowany do 19.2.7 i @types/react do 19.2.17/19.2.3 (aktualizacje minor w ramach React 19); dodano .github/auto-merge.yml dla konfiguracji automerge Dependabot (S8914)",
+				"uk": "React оновлено до 19.2.7, @types/react до 19.2.17/19.2.3 (мінорні оновлення в межах React 19); додано .github/auto-merge.yml для налаштування автозлиття Dependabot (S8914)",
+				"zh-cn": "将React升级至19.2.7，@types/react升级至19.2.17/19.2.3（React 19内的次要更新）；添加.github/auto-merge.yml用于Dependabot自动合并配置（S8914）"
 			}
 		},
 		"titleLang": {
