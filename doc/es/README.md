@@ -164,6 +164,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 
 
+
+### 0.3.7 (2026-06-28)
+* (ssbingo) Correcciones: atributos xs/md/lg/xl añadidos a los elementos staticText (E5507); clave i18n 'deCONZ Pairing' añadida (E5612); adapter.setTimeout pasado a DeconzWebSocket (E5005); CI actualizado a Node.js 24, adapter-tests necesita check-and-lint (E3022/E3014); cooldown dependabot e ignorar versiones major @types/node (E8917/E8915)
 ### 0.3.6 (2026-06-28)
 * (ssbingo) Corrección: URL del repositorio en package.json configurada en formato HTTPS para que el verificador de adaptador ioBroker pueda resolver la URL raw de GitHub
 ### 0.3.5 (2026-06-28)
@@ -173,9 +176,6 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Mantenimiento del repositorio: versión mínima de admin elevada a 7.6.20, eliminadas las entradas de common.news para versiones nunca publicadas en npm, uso de this.setTimeout() en el bucle de sondeo de emparejamiento, añadida la palabra clave ioBroker, tsconfig migrado a @tsconfig/node22, eliminado el .prettierignore obsoleto, añadida la configuración de dependabot
-
-### 0.3.2 (2026-06-23)
-* (ssbingo) Eliminada la línea redundante "Other languages" del README.md (ya presente en la sección Documentation); deshabilitada la notificación de versión de Sentry en CI (fallaba sin token configurado)
 
 
 ## Documentación

@@ -164,6 +164,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 
 
+
+### 0.3.7 (2026-06-28)
+* (ssbingo) Poprawki: atrybuty xs/md/lg/xl dodane do elementów staticText (E5507); klucz i18n 'deCONZ Pairing' dodany (E5612); adapter.setTimeout przekazany do DeconzWebSocket (E5005); CI zaktualizowany do Node.js 24, adapter-tests wymaga check-and-lint (E3022/E3014); cooldown dependabot i ignorowanie wersji major @types/node (E8917/E8915)
 ### 0.3.6 (2026-06-28)
 * (ssbingo) Poprawka: URL repozytorium w package.json ustawiony na format HTTPS, aby sprawdzacz adaptera ioBroker mógł rozwiązać raw URL GitHub
 ### 0.3.5 (2026-06-28)
@@ -173,9 +176,6 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Porządki w repozytorium: minimalna wersja admin podniesiona do 7.6.20, usunięto wpisy common.news dla wersji nigdy nieopublikowanych na npm, użyto this.setTimeout() w pętli odpytywania parowania, dodano słowo kluczowe ioBroker, tsconfig przeniesiono na @tsconfig/node22, usunięto przestarzały .prettierignore, dodano konfigurację dependabot
-
-### 0.3.2 (2026-06-23)
-* (ssbingo) Usunięto zbędną linię "Other languages" z README.md (jest już w sekcji Documentation); wyłączono powiadomienie o wydaniu Sentry w CI (kończyło się błędem bez skonfigurowanego tokenu)
 
 
 ## Dokumentacja

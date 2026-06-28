@@ -25,7 +25,7 @@
 					"type": "number",
 					"label": "port",
 					"newLine": false,
-					"xs": 6,
+					"xs": 12,
 					"sm": 4,
 					"md": 3,
 					"lg": 2,
@@ -38,7 +38,7 @@
 					"type": "number",
 					"label": "wsPort",
 					"newLine": false,
-					"xs": 6,
+					"xs": 12,
 					"sm": 4,
 					"md": 3,
 					"lg": 2,
@@ -141,7 +141,11 @@
 					"type": "staticText",
 					"text": "descLightsTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"lightsDivider": {
 					"type": "divider",
@@ -165,7 +169,11 @@
 					"type": "staticText",
 					"text": "descGroupsTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"groupsDivider": {
 					"type": "divider",
@@ -189,7 +197,11 @@
 					"type": "staticText",
 					"text": "descPlugsTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"plugsDivider": {
 					"type": "divider",
@@ -213,7 +225,11 @@
 					"type": "staticText",
 					"text": "descScenesTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"scenesDivider": {
 					"type": "divider",
@@ -237,7 +253,11 @@
 					"type": "staticText",
 					"text": "descCoversTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"coversDivider": {
 					"type": "divider",
@@ -261,7 +281,11 @@
 					"type": "staticText",
 					"text": "descSwitchesTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"switchesDivider": {
 					"type": "divider",
@@ -285,7 +309,11 @@
 					"type": "staticText",
 					"text": "descSensorsTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"sensorsDivider": {
 					"type": "divider",
@@ -309,7 +337,11 @@
 					"type": "staticText",
 					"text": "descThermostatsTab",
 					"newLine": true,
-					"sm": 12
+					"sm": 12,
+					"xs": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"thermostatsDivider": {
 					"type": "divider",

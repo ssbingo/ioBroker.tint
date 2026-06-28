@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.7 (2026-06-28)
+* (ssbingo) Fix: add xs/md/lg/xl grid attributes to jsonConfig staticText items (E5507); add deCONZ Pairing i18n key (E5612); pass adapter.setTimeout to DeconzWebSocket (E5005); update CI Node.js to 24 and add needs: check-and-lint for adapter-tests (E3022/E3014); add dependabot cooldown and @types/node major-version ignore rule (E8917/E8915)
+
 ### 0.3.6 (2026-06-28)
 * (ssbingo) Fix: set repository URL to HTTPS format in package.json so the ioBroker adapter checker can resolve the GitHub raw file URL
 
@@ -195,9 +198,6 @@ iobroker add tint
 
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config
-
-### 0.3.2 (2026-06-23)
-* (ssbingo) Remove redundant "Other languages" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)
 
 
 ## Documentation

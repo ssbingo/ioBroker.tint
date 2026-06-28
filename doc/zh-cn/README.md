@@ -164,6 +164,9 @@
 
 
 
+
+### 0.3.7 (2026-06-28)
+* (ssbingo) 修复：为staticText元素添加xs/md/lg/xl网格属性(E5507)；添加i18n键'deCONZ Pairing'(E5612)；将adapter.setTimeout传给DeconzWebSocket(E5005)；CI更新至Node.js 24，adapter-tests依赖check-and-lint(E3022/E3014)；添加dependabot冷却期及@types/node主版本忽略规则(E8917/E8915)
 ### 0.3.6 (2026-06-28)
 * (ssbingo) 修复：将package.json中的仓库URL设置为HTTPS格式，以便ioBroker适配器检查器能正确解析GitHub原始文件URL
 ### 0.3.5 (2026-06-28)
@@ -173,9 +176,6 @@
 
 ### 0.3.3 (2026-06-23)
 * (ssbingo) 仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置
-
-### 0.3.2 (2026-06-23)
-* (ssbingo) 移除README.md中多余的"Other languages"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）
 
 
 ## 文档

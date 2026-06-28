@@ -167,6 +167,7 @@ class Tint extends utils.Adapter {
 			ip,
 			wsPort: effectiveWsPort,
 			log: this.log,
+			setTimeout: this.setTimeout.bind(this),
 			onEvent: this._onWsEvent.bind(this),
 			onOpen: () => {
 				this.log.debug('WebSocket onOpen callback — setting info.connection=true');

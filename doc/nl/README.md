@@ -164,6 +164,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 
 
+
+### 0.3.7 (2026-06-28)
+* (ssbingo) Bugfix: xs/md/lg/xl-rasterattributen toegevoegd aan staticText-items (E5507); i18n-sleutel 'deCONZ Pairing' toegevoegd (E5612); adapter.setTimeout doorgegeven aan DeconzWebSocket (E5005); CI bijgewerkt naar Node.js 24, adapter-tests vereist check-and-lint (E3022/E3014); dependabot-cooldown en negeren @types/node-majorversies (E8917/E8915)
 ### 0.3.6 (2026-06-28)
 * (ssbingo) Bugfix: repository-URL in package.json ingesteld op HTTPS-formaat zodat de ioBroker-adapter-checker de GitHub raw-URL kan oplossen
 ### 0.3.5 (2026-06-28)
@@ -173,9 +176,6 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Repository-onderhoud: minimale admin-versie verhoogd naar 7.6.20, common.news-items voor nooit op npm gepubliceerde versies verwijderd, this.setTimeout() gebruikt in de koppel-pollinglus, ioBroker-keyword toegevoegd, tsconfig gemigreerd naar @tsconfig/node22, verouderde .prettierignore verwijderd, dependabot-configuratie toegevoegd
-
-### 0.3.2 (2026-06-23)
-* (ssbingo) Overbodige "Other languages"-regel uit README.md verwijderd (staat al in de Documentation-sectie); Sentry-release-melding in CI uitgeschakeld (mislukte zonder geconfigureerde token)
 
 
 ## Documentatie

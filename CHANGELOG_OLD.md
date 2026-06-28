@@ -4,6 +4,9 @@ This file holds changelog entries moved out of `README.md`'s `## Changelog`
 section once it exceeds 5 entries. See `README.md` for the current
 changelog.
 
+### 0.3.2 (2026-06-23)
+* (ssbingo) Remove redundant "Other languages" line from README.md; disable the Sentry release-notification step in CI
+
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md
 

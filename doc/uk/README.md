@@ -164,6 +164,9 @@
 
 
 
+
+### 0.3.7 (2026-06-28)
+* (ssbingo) Виправлення: атрибути xs/md/lg/xl додано до елементів staticText (E5507); ключ i18n 'deCONZ Pairing' додано (E5612); adapter.setTimeout передано до DeconzWebSocket (E5005); CI оновлено до Node.js 24, adapter-tests залежить від check-and-lint (E3022/E3014); cooldown dependabot та ігнорування мажорних версій @types/node (E8917/E8915)
 ### 0.3.6 (2026-06-28)
 * (ssbingo) Виправлення: URL репозиторію в package.json встановлено у форматі HTTPS, щоб перевірник адаптерів ioBroker міг розпізнати raw-URL GitHub
 ### 0.3.5 (2026-06-28)
@@ -173,9 +176,6 @@
 
 ### 0.3.3 (2026-06-23)
 * (ssbingo) Гігієна репозиторію: мінімальну версію admin підвищено до 7.6.20, видалено записи common.news для версій, які ніколи не публікувалися на npm, використано this.setTimeout() у циклі опитування сполучення, додано ключове слово ioBroker, tsconfig перенесено на @tsconfig/node22, видалено застарілий .prettierignore, додано конфігурацію dependabot
-
-### 0.3.2 (2026-06-23)
-* (ssbingo) Видалено зайвий рядок "Other languages" з README.md (уже є в розділі Documentation); вимкнено сповіщення про реліз Sentry в CI (завершувалося помилкою без налаштованого токена)
 
 
 ## Документація

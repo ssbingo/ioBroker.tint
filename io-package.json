@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.6",
+		"version": "0.3.7",
 		"news": {
+			"0.3.7": {
+				"en": "Fix: E5507 add xs/md/lg/xl grid attributes to jsonConfig staticText items; E5612 add deCONZ Pairing i18n key; E5005 pass adapter.setTimeout to DeconzWebSocket; E3022/E3014 update CI node.js to 24, adapter-tests needs check-and-lint; E8917/E8915 add dependabot cooldown + @types/node major-version ignore rule",
+				"de": "Bugfix: E5507 xs/md/lg/xl-Grid-Attribute zu jsonConfig-staticText-Elementen hinzugefügt; E5612 i18n-Schlüssel 'deCONZ Pairing' ergänzt; E5005 adapter.setTimeout an DeconzWebSocket übergeben; E3022/E3014 CI-Node.js auf 24 aktualisiert, adapter-tests braucht check-and-lint; E8917/E8915 dependabot-Cooldown + @types/node-Major-Version-Ignorierung ergänzt",
+				"ru": "Исправление: E5507 добавлены атрибуты xs/md/lg/xl к элементам staticText в jsonConfig; E5612 добавлен ключ i18n 'deCONZ Pairing'; E5005 adapter.setTimeout передан в DeconzWebSocket; E3022/E3014 CI обновлён до Node.js 24, adapter-tests зависит от check-and-lint; E8917/E8915 добавлены cooldown и игнорирование мажорных версий @types/node в dependabot",
+				"pt": "Correção: E5507 atributos xs/md/lg/xl adicionados aos itens staticText do jsonConfig; E5612 chave i18n 'deCONZ Pairing' adicionada; E5005 adapter.setTimeout passado ao DeconzWebSocket; E3022/E3014 CI atualizado para Node.js 24, adapter-tests depende de check-and-lint; E8917/E8915 cooldown e ignorar versões major de @types/node no dependabot",
+				"nl": "Bugfix: E5507 xs/md/lg/xl-rasterattributen toegevoegd aan jsonConfig staticText-items; E5612 i18n-sleutel 'deCONZ Pairing' toegevoegd; E5005 adapter.setTimeout doorgegeven aan DeconzWebSocket; E3022/E3014 CI bijgewerkt naar Node.js 24, adapter-tests vereist check-and-lint; E8917/E8915 dependabot-cooldown en negeren van @types/node-majorversies toegevoegd",
+				"fr": "Correctifs : E5507 attributs xs/md/lg/xl ajoutés aux éléments staticText de jsonConfig ; E5612 clé i18n 'deCONZ Pairing' ajoutée ; E5005 adapter.setTimeout transmis à DeconzWebSocket ; E3022/E3014 CI mis à jour vers Node.js 24, adapter-tests dépend de check-and-lint ; E8917/E8915 cooldown dependabot et ignorance des versions majeures de @types/node ajoutés",
+				"it": "Correzioni: E5507 attributi xs/md/lg/xl aggiunti agli elementi staticText di jsonConfig; E5612 chiave i18n 'deCONZ Pairing' aggiunta; E5005 adapter.setTimeout passato a DeconzWebSocket; E3022/E3014 CI aggiornato a Node.js 24, adapter-tests dipende da check-and-lint; E8917/E8915 cooldown dependabot e ignorare versioni major di @types/node aggiunti",
+				"es": "Correcciones: E5507 atributos xs/md/lg/xl añadidos a los elementos staticText de jsonConfig; E5612 clave i18n 'deCONZ Pairing' añadida; E5005 adapter.setTimeout pasado a DeconzWebSocket; E3022/E3014 CI actualizado a Node.js 24, adapter-tests necesita check-and-lint; E8917/E8915 cooldown de dependabot e ignorar versiones major de @types/node añadidos",
+				"pl": "Poprawki: E5507 atrybuty xs/md/lg/xl dodane do elementów staticText w jsonConfig; E5612 klucz i18n 'deCONZ Pairing' dodany; E5005 adapter.setTimeout przekazany do DeconzWebSocket; E3022/E3014 CI zaktualizowany do Node.js 24, adapter-tests wymaga check-and-lint; E8917/E8915 cooldown dependabot i ignorowanie wersji major @types/node dodane",
+				"uk": "Виправлення: E5507 атрибути xs/md/lg/xl додано до елементів staticText в jsonConfig; E5612 ключ i18n 'deCONZ Pairing' додано; E5005 adapter.setTimeout передано в DeconzWebSocket; E3022/E3014 CI оновлено до Node.js 24, adapter-tests залежить від check-and-lint; E8917/E8915 додано cooldown dependabot та ігнорування мажорних версій @types/node",
+				"zh-cn": "修复：E5507 为jsonConfig的staticText元素添加xs/md/lg/xl网格属性；E5612 添加i18n键'deCONZ Pairing'；E5005 将adapter.setTimeout传递给DeconzWebSocket；E3022/E3014 将CI的Node.js更新至24，adapter-tests依赖check-and-lint；E8917/E8915 添加dependabot冷却期及忽略@types/node主版本更新规则"
+			},
 			"0.3.6": {
 				"en": "Fix: set repository URL to HTTPS format in package.json so the ioBroker adapter checker can resolve the GitHub raw file URL",
 				"de": "Bugfix: Repository-URL in package.json auf HTTPS-Format gesetzt, damit der ioBroker-Adapter-Checker die GitHub-Raw-URL auflösen kann",
@@ -54,19 +67,6 @@
 				"pl": "Porządki w repozytorium: minimalna wersja admin podniesiona do 7.6.20, usunięto wpisy common.news dla wersji nigdy nieopublikowanych na npm, użyto this.setTimeout() w pętli odpytywania parowania, dodano słowo kluczowe ioBroker, tsconfig przeniesiono na @tsconfig/node22, usunięto przestarzały .prettierignore, dodano konfigurację dependabot",
 				"uk": "Гігієна репозиторію: мінімальну версію admin підвищено до 7.6.20, видалено записи common.news для версій, які ніколи не публікувалися на npm, використано this.setTimeout() у циклі опитування сполучення, додано ключове слово ioBroker, tsconfig перенесено на @tsconfig/node22, видалено застарілий .prettierignore, додано конфігурацію dependabot",
 				"zh-cn": "仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置"
-			},
-			"0.3.2": {
-				"en": "Remove redundant \"Other languages\" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)",
-				"de": "Redundante \"Other languages\"-Zeile aus der README.md entfernt (steht bereits im Documentation-Abschnitt); Sentry-Release-Benachrichtigung in der CI deaktiviert (schlug ohne konfigurierten Token fehl)",
-				"ru": "Удалена избыточная строка \"Other languages\" из README.md (уже есть в разделе Documentation); отключено уведомление о релизе Sentry в CI (завершалось ошибкой без настроенного токена)",
-				"pt": "Removida a linha redundante \"Other languages\" do README.md (já presente na secção Documentation); desativada a notificação de lançamento do Sentry no CI (falhava sem token configurado)",
-				"nl": "Overbodige \"Other languages\"-regel uit README.md verwijderd (staat al in de Documentation-sectie); Sentry-release-melding in CI uitgeschakeld (mislukte zonder geconfigureerde token)",
-				"fr": "Suppression de la ligne redondante \"Other languages\" du README.md (déjà présente dans la section Documentation) ; désactivation de la notification de release Sentry dans la CI (échouait sans jeton configuré)",
-				"it": "Rimossa la riga ridondante \"Other languages\" dal README.md (già presente nella sezione Documentation); disabilitata la notifica di rilascio Sentry nella CI (falliva senza token configurato)",
-				"es": "Eliminada la línea redundante \"Other languages\" del README.md (ya presente en la sección Documentation); deshabilitada la notificación de versión de Sentry en CI (fallaba sin token configurado)",
-				"pl": "Usunięto zbędną linię \"Other languages\" z README.md (jest już w sekcji Documentation); wyłączono powiadomienie o wydaniu Sentry w CI (kończyło się błędem bez skonfigurowanego tokenu)",
-				"uk": "Видалено зайвий рядок \"Other languages\" з README.md (уже є в розділі Documentation); вимкнено сповіщення про реліз Sentry в CI (завершувалося помилкою без налаштованого токена)",
-				"zh-cn": "移除README.md中多余的\"Other languages\"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）"
 			}
 		},
 		"titleLang": {
