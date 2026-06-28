@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.3",
+		"version": "0.4.4",
 		"news": {
-			"0.4.3": {
-				"en": "Fix: replace @ts-ignore with @ts-expect-error in main.js (ESLint ban-ts-comment rule); fix dependabot.yml cooldown syntax to use scalar integer instead of nested object",
-				"de": "Bugfix: @ts-ignore durch @ts-expect-error in main.js ersetzt (ESLint ban-ts-comment-Regel); dependabot.yml-Cooldown-Syntax auf einfachen Integer-Wert korrigiert",
-				"ru": "Исправление: @ts-ignore заменён на @ts-expect-error в main.js (правило ESLint ban-ts-comment); синтаксис cooldown в dependabot.yml исправлен на скалярное целое число",
-				"pt": "Correção: @ts-ignore substituído por @ts-expect-error em main.js (regra ESLint ban-ts-comment); sintaxe de cooldown do dependabot.yml corrigida para valor inteiro escalar",
-				"nl": "Bugfix: @ts-ignore vervangen door @ts-expect-error in main.js (ESLint ban-ts-comment-regel); cooldown-syntaxis in dependabot.yml gecorrigeerd naar scalar integer",
-				"fr": "Correctif : @ts-ignore remplacé par @ts-expect-error dans main.js (règle ESLint ban-ts-comment) ; syntaxe cooldown du dependabot.yml corrigée en entier scalaire",
-				"it": "Correzione: @ts-ignore sostituito con @ts-expect-error in main.js (regola ESLint ban-ts-comment); sintassi cooldown di dependabot.yml corretta con intero scalare",
-				"es": "Corrección: @ts-ignore reemplazado por @ts-expect-error en main.js (regla ESLint ban-ts-comment); sintaxis de cooldown de dependabot.yml corregida a entero escalar",
-				"pl": "Poprawka: @ts-ignore zastąpiony przez @ts-expect-error w main.js (reguła ESLint ban-ts-comment); składnia cooldown w dependabot.yml poprawiona na skalarną liczbę całkowitą",
-				"uk": "Виправлення: @ts-ignore замінено на @ts-expect-error в main.js (правило ESLint ban-ts-comment); синтаксис cooldown у dependabot.yml виправлено на скалярне ціле число",
-				"zh-cn": "修复：将main.js中的@ts-ignore替换为@ts-expect-error（ESLint的ban-ts-comment规则）；将dependabot.yml的cooldown语法修正为标量整数值"
+			"0.4.4": {
+				"en": "Fix dependabot.yml cooldown syntax: correct key is \"default-days\" (object property) instead of integer or \"default\"",
+				"de": "dependabot.yml-Cooldown-Syntax korrigiert: korrekter Schlüssel ist \"default-days\" (Objekt-Eigenschaft) statt Integer oder \"default\"",
+				"ru": "Исправлен синтаксис cooldown в dependabot.yml: правильный ключ — \"default-days\" (свойство объекта), а не целое число или \"default\"",
+				"pt": "Corrigida a sintaxe de cooldown do dependabot.yml: a chave correta é \"default-days\" (propriedade de objeto) e não um inteiro ou \"default\"",
+				"nl": "Cooldown-syntaxis in dependabot.yml gecorrigeerd: de juiste sleutel is \"default-days\" (objecteigenschap) in plaats van integer of \"default\"",
+				"fr": "Syntaxe cooldown de dependabot.yml corrigée : la clé correcte est \"default-days\" (propriété objet) et non un entier ou \"default\"",
+				"it": "Corretta la sintassi cooldown di dependabot.yml: la chiave corretta è \"default-days\" (proprietà oggetto) e non un intero o \"default\"",
+				"es": "Corregida la sintaxis de cooldown de dependabot.yml: la clave correcta es \"default-days\" (propiedad de objeto) en lugar de un entero o \"default\"",
+				"pl": "Poprawiono składnię cooldown w dependabot.yml: prawidłowy klucz to \"default-days\" (właściwość obiektu), a nie liczba całkowita lub \"default\"",
+				"uk": "Виправлено синтаксис cooldown у dependabot.yml: правильний ключ — \"default-days\" (властивість об'єкта), а не ціле число або \"default\"",
+				"zh-cn": "修正dependabot.yml的cooldown语法：正确的键名为\"default-days\"（对象属性），而非整数或\"default\""
 			}
 		},
 		"titleLang": {

@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.4 (2026-06-28)
+* (ssbingo) Fix dependabot.yml cooldown syntax: correct key is "default-days" (object property per schema) instead of integer or "default"
+
 ### 0.4.3 (2026-06-28)
 * (ssbingo) Fix: replace @ts-ignore with @ts-expect-error (ESLint ban-ts-comment rule); fix dependabot.yml cooldown to use scalar integer instead of nested object
 
