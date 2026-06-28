@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.6 (2026-06-28)
+* (ssbingo) Bump dependabot/fetch-metadata GitHub Action v2 → v3; add dependabot ignore rules for @mui/material, @emotion/react, @emotion/styled major versions (must stay at MUI v6 / Emotion v11 to match ioBroker Admin MF singleton)
+
 ### 0.4.5 (2026-06-28)
 * (ssbingo) Bump React to 19.2.7, @types/react to 19.2.17, @types/react-dom to 19.2.3 (minor updates within React 19); add .github/auto-merge.yml for Dependabot automerge configuration (S8914)
 

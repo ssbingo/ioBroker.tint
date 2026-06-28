@@ -24,6 +24,15 @@ updates:
       # TypeScript major bumps require intentional evaluation with npm run check
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
+      # @mui/material MUST stay at v6 — ioBroker Admin exposes MUI v6 via Module Federation;
+      # MUI v9 uses a different Emotion API that crashes Admin's Emotion v6 during MF negotiation
+      - dependency-name: "@mui/material"
+        update-types: ["version-update:semver-major"]
+      # Emotion packages must stay aligned with MUI v6 (Emotion v11)
+      - dependency-name: "@emotion/react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@emotion/styled"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

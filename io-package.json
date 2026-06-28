@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.5",
+		"version": "0.4.6",
 		"news": {
-			"0.4.5": {
-				"en": "Bump React to 19.2.7 and @types/react to 19.2.17/19.2.3 (minor updates within React 19); add .github/auto-merge.yml for Dependabot automerge configuration (S8914)",
-				"de": "React auf 19.2.7 und @types/react auf 19.2.17/19.2.3 aktualisiert (Minor-Updates innerhalb React 19); .github/auto-merge.yml für Dependabot-Automerge-Konfiguration hinzugefügt (S8914)",
-				"ru": "React обновлён до 19.2.7, @types/react до 19.2.17/19.2.3 (минорные обновления в рамках React 19); добавлен .github/auto-merge.yml для конфигурации автоматического слияния Dependabot (S8914)",
-				"pt": "React atualizado para 19.2.7 e @types/react para 19.2.17/19.2.3 (atualizações menores no React 19); adicionado .github/auto-merge.yml para configuração de automerge do Dependabot (S8914)",
-				"nl": "React bijgewerkt naar 19.2.7 en @types/react naar 19.2.17/19.2.3 (minor-updates binnen React 19); .github/auto-merge.yml toegevoegd voor Dependabot automerge-configuratie (S8914)",
-				"fr": "React mis à jour vers 19.2.7 et @types/react vers 19.2.17/19.2.3 (mises à jour mineures dans React 19) ; ajout de .github/auto-merge.yml pour la configuration d'automerge Dependabot (S8914)",
-				"it": "React aggiornato a 19.2.7 e @types/react a 19.2.17/19.2.3 (aggiornamenti minori in React 19); aggiunto .github/auto-merge.yml per la configurazione automerge di Dependabot (S8914)",
-				"es": "React actualizado a 19.2.7 y @types/react a 19.2.17/19.2.3 (actualizaciones menores en React 19); añadido .github/auto-merge.yml para configuración de automerge de Dependabot (S8914)",
-				"pl": "React zaktualizowany do 19.2.7 i @types/react do 19.2.17/19.2.3 (aktualizacje minor w ramach React 19); dodano .github/auto-merge.yml dla konfiguracji automerge Dependabot (S8914)",
-				"uk": "React оновлено до 19.2.7, @types/react до 19.2.17/19.2.3 (мінорні оновлення в межах React 19); додано .github/auto-merge.yml для налаштування автозлиття Dependabot (S8914)",
-				"zh-cn": "将React升级至19.2.7，@types/react升级至19.2.17/19.2.3（React 19内的次要更新）；添加.github/auto-merge.yml用于Dependabot自动合并配置（S8914）"
+			"0.4.6": {
+				"en": "Bump dependabot/fetch-metadata GitHub Action from v2 to v3; add dependabot ignore rules for @mui/material, @emotion/react, @emotion/styled major versions (must stay at MUI v6 / Emotion v11 to match ioBroker Admin MF singleton)",
+				"de": "dependabot/fetch-metadata GitHub Action von v2 auf v3 aktualisiert; Dependabot-Ignore-Regeln für @mui/material, @emotion/react, @emotion/styled Major-Versionen hinzugefügt (müssen bei MUI v6 / Emotion v11 bleiben, passend zum ioBroker-Admin-MF-Singleton)",
+				"ru": "Обновление GitHub Action dependabot/fetch-metadata с v2 до v3; добавлены правила игнорирования Dependabot для мажорных версий @mui/material, @emotion/react, @emotion/styled (должны оставаться на MUI v6 / Emotion v11 для совместимости с MF-синглтоном Admin)",
+				"pt": "Atualização da GitHub Action dependabot/fetch-metadata de v2 para v3; adicionadas regras de ignorar Dependabot para versões major de @mui/material, @emotion/react, @emotion/styled (devem permanecer em MUI v6 / Emotion v11 para compatibilidade com o singleton MF do Admin)",
+				"nl": "dependabot/fetch-metadata GitHub Action bijgewerkt van v2 naar v3; Dependabot ignore-regels toegevoegd voor major-versies van @mui/material, @emotion/react, @emotion/styled (moeten op MUI v6 / Emotion v11 blijven voor Admin MF-singleton compatibiliteit)",
+				"fr": "Mise à jour de la GitHub Action dependabot/fetch-metadata de v2 à v3 ; ajout de règles d'ignorance Dependabot pour les versions majeures de @mui/material, @emotion/react, @emotion/styled (doivent rester sur MUI v6 / Emotion v11 pour la compatibilité avec le singleton MF d'Admin)",
+				"it": "Aggiornamento GitHub Action dependabot/fetch-metadata da v2 a v3; aggiunte regole ignore Dependabot per versioni major di @mui/material, @emotion/react, @emotion/styled (devono restare su MUI v6 / Emotion v11 per compatibilità con il singleton MF di Admin)",
+				"es": "Actualización de la GitHub Action dependabot/fetch-metadata de v2 a v3; añadidas reglas de ignorado de Dependabot para versiones major de @mui/material, @emotion/react, @emotion/styled (deben permanecer en MUI v6 / Emotion v11 para compatibilidad con el singleton MF de Admin)",
+				"pl": "Aktualizacja GitHub Action dependabot/fetch-metadata z v2 do v3; dodano reguły ignorowania Dependabot dla wersji major @mui/material, @emotion/react, @emotion/styled (muszą pozostać na MUI v6 / Emotion v11 dla zgodności z singletonem MF Admin)",
+				"uk": "Оновлено GitHub Action dependabot/fetch-metadata з v2 до v3; додано правила ігнорування Dependabot для мажорних версій @mui/material, @emotion/react, @emotion/styled (мають залишатися на MUI v6 / Emotion v11 для сумісності з MF-синглтоном Admin)",
+				"zh-cn": "将GitHub Action dependabot/fetch-metadata从v2升级至v3；为@mui/material、@emotion/react、@emotion/styled的主版本添加Dependabot忽略规则（必须保持在MUI v6 / Emotion v11以兼容ioBroker Admin的MF单例）"
 			}
 		},
 		"titleLang": {
