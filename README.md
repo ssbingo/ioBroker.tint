@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.0 (2026-06-28)
+* (ssbingo) Add interactive controls to admin tab: on/off toggle switches for lights, plugs and groups; open/stop/close buttons for covers; setpoint ±0.5 °C adjustment for thermostats; fix connection lifecycle (registerConnectionHandler) so devices load reliably after tab opens
+
 ### 0.3.9 (2026-06-28)
 * (ssbingo) Fix: downgrade @mui/material devDep from v9 to v6 — v9 fallback bundle crashed Admin Emotion v6 during MF shared-module negotiation, preventing adapter settings from opening
 

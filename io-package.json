@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.9",
+		"version": "0.4.0",
 		"news": {
+			"0.4.0": {
+				"en": "Add interactive controls to admin tab: on/off toggle switches for lights, plugs and groups; open/stop/close buttons for covers; setpoint ±0.5 °C for thermostats; fix connection lifecycle so devices load reliably after tab opens",
+				"de": "Interaktive Steuerung im Admin-Tab: Ein/Aus-Schalter für Leuchten, Steckdosen und Gruppen; Öffnen/Stopp/Schließen für Rollos; Sollwert ±0,5 °C für Thermostate; Verbindungslebenszyklus korrigiert, damit Geräte nach dem Tab-Öffnen zuverlässig laden",
+				"ru": "Интерактивное управление во вкладке Admin: переключатели вкл/выкл для ламп, розеток и групп; кнопки открыть/стоп/закрыть для жалюзи; настройка уставки ±0,5 °C для термостатов; исправлен жизненный цикл подключения",
+				"pt": "Controlos interativos no separador Admin: interruptores ligar/desligar para luzes, tomadas e grupos; botões abrir/parar/fechar para estores; ajuste do ponto de definição ±0,5 °C para termostatos; ciclo de vida de ligação corrigido",
+				"nl": "Interactieve bediening in het Admin-tabblad: aan/uit-schakelaars voor verlichting, stekkers en groepen; open/stop/sluit-knoppen voor rolluiken; instelpuntaanpassing ±0,5 °C voor thermostaten; verbindingslevenscyclus gecorrigeerd",
+				"fr": "Commandes interactives dans l'onglet Admin : interrupteurs marche/arrêt pour lumières, prises et groupes ; boutons ouvrir/arrêter/fermer pour volets ; réglage du point de consigne ±0,5 °C pour thermostats ; cycle de vie de connexion corrigé",
+				"it": "Controlli interattivi nella scheda Admin: interruttori on/off per luci, prese e gruppi; pulsanti apri/stop/chiudi per tende; regolazione setpoint ±0,5 °C per termostati; ciclo di vita della connessione corretto",
+				"es": "Controles interactivos en la pestaña Admin: interruptores on/off para luces, enchufes y grupos; botones abrir/parar/cerrar para persianas; ajuste de consigna ±0,5 °C para termostatos; ciclo de vida de conexión corregido",
+				"pl": "Interaktywne sterowanie w zakładce Admin: przełączniki wł/wył dla oświetlenia, gniazd i grup; przyciski otwórz/zatrzymaj/zamknij dla rolet; regulacja punktu nastawy ±0,5 °C dla termostatów; naprawiono cykl życia połączenia",
+				"uk": "Інтерактивне керування у вкладці Admin: перемикачі вкл/викл для світильників, розеток та груп; кнопки відкрити/стоп/закрити для жалюзі; регулювання уставки ±0,5 °C для термостатів; виправлено цикл підключення",
+				"zh-cn": "在Admin标签页新增交互控制：灯光、插座和分组的开/关切换开关；卷帘的开/停/关按钮；恒温器设定值±0.5°C调节；修复连接生命周期，确保标签页打开后可靠加载设备"
+			},
 			"0.3.9": {
 				"en": "Fix: downgrade @mui/material devDep from v9 to v6 to match Admin host — v9 fallback bundle crashed Admin Emotion v6 during MF shared-module negotiation, preventing adapter settings from opening",
 				"de": "Bugfix: @mui/material devDep von v9 auf v6 zurückgesetzt — das v9-Fallback-Bundle hat beim MF-Shared-Module-Abgleich Admins Emotion v6 zum Absturz gebracht und verhinderte das Öffnen der Adaptereinstellungen",
@@ -54,19 +67,6 @@
 				"pl": "Poprawka: URL repozytorium w package.json ustawiony na format HTTPS, aby sprawdzacz adaptera ioBroker mógł rozwiązać raw URL GitHub",
 				"uk": "Виправлення: URL репозиторію в package.json встановлено у форматі HTTPS, щоб перевірник адаптерів ioBroker міг розпізнати raw-URL GitHub",
 				"zh-cn": "修复：将package.json中的仓库URL设置为HTTPS格式，以便ioBroker适配器检查器能正确解析GitHub原始文件URL"
-			},
-			"0.3.5": {
-				"en": "Dependency updates: vite 8.1, @vitejs/plugin-react v6 (Vite 8 compatibility), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"de": "Abhängigkeits-Updates: vite 8.1, @vitejs/plugin-react v6 (Vite-8-Kompatibilität), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"ru": "Обновление зависимостей: vite 8.1, @vitejs/plugin-react v6 (совместимость с Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"pt": "Atualizações de dependências: vite 8.1, @vitejs/plugin-react v6 (compatibilidade com Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"nl": "Afhankelijkheidsupdates: vite 8.1, @vitejs/plugin-react v6 (Vite 8-compatibiliteit), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"fr": "Mises à jour des dépendances : vite 8.1, @vitejs/plugin-react v6 (compatibilité Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"it": "Aggiornamenti delle dipendenze: vite 8.1, @vitejs/plugin-react v6 (compatibilità con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"es": "Actualizaciones de dependencias: vite 8.1, @vitejs/plugin-react v6 (compatibilidad con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"pl": "Aktualizacje zależności: vite 8.1, @vitejs/plugin-react v6 (zgodność z Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"uk": "Оновлення залежностей: vite 8.1, @vitejs/plugin-react v6 (сумісність з Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
-				"zh-cn": "依赖更新：vite 8.1、@vitejs/plugin-react v6（Vite 8兼容性）、@module-federation/vite 1.16.10、@mui/material devDep 9.1.2、axios 1.18.1、@types/node 26、CI testing-action-check v2"
 			}
 		},
 		"titleLang": {
