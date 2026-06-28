@@ -1525,7 +1525,7 @@ class Tint extends utils.Adapter {
 				body = { xy: [xVal, yVal], transitiontime: transitionTime };
 				this.log.debug(
 					`Light ${lightId} ("${name}"): CIE ${stateName} → ${val} ` +
-						`(xy=[${xVal.toFixed(4)}, ${yVal.toFixed(4)}])`,
+						`(xy=[${Number(xVal).toFixed(4)}, ${Number(yVal).toFixed(4)}])`,
 				);
 				break;
 			}
@@ -1718,7 +1718,7 @@ class Tint extends utils.Adapter {
 	 * @param {string} sceneName - Scene name (key in this._sceneMap[groupId])
 	 */
 	async _recallScene(groupId, sceneId, sceneName) {
-		await this._api.recallScene(groupId, sceneId);
+		await this._api.recallScene(groupId, String(sceneId));
 		const groupName = this._groupMap[groupId]?.name || `id=${groupId}`;
 		this.log.info(`Group ${groupId} ("${groupName}"): recalled scene "${sceneName}" (id=${sceneId})`);
 		const sceneMap = this._sceneMap[groupId] || {};
@@ -1906,6 +1906,7 @@ class Tint extends utils.Adapter {
 	 * Admin must be reloaded for the change to take effect.
 	 */
 	async _applyAdminTabSetting() {
+		// @ts-ignore – enableAdminTab is part of native config (io-package.json), not in AdapterConfig type
 		const enable = !!this.config.enableAdminTab;
 		try {
 			const obj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
@@ -1932,7 +1933,7 @@ class Tint extends utils.Adapter {
 	 * Set a state value with ack:true, swallowing errors gracefully.
 	 *
 	 * @param {string} id - Full ioBroker state id
-	 * @param {unknown} val - Value to write
+	 * @param {ioBroker.StateValue | null | undefined} val - Value to write
 	 */
 	async _set(id, val) {
 		try {

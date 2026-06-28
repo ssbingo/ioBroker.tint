@@ -12,9 +12,7 @@ updates:
       # higher @types/node versions expose APIs that do not exist at runtime
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
-      # React must stay at 18.x — ioBroker Admin shares React 18.3.1 as a Module Federation
-      # singleton; bumping to React 19 would put a React 19 fallback bundle in our MF remote
-      # which causes hook dispatcher conflicts when Admins singleton loads
+      # React 19 is the current target; block automatic bumps to React 20+ until evaluated
       - dependency-name: "react"
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-dom"
@@ -23,8 +21,7 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "@types/react-dom"
         update-types: ["version-update:semver-major"]
-      # TypeScript 6 may introduce breaking type changes; upgrade intentionally after
-      # validating with npm run check
+      # TypeScript major bumps require intentional evaluation with npm run check
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"

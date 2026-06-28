@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.1",
+		"version": "0.4.2",
 		"news": {
-			"0.4.1": {
-				"en": "Fix adapter checker findings: remove non-published 0.3.9 from news (E2004); add 7-day dependabot cooldown (E8915); downgrade @types/node to ^22 to match Node.js 22 engine target (W0066); bump @iobroker/types to 7.2.2 with null guards for getGroups/getSensors",
-				"de": "Adapter-Checker-Korrekturen: 0.3.9 aus News entfernt, da nie auf NPM veröffentlicht (E2004); 7-Tage-Cooldown für Dependabot (E8915); @types/node auf ^22 zurückgesetzt (Node.js-22-Ziel, W0066); @iobroker/types auf 7.2.2 angehoben mit Null-Guards für getGroups/getSensors",
-				"ru": "Исправления по результатам проверки адаптера: удалена версия 0.3.9 из news (не опубликована на NPM, E2004); добавлен 7-дневный cooldown для Dependabot (E8915); @types/node понижен до ^22 (цель Node.js 22, W0066); @iobroker/types обновлён до 7.2.2 с null-проверками для getGroups/getSensors",
-				"pt": "Correções do verificador de adaptador: remoção do 0.3.9 das notícias (não publicado no NPM, E2004); cooldown de 7 dias para o Dependabot (E8915); @types/node revertido para ^22 (alvo Node.js 22, W0066); @iobroker/types atualizado para 7.2.2 com guards nulos para getGroups/getSensors",
-				"nl": "Adapter-checker-correcties: 0.3.9 verwijderd uit nieuws (nooit op NPM gepubliceerd, E2004); 7-daagse cooldown voor Dependabot (E8915); @types/node teruggezet naar ^22 (Node.js-22-doel, W0066); @iobroker/types bijgewerkt naar 7.2.2 met null-guards voor getGroups/getSensors",
-				"fr": "Corrections du vérificateur d'adaptateur : suppression du 0.3.9 des actualités (jamais publié sur NPM, E2004) ; cooldown de 7 jours pour Dependabot (E8915) ; @types/node ramené à ^22 (cible Node.js 22, W0066) ; @iobroker/types mis à jour vers 7.2.2 avec guards nuls pour getGroups/getSensors",
-				"it": "Correzioni del verificatore adattatore: rimosso 0.3.9 dalle news (mai pubblicato su NPM, E2004); cooldown di 7 giorni per Dependabot (E8915); @types/node abbassato a ^22 (target Node.js 22, W0066); @iobroker/types aggiornato a 7.2.2 con null-guard per getGroups/getSensors",
-				"es": "Correcciones del comprobador de adaptador: eliminado 0.3.9 de las noticias (nunca publicado en NPM, E2004); cooldown de 7 días para Dependabot (E8915); @types/node revertido a ^22 (objetivo Node.js 22, W0066); @iobroker/types actualizado a 7.2.2 con guardas nulas para getGroups/getSensors",
-				"pl": "Poprawki weryfikatora adaptera: usunięto 0.3.9 z aktualności (nigdy nie opublikowano na NPM, E2004); 7-dniowy cooldown dla Dependabot (E8915); @types/node obniżony do ^22 (cel Node.js 22, W0066); @iobroker/types zaktualizowany do 7.2.2 z null-guardami dla getGroups/getSensors",
-				"uk": "Виправлення перевірника адаптера: видалено 0.3.9 з новин (не опубліковано на NPM, E2004); 7-денний cooldown для Dependabot (E8915); @types/node знижено до ^22 (ціль Node.js 22, W0066); @iobroker/types оновлено до 7.2.2 з null-перевірками для getGroups/getSensors",
-				"zh-cn": "修复适配器检查器报告：从news中移除未发布的0.3.9（E2004）；为Dependabot添加7天冷却期（E8915）；将@types/node降级至^22以匹配Node.js 22目标（W0066）；升级@iobroker/types至7.2.2并为getGroups/getSensors添加空值守卫"
+			"0.4.2": {
+				"en": "Upgrade React to 19 and TypeScript to 6; fix tsconfig.check.json to exclude admin/src JSX files and add mocha types; fix type errors in main.js (Number cast for CIE xy, String cast for sceneId, JSDoc for _set val param)",
+				"de": "React auf 19 und TypeScript auf 6 aktualisiert; tsconfig.check.json korrigiert (admin/src-JSX-Dateien ausgeschlossen, mocha-Typen ergänzt); Typfehler in main.js behoben (Number-Cast für CIE-xy, String-Cast für sceneId, JSDoc für _set)",
+				"ru": "Обновление React до 19 и TypeScript до 6; исправлен tsconfig.check.json (исключены JSX-файлы admin/src, добавлены типы mocha); исправлены ошибки типов в main.js (Number для CIE xy, String для sceneId, JSDoc для _set)",
+				"pt": "Atualização do React para 19 e TypeScript para 6; corrigido tsconfig.check.json (excluídos ficheiros JSX admin/src, adicionados tipos mocha); corrigidos erros de tipos em main.js (cast Number para CIE xy, String para sceneId, JSDoc para _set)",
+				"nl": "React bijgewerkt naar 19 en TypeScript naar 6; tsconfig.check.json gecorrigeerd (admin/src JSX-bestanden uitgesloten, mocha-typen toegevoegd); typefouten opgelost in main.js (Number-cast voor CIE xy, String-cast voor sceneId, JSDoc voor _set)",
+				"fr": "Mise à jour de React vers 19 et TypeScript vers 6 ; correction de tsconfig.check.json (exclusion des fichiers JSX admin/src, ajout des types mocha) ; correction des erreurs de types dans main.js (cast Number pour CIE xy, String pour sceneId, JSDoc pour _set)",
+				"it": "Aggiornamento React a 19 e TypeScript a 6; corretto tsconfig.check.json (esclusi file JSX admin/src, aggiunti tipi mocha); corretti errori di tipo in main.js (cast Number per CIE xy, String per sceneId, JSDoc per _set)",
+				"es": "Actualización de React a 19 y TypeScript a 6; corregido tsconfig.check.json (excluidos archivos JSX admin/src, añadidos tipos mocha); corregidos errores de tipos en main.js (cast Number para CIE xy, String para sceneId, JSDoc para _set)",
+				"pl": "Aktualizacja React do 19 i TypeScript do 6; poprawiono tsconfig.check.json (wykluczono pliki JSX admin/src, dodano typy mocha); naprawiono błędy typów w main.js (rzutowanie Number dla CIE xy, String dla sceneId, JSDoc dla _set)",
+				"uk": "Оновлено React до 19 та TypeScript до 6; виправлено tsconfig.check.json (виключено JSX-файли admin/src, додано типи mocha); виправлено помилки типів у main.js (Number для CIE xy, String для sceneId, JSDoc для _set)",
+				"zh-cn": "将React升级至19，TypeScript升级至6；修复tsconfig.check.json（排除admin/src的JSX文件，添加mocha类型）；修复main.js中的类型错误（CIE xy的Number转换、sceneId的String转换、_set的JSDoc参数类型）"
 			}
 		},
 		"titleLang": {

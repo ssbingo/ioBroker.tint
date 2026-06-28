@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.2 (2026-06-28)
+* (ssbingo) Upgrade React devDep to 19 and TypeScript to 6 to satisfy ioBroker checker W0083; fix tsconfig.check.json (exclude admin/src JSX files, add mocha types, disable strictNullChecks for JS files); fix type errors in main.js (Number cast for CIE xy coords, String cast for sceneId, JSDoc for _set val param)
+
 ### 0.4.1 (2026-06-28)
 * (ssbingo) Fix: remove non-published 0.3.9 from news (E2004); add 7-day dependabot cooldown (E8915); downgrade @types/node to ^22 to match Node.js 22 engine target (W0066); bump @iobroker/types to 7.2.2 with null guards for getGroups/getSensors
 
