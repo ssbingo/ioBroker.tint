@@ -162,6 +162,9 @@
 
 ## 更新日志
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) 依赖更新：vite 8.1、@vitejs/plugin-react v6（Vite 8兼容性）、@module-federation/vite 1.16.10、@mui/material devDep 9.1.2、axios 1.18.1、@types/node 26、CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) 修复：徽标（admin/tint.png）尺寸为300×358（非正方形），仓库检查器对此提出警告；已用透明边框填充至358×358，内容未被裁剪或拉伸变形
 
@@ -174,8 +177,6 @@
 ### 0.3.1 (2026-06-23)
 * (ssbingo) 完成了对象结构文档（插座、窗帘、开关、传感器、温控器）在全部11个README文件中的补充；更新日志限制为5条，较旧的历史记录已移至CHANGELOG_OLD.md
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) 修复：设备标签页不再在admin中触发错误的"切换主机"警告（React 18 + MUI v6现已与admin共享）；移除遗留的侧边栏"tint"标签
 
 ## 文档
 

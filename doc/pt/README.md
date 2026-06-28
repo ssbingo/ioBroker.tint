@@ -162,6 +162,9 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 
 ## Changelog
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) Atualizações de dependências: vite 8.1, @vitejs/plugin-react v6 (compatibilidade com Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Correção: o logótipo (admin/tint.png) tinha 300×358 (não era quadrado), o que o verificador do repositório assinalava; preenchido para 358×358 com borda transparente, sem cortar ou distorcer o conteúdo
 
@@ -174,8 +177,6 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Documentação da estrutura de objetos concluída (Tomadas, Estores, Interruptores, Sensores, Termostatos) em todos os 11 ficheiros README; changelog limitado a 5 entradas, histórico mais antigo movido para CHANGELOG_OLD.md
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) Correção: as abas de dispositivos já não geram um aviso falso de "mudar de host" no admin (React 18 + MUI v6 agora partilhados com o admin); removida a aba lateral "tint" obsoleta
 
 ## Documentação
 

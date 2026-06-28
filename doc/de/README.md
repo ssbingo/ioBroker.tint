@@ -162,6 +162,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ## Changelog
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) Abhängigkeits-Updates: vite 8.1, @vitejs/plugin-react v6 (Vite-8-Kompatibilität), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Bugfix: Logo (admin/tint.png) war 300×358 (nicht quadratisch), was der Repository-Checker bemängelt; auf 358×358 mit transparentem Rand aufgefüllt, kein Bildinhalt beschnitten oder verzerrt
 
@@ -174,8 +177,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) Bugfix: Geräte-Tabs lösen keine falsche "Host wechseln"-Warnung in Admin mehr aus (React 18 + MUI v6 werden jetzt mit Admin geteilt statt separat gebündelt); veralteten Sidebar-Tab "tint" entfernt
 
 ## Dokumentation
 

@@ -162,6 +162,9 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 
 ## Changelog
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) Aktualizacje zależności: vite 8.1, @vitejs/plugin-react v6 (zgodność z Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Poprawka: logo (admin/tint.png) miało wymiary 300×358 (nie kwadrat), na co wskazywał checker repozytorium; uzupełnione do 358×358 przezroczystą ramką, bez przycinania czy zniekształcania treści
 
@@ -174,8 +177,6 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Uzupełniono dokumentację struktury obiektów (Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty) we wszystkich 11 plikach README; dziennik zmian ograniczony do 5 wpisów, starsza historia przeniesiona do CHANGELOG_OLD.md
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) Poprawka: zakładki urządzeń nie wywołują już fałszywego ostrzeżenia "zmień hosta" w admin (React 18 + MUI v6 są teraz współdzielone z admin); usunięto przestarzałą zakładkę boczną "tint"
 
 ## Dokumentacja
 

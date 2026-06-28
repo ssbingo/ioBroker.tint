@@ -162,6 +162,9 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 ## Changelog
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) Afhankelijkheidsupdates: vite 8.1, @vitejs/plugin-react v6 (Vite 8-compatibiliteit), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Bugfix: logo (admin/tint.png) was 300×358 (niet vierkant), wat de repository-checker meldde; opgevuld tot 358×358 met transparante rand, geen inhoud bijgesneden of vervormd
 
@@ -174,8 +177,6 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Objectstructuurdocumentatie (Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten) in alle 11 README-bestanden voltooid; changelog beperkt tot 5 items, oudere geschiedenis verplaatst naar CHANGELOG_OLD.md
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) Bugfix: apparaattabbladen geven niet langer een onterechte "host wisselen"-waarschuwing in admin (React 18 + MUI v6 nu gedeeld met admin); verouderd zijbalktabblad "tint" verwijderd
 
 ## Documentatie
 

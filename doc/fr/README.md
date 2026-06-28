@@ -162,6 +162,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ## Changelog
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) Mises à jour des dépendances : vite 8.1, @vitejs/plugin-react v6 (compatibilité Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Correctif : le logo (admin/tint.png) était en 300×358 (non carré), ce que signalait le vérificateur du dépôt ; complété à 358×358 avec une bordure transparente, sans rogner ni déformer le contenu
 
@@ -174,8 +177,6 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Documentation de la structure des objets complétée (Prises, Volets, Interrupteurs, Capteurs, Thermostats) dans les 11 fichiers README ; changelog limité à 5 entrées, historique plus ancien déplacé vers CHANGELOG_OLD.md
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) Correctif: les onglets d'appareils ne déclenchent plus un faux avertissement "changer d'hôte" dans admin (React 18 + MUI v6 désormais partagés avec admin); suppression de l'ancien onglet latéral "tint"
 
 ## Documentation
 

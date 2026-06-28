@@ -162,6 +162,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ## Changelog
 
+
+### 0.3.5 (2026-06-28)
+* (ssbingo) Actualizaciones de dependencias: vite 8.1, @vitejs/plugin-react v6 (compatibilidad con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Corrección: el logo (admin/tint.png) era de 300×358 (no cuadrado), lo que señalaba el verificador del repositorio; rellenado a 358×358 con borde transparente, sin recortar ni distorsionar el contenido
 
@@ -174,8 +177,6 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 ### 0.3.1 (2026-06-23)
 * (ssbingo) Documentación de la estructura de objetos completada (Enchufes, Persianas, Interruptores, Sensores, Termostatos) en los 11 archivos README; changelog limitado a 5 entradas, historial anterior movido a CHANGELOG_OLD.md
 
-### 0.3.0 (2026-06-23)
-* (ssbingo) Corrección: las pestañas de dispositivos ya no generan una falsa advertencia de "cambiar de host" en admin (React 18 + MUI v6 ahora compartidos con admin); eliminada la pestaña lateral obsoleta "tint"
 
 ## Documentación
 
