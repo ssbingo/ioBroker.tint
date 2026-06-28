@@ -1,59 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.0",
+		"version": "0.4.1",
 		"news": {
-			"0.4.0": {
-				"en": "Add interactive controls to admin tab: on/off toggle switches for lights, plugs and groups; open/stop/close buttons for covers; setpoint ±0.5 °C for thermostats; fix connection lifecycle so devices load reliably after tab opens",
-				"de": "Interaktive Steuerung im Admin-Tab: Ein/Aus-Schalter für Leuchten, Steckdosen und Gruppen; Öffnen/Stopp/Schließen für Rollos; Sollwert ±0,5 °C für Thermostate; Verbindungslebenszyklus korrigiert, damit Geräte nach dem Tab-Öffnen zuverlässig laden",
-				"ru": "Интерактивное управление во вкладке Admin: переключатели вкл/выкл для ламп, розеток и групп; кнопки открыть/стоп/закрыть для жалюзи; настройка уставки ±0,5 °C для термостатов; исправлен жизненный цикл подключения",
-				"pt": "Controlos interativos no separador Admin: interruptores ligar/desligar para luzes, tomadas e grupos; botões abrir/parar/fechar para estores; ajuste do ponto de definição ±0,5 °C para termostatos; ciclo de vida de ligação corrigido",
-				"nl": "Interactieve bediening in het Admin-tabblad: aan/uit-schakelaars voor verlichting, stekkers en groepen; open/stop/sluit-knoppen voor rolluiken; instelpuntaanpassing ±0,5 °C voor thermostaten; verbindingslevenscyclus gecorrigeerd",
-				"fr": "Commandes interactives dans l'onglet Admin : interrupteurs marche/arrêt pour lumières, prises et groupes ; boutons ouvrir/arrêter/fermer pour volets ; réglage du point de consigne ±0,5 °C pour thermostats ; cycle de vie de connexion corrigé",
-				"it": "Controlli interattivi nella scheda Admin: interruttori on/off per luci, prese e gruppi; pulsanti apri/stop/chiudi per tende; regolazione setpoint ±0,5 °C per termostati; ciclo di vita della connessione corretto",
-				"es": "Controles interactivos en la pestaña Admin: interruptores on/off para luces, enchufes y grupos; botones abrir/parar/cerrar para persianas; ajuste de consigna ±0,5 °C para termostatos; ciclo de vida de conexión corregido",
-				"pl": "Interaktywne sterowanie w zakładce Admin: przełączniki wł/wył dla oświetlenia, gniazd i grup; przyciski otwórz/zatrzymaj/zamknij dla rolet; regulacja punktu nastawy ±0,5 °C dla termostatów; naprawiono cykl życia połączenia",
-				"uk": "Інтерактивне керування у вкладці Admin: перемикачі вкл/викл для світильників, розеток та груп; кнопки відкрити/стоп/закрити для жалюзі; регулювання уставки ±0,5 °C для термостатів; виправлено цикл підключення",
-				"zh-cn": "在Admin标签页新增交互控制：灯光、插座和分组的开/关切换开关；卷帘的开/停/关按钮；恒温器设定值±0.5°C调节；修复连接生命周期，确保标签页打开后可靠加载设备"
-			},
-			"0.3.8": {
-				"en": "Add admin sidebar tab for device control (Lights, Groups, Plugs, Covers, Switches, Sensors, Thermostats); activate via adapter settings Connection tab",
-				"de": "Admin-Seitenleisten-Tab zur Gerätesteuerung hinzugefügt (Leuchten, Gruppen, Steckdosen, Rollos, Schalter, Sensoren, Thermostate); Aktivierung über Verbindungs-Tab in den Adaptereinstellungen",
-				"ru": "Добавлена вкладка боковой панели Admin для управления устройствами (освещение, группы, розетки, жалюзи, выключатели, датчики, термостаты); активация в настройках адаптера",
-				"pt": "Separador da barra lateral Admin para controlo de dispositivos adicionado (Luzes, Grupos, Tomadas, Estores, Interruptores, Sensores, Termostatos); ativar no separador de Ligação das definições do adaptador",
-				"nl": "Admin-zijbalk tab toegevoegd voor apparaatbediening (Verlichting, Groepen, Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten); activeren via het tabblad Verbinding in de adapterinstellingen",
-				"fr": "Ajout d'un onglet de la barre latérale Admin pour le contrôle des appareils (Éclairages, Groupes, Prises, Volets, Interrupteurs, Capteurs, Thermostats) ; activation via l'onglet Connexion des paramètres de l'adaptateur",
-				"it": "Aggiunto tab della barra laterale Admin per il controllo dei dispositivi (Luci, Gruppi, Prese, Tende, Interruttori, Sensori, Termostati); attivare nella scheda Connessione delle impostazioni dell'adattatore",
-				"es": "Añadida pestaña de la barra lateral Admin para control de dispositivos (Luces, Grupos, Enchufes, Persianas, Interruptores, Sensores, Termostatos); activar en la pestaña Conexión de la configuración del adaptador",
-				"pl": "Dodano kartę paska bocznego Admin do sterowania urządzeniami (Oświetlenie, Grupy, Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty); aktywacja w zakładce Połączenie ustawień adaptera",
-				"uk": "Додано вкладку бічної панелі Admin для керування пристроями (Освітлення, Групи, Розетки, Жалюзі, Вимикачі, Датчики, Термостати); активація через вкладку Підключення в налаштуваннях адаптера",
-				"zh-cn": "新增Admin侧边栏控制标签页（灯光、分组、插座、卷帘、开关、传感器、恒温器）；在适配器设置的“连接”标签页中激活"
-			},
-			"0.3.7": {
-				"en": "Fix: E5507 add xs/md/lg/xl grid attributes to jsonConfig staticText items; E5612 add deCONZ Pairing i18n key; E5005 pass adapter.setTimeout to DeconzWebSocket; E3022/E3014 update CI node.js to 24, adapter-tests needs check-and-lint; E8917/E8915 add dependabot cooldown + @types/node major-version ignore rule",
-				"de": "Bugfix: E5507 xs/md/lg/xl-Grid-Attribute zu jsonConfig-staticText-Elementen hinzugefügt; E5612 i18n-Schlüssel 'deCONZ Pairing' ergänzt; E5005 adapter.setTimeout an DeconzWebSocket übergeben; E3022/E3014 CI-Node.js auf 24 aktualisiert, adapter-tests braucht check-and-lint; E8917/E8915 dependabot-Cooldown + @types/node-Major-Version-Ignorierung ergänzt",
-				"ru": "Исправление: E5507 добавлены атрибуты xs/md/lg/xl к элементам staticText в jsonConfig; E5612 добавлен ключ i18n 'deCONZ Pairing'; E5005 adapter.setTimeout передан в DeconzWebSocket; E3022/E3014 CI обновлён до Node.js 24, adapter-tests зависит от check-and-lint; E8917/E8915 добавлены cooldown и игнорирование мажорных версий @types/node в dependabot",
-				"pt": "Correção: E5507 atributos xs/md/lg/xl adicionados aos itens staticText do jsonConfig; E5612 chave i18n 'deCONZ Pairing' adicionada; E5005 adapter.setTimeout passado ao DeconzWebSocket; E3022/E3014 CI atualizado para Node.js 24, adapter-tests depende de check-and-lint; E8917/E8915 cooldown e ignorar versões major de @types/node no dependabot",
-				"nl": "Bugfix: E5507 xs/md/lg/xl-rasterattributen toegevoegd aan jsonConfig staticText-items; E5612 i18n-sleutel 'deCONZ Pairing' toegevoegd; E5005 adapter.setTimeout doorgegeven aan DeconzWebSocket; E3022/E3014 CI bijgewerkt naar Node.js 24, adapter-tests vereist check-and-lint; E8917/E8915 dependabot-cooldown en negeren van @types/node-majorversies toegevoegd",
-				"fr": "Correctifs : E5507 attributs xs/md/lg/xl ajoutés aux éléments staticText de jsonConfig ; E5612 clé i18n 'deCONZ Pairing' ajoutée ; E5005 adapter.setTimeout transmis à DeconzWebSocket ; E3022/E3014 CI mis à jour vers Node.js 24, adapter-tests dépend de check-and-lint ; E8917/E8915 cooldown dependabot et ignorance des versions majeures de @types/node ajoutés",
-				"it": "Correzioni: E5507 attributi xs/md/lg/xl aggiunti agli elementi staticText di jsonConfig; E5612 chiave i18n 'deCONZ Pairing' aggiunta; E5005 adapter.setTimeout passato a DeconzWebSocket; E3022/E3014 CI aggiornato a Node.js 24, adapter-tests dipende da check-and-lint; E8917/E8915 cooldown dependabot e ignorare versioni major di @types/node aggiunti",
-				"es": "Correcciones: E5507 atributos xs/md/lg/xl añadidos a los elementos staticText de jsonConfig; E5612 clave i18n 'deCONZ Pairing' añadida; E5005 adapter.setTimeout pasado a DeconzWebSocket; E3022/E3014 CI actualizado a Node.js 24, adapter-tests necesita check-and-lint; E8917/E8915 cooldown de dependabot e ignorar versiones major de @types/node añadidos",
-				"pl": "Poprawki: E5507 atrybuty xs/md/lg/xl dodane do elementów staticText w jsonConfig; E5612 klucz i18n 'deCONZ Pairing' dodany; E5005 adapter.setTimeout przekazany do DeconzWebSocket; E3022/E3014 CI zaktualizowany do Node.js 24, adapter-tests wymaga check-and-lint; E8917/E8915 cooldown dependabot i ignorowanie wersji major @types/node dodane",
-				"uk": "Виправлення: E5507 атрибути xs/md/lg/xl додано до елементів staticText в jsonConfig; E5612 ключ i18n 'deCONZ Pairing' додано; E5005 adapter.setTimeout передано в DeconzWebSocket; E3022/E3014 CI оновлено до Node.js 24, adapter-tests залежить від check-and-lint; E8917/E8915 додано cooldown dependabot та ігнорування мажорних версій @types/node",
-				"zh-cn": "修复：E5507 为jsonConfig的staticText元素添加xs/md/lg/xl网格属性；E5612 添加i18n键'deCONZ Pairing'；E5005 将adapter.setTimeout传递给DeconzWebSocket；E3022/E3014 将CI的Node.js更新至24，adapter-tests依赖check-and-lint；E8917/E8915 添加dependabot冷却期及忽略@types/node主版本更新规则"
-			},
-			"0.3.6": {
-				"en": "Fix: set repository URL to HTTPS format in package.json so the ioBroker adapter checker can resolve the GitHub raw file URL",
-				"de": "Bugfix: Repository-URL in package.json auf HTTPS-Format gesetzt, damit der ioBroker-Adapter-Checker die GitHub-Raw-URL auflösen kann",
-				"ru": "Исправление: URL репозитория в package.json изменён на формат HTTPS, чтобы проверщик адаптеров ioBroker мог разрешить raw-URL GitHub",
-				"pt": "Correção: URL do repositório em package.json definida em formato HTTPS para que o verificador do adaptador ioBroker possa resolver o URL raw do GitHub",
-				"nl": "Bugfix: repository-URL in package.json ingesteld op HTTPS-formaat zodat de ioBroker-adapter-checker de GitHub raw-URL kan oplossen",
-				"fr": "Correctif : URL du dépôt dans package.json définie en format HTTPS pour que le vérificateur d'adaptateur ioBroker puisse résoudre l'URL raw de GitHub",
-				"it": "Correzione: URL del repository in package.json impostato in formato HTTPS affinché il checker dell'adattatore ioBroker possa risolvere l'URL raw di GitHub",
-				"es": "Corrección: URL del repositorio en package.json configurada en formato HTTPS para que el verificador de adaptador ioBroker pueda resolver la URL raw de GitHub",
-				"pl": "Poprawka: URL repozytorium w package.json ustawiony na format HTTPS, aby sprawdzacz adaptera ioBroker mógł rozwiązać raw URL GitHub",
-				"uk": "Виправлення: URL репозиторію в package.json встановлено у форматі HTTPS, щоб перевірник адаптерів ioBroker міг розпізнати raw-URL GitHub",
-				"zh-cn": "修复：将package.json中的仓库URL设置为HTTPS格式，以便ioBroker适配器检查器能正确解析GitHub原始文件URL"
+			"0.4.1": {
+				"en": "Fix adapter checker findings: remove non-published 0.3.9 from news (E2004); add 7-day dependabot cooldown (E8915); downgrade @types/node to ^22 to match Node.js 22 engine target (W0066); bump @iobroker/types to 7.2.2 with null guards for getGroups/getSensors",
+				"de": "Adapter-Checker-Korrekturen: 0.3.9 aus News entfernt, da nie auf NPM veröffentlicht (E2004); 7-Tage-Cooldown für Dependabot (E8915); @types/node auf ^22 zurückgesetzt (Node.js-22-Ziel, W0066); @iobroker/types auf 7.2.2 angehoben mit Null-Guards für getGroups/getSensors",
+				"ru": "Исправления по результатам проверки адаптера: удалена версия 0.3.9 из news (не опубликована на NPM, E2004); добавлен 7-дневный cooldown для Dependabot (E8915); @types/node понижен до ^22 (цель Node.js 22, W0066); @iobroker/types обновлён до 7.2.2 с null-проверками для getGroups/getSensors",
+				"pt": "Correções do verificador de adaptador: remoção do 0.3.9 das notícias (não publicado no NPM, E2004); cooldown de 7 dias para o Dependabot (E8915); @types/node revertido para ^22 (alvo Node.js 22, W0066); @iobroker/types atualizado para 7.2.2 com guards nulos para getGroups/getSensors",
+				"nl": "Adapter-checker-correcties: 0.3.9 verwijderd uit nieuws (nooit op NPM gepubliceerd, E2004); 7-daagse cooldown voor Dependabot (E8915); @types/node teruggezet naar ^22 (Node.js-22-doel, W0066); @iobroker/types bijgewerkt naar 7.2.2 met null-guards voor getGroups/getSensors",
+				"fr": "Corrections du vérificateur d'adaptateur : suppression du 0.3.9 des actualités (jamais publié sur NPM, E2004) ; cooldown de 7 jours pour Dependabot (E8915) ; @types/node ramené à ^22 (cible Node.js 22, W0066) ; @iobroker/types mis à jour vers 7.2.2 avec guards nuls pour getGroups/getSensors",
+				"it": "Correzioni del verificatore adattatore: rimosso 0.3.9 dalle news (mai pubblicato su NPM, E2004); cooldown di 7 giorni per Dependabot (E8915); @types/node abbassato a ^22 (target Node.js 22, W0066); @iobroker/types aggiornato a 7.2.2 con null-guard per getGroups/getSensors",
+				"es": "Correcciones del comprobador de adaptador: eliminado 0.3.9 de las noticias (nunca publicado en NPM, E2004); cooldown de 7 días para Dependabot (E8915); @types/node revertido a ^22 (objetivo Node.js 22, W0066); @iobroker/types actualizado a 7.2.2 con guardas nulas para getGroups/getSensors",
+				"pl": "Poprawki weryfikatora adaptera: usunięto 0.3.9 z aktualności (nigdy nie opublikowano na NPM, E2004); 7-dniowy cooldown dla Dependabot (E8915); @types/node obniżony do ^22 (cel Node.js 22, W0066); @iobroker/types zaktualizowany do 7.2.2 z null-guardami dla getGroups/getSensors",
+				"uk": "Виправлення перевірника адаптера: видалено 0.3.9 з новин (не опубліковано на NPM, E2004); 7-денний cooldown для Dependabot (E8915); @types/node знижено до ^22 (ціль Node.js 22, W0066); @iobroker/types оновлено до 7.2.2 з null-перевірками для getGroups/getSensors",
+				"zh-cn": "修复适配器检查器报告：从news中移除未发布的0.3.9（E2004）；为Dependabot添加7天冷却期（E8915）；将@types/node降级至^22以匹配Node.js 22目标（W0066）；升级@iobroker/types至7.2.2并为getGroups/getSensors添加空值守卫"
 			}
 		},
 		"titleLang": {

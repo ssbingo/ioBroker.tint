@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.1 (2026-06-28)
+* (ssbingo) Fix: remove non-published 0.3.9 from news (E2004); add 7-day dependabot cooldown (E8915); downgrade @types/node to ^22 to match Node.js 22 engine target (W0066); bump @iobroker/types to 7.2.2 with null guards for getGroups/getSensors
+
 ### 0.4.0 (2026-06-28)
 * (ssbingo) Add interactive controls to admin tab: on/off toggle switches for lights, plugs and groups; open/stop/close buttons for covers; setpoint ±0.5 °C adjustment for thermostats; fix connection lifecycle (registerConnectionHandler) so devices load reliably after tab opens
 
