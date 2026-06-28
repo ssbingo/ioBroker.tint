@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.5",
+		"version": "0.3.6",
 		"news": {
+			"0.3.6": {
+				"en": "Fix: set repository URL to HTTPS format in package.json so the ioBroker adapter checker can resolve the GitHub raw file URL",
+				"de": "Bugfix: Repository-URL in package.json auf HTTPS-Format gesetzt, damit der ioBroker-Adapter-Checker die GitHub-Raw-URL auflösen kann",
+				"ru": "Исправление: URL репозитория в package.json изменён на формат HTTPS, чтобы проверщик адаптеров ioBroker мог разрешить raw-URL GitHub",
+				"pt": "Correção: URL do repositório em package.json definida em formato HTTPS para que o verificador do adaptador ioBroker possa resolver o URL raw do GitHub",
+				"nl": "Bugfix: repository-URL in package.json ingesteld op HTTPS-formaat zodat de ioBroker-adapter-checker de GitHub raw-URL kan oplossen",
+				"fr": "Correctif : URL du dépôt dans package.json définie en format HTTPS pour que le vérificateur d'adaptateur ioBroker puisse résoudre l'URL raw de GitHub",
+				"it": "Correzione: URL del repository in package.json impostato in formato HTTPS affinché il checker dell'adattatore ioBroker possa risolvere l'URL raw di GitHub",
+				"es": "Corrección: URL del repositorio en package.json configurada en formato HTTPS para que el verificador de adaptador ioBroker pueda resolver la URL raw de GitHub",
+				"pl": "Poprawka: URL repozytorium w package.json ustawiony na format HTTPS, aby sprawdzacz adaptera ioBroker mógł rozwiązać raw URL GitHub",
+				"uk": "Виправлення: URL репозиторію в package.json встановлено у форматі HTTPS, щоб перевірник адаптерів ioBroker міг розпізнати raw-URL GitHub",
+				"zh-cn": "修复：将package.json中的仓库URL设置为HTTPS格式，以便ioBroker适配器检查器能正确解析GitHub原始文件URL"
+			},
 			"0.3.5": {
 				"en": "Dependency updates: vite 8.1, @vitejs/plugin-react v6 (Vite 8 compatibility), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
 				"de": "Abhängigkeits-Updates: vite 8.1, @vitejs/plugin-react v6 (Vite-8-Kompatibilität), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2",
@@ -54,19 +67,6 @@
 				"pl": "Usunięto zbędną linię \"Other languages\" z README.md (jest już w sekcji Documentation); wyłączono powiadomienie o wydaniu Sentry w CI (kończyło się błędem bez skonfigurowanego tokenu)",
 				"uk": "Видалено зайвий рядок \"Other languages\" з README.md (уже є в розділі Documentation); вимкнено сповіщення про реліз Sentry в CI (завершувалося помилкою без налаштованого токена)",
 				"zh-cn": "移除README.md中多余的\"Other languages\"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）"
-			},
-			"0.3.1": {
-				"en": "Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md",
-				"de": "Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben",
-				"ru": "Завершена документация структуры объектов (Розетки, Жалюзи, Выключатели, Датчики, Термостаты) во всех 11 файлах README; changelog ограничен 5 записями, более старая история перемещена в CHANGELOG_OLD.md",
-				"pt": "Documentação da estrutura de objetos concluída (Tomadas, Estores, Interruptores, Sensores, Termostatos) em todos os 11 ficheiros README; changelog limitado a 5 entradas, histórico mais antigo movido para CHANGELOG_OLD.md",
-				"nl": "Objectstructuurdocumentatie (Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten) in alle 11 README-bestanden voltooid; changelog beperkt tot 5 items, oudere geschiedenis verplaatst naar CHANGELOG_OLD.md",
-				"fr": "Documentation de la structure des objets complétée (Prises, Volets, Interrupteurs, Capteurs, Thermostats) dans les 11 fichiers README ; changelog limité à 5 entrées, historique plus ancien déplacé vers CHANGELOG_OLD.md",
-				"it": "Documentazione della struttura degli oggetti completata (Prese, Tapparelle, Interruttori, Sensori, Termostati) in tutti gli 11 file README; changelog limitato a 5 voci, cronologia precedente spostata in CHANGELOG_OLD.md",
-				"es": "Documentación de la estructura de objetos completada (Enchufes, Persianas, Interruptores, Sensores, Termostatos) en los 11 archivos README; changelog limitado a 5 entradas, historial anterior movido a CHANGELOG_OLD.md",
-				"pl": "Uzupełniono dokumentację struktury obiektów (Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty) we wszystkich 11 plikach README; dziennik zmian ograniczony do 5 wpisów, starsza historia przeniesiona do CHANGELOG_OLD.md",
-				"uk": "Завершено документацію структури об'єктів (Розетки, Жалюзі, Вимикачі, Датчики, Термостати) у всіх 11 файлах README; журнал змін обмежено 5 записами, старішу історію перенесено до CHANGELOG_OLD.md",
-				"zh-cn": "完成了对象结构文档（插座、窗帘、开关、传感器、温控器）在全部11个README文件中的补充；更新日志限制为5条，较旧的历史记录已移至CHANGELOG_OLD.md"
 			}
 		},
 		"titleLang": {

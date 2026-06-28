@@ -163,6 +163,9 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 ## Changelog
 
 
+
+### 0.3.6 (2026-06-28)
+* (ssbingo) Correzione: URL del repository in package.json impostato in formato HTTPS affinché il checker dell'adattatore ioBroker possa risolvere l'URL raw di GitHub
 ### 0.3.5 (2026-06-28)
 * (ssbingo) Aggiornamenti delle dipendenze: vite 8.1, @vitejs/plugin-react v6 (compatibilità con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
@@ -173,9 +176,6 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Rimossa la riga ridondante "Other languages" dal README.md (già presente nella sezione Documentation); disabilitata la notifica di rilascio Sentry nella CI (falliva senza token configurato)
-
-### 0.3.1 (2026-06-23)
-* (ssbingo) Documentazione della struttura degli oggetti completata (Prese, Tapparelle, Interruttori, Sensori, Termostati) in tutti gli 11 file README; changelog limitato a 5 voci, cronologia precedente spostata in CHANGELOG_OLD.md
 
 
 ## Documentazione

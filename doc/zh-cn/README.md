@@ -163,6 +163,9 @@
 ## 更新日志
 
 
+
+### 0.3.6 (2026-06-28)
+* (ssbingo) 修复：将package.json中的仓库URL设置为HTTPS格式，以便ioBroker适配器检查器能正确解析GitHub原始文件URL
 ### 0.3.5 (2026-06-28)
 * (ssbingo) 依赖更新：vite 8.1、@vitejs/plugin-react v6（Vite 8兼容性）、@module-federation/vite 1.16.10、@mui/material devDep 9.1.2、axios 1.18.1、@types/node 26、CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
@@ -173,9 +176,6 @@
 
 ### 0.3.2 (2026-06-23)
 * (ssbingo) 移除README.md中多余的"Other languages"行（文档部分已包含此信息）；禁用CI中的Sentry发布通知步骤（因未配置令牌而失败）
-
-### 0.3.1 (2026-06-23)
-* (ssbingo) 完成了对象结构文档（插座、窗帘、开关、传感器、温控器）在全部11个README文件中的补充；更新日志限制为5条，较旧的历史记录已移至CHANGELOG_OLD.md
 
 
 ## 文档

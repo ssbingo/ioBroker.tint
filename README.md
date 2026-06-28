@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.6 (2026-06-28)
+* (ssbingo) Fix: set repository URL to HTTPS format in package.json so the ioBroker adapter checker can resolve the GitHub raw file URL
+
 ### 0.3.5 (2026-06-28)
 * (ssbingo) Dependency updates: vite 8.1, @vitejs/plugin-react v6 (Vite 8 compatibility), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 
@@ -195,9 +198,6 @@ iobroker add tint
 
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Remove redundant "Other languages" line from README.md (already covered by the Documentation section); disable the Sentry release-notification step in CI (was failing with no token configured)
-
-### 0.3.1 (2026-06-23)
-* (ssbingo) Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md
 
 
 ## Documentation

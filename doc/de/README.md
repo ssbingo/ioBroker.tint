@@ -163,6 +163,9 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 ## Changelog
 
 
+
+### 0.3.6 (2026-06-28)
+* (ssbingo) Bugfix: Repository-URL in package.json auf HTTPS-Format gesetzt, damit der ioBroker-Adapter-Checker die GitHub-Raw-URL auflösen kann
 ### 0.3.5 (2026-06-28)
 * (ssbingo) Abhängigkeits-Updates: vite 8.1, @vitejs/plugin-react v6 (Vite-8-Kompatibilität), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
@@ -173,9 +176,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Redundante "Other languages"-Zeile aus der README.md entfernt (steht bereits im Documentation-Abschnitt); Sentry-Release-Benachrichtigung in der CI deaktiviert (schlug ohne konfigurierten Token fehl)
-
-### 0.3.1 (2026-06-23)
-* (ssbingo) Objektstruktur-Dokumentation (Steckdosen, Rollos, Schalter, Sensoren, Thermostate) in allen 11 README-Dateien vervollständigt; Changelog auf 5 Einträge begrenzt, ältere Historie nach CHANGELOG_OLD.md verschoben
 
 
 ## Dokumentation

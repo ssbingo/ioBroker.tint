@@ -163,6 +163,9 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 ## Changelog
 
 
+
+### 0.3.6 (2026-06-28)
+* (ssbingo) Corrección: URL del repositorio en package.json configurada en formato HTTPS para que el verificador de adaptador ioBroker pueda resolver la URL raw de GitHub
 ### 0.3.5 (2026-06-28)
 * (ssbingo) Actualizaciones de dependencias: vite 8.1, @vitejs/plugin-react v6 (compatibilidad con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
@@ -173,9 +176,6 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Eliminada la línea redundante "Other languages" del README.md (ya presente en la sección Documentation); deshabilitada la notificación de versión de Sentry en CI (fallaba sin token configurado)
-
-### 0.3.1 (2026-06-23)
-* (ssbingo) Documentación de la estructura de objetos completada (Enchufes, Persianas, Interruptores, Sensores, Termostatos) en los 11 archivos README; changelog limitado a 5 entradas, historial anterior movido a CHANGELOG_OLD.md
 
 
 ## Documentación

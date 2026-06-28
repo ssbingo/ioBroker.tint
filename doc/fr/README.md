@@ -163,6 +163,9 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 ## Changelog
 
 
+
+### 0.3.6 (2026-06-28)
+* (ssbingo) Correctif : URL du dépôt dans package.json définie en format HTTPS pour que le vérificateur d'adaptateur ioBroker puisse résoudre l'URL raw de GitHub
 ### 0.3.5 (2026-06-28)
 * (ssbingo) Mises à jour des dépendances : vite 8.1, @vitejs/plugin-react v6 (compatibilité Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
@@ -173,9 +176,6 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Suppression de la ligne redondante "Other languages" du README.md (déjà présente dans la section Documentation) ; désactivation de la notification de release Sentry dans la CI (échouait sans jeton configuré)
-
-### 0.3.1 (2026-06-23)
-* (ssbingo) Documentation de la structure des objets complétée (Prises, Volets, Interrupteurs, Capteurs, Thermostats) dans les 11 fichiers README ; changelog limité à 5 entrées, historique plus ancien déplacé vers CHANGELOG_OLD.md
 
 
 ## Documentation

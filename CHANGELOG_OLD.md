@@ -4,6 +4,9 @@ This file holds changelog entries moved out of `README.md`'s `## Changelog`
 section once it exceeds 5 entries. See `README.md` for the current
 changelog.
 
+### 0.3.1 (2026-06-23)
+* (ssbingo) Complete the Object structure documentation (Plugs, Covers, Switches, Sensors, Thermostats) in all 11 README files; cap the changelog at 5 entries with older history moved to CHANGELOG_OLD.md
+
 ### 0.3.0 (2026-06-23)
 * (ssbingo) Fix: device tabs in admin no longer trigger a false "switch host" warning — React 18 and @mui/material v6 are now shared with admin's host instead of being bundled separately (panel bundle size drops from ~411 KB to ~66 KB)
 * (ssbingo) Fix: remove leftover legacy "tint" sidebar tab (admin/tab_m.html) — superseded by the jsonConfig device tabs

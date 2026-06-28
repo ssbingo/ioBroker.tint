@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.3.5",
+	"version": "0.3.6",
 	"description": "Müller Licht Tint Steuerung via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",
@@ -20,7 +20,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:ssbingo/ioBroker.tint.git"
+		"url": "git+https://github.com/ssbingo/ioBroker.tint.git"
 	},
 	"engines": {
 		"node": ">= 22"
