@@ -84,5 +84,14 @@
   "tabCovers": "Estores",
   "tabSwitches": "Interruptores",
   "tabSensors": "Sensores",
-  "tabThermostats": "Termostatos"
+  "tabThermostats": "Termostatos",
+  "btnClose": "Fechar",
+  "btnOpen": "Abrir",
+  "btnStop": "Parar",
+  "colControl": "Controlo",
+  "msgNotReachable": "Dispositivo inacessível",
+  "stateAllOff": "Todos desligados – clique para ligar",
+  "stateAllOn": "Todos ligados",
+  "statePartial": "parcial",
+  "statePartialOn": "Parcialmente ligado – clique para desligar"
 }

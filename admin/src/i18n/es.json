@@ -84,5 +84,14 @@
   "tabCovers": "Persianas",
   "tabSwitches": "Interruptores",
   "tabSensors": "Sensores",
-  "tabThermostats": "Termostatos"
+  "tabThermostats": "Termostatos",
+  "btnClose": "Cerrar",
+  "btnOpen": "Abrir",
+  "btnStop": "Parar",
+  "colControl": "Control",
+  "msgNotReachable": "Dispositivo no alcanzable",
+  "stateAllOff": "Todos apagados – haz clic para encender",
+  "stateAllOn": "Todos encendidos",
+  "statePartial": "parcial",
+  "statePartialOn": "Parcialmente encendido – haz clic para apagar"
 }

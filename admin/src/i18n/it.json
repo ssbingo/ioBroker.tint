@@ -84,5 +84,14 @@
   "tabCovers": "Tende",
   "tabSwitches": "Interruttori",
   "tabSensors": "Sensori",
-  "tabThermostats": "Termostati"
+  "tabThermostats": "Termostati",
+  "btnClose": "Chiudi",
+  "btnOpen": "Apri",
+  "btnStop": "Ferma",
+  "colControl": "Controllo",
+  "msgNotReachable": "Dispositivo non raggiungibile",
+  "stateAllOff": "Tutti spenti – clicca per accendere tutto",
+  "stateAllOn": "Tutti accesi",
+  "statePartial": "parziale",
+  "statePartialOn": "Parzialmente acceso – clicca per spegnere tutto"
 }

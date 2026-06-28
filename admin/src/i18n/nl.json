@@ -84,5 +84,14 @@
   "tabCovers": "Rolluiken",
   "tabSwitches": "Schakelaars",
   "tabSensors": "Sensoren",
-  "tabThermostats": "Thermostaten"
+  "tabThermostats": "Thermostaten",
+  "btnClose": "Sluiten",
+  "btnOpen": "Openen",
+  "btnStop": "Stoppen",
+  "colControl": "Besturing",
+  "msgNotReachable": "Apparaat niet bereikbaar",
+  "stateAllOff": "Alles uit – klik om alles in te schakelen",
+  "stateAllOn": "Alles aan",
+  "statePartial": "gedeeltelijk",
+  "statePartialOn": "Gedeeltelijk aan – klik om alles uit te schakelen"
 }

@@ -84,5 +84,14 @@
   "tabCovers": "Rolety",
   "tabSwitches": "Przełączniki",
   "tabSensors": "Czujniki",
-  "tabThermostats": "Termostaty"
+  "tabThermostats": "Termostaty",
+  "btnClose": "Zamknij",
+  "btnOpen": "Otwórz",
+  "btnStop": "Zatrzymaj",
+  "colControl": "Sterowanie",
+  "msgNotReachable": "Urządzenie niedostępne",
+  "stateAllOff": "Wszystkie wyłączone – kliknij, aby włączyć",
+  "stateAllOn": "Wszystkie włączone",
+  "statePartial": "częściowe",
+  "statePartialOn": "Częściowo włączone – kliknij, aby wyłączyć"
 }

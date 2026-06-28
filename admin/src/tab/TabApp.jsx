@@ -31,25 +31,54 @@ export default function TabApp({ connection, instance, lang, themeType }) {
 
 	useEffect(() => {
 		const aliveId = `system.adapter.tint.${instance}.alive`;
-
-		connection.getState(aliveId)
-			.then(st => setAlive(!!st?.val))
-			.catch(() => {});
-
 		const onStateChange = (_id, st) => setAlive(!!st?.val);
-		connection.subscribeState(aliveId, onStateChange);
+
+		const onConnectionChanged = async (connected) => {
+			if (!connected) {
+				setAlive(false);
+				return;
+			}
+			try {
+				const st = await connection.getState(aliveId);
+				setAlive(!!st?.val);
+				await connection.subscribeState(aliveId, onStateChange);
+			} catch {
+				// connection not ready yet — will retry on next connect event
+			}
+		};
+
+		connection.registerConnectionHandler(onConnectionChanged);
+
+		// If the connection was already established before this effect ran
+		if (connection.isConnected()) {
+			onConnectionChanged(true);
+		}
 
 		return () => {
+			connection.unregisterConnectionHandler(onConnectionChanged);
 			connection.unsubscribeState(aliveId, onStateChange);
 		};
 	}, [connection, instance]);
 
 	const sendToAdapter = useCallback(
 		(command, data) =>
-			connection.sendTo(`tint.${instance}`, command, data || {})
-				.then(result => result ?? {})
-				.catch(err => ({ error: err?.message || String(err) })),
-		[connection, instance],
+			Promise.race([
+				connection.sendTo(`tint.${instance}`, command, data || {})
+					.then(result => result ?? {}),
+				new Promise((_, rej) =>
+					setTimeout(() => rej(new Error(t('msgTimeout'))), 10000),
+				),
+			]).catch(err => ({ error: err?.message || String(err) })),
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[connection, instance, lang],
+	);
+
+	const setDeviceState = useCallback(
+		(stateId, value) =>
+			connection.setState(stateId, value).catch(err =>
+				console.error(`[tint-tab] setState ${stateId} failed:`, err),
+			),
+		[connection],
 	);
 
 	const { Component } = CATEGORIES[tabIndex];
@@ -70,7 +99,13 @@ export default function TabApp({ connection, instance, lang, themeType }) {
 					))}
 				</Tabs>
 				<Box sx={{ flex: 1, overflow: 'auto', p: 1 }}>
-					<Component sendToAdapter={sendToAdapter} t={t} alive={alive} />
+					<Component
+						sendToAdapter={sendToAdapter}
+						setDeviceState={setDeviceState}
+						instance={instance}
+						t={t}
+						alive={alive}
+					/>
 				</Box>
 			</Box>
 		</ThemeProvider>

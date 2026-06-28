@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
+import Switch from '@mui/material/Switch';
 import Chip from '@mui/material/Chip';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
@@ -16,12 +17,10 @@ import GroupDialog from './GroupDialog';
 import StatusDot from './StatusDot';
 import { barSx, spacerSx, alertSx, alertErrorSx, alertWarnSx, alertInfoSx, tableHeadSx, tableRowSx, centerSx } from './tabStyles';
 
-const stateOnSx = { color: '#e65100', fontWeight: 'bold' };
-const stateOffSx = { color: '#9e9e9e' };
 const sceneChipSx = { margin: '2px', height: 20, fontSize: '0.7rem' };
 const actionBtnSx = { minWidth: 0, padding: '3px 10px', fontSize: '0.75rem', marginLeft: '4px' };
 
-export default function GroupsTab({ sendToAdapter, t, alive }) {
+export default function GroupsTab({ sendToAdapter, setDeviceState, instance, t, alive }) {
 	const [groups, setGroups] = useState(null);
 	const [allLights, setAllLights] = useState({});
 	const [loading, setLoading] = useState(false);
@@ -46,7 +45,18 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 		if (alive !== false) load();
 	}, [load, alive]);
 
-	/* Adapter offline */
+	const toggleGroup = useCallback((id, anyOn) => {
+		const newVal = !anyOn;
+		setGroups(prev => prev ? {
+			...prev,
+			[id]: {
+				...prev[id],
+				state: { ...prev[id].state, any_on: newVal, all_on: newVal },
+			},
+		} : prev);
+		setDeviceState(`tint.${instance}.groups.${id}.action.on`, newVal);
+	}, [setDeviceState, instance]);
+
 	if (alive === false) {
 		return (
 			<Box sx={[alertSx, alertWarnSx]}>
@@ -81,7 +91,6 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 	return (
 		<Box sx={{ padding: '0 0 16px 0' }}>
 
-			{/* Toolbar */}
 			<Box sx={barSx}>
 				<StatusDot ok={error ? false : groups !== null ? true : null} loading={loading} />
 				<Typography variant="body2" color="textSecondary">
@@ -108,7 +117,6 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 				</Button>
 			</Box>
 
-			{/* Error */}
 			{error && (
 				<Box sx={[alertSx, alertErrorSx]}>
 					<span>✖</span>
@@ -118,7 +126,6 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* Loading spinner (initial) */}
 			{loading && !groups && (
 				<Box sx={centerSx}>
 					<CircularProgress size={36} />
@@ -126,7 +133,6 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* No groups */}
 			{!loading && !error && groups !== null && rows.length === 0 && (
 				<Box sx={[alertSx, alertInfoSx]}>
 					<span>ℹ</span>
@@ -144,7 +150,6 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* Groups table */}
 			{rows.length > 0 && (
 				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
@@ -152,8 +157,7 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 							<TableRow>
 								<TableCell><strong>{t('colName')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colLightCount')}</strong></TableCell>
-								<TableCell align="center"><strong>{t('colAllOn')}</strong></TableCell>
-								<TableCell align="center"><strong>{t('colAnyOn')}</strong></TableCell>
+								<TableCell align="center"><strong>{t('colOnOff')}</strong></TableCell>
 								<TableCell><strong>{t('colScenes')}</strong></TableCell>
 								<TableCell align="right"><strong>{t('colActions')}</strong></TableCell>
 							</TableRow>
@@ -162,25 +166,38 @@ export default function GroupsTab({ sendToAdapter, t, alive }) {
 							{rows.map(([id, group]) => {
 								const st = group.state || {};
 								const scenes = Array.isArray(group.scenes) ? group.scenes : [];
+								const anyOn = !!st.any_on;
+								const allOn = !!st.all_on;
 								return (
 									<TableRow key={id} sx={tableRowSx}>
 										<TableCell>
 											<Typography variant="body2"><strong>{group.name}</strong></Typography>
-											<Typography variant="caption" color="textSecondary">ID {id}</Typography>
+											<Typography variant="caption" color="textSecondary">
+												ID {id} · {(group.lights || []).length} {t('lightsCount')}
+											</Typography>
 										</TableCell>
 										<TableCell align="center">
 											<Typography variant="body2">
 												{(group.lights || []).length}
 											</Typography>
 										</TableCell>
-										<TableCell align="center">
-											<Box component="span" sx={st.all_on ? stateOnSx : stateOffSx}>
-												{st.all_on ? t('stateYes') : t('stateNo')}
-											</Box>
-										</TableCell>
-										<TableCell align="center">
-											<Box component="span" sx={st.any_on ? stateOnSx : stateOffSx}>
-												{st.any_on ? t('stateYes') : t('stateNo')}
+										<TableCell align="center" sx={{ padding: '0 8px' }}>
+											<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+												<Tooltip title={allOn ? t('stateAllOn') : anyOn ? t('statePartialOn') : t('stateAllOff')}>
+													<span>
+														<Switch
+															checked={anyOn}
+															onChange={() => toggleGroup(id, anyOn)}
+															size="small"
+															color="warning"
+														/>
+													</span>
+												</Tooltip>
+												{anyOn && !allOn && (
+													<Typography variant="caption" color="textSecondary" sx={{ fontSize: '0.65rem' }}>
+														{t('statePartial')}
+													</Typography>
+												)}
 											</Box>
 										</TableCell>
 										<TableCell>

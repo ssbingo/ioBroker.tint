@@ -84,5 +84,14 @@
   "tabCovers": "Covers",
   "tabSwitches": "Switches",
   "tabSensors": "Sensors",
-  "tabThermostats": "Thermostats"
+  "tabThermostats": "Thermostats",
+  "btnClose": "Close",
+  "btnOpen": "Open",
+  "btnStop": "Stop",
+  "colControl": "Control",
+  "msgNotReachable": "Device not reachable",
+  "stateAllOff": "All off – click to turn all on",
+  "stateAllOn": "All on",
+  "statePartial": "partial",
+  "statePartialOn": "Partially on – click to turn all off"
 }

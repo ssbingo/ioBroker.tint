@@ -84,5 +84,14 @@
   "tabCovers": "Жалюзи",
   "tabSwitches": "Выключатели",
   "tabSensors": "Датчики",
-  "tabThermostats": "Термостаты"
+  "tabThermostats": "Термостаты",
+  "btnClose": "Закрыть",
+  "btnOpen": "Открыть",
+  "btnStop": "Стоп",
+  "colControl": "Управление",
+  "msgNotReachable": "Устройство недоступно",
+  "stateAllOff": "Все выключены — нажмите, чтобы включить",
+  "stateAllOn": "Все включены",
+  "statePartial": "частично",
+  "statePartialOn": "Частично включено — нажмите, чтобы выключить"
 }

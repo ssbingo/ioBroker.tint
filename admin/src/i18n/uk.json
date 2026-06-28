@@ -84,5 +84,14 @@
   "tabCovers": "Жалюзі",
   "tabSwitches": "Вимикачі",
   "tabSensors": "Датчики",
-  "tabThermostats": "Термостати"
+  "tabThermostats": "Термостати",
+  "btnClose": "Закрити",
+  "btnOpen": "Відкрити",
+  "btnStop": "Стоп",
+  "colControl": "Керування",
+  "msgNotReachable": "Пристрій недоступний",
+  "stateAllOff": "Всі вимкнені — натисніть, щоб увімкнути",
+  "stateAllOn": "Всі увімкнені",
+  "statePartial": "частково",
+  "statePartialOn": "Частково увімкнено — натисніть, щоб вимкнути"
 }

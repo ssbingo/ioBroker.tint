@@ -84,5 +84,14 @@
   "tabCovers": "Rollos",
   "tabSwitches": "Schalter",
   "tabSensors": "Sensoren",
-  "tabThermostats": "Thermostate"
+  "tabThermostats": "Thermostate",
+  "btnClose": "Schließen",
+  "btnOpen": "Öffnen",
+  "btnStop": "Stopp",
+  "colControl": "Steuerung",
+  "msgNotReachable": "Gerät nicht erreichbar",
+  "stateAllOff": "Alle aus – klicken zum Einschalten",
+  "stateAllOn": "Alle an",
+  "statePartial": "teilweise",
+  "statePartialOn": "Teilweise an – klicken zum Ausschalten"
 }

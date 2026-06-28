@@ -84,5 +84,14 @@
   "tabCovers": "Volets",
   "tabSwitches": "Interrupteurs",
   "tabSensors": "Capteurs",
-  "tabThermostats": "Thermostats"
+  "tabThermostats": "Thermostats",
+  "btnClose": "Fermer",
+  "btnOpen": "Ouvrir",
+  "btnStop": "Arrêter",
+  "colControl": "Contrôle",
+  "msgNotReachable": "Appareil inaccessible",
+  "stateAllOff": "Tout éteint – cliquer pour tout allumer",
+  "stateAllOn": "Tous allumés",
+  "statePartial": "partiel",
+  "statePartialOn": "Partiellement allumé – cliquer pour tout éteindre"
 }

@@ -84,5 +84,14 @@
   "tabCovers": "卷帘",
   "tabSwitches": "开关",
   "tabSensors": "传感器",
-  "tabThermostats": "恒温器"
+  "tabThermostats": "恒温器",
+  "btnClose": "关闭",
+  "btnOpen": "打开",
+  "btnStop": "停止",
+  "colControl": "控制",
+  "msgNotReachable": "设备不可达",
+  "stateAllOff": "全部关闭 – 点击全部开启",
+  "stateAllOn": "全部开启",
+  "statePartial": "部分",
+  "statePartialOn": "部分开启 – 点击全部关闭"
 }

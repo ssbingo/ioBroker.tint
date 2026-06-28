@@ -8,9 +8,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
+import Switch from '@mui/material/Switch';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 import { isPlug } from './deviceCategory';
 import StatusDot from './StatusDot';
 import {
@@ -27,7 +28,7 @@ import {
 	centerSx,
 } from './tabStyles';
 
-export default function LightsTab({ sendToAdapter, t, alive }) {
+export default function LightsTab({ sendToAdapter, setDeviceState, instance, t, alive }) {
 	const [lights, setLights] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
@@ -48,7 +49,16 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 		if (alive !== false) load();
 	}, [load, alive]);
 
-	/* Adapter offline */
+	const toggleLight = useCallback((id, currentOn) => {
+		const newVal = !currentOn;
+		// Optimistic update so the Switch responds instantly
+		setLights(prev => prev ? {
+			...prev,
+			[id]: { ...prev[id], state: { ...prev[id].state, on: newVal } },
+		} : prev);
+		setDeviceState(`tint.${instance}.lights.${id}.state.on`, newVal);
+	}, [setDeviceState, instance]);
+
 	if (alive === false) {
 		return (
 			<Box sx={[alertSx, alertWarnSx]}>
@@ -63,7 +73,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 	return (
 		<Box sx={{ padding: '0 0 16px 0' }}>
 
-			{/* Status / action bar */}
 			<Box sx={barSx}>
 				<StatusDot ok={error ? false : lights !== null ? true : null} loading={loading} />
 				<Typography variant="body2" color="textSecondary">
@@ -81,7 +90,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 				</Button>
 			</Box>
 
-			{/* Error */}
 			{error && (
 				<Box sx={[alertSx, alertErrorSx]}>
 					<span>✖</span>
@@ -91,7 +99,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* Loading spinner (initial load) */}
 			{loading && !lights && (
 				<Box sx={centerSx}>
 					<CircularProgress size={36} />
@@ -99,7 +106,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* No lights */}
 			{!loading && !error && lights !== null && rows.length === 0 && (
 				<Box sx={[alertSx, alertInfoSx]}>
 					<span>ℹ</span>
@@ -107,7 +113,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* Lights table */}
 			{rows.length > 0 && (
 				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
@@ -115,7 +120,6 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 							<TableRow>
 								<TableCell><strong>{t('colName')}</strong></TableCell>
 								<TableCell><strong>{t('colModel')}</strong></TableCell>
-								<TableCell><strong>{t('colManufacturer')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colReachable')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colOnOff')}</strong></TableCell>
 								<TableCell align="right"><strong>{t('colBrightness')}</strong></TableCell>
@@ -132,31 +136,28 @@ export default function LightsTab({ sendToAdapter, t, alive }) {
 											<Typography variant="caption" color="textSecondary">ID {id}</Typography>
 										</TableCell>
 										<TableCell>
-											<Typography variant="body2">{light.modelid || '–'}</Typography>
-										</TableCell>
-										<TableCell>
-											<Typography variant="body2">{light.manufacturername || '–'}</Typography>
+											<Typography variant="body2">{light.modelid || light.manufacturername || '–'}</Typography>
 										</TableCell>
 										<TableCell align="center">
 											<Box component="span" sx={s.reachable ? reachableSx : unreachableSx}>
 												{s.reachable ? '✔' : '✗'}
 											</Box>
 										</TableCell>
-										<TableCell align="center">
-											<Chip
-												label={s.on ? t('stateOn') : t('stateOff')}
-												size="small"
-												sx={{
-													background: s.on ? '#fff3e0' : '#f5f5f5',
-													color: s.on ? '#e65100' : '#757575',
-													fontWeight: 600,
-													fontSize: '0.7rem',
-													height: 20,
-												}}
-											/>
+										<TableCell align="center" sx={{ padding: '0 8px' }}>
+											<Tooltip title={s.reachable ? (s.on ? t('stateOn') : t('stateOff')) : t('msgNotReachable')}>
+												<span>
+													<Switch
+														checked={!!s.on}
+														onChange={() => toggleLight(id, s.on)}
+														disabled={!s.reachable}
+														size="small"
+														color="warning"
+													/>
+												</span>
+											</Tooltip>
 										</TableCell>
 										<TableCell align="right">
-											{s.reachable && briPct !== null ? (
+											{s.on && s.reachable && briPct !== null ? (
 												<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
 													<Box sx={{ width: 48, height: 5, background: '#e0e0e0', borderRadius: '3px', overflow: 'hidden' }}>
 														<Box sx={{ width: `${briPct}%`, height: '100%', background: '#ff9800', borderRadius: '3px' }} />

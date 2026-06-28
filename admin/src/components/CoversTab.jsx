@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 import { isCover } from './deviceCategory';
 import StatusDot from './StatusDot';
 import {
@@ -26,7 +27,9 @@ import {
 	centerSx,
 } from './tabStyles';
 
-export default function CoversTab({ sendToAdapter, t, alive }) {
+const ctrlBtnSx = { minWidth: 0, padding: '2px 8px', fontSize: '0.72rem', marginLeft: '3px' };
+
+export default function CoversTab({ sendToAdapter, setDeviceState, instance, t, alive }) {
 	const [lights, setLights] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('');
@@ -47,7 +50,22 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 		if (alive !== false) load();
 	}, [load, alive]);
 
-	/* Adapter offline */
+	const setCoverPosition = useCallback((id, position) => {
+		setLights(prev => {
+			if (!prev) return prev;
+			const lift = 100 - position;
+			return {
+				...prev,
+				[id]: { ...prev[id], state: { ...prev[id].state, lift, open: position > 0 } },
+			};
+		});
+		setDeviceState(`tint.${instance}.covers.${id}.state.position`, position);
+	}, [setDeviceState, instance]);
+
+	const stopCover = useCallback((id) => {
+		setDeviceState(`tint.${instance}.covers.${id}.state.stop`, true);
+	}, [setDeviceState, instance]);
+
 	if (alive === false) {
 		return (
 			<Box sx={[alertSx, alertWarnSx]}>
@@ -62,7 +80,6 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 	return (
 		<Box sx={{ padding: '0 0 16px 0' }}>
 
-			{/* Status / action bar */}
 			<Box sx={barSx}>
 				<StatusDot ok={error ? false : lights !== null ? true : null} loading={loading} />
 				<Typography variant="body2" color="textSecondary">
@@ -80,7 +97,6 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 				</Button>
 			</Box>
 
-			{/* Error */}
 			{error && (
 				<Box sx={[alertSx, alertErrorSx]}>
 					<span>✖</span>
@@ -90,7 +106,6 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* Loading spinner (initial load) */}
 			{loading && !lights && (
 				<Box sx={centerSx}>
 					<CircularProgress size={36} />
@@ -98,7 +113,6 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* No covers */}
 			{!loading && !error && lights !== null && rows.length === 0 && (
 				<Box sx={[alertSx, alertInfoSx]}>
 					<span>ℹ</span>
@@ -106,17 +120,15 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 				</Box>
 			)}
 
-			{/* Covers table */}
 			{rows.length > 0 && (
 				<TableContainer component={Paper} variant="outlined">
 					<Table size="small">
 						<TableHead sx={tableHeadSx}>
 							<TableRow>
 								<TableCell><strong>{t('colName')}</strong></TableCell>
-								<TableCell><strong>{t('colModel')}</strong></TableCell>
-								<TableCell><strong>{t('colManufacturer')}</strong></TableCell>
 								<TableCell align="center"><strong>{t('colReachable')}</strong></TableCell>
 								<TableCell align="right"><strong>{t('colPosition')}</strong></TableCell>
+								<TableCell align="center"><strong>{t('colControl')}</strong></TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
@@ -128,12 +140,6 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 										<TableCell>
 											<Typography variant="body2"><strong>{light.name}</strong></Typography>
 											<Typography variant="caption" color="textSecondary">ID {id}</Typography>
-										</TableCell>
-										<TableCell>
-											<Typography variant="body2">{light.modelid || '–'}</Typography>
-										</TableCell>
-										<TableCell>
-											<Typography variant="body2">{light.manufacturername || '–'}</Typography>
 										</TableCell>
 										<TableCell align="center">
 											<Box component="span" sx={s.reachable ? reachableSx : unreachableSx}>
@@ -147,6 +153,48 @@ export default function CoversTab({ sendToAdapter, t, alive }) {
 												</Box>
 												<Typography variant="caption">{position} %</Typography>
 											</Box>
+										</TableCell>
+										<TableCell align="center">
+											<Tooltip title={t('btnOpen')}>
+												<span>
+													<Button
+														sx={ctrlBtnSx}
+														size="small"
+														variant="outlined"
+														disabled={!s.reachable}
+														onClick={() => setCoverPosition(id, 100)}
+													>
+														↑
+													</Button>
+												</span>
+											</Tooltip>
+											<Tooltip title={t('btnStop')}>
+												<span>
+													<Button
+														sx={ctrlBtnSx}
+														size="small"
+														variant="outlined"
+														color="inherit"
+														disabled={!s.reachable}
+														onClick={() => stopCover(id)}
+													>
+														■
+													</Button>
+												</span>
+											</Tooltip>
+											<Tooltip title={t('btnClose')}>
+												<span>
+													<Button
+														sx={ctrlBtnSx}
+														size="small"
+														variant="outlined"
+														disabled={!s.reachable}
+														onClick={() => setCoverPosition(id, 0)}
+													>
+														↓
+													</Button>
+												</span>
+											</Tooltip>
 										</TableCell>
 									</TableRow>
 								);
