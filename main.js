@@ -1862,7 +1862,7 @@ class Tint extends utils.Adapter {
 					);
 				}
 			}
-			const groups = await this._api.getGroups();
+			const groups = (await this._api.getGroups()) ?? {};
 			let groupUpdated = 0;
 			for (const [id, group] of Object.entries(groups)) {
 				if (this._groupMap[id]) {
@@ -1872,7 +1872,7 @@ class Tint extends utils.Adapter {
 					this.log.debug(`Poll: group ${id} not in groupMap — skipping (run discovery first)`);
 				}
 			}
-			const sensors = await this._api.getSensors();
+			const sensors = (await this._api.getSensors()) ?? {};
 			let sensorUpdated = 0;
 			let thermostatUpdated = 0;
 			for (const [id, sensor] of Object.entries(sensors)) {

@@ -4,10 +4,28 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default: 7
     open-pull-requests-limit: 15
     ignore:
-      # @types/node major versions must stay aligned with the Node.js LTS we target
+      # @types/node must stay at ^22 — our Node.js engine target is 22 LTS;
+      # higher @types/node versions expose APIs that do not exist at runtime
       - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # React must stay at 18.x — ioBroker Admin shares React 18.3.1 as a Module Federation
+      # singleton; bumping to React 19 would put a React 19 fallback bundle in our MF remote
+      # which causes hook dispatcher conflicts when Admins singleton loads
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/react-dom"
+        update-types: ["version-update:semver-major"]
+      # TypeScript 6 may introduce breaking type changes; upgrade intentionally after
+      # validating with npm run check
+      - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
