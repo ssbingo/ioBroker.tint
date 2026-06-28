@@ -165,6 +165,8 @@
 
 
 
+### 0.3.8 (2026-06-28)
+* (ssbingo) 新增Admin侧边栏控制标签页（灯光、分组、插座、卷帘、开关、传感器、恒温器）；在适配器设置的"连接"标签页中通过"enableAdminTab"激活
 ### 0.3.7 (2026-06-28)
 * (ssbingo) 修复：为staticText元素添加xs/md/lg/xl网格属性(E5507)；添加i18n键'deCONZ Pairing'(E5612)；将adapter.setTimeout传给DeconzWebSocket(E5005)；CI更新至Node.js 24，adapter-tests依赖check-and-lint(E3022/E3014)；添加dependabot冷却期及@types/node主版本忽略规则(E8917/E8915)
 ### 0.3.6 (2026-06-28)
@@ -173,10 +175,6 @@
 * (ssbingo) 依赖更新：vite 8.1、@vitejs/plugin-react v6（Vite 8兼容性）、@module-federation/vite 1.16.10、@mui/material devDep 9.1.2、axios 1.18.1、@types/node 26、CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) 修复：徽标（admin/tint.png）尺寸为300×358（非正方形），仓库检查器对此提出警告；已用透明边框填充至358×358，内容未被裁剪或拉伸变形
-
-### 0.3.3 (2026-06-23)
-* (ssbingo) 仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置
-
 
 ## 文档
 

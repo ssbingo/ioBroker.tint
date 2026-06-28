@@ -32,5 +32,7 @@
 	"btnRequestApiKey": "Ожидать сопряжения deCONZ…",
 	"btnScanApiKey": "deCONZ Pairing",
 	"confirmPairQuestion": "Откройте Phoscon: ☰ → Шлюз → Аутентификация приложения — затем нажмите OK. Адаптер автоматически получит API-ключ.",
-	"deCONZ Pairing": "Сопряжение deCONZ"
+	"deCONZ Pairing": "Сопряжение deCONZ",
+	"adminTabSection": "Вкладка боковой панели Admin",
+	"enableAdminTab": "Показать вкладку управления Tint на боковой панели Admin"
 }

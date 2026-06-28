@@ -110,6 +110,8 @@ class Tint extends utils.Adapter {
 		);
 		this.log.debug(`API key configured: ${apiKey ? `yes (${apiKey.length} chars)` : 'NOT SET'}`);
 
+		await this._applyAdminTabSetting();
+
 		if (!ip || !apiKey) {
 			this.log.warn(
 				'Adapter not fully configured — IP address or API key is missing. ' +
@@ -1897,6 +1899,34 @@ class Tint extends utils.Adapter {
 	// ─────────────────────────────────────────────────────────────────────────
 	// Utility
 	// ─────────────────────────────────────────────────────────────────────────
+
+	/**
+	 * Activate or deactivate the admin sidebar tab based on config.enableAdminTab.
+	 * Reads the current system.adapter.tint.N object and sets or removes common.adminTab.
+	 * Admin must be reloaded for the change to take effect.
+	 */
+	async _applyAdminTabSetting() {
+		const enable = !!this.config.enableAdminTab;
+		try {
+			const obj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
+			if (!obj) {
+				this.log.warn('_applyAdminTabSetting: own system object not found — skipping');
+				return;
+			}
+			const hadTab = 'adminTab' in obj.common;
+			if (enable) {
+				obj.common.adminTab = { name: 'tint', singleton: true, order: 300, icon: 'tint.png' };
+			} else {
+				delete obj.common.adminTab;
+			}
+			if (enable !== hadTab) {
+				await this.setForeignObjectAsync(`system.adapter.${this.namespace}`, obj);
+				this.log.info(`Admin sidebar tab ${enable ? 'activated' : 'deactivated'} — reload Admin to apply`);
+			}
+		} catch (err) {
+			this.log.warn(`_applyAdminTabSetting: ${err.message}`);
+		}
+	}
 
 	/**
 	 * Set a state value with ack:true, swallowing errors gracefully.

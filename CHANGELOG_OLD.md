@@ -4,6 +4,10 @@ This file holds changelog entries moved out of `README.md`'s `## Changelog`
 section once it exceeds 5 entries. See `README.md` for the current
 changelog.
 
+### 0.3.3 (2026-06-23)
+* (ssbingo) Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config
+
+
 ### 0.3.2 (2026-06-23)
 * (ssbingo) Remove redundant "Other languages" line from README.md; disable the Sentry release-notification step in CI
 

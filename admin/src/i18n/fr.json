@@ -79,5 +79,10 @@
   "thermostatsCount": "thermostat(s) trouvé(s)",
   "pairingHeader": "Clé API",
   "pairingHint": "Cliquez d'abord sur le bouton ci-dessous, puis ouvrez Phoscon dans votre navigateur et allez dans ☰ → Passerelle → Authentifier l'application. L'adaptateur détecte automatiquement la fenêtre de couplage (toutes les 3 s, jusqu'à 60 s) et remplit la clé.",
-  "btnRequestApiKey": "Attendre le couplage deCONZ…"
+  "btnRequestApiKey": "Attendre le couplage deCONZ…",
+  "tabPlugs": "Prises",
+  "tabCovers": "Volets",
+  "tabSwitches": "Interrupteurs",
+  "tabSensors": "Capteurs",
+  "tabThermostats": "Thermostats"
 }

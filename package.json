@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.3.7",
+	"version": "0.3.8",
 	"description": "Müller Licht Tint Steuerung via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",
@@ -66,9 +66,10 @@
 	],
 	"scripts": {
 		"prebuild": "rimraf admin/build",
-		"build": "npm run build:panels",
+		"build": "npm run build:panels && npm run build:tab",
 		"watch": "vite build --config admin/vite.config.mjs --watch",
 		"build:panels": "vite build --config admin/vite.config.mjs",
+		"build:tab": "vite build --config admin/vite.config.tab.mjs",
 		"test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
 		"test:package": "mocha test/package --exit",
 		"test:integration": "mocha test/integration --exit",

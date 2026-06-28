@@ -184,6 +184,8 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.8 (2026-06-28)
+* (ssbingo) Add admin sidebar tab for device control (Lights, Groups, Plugs, Covers, Switches, Sensors, Thermostats); activate via "enableAdminTab" in adapter settings Connection tab
 ### 0.3.7 (2026-06-28)
 * (ssbingo) Fix: add xs/md/lg/xl grid attributes to jsonConfig staticText items (E5507); add deCONZ Pairing i18n key (E5612); pass adapter.setTimeout to DeconzWebSocket (E5005); update CI Node.js to 24 and add needs: check-and-lint for adapter-tests (E3022/E3014); add dependabot cooldown and @types/node major-version ignore rule (E8917/E8915)
 
@@ -195,10 +197,6 @@ iobroker add tint
 
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Fix: logo (admin/tint.png) was 300×358 (not square), which the repository checker flags; padded to 358×358 with a transparent border, no content cropped or distorted
-
-### 0.3.3 (2026-06-23)
-* (ssbingo) Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config
-
 
 ## Documentation
 

@@ -32,5 +32,7 @@
 	"btnRequestApiKey": "Attendre le couplage deCONZ…",
 	"btnScanApiKey": "deCONZ Pairing",
 	"confirmPairQuestion": "Ouvrez Phoscon : ☰ → Passerelle → Authentifier l'app — puis cliquez sur OK. L'adaptateur récupère la clé API automatiquement.",
-	"deCONZ Pairing": "Couplage deCONZ"
+	"deCONZ Pairing": "Couplage deCONZ",
+	"adminTabSection": "Onglet de la barre latérale Admin",
+	"enableAdminTab": "Afficher l'onglet de contrôle Tint dans la barre latérale Admin"
 }

@@ -79,5 +79,10 @@
   "thermostatsCount": "个恒温器已找到",
   "pairingHeader": "API密钥",
   "pairingHint": "首先点击下方按钮，然后在浏览器中打开Phoscon，进入☰→网关→验证应用。适配器会自动检测配对窗口（每3秒检测一次，最多60秒）并填入密钥。",
-  "btnRequestApiKey": "等待deCONZ配对…"
+  "btnRequestApiKey": "等待deCONZ配对…",
+  "tabPlugs": "插座",
+  "tabCovers": "卷帘",
+  "tabSwitches": "开关",
+  "tabSensors": "传感器",
+  "tabThermostats": "恒温器"
 }

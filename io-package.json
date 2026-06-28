@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.3.7",
+		"version": "0.3.8",
 		"news": {
+			"0.3.8": {
+				"en": "Add admin sidebar tab for device control (Lights, Groups, Plugs, Covers, Switches, Sensors, Thermostats); activate via adapter settings Connection tab",
+				"de": "Admin-Seitenleisten-Tab zur Gerätesteuerung hinzugefügt (Leuchten, Gruppen, Steckdosen, Rollos, Schalter, Sensoren, Thermostate); Aktivierung über Verbindungs-Tab in den Adaptereinstellungen",
+				"ru": "Добавлена вкладка боковой панели Admin для управления устройствами (освещение, группы, розетки, жалюзи, выключатели, датчики, термостаты); активация в настройках адаптера",
+				"pt": "Separador da barra lateral Admin para controlo de dispositivos adicionado (Luzes, Grupos, Tomadas, Estores, Interruptores, Sensores, Termostatos); ativar no separador de Ligação das definições do adaptador",
+				"nl": "Admin-zijbalk tab toegevoegd voor apparaatbediening (Verlichting, Groepen, Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten); activeren via het tabblad Verbinding in de adapterinstellingen",
+				"fr": "Ajout d'un onglet de la barre latérale Admin pour le contrôle des appareils (Éclairages, Groupes, Prises, Volets, Interrupteurs, Capteurs, Thermostats) ; activation via l'onglet Connexion des paramètres de l'adaptateur",
+				"it": "Aggiunto tab della barra laterale Admin per il controllo dei dispositivi (Luci, Gruppi, Prese, Tende, Interruttori, Sensori, Termostati); attivare nella scheda Connessione delle impostazioni dell'adattatore",
+				"es": "Añadida pestaña de la barra lateral Admin para control de dispositivos (Luces, Grupos, Enchufes, Persianas, Interruptores, Sensores, Termostatos); activar en la pestaña Conexión de la configuración del adaptador",
+				"pl": "Dodano kartę paska bocznego Admin do sterowania urządzeniami (Oświetlenie, Grupy, Gniazdka, Rolety, Przełączniki, Czujniki, Termostaty); aktywacja w zakładce Połączenie ustawień adaptera",
+				"uk": "Додано вкладку бічної панелі Admin для керування пристроями (Освітлення, Групи, Розетки, Жалюзі, Вимикачі, Датчики, Термостати); активація через вкладку Підключення в налаштуваннях адаптера",
+				"zh-cn": "新增Admin侧边栏控制标签页（灯光、分组、插座、卷帘、开关、传感器、恒温器）；在适配器设置的“连接”标签页中激活"
+			},
 			"0.3.7": {
 				"en": "Fix: E5507 add xs/md/lg/xl grid attributes to jsonConfig staticText items; E5612 add deCONZ Pairing i18n key; E5005 pass adapter.setTimeout to DeconzWebSocket; E3022/E3014 update CI node.js to 24, adapter-tests needs check-and-lint; E8917/E8915 add dependabot cooldown + @types/node major-version ignore rule",
 				"de": "Bugfix: E5507 xs/md/lg/xl-Grid-Attribute zu jsonConfig-staticText-Elementen hinzugefügt; E5612 i18n-Schlüssel 'deCONZ Pairing' ergänzt; E5005 adapter.setTimeout an DeconzWebSocket übergeben; E3022/E3014 CI-Node.js auf 24 aktualisiert, adapter-tests braucht check-and-lint; E8917/E8915 dependabot-Cooldown + @types/node-Major-Version-Ignorierung ergänzt",
@@ -54,19 +67,6 @@
 				"pl": "Poprawka: logo (admin/tint.png) miało wymiary 300×358 (nie kwadrat), na co wskazywał checker repozytorium; uzupełnione do 358×358 przezroczystą ramką, bez przycinania czy zniekształcania treści",
 				"uk": "Виправлення: логотип (admin/tint.png) мав розмір 300×358 (не квадратний), на що вказував чекер репозиторію; доповнено до 358×358 прозорою рамкою, без обрізання чи спотворення вмісту",
 				"zh-cn": "修复：徽标（admin/tint.png）尺寸为300×358（非正方形），仓库检查器对此提出警告；已用透明边框填充至358×358，内容未被裁剪或拉伸变形"
-			},
-			"0.3.3": {
-				"en": "Repository hygiene: bump minimum admin version to 7.6.20, drop common.news entries for versions never published to npm, use this.setTimeout() in the pairing poll loop, add ioBroker keyword, migrate tsconfig to @tsconfig/node22, remove obsolete .prettierignore, add dependabot config",
-				"de": "Repository-Hygiene: Mindest-Admin-Version auf 7.6.20 angehoben, common.news-Einträge für nie auf npm veröffentlichte Versionen entfernt, this.setTimeout() in der Pairing-Polling-Schleife verwendet, ioBroker-Keyword ergänzt, tsconfig auf @tsconfig/node22 migriert, veraltete .prettierignore entfernt, Dependabot-Konfiguration ergänzt",
-				"ru": "Гигиена репозитория: минимальная версия admin повышена до 7.6.20, удалены записи common.news для версий, никогда не опубликованных на npm, использован this.setTimeout() в цикле опроса сопряжения, добавлено ключевое слово ioBroker, tsconfig перенесён на @tsconfig/node22, удалён устаревший .prettierignore, добавлена конфигурация dependabot",
-				"pt": "Manutenção do repositório: versão mínima do admin elevada para 7.6.20, removidas entradas de common.news para versões nunca publicadas no npm, uso de this.setTimeout() no loop de polling de emparelhamento, adicionada palavra-chave ioBroker, tsconfig migrado para @tsconfig/node22, removido .prettierignore obsoleto, adicionada configuração do dependabot",
-				"nl": "Repository-onderhoud: minimale admin-versie verhoogd naar 7.6.20, common.news-items voor nooit op npm gepubliceerde versies verwijderd, this.setTimeout() gebruikt in de koppel-pollinglus, ioBroker-keyword toegevoegd, tsconfig gemigreerd naar @tsconfig/node22, verouderde .prettierignore verwijderd, dependabot-configuratie toegevoegd",
-				"fr": "Hygiène du dépôt : version minimale d'admin portée à 7.6.20, suppression des entrées common.news pour des versions jamais publiées sur npm, utilisation de this.setTimeout() dans la boucle de sondage de couplage, ajout du mot-clé ioBroker, migration de tsconfig vers @tsconfig/node22, suppression du .prettierignore obsolète, ajout de la configuration dependabot",
-				"it": "Pulizia del repository: versione minima di admin portata a 7.6.20, rimosse le voci di common.news per versioni mai pubblicate su npm, usato this.setTimeout() nel ciclo di polling dell'accoppiamento, aggiunta la parola chiave ioBroker, tsconfig migrato a @tsconfig/node22, rimosso il .prettierignore obsoleto, aggiunta la configurazione dependabot",
-				"es": "Mantenimiento del repositorio: versión mínima de admin elevada a 7.6.20, eliminadas las entradas de common.news para versiones nunca publicadas en npm, uso de this.setTimeout() en el bucle de sondeo de emparejamiento, añadida la palabra clave ioBroker, tsconfig migrado a @tsconfig/node22, eliminado el .prettierignore obsoleto, añadida la configuración de dependabot",
-				"pl": "Porządki w repozytorium: minimalna wersja admin podniesiona do 7.6.20, usunięto wpisy common.news dla wersji nigdy nieopublikowanych na npm, użyto this.setTimeout() w pętli odpytywania parowania, dodano słowo kluczowe ioBroker, tsconfig przeniesiono na @tsconfig/node22, usunięto przestarzały .prettierignore, dodano konfigurację dependabot",
-				"uk": "Гігієна репозиторію: мінімальну версію admin підвищено до 7.6.20, видалено записи common.news для версій, які ніколи не публікувалися на npm, використано this.setTimeout() у циклі опитування сполучення, додано ключове слово ioBroker, tsconfig перенесено на @tsconfig/node22, видалено застарілий .prettierignore, додано конфігурацію dependabot",
-				"zh-cn": "仓库整理：admin最低版本提升至7.6.20，移除从未在npm发布版本的common.news条目，配对轮询循环中使用this.setTimeout()，添加ioBroker关键字，tsconfig迁移至@tsconfig/node22，移除过时的.prettierignore，添加dependabot配置"
 			}
 		},
 		"titleLang": {
@@ -145,7 +145,8 @@
 		"pollingInterval": 60,
 		"autoApplyColorWheel": true,
 		"transitionTime": 4,
-		"watchdogMinutes": 120
+		"watchdogMinutes": 120,
+		"enableAdminTab": false
 	},
 	"encryptedNative": [
 		"apiKey"

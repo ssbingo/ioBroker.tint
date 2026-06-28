@@ -165,6 +165,8 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 
 
 
+### 0.3.8 (2026-06-28)
+* (ssbingo) Admin-Seitenleisten-Tab zur Gerätesteuerung hinzugefügt (Leuchten, Gruppen, Steckdosen, Rollos, Schalter, Sensoren, Thermostate); Aktivierung über „enableAdminTab" im Verbindungs-Tab der Adaptereinstellungen
 ### 0.3.7 (2026-06-28)
 * (ssbingo) Bugfix: xs/md/lg/xl-Grid-Attribute zu staticText-Elementen ergänzt (E5507); i18n-Schlüssel 'deCONZ Pairing' hinzugefügt (E5612); adapter.setTimeout an DeconzWebSocket übergeben (E5005); CI auf Node.js 24 aktualisiert, adapter-tests braucht check-and-lint (E3022/E3014); dependabot-Cooldown und @types/node-Major-Version-Ignorierung ergänzt (E8917/E8915)
 ### 0.3.6 (2026-06-28)
@@ -173,10 +175,6 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 * (ssbingo) Abhängigkeits-Updates: vite 8.1, @vitejs/plugin-react v6 (Vite-8-Kompatibilität), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Bugfix: Logo (admin/tint.png) war 300×358 (nicht quadratisch), was der Repository-Checker bemängelt; auf 358×358 mit transparentem Rand aufgefüllt, kein Bildinhalt beschnitten oder verzerrt
-
-### 0.3.3 (2026-06-23)
-* (ssbingo) Repository-Hygiene: Mindest-Admin-Version auf 7.6.20 angehoben, common.news-Einträge für nie auf npm veröffentlichte Versionen entfernt, this.setTimeout() in der Pairing-Polling-Schleife verwendet, ioBroker-Keyword ergänzt, tsconfig auf @tsconfig/node22 migriert, veraltete .prettierignore entfernt, Dependabot-Konfiguration ergänzt
-
 
 ## Dokumentation
 

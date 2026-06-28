@@ -165,6 +165,8 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 
 
 
+### 0.3.8 (2026-06-28)
+* (ssbingo) Admin-zijbalk tab toegevoegd voor apparaatbediening (Verlichting, Groepen, Stekkers, Rolluiken, Schakelaars, Sensoren, Thermostaten); activeren via "enableAdminTab" op het tabblad Verbinding in de adapterinstellingen
 ### 0.3.7 (2026-06-28)
 * (ssbingo) Bugfix: xs/md/lg/xl-rasterattributen toegevoegd aan staticText-items (E5507); i18n-sleutel 'deCONZ Pairing' toegevoegd (E5612); adapter.setTimeout doorgegeven aan DeconzWebSocket (E5005); CI bijgewerkt naar Node.js 24, adapter-tests vereist check-and-lint (E3022/E3014); dependabot-cooldown en negeren @types/node-majorversies (E8917/E8915)
 ### 0.3.6 (2026-06-28)
@@ -173,10 +175,6 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 * (ssbingo) Afhankelijkheidsupdates: vite 8.1, @vitejs/plugin-react v6 (Vite 8-compatibiliteit), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Bugfix: logo (admin/tint.png) was 300×358 (niet vierkant), wat de repository-checker meldde; opgevuld tot 358×358 met transparante rand, geen inhoud bijgesneden of vervormd
-
-### 0.3.3 (2026-06-23)
-* (ssbingo) Repository-onderhoud: minimale admin-versie verhoogd naar 7.6.20, common.news-items voor nooit op npm gepubliceerde versies verwijderd, this.setTimeout() gebruikt in de koppel-pollinglus, ioBroker-keyword toegevoegd, tsconfig gemigreerd naar @tsconfig/node22, verouderde .prettierignore verwijderd, dependabot-configuratie toegevoegd
-
 
 ## Documentatie
 

@@ -165,6 +165,8 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 
 
 
+### 0.3.8 (2026-06-28)
+* (ssbingo) Aggiunto tab della barra laterale Admin per il controllo dei dispositivi (Luci, Gruppi, Prese, Tende, Interruttori, Sensori, Termostati); attivare tramite "enableAdminTab" nella scheda Connessione delle impostazioni dell'adattatore
 ### 0.3.7 (2026-06-28)
 * (ssbingo) Correzioni: attributi xs/md/lg/xl aggiunti agli elementi staticText (E5507); chiave i18n 'deCONZ Pairing' aggiunta (E5612); adapter.setTimeout passato a DeconzWebSocket (E5005); CI aggiornato a Node.js 24, adapter-tests dipende da check-and-lint (E3022/E3014); cooldown dependabot e ignorare versioni major @types/node (E8917/E8915)
 ### 0.3.6 (2026-06-28)
@@ -173,10 +175,6 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 * (ssbingo) Aggiornamenti delle dipendenze: vite 8.1, @vitejs/plugin-react v6 (compatibilità con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Correzione: il logo (admin/tint.png) era 300×358 (non quadrato), segnalato dal checker del repository; riempito a 358×358 con bordo trasparente, senza ritagliare o distorcere il contenuto
-
-### 0.3.3 (2026-06-23)
-* (ssbingo) Pulizia del repository: versione minima di admin portata a 7.6.20, rimosse le voci di common.news per versioni mai pubblicate su npm, usato this.setTimeout() nel ciclo di polling dell'accoppiamento, aggiunta la parola chiave ioBroker, tsconfig migrato a @tsconfig/node22, rimosso il .prettierignore obsoleto, aggiunta la configurazione dependabot
-
 
 ## Documentazione
 

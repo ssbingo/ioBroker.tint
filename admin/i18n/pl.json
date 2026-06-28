@@ -32,5 +32,7 @@
 	"btnRequestApiKey": "Czekaj na parowanie deCONZ…",
 	"btnScanApiKey": "deCONZ Pairing",
 	"confirmPairQuestion": "Otwórz Phoscon: ☰ → Bramka → Uwierzytelnij aplikację — następnie kliknij OK. Adapter automatycznie pobierze klucz API.",
-	"deCONZ Pairing": "Parowanie deCONZ"
+	"deCONZ Pairing": "Parowanie deCONZ",
+	"adminTabSection": "Karta paska bocznego Admin",
+	"enableAdminTab": "Wyświetl kartę sterowania Tint na pasku bocznym Admin"
 }

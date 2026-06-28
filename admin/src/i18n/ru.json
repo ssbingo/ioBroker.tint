@@ -79,5 +79,10 @@
   "thermostatsCount": "термостат(ы) найдено",
   "pairingHeader": "API-ключ",
   "pairingHint": "Сначала нажмите кнопку ниже, затем откройте Phoscon в браузере и перейдите в ☰ → Шлюз → Аутентификация приложения. Адаптер сам обнаружит окно сопряжения (каждые 3 с, до 60 с) и заполнит ключ.",
-  "btnRequestApiKey": "Ожидать сопряжения deCONZ…"
+  "btnRequestApiKey": "Ожидать сопряжения deCONZ…",
+  "tabPlugs": "Розетки",
+  "tabCovers": "Жалюзи",
+  "tabSwitches": "Выключатели",
+  "tabSensors": "Датчики",
+  "tabThermostats": "Термостаты"
 }

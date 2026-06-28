@@ -32,5 +32,7 @@
 	"btnRequestApiKey": "Wachten op deCONZ-koppeling…",
 	"btnScanApiKey": "deCONZ Pairing",
 	"confirmPairQuestion": "Open Phoscon: ☰ → Gateway → App authenticeren — klik dan op OK. De adapter haalt de API-sleutel automatisch op.",
-	"deCONZ Pairing": "deCONZ-koppeling"
+	"deCONZ Pairing": "deCONZ-koppeling",
+	"adminTabSection": "Admin-zijbalk tab",
+	"enableAdminTab": "Tint-bedieningskaart weergeven in de Admin-zijbalk"
 }

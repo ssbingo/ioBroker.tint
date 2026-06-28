@@ -79,5 +79,10 @@
   "thermostatsCount": "termostato/i trovato/i",
   "pairingHeader": "Chiave API",
   "pairingHint": "Fai prima clic sul pulsante in basso, poi apri Phoscon nel browser e vai su ☰ → Gateway → Autentica app. L'adattatore rileva automaticamente la finestra di accoppiamento (ogni 3 s, fino a 60 s) e compila la chiave.",
-  "btnRequestApiKey": "Attendi accoppiamento deCONZ…"
+  "btnRequestApiKey": "Attendi accoppiamento deCONZ…",
+  "tabPlugs": "Prese",
+  "tabCovers": "Tende",
+  "tabSwitches": "Interruttori",
+  "tabSensors": "Sensori",
+  "tabThermostats": "Termostati"
 }

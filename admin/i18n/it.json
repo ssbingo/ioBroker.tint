@@ -32,5 +32,7 @@
 	"btnRequestApiKey": "Attendi accoppiamento deCONZ…",
 	"btnScanApiKey": "deCONZ Pairing",
 	"confirmPairQuestion": "Apri Phoscon: ☰ → Gateway → Autentica app — poi clicca OK. L'adattatore recupererà la chiave API automaticamente.",
-	"deCONZ Pairing": "Abbinamento deCONZ"
+	"deCONZ Pairing": "Abbinamento deCONZ",
+	"adminTabSection": "Tab della barra laterale Admin",
+	"enableAdminTab": "Mostra il tab di controllo Tint nella barra laterale Admin"
 }

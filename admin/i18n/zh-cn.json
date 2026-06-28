@@ -32,5 +32,7 @@
 	"btnRequestApiKey": "等待deCONZ配对…",
 	"btnScanApiKey": "deCONZ Pairing",
 	"confirmPairQuestion": "打开 Phoscon：☰ → 网关 → 认证应用 — 然后点击确定。适配器将自动获取 API 密钥。",
-	"deCONZ Pairing": "deCONZ配对"
+	"deCONZ Pairing": "deCONZ配对",
+	"adminTabSection": "Admin侧边栏标签",
+	"enableAdminTab": "在Admin侧边栏显示Tint控制标签"
 }

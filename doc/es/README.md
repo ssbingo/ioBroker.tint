@@ -165,6 +165,8 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 
 
 
+### 0.3.8 (2026-06-28)
+* (ssbingo) Añadida pestaña de la barra lateral Admin para control de dispositivos (Luces, Grupos, Enchufes, Persianas, Interruptores, Sensores, Termostatos); activar mediante "enableAdminTab" en la pestaña Conexión de la configuración del adaptador
 ### 0.3.7 (2026-06-28)
 * (ssbingo) Correcciones: atributos xs/md/lg/xl añadidos a los elementos staticText (E5507); clave i18n 'deCONZ Pairing' añadida (E5612); adapter.setTimeout pasado a DeconzWebSocket (E5005); CI actualizado a Node.js 24, adapter-tests necesita check-and-lint (E3022/E3014); cooldown dependabot e ignorar versiones major @types/node (E8917/E8915)
 ### 0.3.6 (2026-06-28)
@@ -173,10 +175,6 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 * (ssbingo) Actualizaciones de dependencias: vite 8.1, @vitejs/plugin-react v6 (compatibilidad con Vite 8), @module-federation/vite 1.16.10, @mui/material devDep 9.1.2, axios 1.18.1, @types/node 26, CI testing-action-check v2
 ### 0.3.4 (2026-06-23)
 * (ssbingo) Corrección: el logo (admin/tint.png) era de 300×358 (no cuadrado), lo que señalaba el verificador del repositorio; rellenado a 358×358 con borde transparente, sin recortar ni distorsionar el contenido
-
-### 0.3.3 (2026-06-23)
-* (ssbingo) Mantenimiento del repositorio: versión mínima de admin elevada a 7.6.20, eliminadas las entradas de common.news para versiones nunca publicadas en npm, uso de this.setTimeout() en el bucle de sondeo de emparejamiento, añadida la palabra clave ioBroker, tsconfig migrado a @tsconfig/node22, eliminado el .prettierignore obsoleto, añadida la configuración de dependabot
-
 
 ## Documentación
 

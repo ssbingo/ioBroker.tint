@@ -130,6 +130,23 @@
 					"default": 120,
 					"min": 0,
 					"max": 10080
+				},
+				"_adminTabHeader": {
+					"type": "header",
+					"text": "adminTabSection",
+					"size": 3,
+					"newLine": true
+				},
+				"enableAdminTab": {
+					"type": "checkbox",
+					"label": "enableAdminTab",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"default": false
 				}
 			}
 		},
