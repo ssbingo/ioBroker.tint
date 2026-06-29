@@ -23,6 +23,11 @@ export default defineConfig({
 			shared: {
 				react: { singleton: true, requiredVersion: '*' },
 				'react-dom': { singleton: true, requiredVersion: '*' },
+				// react/jsx-runtime is a separate entry point from react and must be
+				// shared explicitly — otherwise our chunk bundles React 19's jsx-runtime
+				// while Admin's renderer uses React 18, causing React error #31 because
+				// React 19 creates elements in a different format (ref moved into props)
+				'react/jsx-runtime': { singleton: true, requiredVersion: '*' },
 				'@mui/material': { singleton: true, requiredVersion: '*' },
 				'@emotion/react': { singleton: true, requiredVersion: '*' },
 				'@emotion/styled': { singleton: true, requiredVersion: '*' },

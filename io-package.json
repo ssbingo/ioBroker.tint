@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.7",
+		"version": "0.4.8",
 		"news": {
-			"0.4.7": {
-				"en": "Fix admin tab language detection: read from system config via connection when URL parameter is absent; swap tab order so Groups appears before Lights",
-				"de": "Spracherkennung im Admin-Tab korrigiert: Sprache wird aus System-Config über Verbindung gelesen, wenn URL-Parameter fehlt; Tab-Reihenfolge getauscht: Gruppen erscheint vor Leuchten",
-				"ru": "Исправлено определение языка в admin-вкладке: язык считывается из системной конфигурации через соединение при отсутствии URL-параметра; изменён порядок вкладок: Группы теперь перед Лампами",
-				"pt": "Corrigida a deteção de idioma no separador admin: idioma lido da configuração do sistema via conexão quando o parâmetro URL está ausente; ordem dos separadores alterada: Grupos aparece antes de Luzes",
-				"nl": "Taaltdetectie in admin-tabblad gecorrigeerd: taal wordt gelezen uit systeemconfiguratie via verbinding als URL-parameter ontbreekt; tabvolgorde omgewisseld: Groepen verschijnt voor Verlichting",
-				"fr": "Correction de la détection de langue dans l'onglet admin : la langue est lue depuis la configuration système via la connexion si le paramètre URL est absent ; ordre des onglets modifié : Groupes apparaît avant Éclairages",
-				"it": "Corretta la rilevazione della lingua nel tab admin: la lingua viene letta dalla configurazione di sistema tramite connessione quando il parametro URL è assente; ordine dei tab scambiato: Gruppi appare prima di Luci",
-				"es": "Corregida la detección de idioma en la pestaña admin: el idioma se lee desde la configuración del sistema a través de la conexión cuando falta el parámetro URL; orden de pestañas cambiado: Grupos aparece antes de Luces",
-				"pl": "Poprawiono wykrywanie języka w zakładce admin: język jest odczytywany z konfiguracji systemu przez połączenie, gdy brakuje parametru URL; zmieniono kolejność zakładek: Grupy pojawia się przed Oświetleniem",
-				"uk": "Виправлено визначення мови у вкладці admin: мова зчитується із системної конфігурації через підключення, якщо параметр URL відсутній; змінено порядок вкладок: Групи тепер перед Лампами",
-				"zh-cn": "修复Admin标签页的语言检测：当URL参数缺失时从连接的系统配置中读取语言；调换标签顺序：分组现在显示在灯光之前"
+			"0.4.8": {
+				"en": "Fix React error #31 crash in adapter settings panels: add react/jsx-runtime to Module Federation shared config so panels use Admin's React 18 runtime instead of the bundled React 19 runtime",
+				"de": "React-Fehler #31-Absturz in den Adapter-Einstellungs-Panels behoben: react/jsx-runtime zum Module-Federation-shared-Config hinzugefügt, damit Panels die React-18-Runtime von Admin verwenden statt der gebündelten React-19-Runtime",
+				"ru": "Исправлен сбой React error #31 в панелях настроек адаптера: react/jsx-runtime добавлен в shared-конфиг Module Federation, чтобы панели использовали Runtime React 18 от Admin вместо встроенной React 19",
+				"pt": "Corrigida falha React error #31 nos painéis de configuração do adaptador: react/jsx-runtime adicionado à configuração shared do Module Federation para que os painéis usem o runtime React 18 do Admin em vez do React 19 embutido",
+				"nl": "React error #31 crash in adapter-instellingenpanelen opgelost: react/jsx-runtime toegevoegd aan Module Federation shared config zodat panels Admin's React 18 runtime gebruiken in plaats van de gebundelde React 19 runtime",
+				"fr": "Correction du crash React error #31 dans les panneaux des paramètres de l'adaptateur : react/jsx-runtime ajouté à la configuration shared de Module Federation afin que les panneaux utilisent le runtime React 18 d'Admin plutôt que le runtime React 19 intégré",
+				"it": "Corretto crash React error #31 nei pannelli delle impostazioni dell'adattatore: aggiunto react/jsx-runtime alla configurazione shared di Module Federation affinché i pannelli usino il runtime React 18 di Admin invece di React 19 integrato",
+				"es": "Corregido el fallo React error #31 en los paneles de configuración del adaptador: react/jsx-runtime añadido a la configuración shared de Module Federation para que los paneles usen el runtime React 18 de Admin en lugar del React 19 integrado",
+				"pl": "Naprawiono awarię React error #31 w panelach ustawień adaptera: dodano react/jsx-runtime do konfiguracji shared Module Federation, aby panele używały środowiska uruchomieniowego React 18 Admin zamiast wbudowanego React 19",
+				"uk": "Виправлено збій React error #31 у панелях налаштувань адаптера: додано react/jsx-runtime до shared-конфігурації Module Federation, щоб панелі використовували Runtime React 18 від Admin замість вбудованого React 19",
+				"zh-cn": "修复适配器设置面板中的React错误#31崩溃：将react/jsx-runtime添加到Module Federation共享配置，使面板使用Admin的React 18运行时而非打包的React 19运行时"
 			}
 		},
 		"titleLang": {

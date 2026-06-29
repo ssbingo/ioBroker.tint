@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.8 (2026-06-29)
+* (ssbingo) Fix React error #31 crash in adapter settings panels: add react/jsx-runtime to Module Federation shared config so panels use Admin's React 18 runtime instead of the bundled React 19 runtime
+
 ### 0.4.7 (2026-06-28)
 * (ssbingo) Fix admin tab language detection: read language from system config via connection when URL parameter is absent; swap tab order so Groups appears before Lights
 
