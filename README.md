@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.11 (2026-06-29)
+* (ssbingo) Fix E3009 object structure errors: add top-level namespace folder objects (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) created before child device objects; add info channel to instanceObjects
+
 ### 0.4.10 (2026-06-29)
 * (ssbingo) Fix React error #31 crash in adapter settings panels: downgrade React devDep back to ^18.3.1; ioBroker Admin uses React 18 and the webpack↔vite Module Federation bridge cannot share React between host and remote, so the bundled React version must be compatible with Admin's renderer
 

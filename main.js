@@ -247,6 +247,28 @@ class Tint extends utils.Adapter {
 	async _discoverAll() {
 		const startedAt = Date.now();
 		this.log.debug('Starting full device discovery (lights → groups → remotes)');
+
+		// Ensure top-level namespace folders exist before any child objects are
+		// written — the ioBroker object tree requires every intermediate node to
+		// be present (E3009).
+		const namespaces = [
+			['lights', 'Lights'],
+			['plugs', 'Plugs'],
+			['covers', 'Covers'],
+			['groups', 'Groups'],
+			['remotes', 'Remotes'],
+			['switches', 'Switches'],
+			['sensors', 'Sensors'],
+			['thermostats', 'Thermostats'],
+		];
+		for (const [id, name] of namespaces) {
+			await this.setObjectNotExistsAsync(id, {
+				type: 'folder',
+				common: { name },
+				native: {},
+			});
+		}
+
 		// Reset before re-populating so removed devices/groups/scenes don't
 		// linger in memory — _reconcileObjectTree() relies on these reflecting
 		// exactly what deCONZ reports right now.

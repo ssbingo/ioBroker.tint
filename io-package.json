@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.10",
+		"version": "0.4.11",
 		"news": {
-			"0.4.10": {
-				"en": "Fix React error #31 crash in adapter settings panels: downgrade React devDep back to 18.x; ioBroker Admin runs React 18 and the webpack/vite Module Federation bridge cannot share React between host and remote, so the bundled React must match Admin's version",
-				"de": "React-Fehler #31-Absturz in Adapter-Einstellungs-Panels behoben: React-devDep auf 18.x zurückgestuft; ioBroker Admin läuft mit React 18 und die webpack/vite-Module-Federation-Brücke kann React nicht zwischen Host und Remote teilen, daher muss das gebündelte React zur Admin-Version passen",
-				"ru": "Исправлен сбой React error #31 в панелях настроек адаптера: React devDep возвращён к 18.x; ioBroker Admin использует React 18, а мост Module Federation webpack/vite не может совместно использовать React между хостом и удалённым модулем, поэтому встроенный React должен соответствовать версии Admin",
-				"pt": "Corrigida falha React error #31 nos painéis de configuração: React devDep revertido para 18.x; ioBroker Admin usa React 18 e a ponte Module Federation webpack/vite não pode partilhar React entre host e remote, pelo que o React incluído deve corresponder à versão do Admin",
-				"nl": "React error #31 crash in adapter-instellingenpanelen opgelost: React devDep teruggebracht naar 18.x; ioBroker Admin gebruikt React 18 en de webpack/vite Module Federation-brug kan React niet delen tussen host en remote, dus het gebundelde React moet overeenkomen met de Admin-versie",
-				"fr": "Correction du crash React error #31 dans les panneaux des paramètres : React devDep rétrogradé à 18.x ; ioBroker Admin utilise React 18 et le pont Module Federation webpack/vite ne peut pas partager React entre l'hôte et le remote, donc le React bundlé doit correspondre à la version d'Admin",
-				"it": "Corretto crash React error #31 nei pannelli delle impostazioni: React devDep riportato a 18.x; ioBroker Admin usa React 18 e il bridge Module Federation webpack/vite non può condividere React tra host e remote, quindi il React in bundle deve corrispondere alla versione di Admin",
-				"es": "Corregido el fallo React error #31 en los paneles de configuración: React devDep revertido a 18.x; ioBroker Admin usa React 18 y el puente Module Federation webpack/vite no puede compartir React entre host y remote, por lo que el React bundled debe coincidir con la versión de Admin",
-				"pl": "Naprawiono awarię React error #31 w panelach ustawień: React devDep przywrócony do 18.x; ioBroker Admin używa React 18, a most Module Federation webpack/vite nie może współdzielić React między hostem a zdalnym modułem, więc dołączony React musi odpowiadać wersji Admin",
-				"uk": "Виправлено збій React error #31 у панелях налаштувань: React devDep повернуто до 18.x; ioBroker Admin використовує React 18, а міст Module Federation webpack/vite не може ділитися React між хостом і remote, тому вбудований React повинен відповідати версії Admin",
-				"zh-cn": "修复适配器设置面板中的React错误#31崩溃：将React devDep降回18.x；ioBroker Admin运行React 18，webpack/vite Module Federation桥接无法在宿主和远端之间共享React，因此捆绑的React必须与Admin版本匹配"
+			"0.4.11": {
+				"en": "Fix E3009 object structure errors: create top-level namespace folder objects (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) before child device objects; add info channel to instanceObjects in io-package.json",
+				"de": "E3009-Objektstruktur-Fehler behoben: Namespace-Ordner-Objekte auf oberster Ebene (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) werden jetzt vor den Kind-Geräteobjekten angelegt; info-Channel zu instanceObjects in io-package.json hinzugefügt",
+				"ru": "Исправлены ошибки структуры объектов E3009: объекты папок пространства имён верхнего уровня (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) теперь создаются перед дочерними объектами устройств; добавлен канал info в instanceObjects в io-package.json",
+				"pt": "Corrigidos erros de estrutura de objetos E3009: objetos de pasta de namespace de nível superior (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) agora criados antes dos objetos de dispositivo filhos; canal info adicionado a instanceObjects em io-package.json",
+				"nl": "E3009 objectstructuurfouten opgelost: namespace-mapobjecten op het hoogste niveau (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) worden nu aangemaakt vóór onderliggende apparaatobjecten; info-kanaal toegevoegd aan instanceObjects in io-package.json",
+				"fr": "Correction des erreurs de structure d'objets E3009 : les objets de dossier d'espace de noms de niveau supérieur (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) sont maintenant créés avant les objets appareils enfants ; canal info ajouté aux instanceObjects dans io-package.json",
+				"it": "Corretti errori di struttura oggetti E3009: gli oggetti cartella namespace di primo livello (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) vengono ora creati prima degli oggetti dispositivo figlio; aggiunto il canale info agli instanceObjects in io-package.json",
+				"es": "Corregidos errores de estructura de objetos E3009: los objetos de carpeta de espacio de nombres de nivel superior (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) se crean ahora antes que los objetos de dispositivo hijo; canal info añadido a instanceObjects en io-package.json",
+				"pl": "Naprawiono błędy struktury obiektów E3009: obiekty folderów przestrzeni nazw najwyższego poziomu (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) są teraz tworzone przed podrzędnymi obiektami urządzeń; kanał info dodany do instanceObjects w io-package.json",
+				"uk": "Виправлено помилки структури об'єктів E3009: об'єкти папок простору імен верхнього рівня (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) тепер створюються перед дочірніми об'єктами пристроїв; канал info додано до instanceObjects у io-package.json",
+				"zh-cn": "修复E3009对象结构错误：在子设备对象之前创建顶层命名空间文件夹对象（lights、groups、plugs、covers、remotes、switches、sensors、thermostats）；在io-package.json的instanceObjects中添加info通道"
 			}
 		},
 		"titleLang": {
@@ -104,6 +104,26 @@
 	],
 	"objects": [],
 	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": {
+					"en": "Information",
+					"de": "Informationen",
+					"ru": "Информация",
+					"pt": "Informação",
+					"nl": "Informatie",
+					"fr": "Informations",
+					"it": "Informazioni",
+					"es": "Información",
+					"pl": "Informacje",
+					"uk": "Інформація",
+					"zh-cn": "信息"
+				}
+			},
+			"native": {}
+		},
 		{
 			"_id": "info.connection",
 			"type": "state",
