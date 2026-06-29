@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/panels-Cx5zNGxB.js"])))=>i.map(i=>d[i]);
-import{t as e}from"./vite-preload-helper-CZgWQFsJ.js";var t={"./Components":async()=>{let t=await e(()=>import(`./panels-Cx5zNGxB.js`),__vite__mapDeps([0])),n={};return Object.assign(n,t),Object.defineProperty(n,"__esModule",{value:!0,enumerable:!1}),n}};export{t as default};

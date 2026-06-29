@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCallback } from 'react';
 import ThermostatsTab from '../components/ThermostatsTab';
 import { createT } from './i18n.js';

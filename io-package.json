@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.9",
+		"version": "0.4.10",
 		"news": {
-			"0.4.9": {
-				"en": "Fix React error #31 crash in adapter settings panels: switch panels build to classic JSX runtime so JSX compiles to React.createElement() using Admin's shared React 18 singleton instead of React 19's jsx-runtime which uses an unrecognized element symbol",
-				"de": "React-Fehler #31-Absturz in Adapter-Einstellungs-Panels behoben: Panels-Build auf classic-JSX-Runtime umgestellt, sodass JSX zu React.createElement() kompiliert wird und den geteilten React-18-Singleton von Admin nutzt statt React 19's jsx-runtime mit unbekanntem Element-Symbol",
-				"ru": "Исправлен сбой React error #31 в панелях настроек адаптера: сборка панелей переведена на classic JSX runtime, поэтому JSX компилируется в React.createElement(), использующий общий синглтон React 18 Admin вместо jsx-runtime React 19 с неизвестным символом элемента",
-				"pt": "Corrigida falha React error #31 nos painéis de configuração: build dos painéis alterado para classic JSX runtime, compilando JSX para React.createElement() usando o singleton React 18 partilhado do Admin em vez do jsx-runtime React 19 com símbolo de elemento desconhecido",
-				"nl": "React error #31 crash in adapter-instellingenpanelen opgelost: panels-build overgeschakeld naar classic JSX runtime zodat JSX compileert naar React.createElement() en Admin's gedeelde React 18 singleton gebruikt in plaats van React 19's jsx-runtime met onbekend elementsymbool",
-				"fr": "Correction du crash React error #31 dans les panneaux des paramètres : build des panneaux basculé vers le runtime JSX classique, compilant le JSX en React.createElement() utilisant le singleton React 18 partagé d'Admin au lieu du jsx-runtime React 19 avec un symbole d'élément inconnu",
-				"it": "Corretto crash React error #31 nei pannelli delle impostazioni: build dei pannelli passato a classic JSX runtime, compilando JSX in React.createElement() che usa il singleton React 18 condiviso di Admin invece del jsx-runtime React 19 con simbolo di elemento sconosciuto",
-				"es": "Corregido el fallo React error #31 en los paneles de configuración: build de paneles cambiado a classic JSX runtime, compilando JSX en React.createElement() usando el singleton React 18 compartido de Admin en lugar del jsx-runtime React 19 con símbolo de elemento desconocido",
-				"pl": "Naprawiono awarię React error #31 w panelach ustawień: build paneli przełączono na classic JSX runtime, kompilując JSX do React.createElement() z użyciem współdzielonego singletonu React 18 Admin zamiast jsx-runtime React 19 z nieznanym symbolem elementu",
-				"uk": "Виправлено збій React error #31 у панелях налаштувань: збірку панелей переведено на classic JSX runtime, JSX компілюється у React.createElement() із використанням спільного синглтону React 18 Admin замість jsx-runtime React 19 з невідомим символом елемента",
-				"zh-cn": "修复适配器设置面板中的React错误#31崩溃：将面板构建切换为classic JSX运行时，使JSX编译为React.createElement()并使用Admin共享的React 18单例，而非使用带有未知元素符号的React 19 jsx-runtime"
+			"0.4.10": {
+				"en": "Fix React error #31 crash in adapter settings panels: downgrade React devDep back to 18.x; ioBroker Admin runs React 18 and the webpack/vite Module Federation bridge cannot share React between host and remote, so the bundled React must match Admin's version",
+				"de": "React-Fehler #31-Absturz in Adapter-Einstellungs-Panels behoben: React-devDep auf 18.x zurückgestuft; ioBroker Admin läuft mit React 18 und die webpack/vite-Module-Federation-Brücke kann React nicht zwischen Host und Remote teilen, daher muss das gebündelte React zur Admin-Version passen",
+				"ru": "Исправлен сбой React error #31 в панелях настроек адаптера: React devDep возвращён к 18.x; ioBroker Admin использует React 18, а мост Module Federation webpack/vite не может совместно использовать React между хостом и удалённым модулем, поэтому встроенный React должен соответствовать версии Admin",
+				"pt": "Corrigida falha React error #31 nos painéis de configuração: React devDep revertido para 18.x; ioBroker Admin usa React 18 e a ponte Module Federation webpack/vite não pode partilhar React entre host e remote, pelo que o React incluído deve corresponder à versão do Admin",
+				"nl": "React error #31 crash in adapter-instellingenpanelen opgelost: React devDep teruggebracht naar 18.x; ioBroker Admin gebruikt React 18 en de webpack/vite Module Federation-brug kan React niet delen tussen host en remote, dus het gebundelde React moet overeenkomen met de Admin-versie",
+				"fr": "Correction du crash React error #31 dans les panneaux des paramètres : React devDep rétrogradé à 18.x ; ioBroker Admin utilise React 18 et le pont Module Federation webpack/vite ne peut pas partager React entre l'hôte et le remote, donc le React bundlé doit correspondre à la version d'Admin",
+				"it": "Corretto crash React error #31 nei pannelli delle impostazioni: React devDep riportato a 18.x; ioBroker Admin usa React 18 e il bridge Module Federation webpack/vite non può condividere React tra host e remote, quindi il React in bundle deve corrispondere alla versione di Admin",
+				"es": "Corregido el fallo React error #31 en los paneles de configuración: React devDep revertido a 18.x; ioBroker Admin usa React 18 y el puente Module Federation webpack/vite no puede compartir React entre host y remote, por lo que el React bundled debe coincidir con la versión de Admin",
+				"pl": "Naprawiono awarię React error #31 w panelach ustawień: React devDep przywrócony do 18.x; ioBroker Admin używa React 18, a most Module Federation webpack/vite nie może współdzielić React między hostem a zdalnym modułem, więc dołączony React musi odpowiadać wersji Admin",
+				"uk": "Виправлено збій React error #31 у панелях налаштувань: React devDep повернуто до 18.x; ioBroker Admin використовує React 18, а міст Module Federation webpack/vite не може ділитися React між хостом і remote, тому вбудований React повинен відповідати версії Admin",
+				"zh-cn": "修复适配器设置面板中的React错误#31崩溃：将React devDep降回18.x；ioBroker Admin运行React 18，webpack/vite Module Federation桥接无法在宿主和远端之间共享React，因此捆绑的React必须与Admin版本匹配"
 			}
 		},
 		"titleLang": {

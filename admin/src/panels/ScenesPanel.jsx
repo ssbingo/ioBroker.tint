@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCallback } from 'react';
 import ScenesTab from '../components/ScenesTab';
 import { createT } from './i18n.js';
