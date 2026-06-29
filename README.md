@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.12 (2026-06-29)
+* (ssbingo) Fix E1011/E1008/E1009/W1001 checker errors: replace unknown roles (info.hardware.model/serial, info.address.ieee) with 'text'; change role from 'value' to 'level' for writable number states (effectSpeed, transitionTime, x, y); change sensor fallback type from mixed to string with role 'text'; add all 11 language keys to info.connection name in io-package.json
+
 ### 0.4.11 (2026-06-29)
 * (ssbingo) Fix E3009 object structure errors: add top-level namespace folder objects (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) created before child device objects; add info channel to instanceObjects
 

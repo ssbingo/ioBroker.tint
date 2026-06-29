@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.4.11",
+	"version": "0.4.12",
 	"description": "Müller Licht Tint Steuerung via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",

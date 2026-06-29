@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.11",
+		"version": "0.4.12",
 		"news": {
-			"0.4.11": {
-				"en": "Fix E3009 object structure errors: create top-level namespace folder objects (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) before child device objects; add info channel to instanceObjects in io-package.json",
-				"de": "E3009-Objektstruktur-Fehler behoben: Namespace-Ordner-Objekte auf oberster Ebene (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) werden jetzt vor den Kind-Geräteobjekten angelegt; info-Channel zu instanceObjects in io-package.json hinzugefügt",
-				"ru": "Исправлены ошибки структуры объектов E3009: объекты папок пространства имён верхнего уровня (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) теперь создаются перед дочерними объектами устройств; добавлен канал info в instanceObjects в io-package.json",
-				"pt": "Corrigidos erros de estrutura de objetos E3009: objetos de pasta de namespace de nível superior (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) agora criados antes dos objetos de dispositivo filhos; canal info adicionado a instanceObjects em io-package.json",
-				"nl": "E3009 objectstructuurfouten opgelost: namespace-mapobjecten op het hoogste niveau (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) worden nu aangemaakt vóór onderliggende apparaatobjecten; info-kanaal toegevoegd aan instanceObjects in io-package.json",
-				"fr": "Correction des erreurs de structure d'objets E3009 : les objets de dossier d'espace de noms de niveau supérieur (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) sont maintenant créés avant les objets appareils enfants ; canal info ajouté aux instanceObjects dans io-package.json",
-				"it": "Corretti errori di struttura oggetti E3009: gli oggetti cartella namespace di primo livello (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) vengono ora creati prima degli oggetti dispositivo figlio; aggiunto il canale info agli instanceObjects in io-package.json",
-				"es": "Corregidos errores de estructura de objetos E3009: los objetos de carpeta de espacio de nombres de nivel superior (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) se crean ahora antes que los objetos de dispositivo hijo; canal info añadido a instanceObjects en io-package.json",
-				"pl": "Naprawiono błędy struktury obiektów E3009: obiekty folderów przestrzeni nazw najwyższego poziomu (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) są teraz tworzone przed podrzędnymi obiektami urządzeń; kanał info dodany do instanceObjects w io-package.json",
-				"uk": "Виправлено помилки структури об'єктів E3009: об'єкти папок простору імен верхнього рівня (lights, groups, plugs, covers, remotes, switches, sensors, thermostats) тепер створюються перед дочірніми об'єктами пристроїв; канал info додано до instanceObjects у io-package.json",
-				"zh-cn": "修复E3009对象结构错误：在子设备对象之前创建顶层命名空间文件夹对象（lights、groups、plugs、covers、remotes、switches、sensors、thermostats）；在io-package.json的instanceObjects中添加info通道"
+			"0.4.12": {
+				"en": "Fix E1011/E1008/E1009/W1001 checker errors: replace unknown roles (info.hardware.model/serial, info.address.ieee) with 'text'; change role from 'value' to 'level' for writable number states (effectSpeed, transitionTime, x, y); change sensor fallback type from mixed to string; add all 11 language keys to info.connection name",
+				"de": "E1011/E1008/E1009/W1001-Checker-Fehler behoben: Unbekannte Rollen (info.hardware.model/serial, info.address.ieee) durch 'text' ersetzt; Rolle 'value' für schreibbare Zahlenzustände (effectSpeed, transitionTime, x, y) auf 'level' geändert; Sensor-Fallback-Typ von mixed auf string geändert; alle 11 Sprachschlüssel für info.connection-Name ergänzt",
+				"ru": "Исправлены ошибки чекера E1011/E1008/E1009/W1001: неизвестные роли (info.hardware.model/serial, info.address.ieee) заменены на 'text'; роль 'value' для записываемых числовых состояний (effectSpeed, transitionTime, x, y) изменена на 'level'; тип резервного значения датчика изменён с mixed на string; добавлены все 11 языковых ключей для имени info.connection",
+				"pt": "Corrigidos erros do verificador E1011/E1008/E1009/W1001: funções desconhecidas (info.hardware.model/serial, info.address.ieee) substituídas por 'text'; função 'value' para estados numéricos graváveis (effectSpeed, transitionTime, x, y) alterada para 'level'; tipo de fallback do sensor alterado de mixed para string; adicionadas todas as 11 chaves de idioma para o nome de info.connection",
+				"nl": "E1011/E1008/E1009/W1001 checker-fouten opgelost: onbekende rollen (info.hardware.model/serial, info.address.ieee) vervangen door 'text'; rol 'value' voor schrijfbare getalstoestanden (effectSpeed, transitionTime, x, y) gewijzigd naar 'level'; sensor-fallbacktype gewijzigd van mixed naar string; alle 11 taalsleutels toegevoegd voor de naam van info.connection",
+				"fr": "Correction des erreurs de vérification E1011/E1008/E1009/W1001 : rôles inconnus (info.hardware.model/serial, info.address.ieee) remplacés par 'text' ; rôle 'value' des états numériques inscriptibles (effectSpeed, transitionTime, x, y) changé en 'level' ; type de repli du capteur changé de mixed à string ; toutes les 11 clés de langue ajoutées pour le nom de info.connection",
+				"it": "Corretti errori del verificatore E1011/E1008/E1009/W1001: ruoli sconosciuti (info.hardware.model/serial, info.address.ieee) sostituiti con 'text'; ruolo 'value' per gli stati numerici scrivibili (effectSpeed, transitionTime, x, y) cambiato in 'level'; tipo di fallback del sensore cambiato da mixed a string; aggiunte tutte le 11 chiavi di lingua per il nome di info.connection",
+				"es": "Corregidos errores del verificador E1011/E1008/E1009/W1001: roles desconocidos (info.hardware.model/serial, info.address.ieee) reemplazados por 'text'; rol 'value' para estados numéricos escribibles (effectSpeed, transitionTime, x, y) cambiado a 'level'; tipo de reserva del sensor cambiado de mixed a string; añadidas las 11 claves de idioma para el nombre de info.connection",
+				"pl": "Naprawiono błędy weryfikatora E1011/E1008/E1009/W1001: nieznane role (info.hardware.model/serial, info.address.ieee) zastąpione przez 'text'; rola 'value' dla zapisywalnych stanów liczbowych (effectSpeed, transitionTime, x, y) zmieniona na 'level'; typ zapasowy czujnika zmieniony z mixed na string; dodano wszystkie 11 kluczy językowych dla nazwy info.connection",
+				"uk": "Виправлено помилки перевірника E1011/E1008/E1009/W1001: невідомі ролі (info.hardware.model/serial, info.address.ieee) замінено на 'text'; роль 'value' для записуваних числових станів (effectSpeed, transitionTime, x, y) змінено на 'level'; резервний тип сенсора змінено з mixed на string; додано всі 11 мовних ключів для імені info.connection",
+				"zh-cn": "修复检查器错误E1011/E1008/E1009/W1001：将未知角色(info.hardware.model/serial, info.address.ieee)替换为'text'；将可写数字状态(effectSpeed, transitionTime, x, y)的角色从'value'改为'level'；将传感器回退类型从mixed改为string；为info.connection名称添加全部11个语言键"
 			}
 		},
 		"titleLang": {
@@ -130,7 +130,16 @@
 			"common": {
 				"name": {
 					"en": "Connection to deCONZ",
-					"de": "Verbindung zu deCONZ"
+					"de": "Verbindung zu deCONZ",
+					"ru": "Подключение к deCONZ",
+					"pt": "Conexão com deCONZ",
+					"nl": "Verbinding met deCONZ",
+					"fr": "Connexion à deCONZ",
+					"it": "Connessione a deCONZ",
+					"es": "Conexión con deCONZ",
+					"pl": "Połączenie z deCONZ",
+					"uk": "З'єднання з deCONZ",
+					"zh-cn": "连接到deCONZ"
 				},
 				"type": "boolean",
 				"role": "indicator.connected",
