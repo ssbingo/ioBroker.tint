@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.6",
+		"version": "0.4.7",
 		"news": {
-			"0.4.6": {
-				"en": "Bump dependabot/fetch-metadata GitHub Action from v2 to v3; add dependabot ignore rules for @mui/material, @emotion/react, @emotion/styled major versions (must stay at MUI v6 / Emotion v11 to match ioBroker Admin MF singleton)",
-				"de": "dependabot/fetch-metadata GitHub Action von v2 auf v3 aktualisiert; Dependabot-Ignore-Regeln für @mui/material, @emotion/react, @emotion/styled Major-Versionen hinzugefügt (müssen bei MUI v6 / Emotion v11 bleiben, passend zum ioBroker-Admin-MF-Singleton)",
-				"ru": "Обновление GitHub Action dependabot/fetch-metadata с v2 до v3; добавлены правила игнорирования Dependabot для мажорных версий @mui/material, @emotion/react, @emotion/styled (должны оставаться на MUI v6 / Emotion v11 для совместимости с MF-синглтоном Admin)",
-				"pt": "Atualização da GitHub Action dependabot/fetch-metadata de v2 para v3; adicionadas regras de ignorar Dependabot para versões major de @mui/material, @emotion/react, @emotion/styled (devem permanecer em MUI v6 / Emotion v11 para compatibilidade com o singleton MF do Admin)",
-				"nl": "dependabot/fetch-metadata GitHub Action bijgewerkt van v2 naar v3; Dependabot ignore-regels toegevoegd voor major-versies van @mui/material, @emotion/react, @emotion/styled (moeten op MUI v6 / Emotion v11 blijven voor Admin MF-singleton compatibiliteit)",
-				"fr": "Mise à jour de la GitHub Action dependabot/fetch-metadata de v2 à v3 ; ajout de règles d'ignorance Dependabot pour les versions majeures de @mui/material, @emotion/react, @emotion/styled (doivent rester sur MUI v6 / Emotion v11 pour la compatibilité avec le singleton MF d'Admin)",
-				"it": "Aggiornamento GitHub Action dependabot/fetch-metadata da v2 a v3; aggiunte regole ignore Dependabot per versioni major di @mui/material, @emotion/react, @emotion/styled (devono restare su MUI v6 / Emotion v11 per compatibilità con il singleton MF di Admin)",
-				"es": "Actualización de la GitHub Action dependabot/fetch-metadata de v2 a v3; añadidas reglas de ignorado de Dependabot para versiones major de @mui/material, @emotion/react, @emotion/styled (deben permanecer en MUI v6 / Emotion v11 para compatibilidad con el singleton MF de Admin)",
-				"pl": "Aktualizacja GitHub Action dependabot/fetch-metadata z v2 do v3; dodano reguły ignorowania Dependabot dla wersji major @mui/material, @emotion/react, @emotion/styled (muszą pozostać na MUI v6 / Emotion v11 dla zgodności z singletonem MF Admin)",
-				"uk": "Оновлено GitHub Action dependabot/fetch-metadata з v2 до v3; додано правила ігнорування Dependabot для мажорних версій @mui/material, @emotion/react, @emotion/styled (мають залишатися на MUI v6 / Emotion v11 для сумісності з MF-синглтоном Admin)",
-				"zh-cn": "将GitHub Action dependabot/fetch-metadata从v2升级至v3；为@mui/material、@emotion/react、@emotion/styled的主版本添加Dependabot忽略规则（必须保持在MUI v6 / Emotion v11以兼容ioBroker Admin的MF单例）"
+			"0.4.7": {
+				"en": "Fix admin tab language detection: read from system config via connection when URL parameter is absent; swap tab order so Groups appears before Lights",
+				"de": "Spracherkennung im Admin-Tab korrigiert: Sprache wird aus System-Config über Verbindung gelesen, wenn URL-Parameter fehlt; Tab-Reihenfolge getauscht: Gruppen erscheint vor Leuchten",
+				"ru": "Исправлено определение языка в admin-вкладке: язык считывается из системной конфигурации через соединение при отсутствии URL-параметра; изменён порядок вкладок: Группы теперь перед Лампами",
+				"pt": "Corrigida a deteção de idioma no separador admin: idioma lido da configuração do sistema via conexão quando o parâmetro URL está ausente; ordem dos separadores alterada: Grupos aparece antes de Luzes",
+				"nl": "Taaltdetectie in admin-tabblad gecorrigeerd: taal wordt gelezen uit systeemconfiguratie via verbinding als URL-parameter ontbreekt; tabvolgorde omgewisseld: Groepen verschijnt voor Verlichting",
+				"fr": "Correction de la détection de langue dans l'onglet admin : la langue est lue depuis la configuration système via la connexion si le paramètre URL est absent ; ordre des onglets modifié : Groupes apparaît avant Éclairages",
+				"it": "Corretta la rilevazione della lingua nel tab admin: la lingua viene letta dalla configurazione di sistema tramite connessione quando il parametro URL è assente; ordine dei tab scambiato: Gruppi appare prima di Luci",
+				"es": "Corregida la detección de idioma en la pestaña admin: el idioma se lee desde la configuración del sistema a través de la conexión cuando falta el parámetro URL; orden de pestañas cambiado: Grupos aparece antes de Luces",
+				"pl": "Poprawiono wykrywanie języka w zakładce admin: język jest odczytywany z konfiguracji systemu przez połączenie, gdy brakuje parametru URL; zmieniono kolejność zakładek: Grupy pojawia się przed Oświetleniem",
+				"uk": "Виправлено визначення мови у вкладці admin: мова зчитується із системної конфігурації через підключення, якщо параметр URL відсутній; змінено порядок вкладок: Групи тепер перед Лампами",
+				"zh-cn": "修复Admin标签页的语言检测：当URL参数缺失时从连接的系统配置中读取语言；调换标签顺序：分组现在显示在灯光之前"
 			}
 		},
 		"titleLang": {

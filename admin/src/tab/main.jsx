@@ -5,7 +5,9 @@ import TabApp from './TabApp.jsx';
 
 const params = new URLSearchParams(window.location.search);
 const instance = parseInt(params.get('instance') ?? '0', 10);
-const lang = params.get('lang') ?? 'en';
+// ioBroker Admin may pass the language as "lang" or "language"; pass null if absent
+// so TabApp falls back to reading it from the system config via the connection.
+const lang = params.get('lang') || params.get('language') || null;
 const themeType = params.get('themeType') ?? 'light';
 
 // @iobroker/socket-client calls window.io.connect() internally — compatible

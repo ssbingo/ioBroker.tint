@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.7 (2026-06-28)
+* (ssbingo) Fix admin tab language detection: read language from system config via connection when URL parameter is absent; swap tab order so Groups appears before Lights
+
 ### 0.4.6 (2026-06-28)
 * (ssbingo) Bump dependabot/fetch-metadata GitHub Action v2 → v3; add dependabot ignore rules for @mui/material, @emotion/react, @emotion/styled major versions (must stay at MUI v6 / Emotion v11 to match ioBroker Admin MF singleton)
 

@@ -14,8 +14,8 @@ import ThermostatsTab from '../components/ThermostatsTab.jsx';
 import { createT } from '../panels/i18n.js';
 
 const CATEGORIES = [
-	{ key: 'lights',      Component: LightsTab,      labelKey: 'tabLights' },
 	{ key: 'groups',      Component: GroupsTab,       labelKey: 'tabGroups' },
+	{ key: 'lights',      Component: LightsTab,       labelKey: 'tabLights' },
 	{ key: 'plugs',       Component: PlugsTab,        labelKey: 'tabPlugs' },
 	{ key: 'covers',      Component: CoversTab,       labelKey: 'tabCovers' },
 	{ key: 'switches',    Component: SwitchesTab,     labelKey: 'tabSwitches' },
@@ -23,10 +23,13 @@ const CATEGORIES = [
 	{ key: 'thermostats', Component: ThermostatsTab,  labelKey: 'tabThermostats' },
 ];
 
-export default function TabApp({ connection, instance, lang, themeType }) {
+export default function TabApp({ connection, instance, lang: langProp, themeType }) {
 	const [tabIndex, setTabIndex] = useState(0);
 	const [alive, setAlive] = useState(false);
-	const t = createT(lang || 'en');
+	// langProp comes from the URL (?lang=de). If Admin doesn't pass it, we read
+	// it from the system config once the connection is established.
+	const [lang, setLang] = useState(langProp || 'en');
+	const t = createT(lang);
 	const theme = createTheme({ palette: { mode: themeType === 'dark' ? 'dark' : 'light' } });
 
 	useEffect(() => {
@@ -39,6 +42,11 @@ export default function TabApp({ connection, instance, lang, themeType }) {
 				return;
 			}
 			try {
+				// Resolve language from system config when URL param is absent
+				if (!langProp) {
+					const cfg = await connection.getSystemConfig();
+					if (cfg?.common?.language) setLang(cfg.common.language);
+				}
 				const st = await connection.getState(aliveId);
 				setAlive(!!st?.val);
 				await connection.subscribeState(aliveId, onStateChange);
@@ -58,7 +66,7 @@ export default function TabApp({ connection, instance, lang, themeType }) {
 			connection.unregisterConnectionHandler(onConnectionChanged);
 			connection.unsubscribeState(aliveId, onStateChange);
 		};
-	}, [connection, instance]);
+	}, [connection, instance, langProp]);
 
 	const sendToAdapter = useCallback(
 		(command, data) =>
