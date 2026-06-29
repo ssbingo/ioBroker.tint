@@ -9,7 +9,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
 	root: __dirname,
 	plugins: [
-		react(),
+		// Use classic JSX runtime so JSX compiles to React.createElement() calls.
+		// `react` is shared as an MF singleton (Admin's React 18 is used at runtime),
+		// so React.createElement creates React 18-compatible elements
+		// ($$typeof: Symbol('react.element')). With the automatic runtime,
+		// react/jsx-runtime is NOT provided by Admin's MF host, so MF falls back
+		// to our bundled React 19 jsx-runtime, which uses
+		// Symbol('react.transitional.element') — unrecognized by Admin's React 18
+		// renderer, causing the "Objects are not valid as a React child" error #31.
+		react({ jsxRuntime: 'classic' }),
 		federation({
 			name: 'tintComponents',
 			filename: 'customComponents.js',
@@ -23,11 +31,6 @@ export default defineConfig({
 			shared: {
 				react: { singleton: true, requiredVersion: '*' },
 				'react-dom': { singleton: true, requiredVersion: '*' },
-				// react/jsx-runtime is a separate entry point from react and must be
-				// shared explicitly — otherwise our chunk bundles React 19's jsx-runtime
-				// while Admin's renderer uses React 18, causing React error #31 because
-				// React 19 creates elements in a different format (ref moved into props)
-				'react/jsx-runtime': { singleton: true, requiredVersion: '*' },
 				'@mui/material': { singleton: true, requiredVersion: '*' },
 				'@emotion/react': { singleton: true, requiredVersion: '*' },
 				'@emotion/styled': { singleton: true, requiredVersion: '*' },

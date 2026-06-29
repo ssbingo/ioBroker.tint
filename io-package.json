@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.8",
+		"version": "0.4.9",
 		"news": {
-			"0.4.8": {
-				"en": "Fix React error #31 crash in adapter settings panels: add react/jsx-runtime to Module Federation shared config so panels use Admin's React 18 runtime instead of the bundled React 19 runtime",
-				"de": "React-Fehler #31-Absturz in den Adapter-Einstellungs-Panels behoben: react/jsx-runtime zum Module-Federation-shared-Config hinzugefügt, damit Panels die React-18-Runtime von Admin verwenden statt der gebündelten React-19-Runtime",
-				"ru": "Исправлен сбой React error #31 в панелях настроек адаптера: react/jsx-runtime добавлен в shared-конфиг Module Federation, чтобы панели использовали Runtime React 18 от Admin вместо встроенной React 19",
-				"pt": "Corrigida falha React error #31 nos painéis de configuração do adaptador: react/jsx-runtime adicionado à configuração shared do Module Federation para que os painéis usem o runtime React 18 do Admin em vez do React 19 embutido",
-				"nl": "React error #31 crash in adapter-instellingenpanelen opgelost: react/jsx-runtime toegevoegd aan Module Federation shared config zodat panels Admin's React 18 runtime gebruiken in plaats van de gebundelde React 19 runtime",
-				"fr": "Correction du crash React error #31 dans les panneaux des paramètres de l'adaptateur : react/jsx-runtime ajouté à la configuration shared de Module Federation afin que les panneaux utilisent le runtime React 18 d'Admin plutôt que le runtime React 19 intégré",
-				"it": "Corretto crash React error #31 nei pannelli delle impostazioni dell'adattatore: aggiunto react/jsx-runtime alla configurazione shared di Module Federation affinché i pannelli usino il runtime React 18 di Admin invece di React 19 integrato",
-				"es": "Corregido el fallo React error #31 en los paneles de configuración del adaptador: react/jsx-runtime añadido a la configuración shared de Module Federation para que los paneles usen el runtime React 18 de Admin en lugar del React 19 integrado",
-				"pl": "Naprawiono awarię React error #31 w panelach ustawień adaptera: dodano react/jsx-runtime do konfiguracji shared Module Federation, aby panele używały środowiska uruchomieniowego React 18 Admin zamiast wbudowanego React 19",
-				"uk": "Виправлено збій React error #31 у панелях налаштувань адаптера: додано react/jsx-runtime до shared-конфігурації Module Federation, щоб панелі використовували Runtime React 18 від Admin замість вбудованого React 19",
-				"zh-cn": "修复适配器设置面板中的React错误#31崩溃：将react/jsx-runtime添加到Module Federation共享配置，使面板使用Admin的React 18运行时而非打包的React 19运行时"
+			"0.4.9": {
+				"en": "Fix React error #31 crash in adapter settings panels: switch panels build to classic JSX runtime so JSX compiles to React.createElement() using Admin's shared React 18 singleton instead of React 19's jsx-runtime which uses an unrecognized element symbol",
+				"de": "React-Fehler #31-Absturz in Adapter-Einstellungs-Panels behoben: Panels-Build auf classic-JSX-Runtime umgestellt, sodass JSX zu React.createElement() kompiliert wird und den geteilten React-18-Singleton von Admin nutzt statt React 19's jsx-runtime mit unbekanntem Element-Symbol",
+				"ru": "Исправлен сбой React error #31 в панелях настроек адаптера: сборка панелей переведена на classic JSX runtime, поэтому JSX компилируется в React.createElement(), использующий общий синглтон React 18 Admin вместо jsx-runtime React 19 с неизвестным символом элемента",
+				"pt": "Corrigida falha React error #31 nos painéis de configuração: build dos painéis alterado para classic JSX runtime, compilando JSX para React.createElement() usando o singleton React 18 partilhado do Admin em vez do jsx-runtime React 19 com símbolo de elemento desconhecido",
+				"nl": "React error #31 crash in adapter-instellingenpanelen opgelost: panels-build overgeschakeld naar classic JSX runtime zodat JSX compileert naar React.createElement() en Admin's gedeelde React 18 singleton gebruikt in plaats van React 19's jsx-runtime met onbekend elementsymbool",
+				"fr": "Correction du crash React error #31 dans les panneaux des paramètres : build des panneaux basculé vers le runtime JSX classique, compilant le JSX en React.createElement() utilisant le singleton React 18 partagé d'Admin au lieu du jsx-runtime React 19 avec un symbole d'élément inconnu",
+				"it": "Corretto crash React error #31 nei pannelli delle impostazioni: build dei pannelli passato a classic JSX runtime, compilando JSX in React.createElement() che usa il singleton React 18 condiviso di Admin invece del jsx-runtime React 19 con simbolo di elemento sconosciuto",
+				"es": "Corregido el fallo React error #31 en los paneles de configuración: build de paneles cambiado a classic JSX runtime, compilando JSX en React.createElement() usando el singleton React 18 compartido de Admin en lugar del jsx-runtime React 19 con símbolo de elemento desconocido",
+				"pl": "Naprawiono awarię React error #31 w panelach ustawień: build paneli przełączono na classic JSX runtime, kompilując JSX do React.createElement() z użyciem współdzielonego singletonu React 18 Admin zamiast jsx-runtime React 19 z nieznanym symbolem elementu",
+				"uk": "Виправлено збій React error #31 у панелях налаштувань: збірку панелей переведено на classic JSX runtime, JSX компілюється у React.createElement() із використанням спільного синглтону React 18 Admin замість jsx-runtime React 19 з невідомим символом елемента",
+				"zh-cn": "修复适配器设置面板中的React错误#31崩溃：将面板构建切换为classic JSX运行时，使JSX编译为React.createElement()并使用Admin共享的React 18单例，而非使用带有未知元素符号的React 19 jsx-runtime"
 			}
 		},
 		"titleLang": {

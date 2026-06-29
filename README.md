@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.9 (2026-06-29)
+* (ssbingo) Fix React error #31 crash in adapter settings panels: switch panels build to classic JSX runtime so JSX compiles to React.createElement() using Admin's shared React 18 singleton; React 19's automatic jsx-runtime uses Symbol('react.transitional.element') which Admin's React 18 renderer does not recognize
+
 ### 0.4.8 (2026-06-29)
 * (ssbingo) Fix React error #31 crash in adapter settings panels: add react/jsx-runtime to Module Federation shared config so panels use Admin's React 18 runtime instead of the bundled React 19 runtime
 
