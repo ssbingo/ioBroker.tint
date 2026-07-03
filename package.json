@@ -1,7 +1,7 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.4.13",
-	"description": "Müller Licht Tint Steuerung via deCONZ/ConBee",
+	"version": "0.4.14",
+	"description": "Control Müller Licht tint Zigbee lights via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",
 		"email": "s.sternitzke@online.de"

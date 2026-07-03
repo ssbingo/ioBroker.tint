@@ -100,7 +100,7 @@
 					"xl": 3,
 					"default": 4,
 					"min": 0,
-					"max": 65535
+					"max": 300
 				},
 				"_remoteHeader": {
 					"type": "header",

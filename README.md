@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.14 (2026-07-03)
+* (ssbingo) Use adapter-tracked clearTimeout in DeconzWebSocket (pass clearTimeout option alongside setTimeout); update package.json description to English; limit transitionTime config field max to 300 (= 30 s)
+
 ### 0.4.13 (2026-07-03)
 * (ssbingo) Add transitionTime handling to light/group command handlers (was defined as writable but ignored); remove unused watchdogMinutes config parameter and admin UI field; add hyperlinks to Müller-Licht and dresden elektronik in README DISCLAIMER; remove unused i18n keys colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes
 

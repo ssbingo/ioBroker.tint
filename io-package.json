@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.13",
+		"version": "0.4.14",
 		"news": {
-			"0.4.13": {
-				"en": "Add transitionTime handling to light and group command handlers; remove unused watchdogMinutes config; add manufacturer/product links to README; remove unused i18n keys (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"de": "transitionTime-Behandlung in Licht- und Gruppen-Befehls-Handler ergänzt; unbenutzten watchdogMinutes-Config-Parameter entfernt; Hersteller-/Produktlinks in README ergänzt; unbenutzte i18n-Keys entfernt (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"ru": "Добавлена обработка transitionTime в обработчики команд освещения и групп; удалён неиспользуемый параметр watchdogMinutes; добавлены ссылки на производителей в README; удалены неиспользуемые ключи i18n (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"pt": "Adicionado tratamento de transitionTime aos manipuladores de comandos de luz e grupo; removido parâmetro de configuração watchdogMinutes não utilizado; adicionados links de fabricante/produto ao README; removidas chaves i18n não utilizadas (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"nl": "transitionTime-verwerking toegevoegd aan licht- en groepsopdrachten; ongebruikte watchdogMinutes-configuratie verwijderd; fabrikant-/productlinks toegevoegd aan README; ongebruikte i18n-sleutels verwijderd (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"fr": "Ajout du traitement de transitionTime aux gestionnaires de commandes lumière et groupe ; suppression du paramètre watchdogMinutes inutilisé ; ajout de liens fabricant/produit dans le README ; suppression des clés i18n inutilisées (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"it": "Aggiunta gestione transitionTime ai gestori comandi luce e gruppo; rimosso parametro watchdogMinutes inutilizzato; aggiunti link produttore/prodotto nel README; rimossi chiavi i18n inutilizzate (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"es": "Añadido manejo de transitionTime a los manejadores de comandos de luz y grupo; eliminado parámetro watchdogMinutes no utilizado; añadidos enlaces de fabricante/producto al README; eliminadas claves i18n no utilizadas (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"pl": "Dodano obsługę transitionTime do obsługi poleceń świateł i grup; usunięto nieużywany parametr watchdogMinutes; dodano linki producenta/produktu do README; usunięto nieużywane klucze i18n (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"uk": "Додано обробку transitionTime до обробників команд освітлення та груп; видалено невикористовуваний параметр watchdogMinutes; додано посилання на виробника/продукт у README; видалено невикористовувані ключі i18n (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
-				"zh-cn": "为灯光和组命令处理器添加transitionTime处理；删除未使用的watchdogMinutes配置；在README中添加制造商/产品链接；删除未使用的i18n键(colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)"
+			"0.4.14": {
+				"en": "Use adapter-tracked clearTimeout in DeconzWebSocket for clean unload; update package.json description to English; limit transitionTime config max to 300 (30 s)",
+				"de": "Adapter-getrackte clearTimeout in DeconzWebSocket für sauberes Entladen verwendet; package.json description auf Englisch aktualisiert; transitionTime-Config-Maximum auf 300 (30 s) begrenzt",
+				"ru": "Использование clearTimeout адаптера в DeconzWebSocket для корректной выгрузки; обновлено описание package.json на английский; максимум transitionTime ограничен до 300 (30 с)",
+				"pt": "Uso de clearTimeout do adaptador em DeconzWebSocket para descarregamento limpo; descrição do package.json atualizada para inglês; máximo de transitionTime limitado a 300 (30 s)",
+				"nl": "Gebruik adapter-getrackte clearTimeout in DeconzWebSocket voor schoon ontladen; package.json beschrijving bijgewerkt naar Engels; transitionTime maximum beperkt tot 300 (30 s)",
+				"fr": "Utilisation du clearTimeout de l'adaptateur dans DeconzWebSocket pour un déchargement propre ; description package.json mise à jour en anglais ; maximum transitionTime limité à 300 (30 s)",
+				"it": "Utilizzo di clearTimeout dell'adattatore in DeconzWebSocket per uno scaricamento pulito; descrizione package.json aggiornata in inglese; massimo transitionTime limitato a 300 (30 s)",
+				"es": "Uso de clearTimeout del adaptador en DeconzWebSocket para descarga limpia; descripción package.json actualizada al inglés; máximo transitionTime limitado a 300 (30 s)",
+				"pl": "Użycie clearTimeout adaptera w DeconzWebSocket dla czystego rozładowania; opis package.json zaktualizowany na angielski; maksimum transitionTime ograniczone do 300 (30 s)",
+				"uk": "Використання clearTimeout адаптера у DeconzWebSocket для чистого вивантаження; опис package.json оновлено англійською; максимум transitionTime обмежено до 300 (30 с)",
+				"zh-cn": "在DeconzWebSocket中使用适配器跟踪的clearTimeout以实现干净卸载；将package.json描述更新为英文；将transitionTime配置最大值限制为300（30秒）"
 			}
 		},
 		"titleLang": {
