@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.12",
+		"version": "0.4.13",
 		"news": {
-			"0.4.12": {
-				"en": "Fix E1011/E1008/E1009/W1001 checker errors: replace unknown roles (info.hardware.model/serial, info.address.ieee) with 'text'; change role from 'value' to 'level' for writable number states (effectSpeed, transitionTime, x, y); change sensor fallback type from mixed to string; add all 11 language keys to info.connection name",
-				"de": "E1011/E1008/E1009/W1001-Checker-Fehler behoben: Unbekannte Rollen (info.hardware.model/serial, info.address.ieee) durch 'text' ersetzt; Rolle 'value' für schreibbare Zahlenzustände (effectSpeed, transitionTime, x, y) auf 'level' geändert; Sensor-Fallback-Typ von mixed auf string geändert; alle 11 Sprachschlüssel für info.connection-Name ergänzt",
-				"ru": "Исправлены ошибки чекера E1011/E1008/E1009/W1001: неизвестные роли (info.hardware.model/serial, info.address.ieee) заменены на 'text'; роль 'value' для записываемых числовых состояний (effectSpeed, transitionTime, x, y) изменена на 'level'; тип резервного значения датчика изменён с mixed на string; добавлены все 11 языковых ключей для имени info.connection",
-				"pt": "Corrigidos erros do verificador E1011/E1008/E1009/W1001: funções desconhecidas (info.hardware.model/serial, info.address.ieee) substituídas por 'text'; função 'value' para estados numéricos graváveis (effectSpeed, transitionTime, x, y) alterada para 'level'; tipo de fallback do sensor alterado de mixed para string; adicionadas todas as 11 chaves de idioma para o nome de info.connection",
-				"nl": "E1011/E1008/E1009/W1001 checker-fouten opgelost: onbekende rollen (info.hardware.model/serial, info.address.ieee) vervangen door 'text'; rol 'value' voor schrijfbare getalstoestanden (effectSpeed, transitionTime, x, y) gewijzigd naar 'level'; sensor-fallbacktype gewijzigd van mixed naar string; alle 11 taalsleutels toegevoegd voor de naam van info.connection",
-				"fr": "Correction des erreurs de vérification E1011/E1008/E1009/W1001 : rôles inconnus (info.hardware.model/serial, info.address.ieee) remplacés par 'text' ; rôle 'value' des états numériques inscriptibles (effectSpeed, transitionTime, x, y) changé en 'level' ; type de repli du capteur changé de mixed à string ; toutes les 11 clés de langue ajoutées pour le nom de info.connection",
-				"it": "Corretti errori del verificatore E1011/E1008/E1009/W1001: ruoli sconosciuti (info.hardware.model/serial, info.address.ieee) sostituiti con 'text'; ruolo 'value' per gli stati numerici scrivibili (effectSpeed, transitionTime, x, y) cambiato in 'level'; tipo di fallback del sensore cambiato da mixed a string; aggiunte tutte le 11 chiavi di lingua per il nome di info.connection",
-				"es": "Corregidos errores del verificador E1011/E1008/E1009/W1001: roles desconocidos (info.hardware.model/serial, info.address.ieee) reemplazados por 'text'; rol 'value' para estados numéricos escribibles (effectSpeed, transitionTime, x, y) cambiado a 'level'; tipo de reserva del sensor cambiado de mixed a string; añadidas las 11 claves de idioma para el nombre de info.connection",
-				"pl": "Naprawiono błędy weryfikatora E1011/E1008/E1009/W1001: nieznane role (info.hardware.model/serial, info.address.ieee) zastąpione przez 'text'; rola 'value' dla zapisywalnych stanów liczbowych (effectSpeed, transitionTime, x, y) zmieniona na 'level'; typ zapasowy czujnika zmieniony z mixed na string; dodano wszystkie 11 kluczy językowych dla nazwy info.connection",
-				"uk": "Виправлено помилки перевірника E1011/E1008/E1009/W1001: невідомі ролі (info.hardware.model/serial, info.address.ieee) замінено на 'text'; роль 'value' для записуваних числових станів (effectSpeed, transitionTime, x, y) змінено на 'level'; резервний тип сенсора змінено з mixed на string; додано всі 11 мовних ключів для імені info.connection",
-				"zh-cn": "修复检查器错误E1011/E1008/E1009/W1001：将未知角色(info.hardware.model/serial, info.address.ieee)替换为'text'；将可写数字状态(effectSpeed, transitionTime, x, y)的角色从'value'改为'level'；将传感器回退类型从mixed改为string；为info.connection名称添加全部11个语言键"
+			"0.4.13": {
+				"en": "Add transitionTime handling to light and group command handlers; remove unused watchdogMinutes config; add manufacturer/product links to README; remove unused i18n keys (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"de": "transitionTime-Behandlung in Licht- und Gruppen-Befehls-Handler ergänzt; unbenutzten watchdogMinutes-Config-Parameter entfernt; Hersteller-/Produktlinks in README ergänzt; unbenutzte i18n-Keys entfernt (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"ru": "Добавлена обработка transitionTime в обработчики команд освещения и групп; удалён неиспользуемый параметр watchdogMinutes; добавлены ссылки на производителей в README; удалены неиспользуемые ключи i18n (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"pt": "Adicionado tratamento de transitionTime aos manipuladores de comandos de luz e grupo; removido parâmetro de configuração watchdogMinutes não utilizado; adicionados links de fabricante/produto ao README; removidas chaves i18n não utilizadas (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"nl": "transitionTime-verwerking toegevoegd aan licht- en groepsopdrachten; ongebruikte watchdogMinutes-configuratie verwijderd; fabrikant-/productlinks toegevoegd aan README; ongebruikte i18n-sleutels verwijderd (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"fr": "Ajout du traitement de transitionTime aux gestionnaires de commandes lumière et groupe ; suppression du paramètre watchdogMinutes inutilisé ; ajout de liens fabricant/produit dans le README ; suppression des clés i18n inutilisées (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"it": "Aggiunta gestione transitionTime ai gestori comandi luce e gruppo; rimosso parametro watchdogMinutes inutilizzato; aggiunti link produttore/prodotto nel README; rimossi chiavi i18n inutilizzate (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"es": "Añadido manejo de transitionTime a los manejadores de comandos de luz y grupo; eliminado parámetro watchdogMinutes no utilizado; añadidos enlaces de fabricante/producto al README; eliminadas claves i18n no utilizadas (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"pl": "Dodano obsługę transitionTime do obsługi poleceń świateł i grup; usunięto nieużywany parametr watchdogMinutes; dodano linki producenta/produktu do README; usunięto nieużywane klucze i18n (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"uk": "Додано обробку transitionTime до обробників команд освітлення та груп; видалено невикористовуваний параметр watchdogMinutes; додано посилання на виробника/продукт у README; видалено невикористовувані ключі i18n (colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)",
+				"zh-cn": "为灯光和组命令处理器添加transitionTime处理；删除未使用的watchdogMinutes配置；在README中添加制造商/产品链接；删除未使用的i18n键(colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes)"
 			}
 		},
 		"titleLang": {
@@ -93,7 +93,6 @@
 		"pollingInterval": 60,
 		"autoApplyColorWheel": true,
 		"transitionTime": 4,
-		"watchdogMinutes": 120,
 		"enableAdminTab": false
 	},
 	"encryptedNative": [

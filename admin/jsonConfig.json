@@ -118,19 +118,6 @@
 					"xl": 12,
 					"default": true
 				},
-				"watchdogMinutes": {
-					"type": "number",
-					"label": "watchdogMinutes",
-					"newLine": true,
-					"xs": 12,
-					"sm": 6,
-					"md": 4,
-					"lg": 3,
-					"xl": 3,
-					"default": 120,
-					"min": 0,
-					"max": 10080
-				},
 				"_adminTabHeader": {
 					"type": "header",
 					"text": "adminTabSection",

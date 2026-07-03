@@ -18,9 +18,9 @@ decodes every button and color-wheel event from the Tint remote control.
 
 ## DISCLAIMER
 
-The name **Müller Licht** and the product name **tint** are trademarks of Müller-Licht International GmbH.
+The name **Müller Licht** and the product name **tint** are trademarks of [Müller-Licht International GmbH](https://www.mueller-licht.de).
 This adapter is an independent, community project and is **not** affiliated with or endorsed by Müller-Licht.
-The adapter communicates exclusively through the open deCONZ REST API provided by dresden elektronik.
+The adapter communicates exclusively through the open deCONZ REST API provided by [dresden elektronik](https://www.dresden-elektronik.com).
 
 ## Features
 
@@ -183,6 +183,9 @@ iobroker add tint
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.4.13 (2026-07-03)
+* (ssbingo) Add transitionTime handling to light/group command handlers (was defined as writable but ignored); remove unused watchdogMinutes config parameter and admin UI field; add hyperlinks to Müller-Licht and dresden elektronik in README DISCLAIMER; remove unused i18n keys colAllOn, colAnyOn, stateYes, msgDeleting, watchdogMinutes
 
 ### 0.4.12 (2026-06-29)
 * (ssbingo) Fix E1011/E1008/E1009/W1001 checker errors: replace unknown roles (info.hardware.model/serial, info.address.ieee) with 'text'; change role from 'value' to 'level' for writable number states (effectSpeed, transitionTime, x, y); change sensor fallback type from mixed to string with role 'text'; add all 11 language keys to info.connection name in io-package.json

@@ -96,15 +96,13 @@ class Tint extends utils.Adapter {
 	async onReady() {
 		this.setState('info.connection', false, true);
 
-		const { ip, port, wsPort, apiKey, pollingInterval, watchdogMinutes, autoApplyColorWheel, transitionTime } =
-			this.config;
+		const { ip, port, wsPort, apiKey, pollingInterval, autoApplyColorWheel, transitionTime } = this.config;
 
 		this.log.info(
 			`Adapter starting — ` +
 				`deCONZ REST: ${ip}:${port || 80}, ` +
 				`WebSocket: ${ip}:${wsPort || 443}, ` +
 				`poll: ${pollingInterval || 60}s, ` +
-				`watchdog: ${watchdogMinutes || 120}min, ` +
 				`transitionTime: ${transitionTime ?? 4}×100ms, ` +
 				`autoColorWheel: ${autoApplyColorWheel}`,
 		);
@@ -1559,6 +1557,10 @@ class Tint extends utils.Adapter {
 				body = { colorspeed: Number(val) };
 				this.log.debug(`Light ${lightId} ("${name}"): effectSpeed → ${val}`);
 				break;
+			case 'transitionTime':
+				body = { transitiontime: Number(val) };
+				this.log.debug(`Light ${lightId} ("${name}"): transitionTime → ${val}×100ms`);
+				break;
 			default:
 				this.log.warn(`Light ${lightId} ("${name}"): unknown state "${stateName}" — no API call made`);
 				return;
@@ -1667,6 +1669,10 @@ class Tint extends utils.Adapter {
 			case 'effect':
 				body = { effect: String(val) };
 				this.log.info(`Group ${groupId} ("${name}"): effect → "${val}"`);
+				break;
+			case 'transitionTime':
+				body = { transitiontime: Number(val) };
+				this.log.debug(`Group ${groupId} ("${name}"): transitionTime → ${val}×100ms`);
 				break;
 			case 'activateScene': {
 				const sceneMap = this._sceneMap[groupId] || {};
