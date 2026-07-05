@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.16 (2026-07-05)
+* (ssbingo) Add README.md and doc/ to npm package files[] so localised documentation is included in the published tarball; fixes ioBroker checker E6001
+
 ### 0.4.15 (2026-07-05)
 * (ssbingo) Upgrade axios to ^1.18.1, @module-federation/vite to ^1.16.12, @vitejs/plugin-react to ^6.0.3; update dependabot.yml React ignore comment to document MF constraint; react/react-dom intentionally kept at ^18.x (React 19 incompatible with ioBroker Admin's MF webpack↔vite bridge)
 

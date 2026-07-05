@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.4.15",
+	"version": "0.4.16",
 	"description": "Control Müller Licht tint Zigbee lights via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",
@@ -59,10 +59,12 @@
 		"admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
 		"admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
 		"admin/build/",
+		"doc/",
 		"lib/",
 		"www/",
 		"io-package.json",
 		"LICENSE",
+		"README.md",
 		"main.js"
 	],
 	"scripts": {

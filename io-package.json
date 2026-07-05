@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.15",
+		"version": "0.4.16",
 		"news": {
-			"0.4.15": {
-				"en": "Upgrade axios to 1.18.1, @module-federation/vite to 1.16.12, @vitejs/plugin-react to 6.0.3; update dependabot.yml React ignore comment to document MF constraint (react/react-dom intentionally kept at ^18.x)",
-				"de": "axios auf 1.18.1, @module-federation/vite auf 1.16.12, @vitejs/plugin-react auf 6.0.3 aktualisiert; dependabot.yml React-Ignore-Kommentar aktualisiert um MF-Constraint zu dokumentieren (react/react-dom bleibt bewusst bei ^18.x)",
-				"ru": "Обновлены axios до 1.18.1, @module-federation/vite до 1.16.12, @vitejs/plugin-react до 6.0.3; обновлён комментарий в dependabot.yml для документирования ограничения MF (react/react-dom намеренно остаётся на ^18.x)",
-				"pt": "Atualizado axios para 1.18.1, @module-federation/vite para 1.16.12, @vitejs/plugin-react para 6.0.3; atualizado comentário de ignorar React no dependabot.yml para documentar restrição MF (react/react-dom mantido intencionalmente em ^18.x)",
-				"nl": "axios bijgewerkt naar 1.18.1, @module-federation/vite naar 1.16.12, @vitejs/plugin-react naar 6.0.3; dependabot.yml React-negeercommentaar bijgewerkt om MF-beperking te documenteren (react/react-dom bewust op ^18.x gehouden)",
-				"fr": "Mise à jour d'axios vers 1.18.1, @module-federation/vite vers 1.16.12, @vitejs/plugin-react vers 6.0.3 ; mise à jour du commentaire d'ignorance React dans dependabot.yml pour documenter la contrainte MF (react/react-dom maintenu intentionnellement à ^18.x)",
-				"it": "Aggiornato axios a 1.18.1, @module-federation/vite a 1.16.12, @vitejs/plugin-react a 6.0.3; aggiornato il commento di esclusione React in dependabot.yml per documentare il vincolo MF (react/react-dom mantenuto intenzionalmente a ^18.x)",
-				"es": "Actualizados axios a 1.18.1, @module-federation/vite a 1.16.12, @vitejs/plugin-react a 6.0.3; actualizado el comentario de ignorar React en dependabot.yml para documentar la restricción MF (react/react-dom mantenido intencionalmente en ^18.x)",
-				"pl": "Zaktualizowano axios do 1.18.1, @module-federation/vite do 1.16.12, @vitejs/plugin-react do 6.0.3; zaktualizowano komentarz ignorowania React w dependabot.yml dokumentujący ograniczenie MF (react/react-dom celowo utrzymane na ^18.x)",
-				"uk": "Оновлено axios до 1.18.1, @module-federation/vite до 1.16.12, @vitejs/plugin-react до 6.0.3; оновлено коментар ігнорування React у dependabot.yml для документування обмеження MF (react/react-dom навмисно залишено на ^18.x)",
-				"zh-cn": "将axios升级到1.18.1，@module-federation/vite升级到1.16.12，@vitejs/plugin-react升级到6.0.3；更新dependabot.yml中React忽略注释以记录MF约束（react/react-dom有意保持在^18.x）"
+			"0.4.16": {
+				"en": "Add README.md and doc/ to npm package files so localised documentation and readme are included in the published package (fixes E6001 checker error)",
+				"de": "README.md und doc/ in npm-Paket-Dateien aufgenommen, damit lokalisierte Dokumentation und Readme im veröffentlichten Paket enthalten sind (behebt E6001-Checker-Fehler)",
+				"ru": "Добавлены README.md и doc/ в файлы npm-пакета, чтобы локализованная документация и readme включались в опубликованный пакет (исправляет ошибку чекера E6001)",
+				"pt": "Adicionados README.md e doc/ aos arquivos do pacote npm para que a documentação localizada e o readme sejam incluídos no pacote publicado (corrige erro do verificador E6001)",
+				"nl": "README.md en doc/ toegevoegd aan npm-pakketbestanden zodat gelokaliseerde documentatie en readme zijn opgenomen in het gepubliceerde pakket (verhelpt E6001-controlefout)",
+				"fr": "Ajout de README.md et doc/ aux fichiers du paquet npm pour que la documentation localisée et le readme soient inclus dans le paquet publié (corrige l'erreur du vérificateur E6001)",
+				"it": "Aggiunto README.md e doc/ ai file del pacchetto npm affinché la documentazione localizzata e il readme siano inclusi nel pacchetto pubblicato (corregge l'errore del verificatore E6001)",
+				"es": "Añadidos README.md y doc/ a los archivos del paquete npm para que la documentación localizada y el readme estén incluidos en el paquete publicado (corrige el error del verificador E6001)",
+				"pl": "Dodano README.md i doc/ do plików pakietu npm, aby zlokalizowana dokumentacja i readme były zawarte w opublikowanym pakiecie (naprawia błąd weryfikatora E6001)",
+				"uk": "Додано README.md і doc/ до файлів npm-пакету, щоб локалізована документація та readme включалися до опублікованого пакету (виправляє помилку перевіряльника E6001)",
+				"zh-cn": "将README.md和doc/添加到npm包文件中，使本地化文档和readme包含在已发布的包中（修复E6001检查器错误）"
 			}
 		},
 		"titleLang": {
