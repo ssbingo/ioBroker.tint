@@ -12,7 +12,11 @@ updates:
       # higher @types/node versions expose APIs that do not exist at runtime
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
-      # React 19 is the current target; block automatic bumps to React 20+ until evaluated
+      # React MUST stay at ^18.x — ioBroker Admin uses React 18 and the webpack↔vite
+      # Module Federation bridge cannot share React between host and remote. React 19
+      # uses Symbol('react.transitional.element') instead of Symbol('react.element'),
+      # which Admin's React 18 renderer does not recognise → Minified React Error #31.
+      # Only upgrade when Admin itself migrates to React 19.
       - dependency-name: "react"
         update-types: ["version-update:semver-major"]
       - dependency-name: "react-dom"

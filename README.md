@@ -184,6 +184,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.4.15 (2026-07-05)
+* (ssbingo) Upgrade axios to ^1.18.1, @module-federation/vite to ^1.16.12, @vitejs/plugin-react to ^6.0.3; update dependabot.yml React ignore comment to document MF constraint; react/react-dom intentionally kept at ^18.x (React 19 incompatible with ioBroker Admin's MF webpack↔vite bridge)
+
 ### 0.4.14 (2026-07-03)
 * (ssbingo) Use adapter-tracked clearTimeout in DeconzWebSocket (pass clearTimeout option alongside setTimeout); update package.json description to English; limit transitionTime config field max to 300 (= 30 s)
 

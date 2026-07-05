@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.14",
+		"version": "0.4.15",
 		"news": {
-			"0.4.14": {
-				"en": "Use adapter-tracked clearTimeout in DeconzWebSocket for clean unload; update package.json description to English; limit transitionTime config max to 300 (30 s)",
-				"de": "Adapter-getrackte clearTimeout in DeconzWebSocket für sauberes Entladen verwendet; package.json description auf Englisch aktualisiert; transitionTime-Config-Maximum auf 300 (30 s) begrenzt",
-				"ru": "Использование clearTimeout адаптера в DeconzWebSocket для корректной выгрузки; обновлено описание package.json на английский; максимум transitionTime ограничен до 300 (30 с)",
-				"pt": "Uso de clearTimeout do adaptador em DeconzWebSocket para descarregamento limpo; descrição do package.json atualizada para inglês; máximo de transitionTime limitado a 300 (30 s)",
-				"nl": "Gebruik adapter-getrackte clearTimeout in DeconzWebSocket voor schoon ontladen; package.json beschrijving bijgewerkt naar Engels; transitionTime maximum beperkt tot 300 (30 s)",
-				"fr": "Utilisation du clearTimeout de l'adaptateur dans DeconzWebSocket pour un déchargement propre ; description package.json mise à jour en anglais ; maximum transitionTime limité à 300 (30 s)",
-				"it": "Utilizzo di clearTimeout dell'adattatore in DeconzWebSocket per uno scaricamento pulito; descrizione package.json aggiornata in inglese; massimo transitionTime limitato a 300 (30 s)",
-				"es": "Uso de clearTimeout del adaptador en DeconzWebSocket para descarga limpia; descripción package.json actualizada al inglés; máximo transitionTime limitado a 300 (30 s)",
-				"pl": "Użycie clearTimeout adaptera w DeconzWebSocket dla czystego rozładowania; opis package.json zaktualizowany na angielski; maksimum transitionTime ograniczone do 300 (30 s)",
-				"uk": "Використання clearTimeout адаптера у DeconzWebSocket для чистого вивантаження; опис package.json оновлено англійською; максимум transitionTime обмежено до 300 (30 с)",
-				"zh-cn": "在DeconzWebSocket中使用适配器跟踪的clearTimeout以实现干净卸载；将package.json描述更新为英文；将transitionTime配置最大值限制为300（30秒）"
+			"0.4.15": {
+				"en": "Upgrade axios to 1.18.1, @module-federation/vite to 1.16.12, @vitejs/plugin-react to 6.0.3; update dependabot.yml React ignore comment to document MF constraint (react/react-dom intentionally kept at ^18.x)",
+				"de": "axios auf 1.18.1, @module-federation/vite auf 1.16.12, @vitejs/plugin-react auf 6.0.3 aktualisiert; dependabot.yml React-Ignore-Kommentar aktualisiert um MF-Constraint zu dokumentieren (react/react-dom bleibt bewusst bei ^18.x)",
+				"ru": "Обновлены axios до 1.18.1, @module-federation/vite до 1.16.12, @vitejs/plugin-react до 6.0.3; обновлён комментарий в dependabot.yml для документирования ограничения MF (react/react-dom намеренно остаётся на ^18.x)",
+				"pt": "Atualizado axios para 1.18.1, @module-federation/vite para 1.16.12, @vitejs/plugin-react para 6.0.3; atualizado comentário de ignorar React no dependabot.yml para documentar restrição MF (react/react-dom mantido intencionalmente em ^18.x)",
+				"nl": "axios bijgewerkt naar 1.18.1, @module-federation/vite naar 1.16.12, @vitejs/plugin-react naar 6.0.3; dependabot.yml React-negeercommentaar bijgewerkt om MF-beperking te documenteren (react/react-dom bewust op ^18.x gehouden)",
+				"fr": "Mise à jour d'axios vers 1.18.1, @module-federation/vite vers 1.16.12, @vitejs/plugin-react vers 6.0.3 ; mise à jour du commentaire d'ignorance React dans dependabot.yml pour documenter la contrainte MF (react/react-dom maintenu intentionnellement à ^18.x)",
+				"it": "Aggiornato axios a 1.18.1, @module-federation/vite a 1.16.12, @vitejs/plugin-react a 6.0.3; aggiornato il commento di esclusione React in dependabot.yml per documentare il vincolo MF (react/react-dom mantenuto intenzionalmente a ^18.x)",
+				"es": "Actualizados axios a 1.18.1, @module-federation/vite a 1.16.12, @vitejs/plugin-react a 6.0.3; actualizado el comentario de ignorar React en dependabot.yml para documentar la restricción MF (react/react-dom mantenido intencionalmente en ^18.x)",
+				"pl": "Zaktualizowano axios do 1.18.1, @module-federation/vite do 1.16.12, @vitejs/plugin-react do 6.0.3; zaktualizowano komentarz ignorowania React w dependabot.yml dokumentujący ograniczenie MF (react/react-dom celowo utrzymane na ^18.x)",
+				"uk": "Оновлено axios до 1.18.1, @module-federation/vite до 1.16.12, @vitejs/plugin-react до 6.0.3; оновлено коментар ігнорування React у dependabot.yml для документування обмеження MF (react/react-dom навмисно залишено на ^18.x)",
+				"zh-cn": "将axios升级到1.18.1，@module-federation/vite升级到1.16.12，@vitejs/plugin-react升级到6.0.3；更新dependabot.yml中React忽略注释以记录MF约束（react/react-dom有意保持在^18.x）"
 			}
 		},
 		"titleLang": {
