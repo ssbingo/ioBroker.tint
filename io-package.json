@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.5.0",
+		"version": "0.5.1",
 		"news": {
-			"0.5.0": {
-				"en": "Support ioBroker Admin 8: settings panels now declare GUI API generation 2 and ship the module federation manifest required by Admin 8; panels remain compatible with Admin 7.8.23+ (classic JSX runtime on Admin's shared React/MUI); dependencies updated (React 19, MUI 9, Vite 8.2, axios, ws); requires Node.js >= 22 and Admin >= 7.8.23",
-				"de": "Unterstützung für ioBroker Admin 8: Einstellungs-Panels deklarieren jetzt GUI-API-Generation 2 und liefern das von Admin 8 benötigte Module-Federation-Manifest; Panels bleiben mit Admin 7.8.23+ kompatibel (klassische JSX-Runtime auf Admins geteiltem React/MUI); Abhängigkeiten aktualisiert (React 19, MUI 9, Vite 8.2, axios, ws); erfordert Node.js >= 22 und Admin >= 7.8.23",
-				"ru": "Поддержка ioBroker Admin 8: панели настроек теперь объявляют поколение GUI API 2 и содержат манифест module federation, необходимый для Admin 8; панели остаются совместимыми с Admin 7.8.23+ (классический JSX-runtime на общих React/MUI Admin); зависимости обновлены (React 19, MUI 9, Vite 8.2, axios, ws); требуются Node.js >= 22 и Admin >= 7.8.23",
-				"pt": "Suporte ao ioBroker Admin 8: os painéis de configuração agora declaram a geração 2 da GUI API e incluem o manifesto de module federation exigido pelo Admin 8; os painéis continuam compatíveis com o Admin 7.8.23+ (runtime JSX clássico sobre o React/MUI partilhado do Admin); dependências atualizadas (React 19, MUI 9, Vite 8.2, axios, ws); requer Node.js >= 22 e Admin >= 7.8.23",
-				"nl": "Ondersteuning voor ioBroker Admin 8: instellingenpanelen declareren nu GUI API-generatie 2 en leveren het module federation-manifest dat Admin 8 vereist; panelen blijven compatibel met Admin 7.8.23+ (klassieke JSX-runtime op de gedeelde React/MUI van Admin); afhankelijkheden bijgewerkt (React 19, MUI 9, Vite 8.2, axios, ws); vereist Node.js >= 22 en Admin >= 7.8.23",
-				"fr": "Prise en charge d'ioBroker Admin 8 : les panneaux de configuration déclarent désormais la génération 2 de l'API GUI et fournissent le manifeste module federation requis par Admin 8 ; les panneaux restent compatibles avec Admin 7.8.23+ (runtime JSX classique sur le React/MUI partagé d'Admin) ; dépendances mises à jour (React 19, MUI 9, Vite 8.2, axios, ws) ; nécessite Node.js >= 22 et Admin >= 7.8.23",
-				"it": "Supporto per ioBroker Admin 8: i pannelli delle impostazioni dichiarano ora la generazione 2 della GUI API e includono il manifest module federation richiesto da Admin 8; i pannelli restano compatibili con Admin 7.8.23+ (runtime JSX classico sul React/MUI condiviso di Admin); dipendenze aggiornate (React 19, MUI 9, Vite 8.2, axios, ws); richiede Node.js >= 22 e Admin >= 7.8.23",
-				"es": "Compatibilidad con ioBroker Admin 8: los paneles de configuración ahora declaran la generación 2 de la GUI API e incluyen el manifiesto de module federation requerido por Admin 8; los paneles siguen siendo compatibles con Admin 7.8.23+ (runtime JSX clásico sobre el React/MUI compartido de Admin); dependencias actualizadas (React 19, MUI 9, Vite 8.2, axios, ws); requiere Node.js >= 22 y Admin >= 7.8.23",
-				"pl": "Obsługa ioBroker Admin 8: panele ustawień deklarują teraz generację 2 GUI API i zawierają manifest module federation wymagany przez Admin 8; panele pozostają zgodne z Admin 7.8.23+ (klasyczny runtime JSX na współdzielonych React/MUI Admina); zaktualizowano zależności (React 19, MUI 9, Vite 8.2, axios, ws); wymaga Node.js >= 22 i Admin >= 7.8.23",
-				"uk": "Підтримка ioBroker Admin 8: панелі налаштувань тепер оголошують покоління GUI API 2 та містять маніфест module federation, необхідний для Admin 8; панелі залишаються сумісними з Admin 7.8.23+ (класичний JSX-runtime на спільних React/MUI Admin); залежності оновлено (React 19, MUI 9, Vite 8.2, axios, ws); потрібні Node.js >= 22 та Admin >= 7.8.23",
-				"zh-cn": "支持 ioBroker Admin 8：设置面板现在声明 GUI API 第 2 代，并附带 Admin 8 所需的 module federation 清单；面板仍兼容 Admin 7.8.23+（在 Admin 共享的 React/MUI 上使用经典 JSX 运行时）；依赖已更新（React 19、MUI 9、Vite 8.2、axios、ws）；需要 Node.js >= 22 和 Admin >= 7.8.23"
+			"0.5.1": {
+				"en": "Maintenance release: update @alcalzone/release-script-plugin-license to 5.2.2 (repository checker S0064) and refresh the dependency lockfile; no functional changes compared to 0.5.0",
+				"de": "Wartungs-Release: @alcalzone/release-script-plugin-license auf 5.2.2 aktualisiert (Repository-Checker S0064) und Lockfile aufgefrischt; keine funktionalen Änderungen gegenüber 0.5.0",
+				"ru": "Сервисный выпуск: @alcalzone/release-script-plugin-license обновлён до 5.2.2 (проверка репозитория S0064), обновлён lockfile зависимостей; функциональных изменений по сравнению с 0.5.0 нет",
+				"pt": "Versão de manutenção: @alcalzone/release-script-plugin-license atualizado para 5.2.2 (verificador de repositório S0064) e lockfile de dependências atualizado; sem alterações funcionais em relação à 0.5.0",
+				"nl": "Onderhoudsrelease: @alcalzone/release-script-plugin-license bijgewerkt naar 5.2.2 (repository-checker S0064) en lockfile van afhankelijkheden ververst; geen functionele wijzigingen ten opzichte van 0.5.0",
+				"fr": "Version de maintenance : @alcalzone/release-script-plugin-license mis à jour vers 5.2.2 (vérificateur de dépôt S0064) et fichier de verrouillage des dépendances actualisé ; aucun changement fonctionnel par rapport à 0.5.0",
+				"it": "Versione di manutenzione: @alcalzone/release-script-plugin-license aggiornato alla 5.2.2 (verificatore del repository S0064) e lockfile delle dipendenze aggiornato; nessuna modifica funzionale rispetto alla 0.5.0",
+				"es": "Versión de mantenimiento: @alcalzone/release-script-plugin-license actualizado a 5.2.2 (verificador de repositorio S0064) y lockfile de dependencias actualizado; sin cambios funcionales respecto a 0.5.0",
+				"pl": "Wydanie serwisowe: @alcalzone/release-script-plugin-license zaktualizowany do 5.2.2 (kontrola repozytorium S0064) i odświeżony lockfile zależności; brak zmian funkcjonalnych względem 0.5.0",
+				"uk": "Сервісний випуск: @alcalzone/release-script-plugin-license оновлено до 5.2.2 (перевірка репозиторію S0064), оновлено lockfile залежностей; функціональних змін порівняно з 0.5.0 немає",
+				"zh-cn": "维护版本：@alcalzone/release-script-plugin-license 更新至 5.2.2（仓库检查器 S0064），并刷新依赖锁定文件；与 0.5.0 相比无功能变化"
 			}
 		},
 		"titleLang": {

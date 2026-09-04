@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.1 (2026-09-04)
+* (ssbingo) Maintenance: bump @alcalzone/release-script-plugin-license to ^5.2.2 (repository checker S0064) and refresh package-lock.json with the merged Dependabot updates; no functional changes compared to 0.5.0
+
 ### 0.5.0 (2026-09-04)
 * (ssbingo) Support ioBroker Admin 8: the settings panels declare GUI API generation 2 (`"guiApi": 2` in jsonConfig.json) and ship the Module Federation manifest (`admin/build/mf-manifest.json`) that Admin 8 checks before starting a custom component; without both, Admin 8 refused the panels ("built for GUI API generation 1")
 * (ssbingo) Keep the panels compatible with Admin 7.8.23+ at the same time: React, ReactDOM, MUI and Emotion are consumed as Admin's own Module Federation singletons (`requiredVersion: '*'`, `shareStrategy: 'loaded-first'`) and JSX is compiled with the classic runtime to `React.createElement()` of the shared React, so the same build renders on React 18 / MUI 6 (Admin 7.8, 7.9) and React 19 / MUI 9 (Admin 8) hosts
