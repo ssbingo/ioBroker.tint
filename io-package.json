@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.4.16",
+		"version": "0.5.0",
 		"news": {
-			"0.4.16": {
-				"en": "Add README.md and doc/ to npm package files so localised documentation and readme are included in the published package (fixes E6001 checker error)",
-				"de": "README.md und doc/ in npm-Paket-Dateien aufgenommen, damit lokalisierte Dokumentation und Readme im veröffentlichten Paket enthalten sind (behebt E6001-Checker-Fehler)",
-				"ru": "Добавлены README.md и doc/ в файлы npm-пакета, чтобы локализованная документация и readme включались в опубликованный пакет (исправляет ошибку чекера E6001)",
-				"pt": "Adicionados README.md e doc/ aos arquivos do pacote npm para que a documentação localizada e o readme sejam incluídos no pacote publicado (corrige erro do verificador E6001)",
-				"nl": "README.md en doc/ toegevoegd aan npm-pakketbestanden zodat gelokaliseerde documentatie en readme zijn opgenomen in het gepubliceerde pakket (verhelpt E6001-controlefout)",
-				"fr": "Ajout de README.md et doc/ aux fichiers du paquet npm pour que la documentation localisée et le readme soient inclus dans le paquet publié (corrige l'erreur du vérificateur E6001)",
-				"it": "Aggiunto README.md e doc/ ai file del pacchetto npm affinché la documentazione localizzata e il readme siano inclusi nel pacchetto pubblicato (corregge l'errore del verificatore E6001)",
-				"es": "Añadidos README.md y doc/ a los archivos del paquete npm para que la documentación localizada y el readme estén incluidos en el paquete publicado (corrige el error del verificador E6001)",
-				"pl": "Dodano README.md i doc/ do plików pakietu npm, aby zlokalizowana dokumentacja i readme były zawarte w opublikowanym pakiecie (naprawia błąd weryfikatora E6001)",
-				"uk": "Додано README.md і doc/ до файлів npm-пакету, щоб локалізована документація та readme включалися до опублікованого пакету (виправляє помилку перевіряльника E6001)",
-				"zh-cn": "将README.md和doc/添加到npm包文件中，使本地化文档和readme包含在已发布的包中（修复E6001检查器错误）"
+			"0.5.0": {
+				"en": "Support ioBroker Admin 8: settings panels now declare GUI API generation 2 and ship the module federation manifest required by Admin 8; panels remain compatible with Admin 7.8.23+ (classic JSX runtime on Admin's shared React/MUI); dependencies updated (React 19, MUI 9, Vite 8.2, axios, ws); requires Node.js >= 22 and Admin >= 7.8.23",
+				"de": "Unterstützung für ioBroker Admin 8: Einstellungs-Panels deklarieren jetzt GUI-API-Generation 2 und liefern das von Admin 8 benötigte Module-Federation-Manifest; Panels bleiben mit Admin 7.8.23+ kompatibel (klassische JSX-Runtime auf Admins geteiltem React/MUI); Abhängigkeiten aktualisiert (React 19, MUI 9, Vite 8.2, axios, ws); erfordert Node.js >= 22 und Admin >= 7.8.23",
+				"ru": "Поддержка ioBroker Admin 8: панели настроек теперь объявляют поколение GUI API 2 и содержат манифест module federation, необходимый для Admin 8; панели остаются совместимыми с Admin 7.8.23+ (классический JSX-runtime на общих React/MUI Admin); зависимости обновлены (React 19, MUI 9, Vite 8.2, axios, ws); требуются Node.js >= 22 и Admin >= 7.8.23",
+				"pt": "Suporte ao ioBroker Admin 8: os painéis de configuração agora declaram a geração 2 da GUI API e incluem o manifesto de module federation exigido pelo Admin 8; os painéis continuam compatíveis com o Admin 7.8.23+ (runtime JSX clássico sobre o React/MUI partilhado do Admin); dependências atualizadas (React 19, MUI 9, Vite 8.2, axios, ws); requer Node.js >= 22 e Admin >= 7.8.23",
+				"nl": "Ondersteuning voor ioBroker Admin 8: instellingenpanelen declareren nu GUI API-generatie 2 en leveren het module federation-manifest dat Admin 8 vereist; panelen blijven compatibel met Admin 7.8.23+ (klassieke JSX-runtime op de gedeelde React/MUI van Admin); afhankelijkheden bijgewerkt (React 19, MUI 9, Vite 8.2, axios, ws); vereist Node.js >= 22 en Admin >= 7.8.23",
+				"fr": "Prise en charge d'ioBroker Admin 8 : les panneaux de configuration déclarent désormais la génération 2 de l'API GUI et fournissent le manifeste module federation requis par Admin 8 ; les panneaux restent compatibles avec Admin 7.8.23+ (runtime JSX classique sur le React/MUI partagé d'Admin) ; dépendances mises à jour (React 19, MUI 9, Vite 8.2, axios, ws) ; nécessite Node.js >= 22 et Admin >= 7.8.23",
+				"it": "Supporto per ioBroker Admin 8: i pannelli delle impostazioni dichiarano ora la generazione 2 della GUI API e includono il manifest module federation richiesto da Admin 8; i pannelli restano compatibili con Admin 7.8.23+ (runtime JSX classico sul React/MUI condiviso di Admin); dipendenze aggiornate (React 19, MUI 9, Vite 8.2, axios, ws); richiede Node.js >= 22 e Admin >= 7.8.23",
+				"es": "Compatibilidad con ioBroker Admin 8: los paneles de configuración ahora declaran la generación 2 de la GUI API e incluyen el manifiesto de module federation requerido por Admin 8; los paneles siguen siendo compatibles con Admin 7.8.23+ (runtime JSX clásico sobre el React/MUI compartido de Admin); dependencias actualizadas (React 19, MUI 9, Vite 8.2, axios, ws); requiere Node.js >= 22 y Admin >= 7.8.23",
+				"pl": "Obsługa ioBroker Admin 8: panele ustawień deklarują teraz generację 2 GUI API i zawierają manifest module federation wymagany przez Admin 8; panele pozostają zgodne z Admin 7.8.23+ (klasyczny runtime JSX na współdzielonych React/MUI Admina); zaktualizowano zależności (React 19, MUI 9, Vite 8.2, axios, ws); wymaga Node.js >= 22 i Admin >= 7.8.23",
+				"uk": "Підтримка ioBroker Admin 8: панелі налаштувань тепер оголошують покоління GUI API 2 та містять маніфест module federation, необхідний для Admin 8; панелі залишаються сумісними з Admin 7.8.23+ (класичний JSX-runtime на спільних React/MUI Admin); залежності оновлено (React 19, MUI 9, Vite 8.2, axios, ws); потрібні Node.js >= 22 та Admin >= 7.8.23",
+				"zh-cn": "支持 ioBroker Admin 8：设置面板现在声明 GUI API 第 2 代，并附带 Admin 8 所需的 module federation 清单；面板仍兼容 Admin 7.8.23+（在 Admin 共享的 React/MUI 上使用经典 JSX 运行时）；依赖已更新（React 19、MUI 9、Vite 8.2、axios、ws）；需要 Node.js >= 22 和 Admin >= 7.8.23"
 			}
 		},
 		"titleLang": {
@@ -81,7 +81,7 @@
 		],
 		"globalDependencies": [
 			{
-				"admin": ">=7.6.20"
+				"admin": ">=7.8.23"
 			}
 		]
 	},

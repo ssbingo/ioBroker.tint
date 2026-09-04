@@ -31,7 +31,8 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 - Gateway deCONZ / ConBee (ConBee I/II/III ou RaspBee) com software deCONZ ≥ 2.x
 - Lâmpadas Müller Licht tint já emparelhadas com o gateway deCONZ
 - Chave de API deCONZ (desbloquear na app deCONZ ou interface web Phoscon)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x totalmente suportado)
 
 ## Configuração
 

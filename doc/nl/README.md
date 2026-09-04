@@ -31,7 +31,8 @@ De communicatie verloopt uitsluitend via de open deCONZ REST-API van dresden ele
 - deCONZ / ConBee gateway (ConBee I/II/III of RaspBee) met deCONZ software ≥ 2.x
 - Müller Licht tint lampen reeds gekoppeld aan de deCONZ gateway
 - deCONZ API-sleutel (ontgrendelen in de deCONZ-app of Phoscon webinterface)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x volledig ondersteund)
 
 ## Configuratie
 

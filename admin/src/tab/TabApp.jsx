@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import { ThemeProvider, createTheme, CssBaseline, Box, Tabs, Tab } from '@mui/material';
 import LightsTab from '../components/LightsTab.jsx';
 import GroupsTab from '../components/GroupsTab.jsx';
 import PlugsTab from '../components/PlugsTab.jsx';

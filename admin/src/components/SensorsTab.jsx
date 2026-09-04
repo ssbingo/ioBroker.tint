@@ -1,15 +1,17 @@
-import { useState, useEffect, useCallback } from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Button from '@mui/material/Button';
-import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
+import React, { useState, useEffect, useCallback } from 'react';
+import {
+	Box,
+	Paper,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+	Button,
+	CircularProgress,
+	Typography,
+} from '@mui/material';
 import { isThermostat, formatSensorValue, formatSensorType } from './deviceCategory';
 import StatusDot from './StatusDot';
 import {

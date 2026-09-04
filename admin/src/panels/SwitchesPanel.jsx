@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import SwitchesTab from '../components/SwitchesTab';
 import { createT } from './i18n.js';
 

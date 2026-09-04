@@ -31,7 +31,8 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 - Bramka deCONZ / ConBee (ConBee I/II/III lub RaspBee) z oprogramowaniem deCONZ ≥ 2.x
 - Żarówki Müller Licht tint sparowane już z bramką deCONZ
 - Klucz API deCONZ (odblokować w aplikacji deCONZ lub interfejsie web Phoscon)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x w pełni obsługiwany)
 
 ## Konfiguracja
 

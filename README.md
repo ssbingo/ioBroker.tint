@@ -40,7 +40,8 @@ The adapter communicates exclusively through the open deCONZ REST API provided b
 - deCONZ / ConBee gateway (ConBee I/II/III or RaspBee) with deCONZ software ≥ 2.x
 - Müller Licht tint bulbs already paired to the deCONZ gateway
 - deCONZ API key (unlock via the deCONZ app or Phoscon web interface)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x fully supported)
 
 ## Installation
 
@@ -183,6 +184,12 @@ iobroker add tint
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.5.0 (2026-09-04)
+* (ssbingo) Support ioBroker Admin 8: the settings panels declare GUI API generation 2 (`"guiApi": 2` in jsonConfig.json) and ship the Module Federation manifest (`admin/build/mf-manifest.json`) that Admin 8 checks before starting a custom component; without both, Admin 8 refused the panels ("built for GUI API generation 1")
+* (ssbingo) Keep the panels compatible with Admin 7.8.23+ at the same time: React, ReactDOM, MUI and Emotion are consumed as Admin's own Module Federation singletons (`requiredVersion: '*'`, `shareStrategy: 'loaded-first'`) and JSX is compiled with the classic runtime to `React.createElement()` of the shared React, so the same build renders on React 18 / MUI 6 (Admin 7.8, 7.9) and React 19 / MUI 9 (Admin 8) hosts
+* (ssbingo) Dependencies: react/react-dom ^19.2.8, @types/react(-dom) ^19.2, @mui/material ^9.4.0, vite ^8.2.2, @vitejs/plugin-react ^6.1.1, @module-federation/vite ^1.21.3, axios ^1.20.0, ws ^8.21.3, @tsconfig/node22 ^22.0.6 (ioBroker checker W0083); typescript stays at ^6.0.3 because @typescript-eslint 8.62 (via @iobroker/eslint-config) only supports TypeScript <6.1
+* (ssbingo) Raise minimum versions: Node.js ≥ 22 (`engines`), ioBroker Admin ≥ 7.8.23 (`globalDependencies`); update dependabot.yml ignore rules and README requirements accordingly
 
 ### 0.4.16 (2026-07-05)
 * (ssbingo) Add README.md and doc/ to npm package files[] so localised documentation is included in the published tarball; fixes ioBroker checker E6001

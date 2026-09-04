@@ -31,7 +31,8 @@
 - Шлюз deCONZ / ConBee (ConBee I/II/III или RaspBee) с ПО deCONZ ≥ 2.x
 - Лампы Müller Licht tint, сопряжённые с шлюзом deCONZ
 - API-ключ deCONZ (получить в приложении deCONZ или веб-интерфейсе Phoscon)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x полностью поддерживается)
 
 ## Настройка
 

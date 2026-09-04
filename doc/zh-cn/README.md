@@ -31,7 +31,8 @@
 - deCONZ / ConBee网关（ConBee I/II/III或RaspBee），deCONZ软件版本 ≥ 2.x
 - 已与deCONZ网关配对的Müller Licht tint灯泡
 - deCONZ API密钥（在deCONZ应用或Phoscon网页界面解锁）
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23（完全支持 Admin 8.x）
 
 ## 配置
 

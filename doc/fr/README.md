@@ -31,7 +31,8 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 - Passerelle deCONZ / ConBee (ConBee I/II/III ou RaspBee) avec logiciel deCONZ ≥ 2.x
 - Ampoules Müller Licht tint déjà associées à la passerelle deCONZ
 - Clé API deCONZ (déverrouiller dans l'app deCONZ ou l'interface web Phoscon)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x entièrement pris en charge)
 
 ## Configuration
 

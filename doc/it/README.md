@@ -31,7 +31,8 @@ La comunicazione avviene esclusivamente tramite l'API REST aperta deCONZ di dres
 - Gateway deCONZ / ConBee (ConBee I/II/III o RaspBee) con software deCONZ ≥ 2.x
 - Lampadine Müller Licht tint già abbinate al gateway deCONZ
 - Chiave API deCONZ (sbloccare nell'app deCONZ o nell'interfaccia web Phoscon)
-- Node.js ≥ 20
+- Node.js ≥ 22
+- ioBroker Admin ≥ 7.8.23 (Admin 8.x pienamente supportato)
 
 ## Configurazione
 

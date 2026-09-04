@@ -159,6 +159,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/LightsPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -187,6 +188,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/GroupsPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -215,6 +217,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/PlugsPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -243,6 +246,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/ScenesPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -271,6 +275,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/CoversPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -299,6 +304,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/SwitchesPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -327,6 +333,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/SensorsPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
@@ -355,6 +362,7 @@
 					"url": "build/customComponents.js",
 					"name": "tintComponents/Components/ThermostatsPanel",
 					"bundlerType": "module",
+					"guiApi": 2,
 					"newLine": true,
 					"sm": 12
 				}
