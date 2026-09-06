@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.3 (2026-09-06)
+* (ssbingo) Fix state roles of Tint remotes reported by the ioBroker object structure check (repositories PR #6601): `colorWheel.angle` and `colorTemp.value` now use the read-only role `value` (was `value.angle` / `level.color.temperature`), `colorWheel.hex` uses `text` (was `level.color.rgb`); remote states are created with `extendObject` so existing installations receive the corrected roles automatically on the next adapter start
+
 ### 0.5.2 (2026-09-06)
 * (ssbingo) Update @iobroker/adapter-core to ^3.4.3 (repository checker W0034); no functional changes compared to 0.5.1
 

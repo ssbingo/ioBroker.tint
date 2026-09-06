@@ -611,7 +611,10 @@ class Tint extends utils.Adapter {
 			...REMOTE_COLORWHEEL_STATES,
 			...REMOTE_COLORTEMP_STATES,
 		]) {
-			await this.setObjectNotExistsAsync(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
+			// extendObject (not setObjectNotExists) so that existing installations pick up
+			// corrected state definitions, e.g. the read-only roles introduced in 0.5.3
+			// (colorWheel.angle/colorTemp.value -> "value", colorWheel.hex -> "text").
+			await this.extendObjectAsync(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
 		}
 		this.log.debug(`Objects for remote ${id} ready`);
 	}

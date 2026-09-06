@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.5.2",
+		"version": "0.5.3",
 		"news": {
-			"0.5.2": {
-				"en": "Update @iobroker/adapter-core to ^3.4.3 (repository checker W0034); no functional changes compared to 0.5.1",
-				"de": "@iobroker/adapter-core auf ^3.4.3 aktualisiert (Repository-Checker W0034); keine funktionalen Änderungen gegenüber 0.5.1",
-				"ru": "@iobroker/adapter-core обновлён до ^3.4.3 (проверка репозитория W0034); функциональных изменений по сравнению с 0.5.1 нет",
-				"pt": "@iobroker/adapter-core atualizado para ^3.4.3 (verificador de repositório W0034); sem alterações funcionais em relação à 0.5.1",
-				"nl": "@iobroker/adapter-core bijgewerkt naar ^3.4.3 (repository-checker W0034); geen functionele wijzigingen ten opzichte van 0.5.1",
-				"fr": "@iobroker/adapter-core mis à jour vers ^3.4.3 (vérificateur de dépôt W0034) ; aucun changement fonctionnel par rapport à 0.5.1",
-				"it": "@iobroker/adapter-core aggiornato alla ^3.4.3 (verificatore del repository W0034); nessuna modifica funzionale rispetto alla 0.5.1",
-				"es": "@iobroker/adapter-core actualizado a ^3.4.3 (verificador de repositorio W0034); sin cambios funcionales respecto a 0.5.1",
-				"pl": "@iobroker/adapter-core zaktualizowany do ^3.4.3 (kontrola repozytorium W0034); brak zmian funkcjonalnych względem 0.5.1",
-				"uk": "@iobroker/adapter-core оновлено до ^3.4.3 (перевірка репозиторію W0034); функціональних змін порівняно з 0.5.1 немає",
-				"zh-cn": "@iobroker/adapter-core 更新至 ^3.4.3（仓库检查器 W0034）；与 0.5.1 相比无功能变化"
+			"0.5.3": {
+				"en": "Fix state roles of Tint remotes reported by the ioBroker object structure check: colorWheel.angle and colorTemp.value use the read-only role \"value\", colorWheel.hex uses \"text\"; remote states are now created with extendObject so existing installations receive the corrected roles automatically",
+				"de": "State-Rollen der Tint-Fernbedienungen gemäß ioBroker-Objektstrukturprüfung korrigiert: colorWheel.angle und colorTemp.value nutzen die Nur-Lese-Rolle \"value\", colorWheel.hex nutzt \"text\"; Remote-States werden jetzt per extendObject angelegt, damit bestehende Installationen die korrigierten Rollen automatisch erhalten",
+				"ru": "Исправлены роли состояний пультов Tint по результатам проверки структуры объектов ioBroker: colorWheel.angle и colorTemp.value используют роль только для чтения \"value\", colorWheel.hex — \"text\"; состояния пультов теперь создаются через extendObject, поэтому существующие установки получают исправленные роли автоматически",
+				"pt": "Corrigidas as funções (roles) dos estados dos comandos Tint reportadas pela verificação de estrutura de objetos do ioBroker: colorWheel.angle e colorTemp.value usam a função só de leitura \"value\", colorWheel.hex usa \"text\"; os estados dos comandos são agora criados com extendObject para que instalações existentes recebam as funções corrigidas automaticamente",
+				"nl": "Statusrollen van Tint-afstandsbedieningen gecorrigeerd volgens de ioBroker-objectstructuurcontrole: colorWheel.angle en colorTemp.value gebruiken de alleen-lezen rol \"value\", colorWheel.hex gebruikt \"text\"; remote-states worden nu met extendObject aangemaakt zodat bestaande installaties de gecorrigeerde rollen automatisch krijgen",
+				"fr": "Correction des rôles d'états des télécommandes Tint signalés par la vérification de structure d'objets ioBroker : colorWheel.angle et colorTemp.value utilisent le rôle en lecture seule \"value\", colorWheel.hex utilise \"text\" ; les états des télécommandes sont désormais créés avec extendObject afin que les installations existantes reçoivent automatiquement les rôles corrigés",
+				"it": "Corretti i ruoli degli stati dei telecomandi Tint segnalati dal controllo della struttura degli oggetti ioBroker: colorWheel.angle e colorTemp.value usano il ruolo di sola lettura \"value\", colorWheel.hex usa \"text\"; gli stati dei telecomandi vengono ora creati con extendObject in modo che le installazioni esistenti ricevano automaticamente i ruoli corretti",
+				"es": "Corregidos los roles de estado de los mandos Tint detectados por la comprobación de estructura de objetos de ioBroker: colorWheel.angle y colorTemp.value usan el rol de solo lectura \"value\", colorWheel.hex usa \"text\"; los estados de los mandos se crean ahora con extendObject para que las instalaciones existentes reciban los roles corregidos automáticamente",
+				"pl": "Poprawiono role stanów pilotów Tint zgłoszone przez kontrolę struktury obiektów ioBroker: colorWheel.angle i colorTemp.value używają roli tylko do odczytu \"value\", colorWheel.hex używa \"text\"; stany pilotów są teraz tworzone przez extendObject, dzięki czemu istniejące instalacje automatycznie otrzymują poprawione role",
+				"uk": "Виправлено ролі станів пультів Tint, виявлені перевіркою структури об'єктів ioBroker: colorWheel.angle і colorTemp.value використовують роль лише для читання \"value\", colorWheel.hex — \"text\"; стани пультів тепер створюються через extendObject, тож наявні інсталяції отримують виправлені ролі автоматично",
+				"zh-cn": "修复 ioBroker 对象结构检查报告的 Tint 遥控器状态角色：colorWheel.angle 和 colorTemp.value 使用只读角色 \"value\"，colorWheel.hex 使用 \"text\"；遥控器状态现在通过 extendObject 创建，现有安装会自动获得修正后的角色"
 			}
 		},
 		"titleLang": {
