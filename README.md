@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.2 (2026-09-06)
+* (ssbingo) Update @iobroker/adapter-core to ^3.4.3 (repository checker W0034); no functional changes compared to 0.5.1
+
 ### 0.5.1 (2026-09-04)
 * (ssbingo) Maintenance: bump @alcalzone/release-script-plugin-license to ^5.2.2 (repository checker S0064) and refresh package-lock.json with the merged Dependabot updates; no functional changes compared to 0.5.0
 
