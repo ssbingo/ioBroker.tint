@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.4 (2026-09-13)
+* (ssbingo) Add Node.js 26 to the CI test matrix (repository checker W3026); update @iobroker/testing to ^6.2.1 (S0064); no functional changes compared to 0.5.3
+
 ### 0.5.3 (2026-09-06)
 * (ssbingo) Fix state roles of Tint remotes reported by the ioBroker object structure check (repositories PR #6601): `colorWheel.angle` and `colorTemp.value` now use the read-only role `value` (was `value.angle` / `level.color.temperature`), `colorWheel.hex` uses `text` (was `level.color.rgb`); remote states are created with `extendObject` so existing installations receive the corrected roles automatically on the next adapter start
 
