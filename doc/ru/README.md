@@ -32,7 +32,7 @@
 - Лампы Müller Licht tint, сопряжённые с шлюзом deCONZ
 - API-ключ deCONZ (получить в приложении deCONZ или веб-интерфейсе Phoscon)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x полностью поддерживается)
+- ioBroker Admin ≥ 8.0.11
 
 ## Настройка
 
@@ -75,7 +75,7 @@
 | `action.effect` | string | R/W | Световой эффект группы |
 | `action.transitionTime` | число (×100 ms) | R/W | Время перехода группы |
 | `action.activateScene` | string | R/W | Запишите имя сцены, чтобы вызвать её |
-| `scenes.<name>` | boolean | R/W | Установите `true`, чтобы вызвать эту сцену |
+| `scenes.<name>` | boolean | W | Установите `true`, чтобы вызвать эту сцену |
 
 ### Пульты (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@
 | `info.reachable` | boolean | R | Доступность Zigbee |
 | `info.uniqueid` | string | R | IEEE-адрес Zigbee |
 | `state.position` | число (%) | R/W | Положение, 0 = закрыто, 100 = открыто |
-| `state.stop` | boolean | R/W | Запишите `true`, чтобы остановить движение |
+| `state.stop` | boolean | W | Запишите `true`, чтобы остановить движение |
 
 ### Выключатели (`switches.<id>.*`)
 

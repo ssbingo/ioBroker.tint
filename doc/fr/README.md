@@ -32,7 +32,7 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 - Ampoules Müller Licht tint déjà associées à la passerelle deCONZ
 - Clé API deCONZ (déverrouiller dans l'app deCONZ ou l'interface web Phoscon)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x entièrement pris en charge)
+- ioBroker Admin ≥ 8.0.11
 
 ## Configuration
 
@@ -75,7 +75,7 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 | `action.effect` | string | R/W | Effet lumineux du groupe |
 | `action.transitionTime` | nombre (×100 ms) | R/W | Temps de transition du groupe |
 | `action.activateScene` | string | R/W | Écrire le nom d'une scène pour la rappeler |
-| `scenes.<name>` | boolean | R/W | Mettre à `true` pour rappeler cette scène |
+| `scenes.<name>` | boolean | W | Mettre à `true` pour rappeler cette scène |
 
 ### Télécommandes (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@ La communication s'effectue exclusivement via l'API REST ouverte deCONZ de dresd
 | `info.reachable` | boolean | R | Accessibilité Zigbee |
 | `info.uniqueid` | string | R | Adresse IEEE Zigbee |
 | `state.position` | nombre (%) | R/W | Position, 0 = fermé, 100 = ouvert |
-| `state.stop` | boolean | R/W | Écrire `true` pour arrêter le mouvement |
+| `state.stop` | boolean | W | Écrire `true` pour arrêter le mouvement |
 
 ### Interrupteurs (`switches.<id>.*`)
 

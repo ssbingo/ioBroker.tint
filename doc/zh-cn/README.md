@@ -32,7 +32,7 @@
 - 已与deCONZ网关配对的Müller Licht tint灯泡
 - deCONZ API密钥（在deCONZ应用或Phoscon网页界面解锁）
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23（完全支持 Admin 8.x）
+- ioBroker Admin ≥ 8.0.11
 
 ## 配置
 
@@ -75,7 +75,7 @@
 | `action.effect` | string | R/W | 分组灯光效果 |
 | `action.transitionTime` | 数字 (×100 ms) | R/W | 分组过渡时间覆盖 |
 | `action.activateScene` | string | R/W | 写入场景名称以调用该场景 |
-| `scenes.<name>` | boolean | R/W | 设为 `true` 以调用该场景 |
+| `scenes.<name>` | boolean | W | 设为 `true` 以调用该场景 |
 
 ### 遥控器 (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@
 | `info.reachable` | boolean | R | Zigbee可达性 |
 | `info.uniqueid` | string | R | Zigbee IEEE地址 |
 | `state.position` | 数字 (%) | R/W | 位置，0 = 关闭，100 = 打开 |
-| `state.stop` | boolean | R/W | 写入 `true` 以停止移动 |
+| `state.stop` | boolean | W | 写入 `true` 以停止移动 |
 
 ### 开关 (`switches.<id>.*`)
 

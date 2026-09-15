@@ -10,7 +10,6 @@
 	"transitionTime": "Tempo de transição (×100 ms)",
 	"remoteHeader": "Controlo remoto Tint",
 	"autoApplyColorWheel": "Aplicar roda de cores automaticamente",
-	"watchdogMinutes": "Watchdog do controlo remoto (minutos)",
 	"tabLights": "Luzes",
 	"tabGroups": "Grupos",
 	"descLightsTab": "Todas as luzes emparelhadas com o seu gateway deCONZ e o respetivo estado atual.",
@@ -27,12 +26,8 @@
 	"descSwitchesTab": "Todos os interruptores Zigbee genéricos (não Tint) e o seu estado.",
 	"descSensorsTab": "Todos os outros sensores (temperatura, humidade, movimento, abertura/fecho, consumo, etc.) e os seus valores atuais.",
 	"descThermostatsTab": "Todos os termostatos de radiador com temperatura atual, ponto de ajuste e posição da válvula.",
-	"pairingHeader": "Chave API",
-	"pairingHint": "Clique primeiro no botão abaixo, depois abra o Phoscon no browser e vá a ☰ → Gateway → Autenticar app. O adaptador deteta a janela de emparelhamento automaticamente (a cada 3 s, até 60 s) e preenche a chave.",
-	"btnRequestApiKey": "Aguardar emparelhamento deCONZ…",
-	"btnScanApiKey": "deCONZ Pairing",
-	"confirmPairQuestion": "Abra o Phoscon: ☰ → Gateway → Autenticar app — depois clique em OK. O adaptador irá buscar a chave API automaticamente.",
 	"deCONZ Pairing": "Emparelhamento deCONZ",
 	"adminTabSection": "Separador da barra lateral do Admin",
-	"enableAdminTab": "Mostrar separador de controlo Tint na barra lateral do Admin"
+	"enableAdminTab": "Mostrar separador de controlo Tint na barra lateral do Admin",
+	"enableAdminTabHelp": "Só tem efeito depois de recarregar a página do Admin no navegador (por ex. F5). Ao iniciar, o adaptador adiciona ou remove o separador da barra lateral no objeto da sua instância."
 }

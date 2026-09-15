@@ -10,7 +10,6 @@
 	"transitionTime": "Czas przejścia (×100 ms)",
 	"remoteHeader": "Pilot Tint",
 	"autoApplyColorWheel": "Automatyczne stosowanie koła kolorów",
-	"watchdogMinutes": "Watchdog pilota (minuty)",
 	"tabLights": "Lampy",
 	"tabGroups": "Grupy",
 	"descLightsTab": "Wszystkie lampy sparowane z bramką deCONZ i ich bieżący stan.",
@@ -27,12 +26,8 @@
 	"descSwitchesTab": "Wszystkie generyczne (nie-Tint) przełączniki Zigbee i ich stan.",
 	"descSensorsTab": "Wszystkie inne czujniki (temperatura, wilgotność, ruch, otwarcie/zamknięcie, zużycie itd.) oraz ich aktualne wartości.",
 	"descThermostatsTab": "Wszystkie termostaty grzejnikowe z aktualną temperaturą, wartością zadaną i położeniem zaworu.",
-	"pairingHeader": "Klucz API",
-	"pairingHint": "Najpierw kliknij przycisk poniżej, a następnie otwórz Phoscon w przeglądarce i przejdź do ☰ → Bramka → Uwierzytelnij aplikację. Adapter automatycznie wykryje okno parowania (co 3 s, do 60 s) i wpisze klucz.",
-	"btnRequestApiKey": "Czekaj na parowanie deCONZ…",
-	"btnScanApiKey": "deCONZ Pairing",
-	"confirmPairQuestion": "Otwórz Phoscon: ☰ → Bramka → Uwierzytelnij aplikację — następnie kliknij OK. Adapter automatycznie pobierze klucz API.",
 	"deCONZ Pairing": "Parowanie deCONZ",
 	"adminTabSection": "Karta paska bocznego Admin",
-	"enableAdminTab": "Wyświetl kartę sterowania Tint na pasku bocznym Admin"
+	"enableAdminTab": "Wyświetl kartę sterowania Tint na pasku bocznym Admin",
+	"enableAdminTabHelp": "Działa dopiero po przeładowaniu strony Admin w przeglądarce (np. F5). Podczas startu adapter dodaje lub usuwa kartę paska bocznego w obiekcie swojej instancji."
 }

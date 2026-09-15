@@ -10,7 +10,6 @@
 	"transitionTime": "过渡时间（×100 毫秒）",
 	"remoteHeader": "Tint 遥控器",
 	"autoApplyColorWheel": "自动应用色轮到灯具",
-	"watchdogMinutes": "遥控器看门狗（分钟）",
 	"tabLights": "灯具",
 	"tabGroups": "群组",
 	"descLightsTab": "所有与deCONZ网关配对的灯具及其当前状态。",
@@ -27,12 +26,8 @@
 	"descSwitchesTab": "所有通用（非Tint）Zigbee墙壁开关及其状态。",
 	"descSensorsTab": "所有其他传感器（温度、湿度、运动、开/关、能耗等）及其当前读数。",
 	"descThermostatsTab": "所有散热器恒温器及其当前温度、设定值和阀门位置。",
-	"pairingHeader": "API密钥",
-	"pairingHint": "首先点击下方按钮，然后在浏览器中打开Phoscon，进入☰→网关→验证应用。适配器会自动检测配对窗口（每3秒检测一次，最多60秒）并填入密钥。",
-	"btnRequestApiKey": "等待deCONZ配对…",
-	"btnScanApiKey": "deCONZ Pairing",
-	"confirmPairQuestion": "打开 Phoscon：☰ → 网关 → 认证应用 — 然后点击确定。适配器将自动获取 API 密钥。",
 	"deCONZ Pairing": "deCONZ配对",
 	"adminTabSection": "Admin侧边栏标签",
-	"enableAdminTab": "在Admin侧边栏显示Tint控制标签"
+	"enableAdminTab": "在Admin侧边栏显示Tint控制标签",
+	"enableAdminTabHelp": "仅在浏览器中重新加载 Admin 页面（例如按 F5）后生效。适配器在启动时会在其实例对象中添加或移除侧边栏标签页。"
 }

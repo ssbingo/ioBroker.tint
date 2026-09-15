@@ -126,6 +126,7 @@
 				"enableAdminTab": {
 					"type": "checkbox",
 					"label": "enableAdminTab",
+					"help": "enableAdminTabHelp",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,

@@ -32,7 +32,7 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 - Müller Licht tint Lampen, die bereits mit dem deCONZ Gateway gekoppelt sind
 - deCONZ API-Schlüssel (freischalten über die deCONZ-App oder das Phoscon-Webinterface)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x wird vollständig unterstützt)
+- ioBroker Admin ≥ 8.0.11
 
 ## Konfiguration
 
@@ -75,7 +75,7 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 | `action.effect` | string | R/W | Gruppen-Lichteffekt |
 | `action.transitionTime` | Zahl (×100 ms) | R/W | Gruppen-Übergangszeit-Überschreibung |
 | `action.activateScene` | string | R/W | Szene durch Schreiben des Namens abrufen |
-| `scenes.<name>` | boolean | R/W | `true` setzen, um die Szene abzurufen |
+| `scenes.<name>` | boolean | W | `true` setzen, um die Szene abzurufen |
 
 ### Fernbedienungen (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@ Die Kommunikation erfolgt ausschließlich über die offene deCONZ REST-API von d
 | `info.reachable` | boolean | R | Zigbee-Erreichbarkeit |
 | `info.uniqueid` | string | R | Zigbee IEEE-Adresse |
 | `state.position` | Zahl (%) | R/W | Position, 0 = geschlossen, 100 = offen |
-| `state.stop` | boolean | R/W | `true` schreiben, um die Bewegung zu stoppen |
+| `state.stop` | boolean | W | `true` schreiben, um die Bewegung zu stoppen |
 
 ### Schalter (`switches.<id>.*`)
 

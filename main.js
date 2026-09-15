@@ -95,6 +95,7 @@ class Tint extends utils.Adapter {
 	 */
 	async onReady() {
 		this.setState('info.connection', false, true);
+		this._sanitizeConfig();
 
 		const { ip, port, wsPort, apiKey, pollingInterval, autoApplyColorWheel, transitionTime } = this.config;
 
@@ -510,7 +511,7 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`lights.${id}.info`, lightInfoChannel(id));
 		await this.setObjectNotExistsAsync(`lights.${id}.state`, lightStateChannel(id));
 		for (const def of LIGHT_STATES) {
-			await this.setObjectNotExistsAsync(`lights.${id}.${def.sub}`, buildStateObj(`lights.${id}`, def));
+			await this._upsertStateObject(`lights.${id}.${def.sub}`, buildStateObj(`lights.${id}`, def));
 		}
 		this.log.debug(`Objects for light ${id} ready`);
 	}
@@ -527,7 +528,7 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`plugs.${id}.info`, plugInfoChannel(id));
 		await this.setObjectNotExistsAsync(`plugs.${id}.state`, plugStateChannel(id));
 		for (const def of PLUG_STATES) {
-			await this.setObjectNotExistsAsync(`plugs.${id}.${def.sub}`, buildStateObj(`plugs.${id}`, def));
+			await this._upsertStateObject(`plugs.${id}.${def.sub}`, buildStateObj(`plugs.${id}`, def));
 		}
 		this.log.debug(`Objects for plug ${id} ready`);
 	}
@@ -544,7 +545,7 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`covers.${id}.info`, coverInfoChannel(id));
 		await this.setObjectNotExistsAsync(`covers.${id}.state`, coverStateChannel(id));
 		for (const def of COVER_STATES) {
-			await this.setObjectNotExistsAsync(`covers.${id}.${def.sub}`, buildStateObj(`covers.${id}`, def));
+			await this._upsertStateObject(`covers.${id}.${def.sub}`, buildStateObj(`covers.${id}`, def));
 		}
 		this.log.debug(`Objects for cover ${id} ready`);
 	}
@@ -562,23 +563,23 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`groups.${id}.action`, groupActionChannel(id));
 		await this.setObjectNotExistsAsync(`groups.${id}.scenes`, groupScenesChannel(id));
 		for (const def of GROUP_INFO_STATES) {
-			await this.setObjectNotExistsAsync(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
+			await this._upsertStateObject(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
 		}
 		for (const def of GROUP_ACTION_STATES) {
-			await this.setObjectNotExistsAsync(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
+			await this._upsertStateObject(`groups.${id}.${def.sub}`, buildStateObj(`groups.${id}`, def));
 		}
 		const sceneMap = this._sceneMap[id] || {};
 		for (const sceneName of Object.keys(sceneMap)) {
 			const safeKey = sceneName.replace(/[^a-zA-Z0-9_]/g, '_');
 			this.log.debug(`  Creating scene state: groups.${id}.scenes.${safeKey} ("${sceneName}")`);
-			await this.setObjectNotExistsAsync(`groups.${id}.scenes.${safeKey}`, {
+			await this._upsertStateObject(`groups.${id}.scenes.${safeKey}`, {
 				_id: `groups.${id}.scenes.${safeKey}`,
 				type: 'state',
 				common: {
 					name: sceneName,
 					type: 'boolean',
 					role: 'button',
-					read: true,
+					read: false,
 					write: true,
 					def: false,
 				},
@@ -611,10 +612,7 @@ class Tint extends utils.Adapter {
 			...REMOTE_COLORWHEEL_STATES,
 			...REMOTE_COLORTEMP_STATES,
 		]) {
-			// extendObject (not setObjectNotExists) so that existing installations pick up
-			// corrected state definitions, e.g. the read-only roles introduced in 0.5.3
-			// (colorWheel.angle/colorTemp.value -> "value", colorWheel.hex -> "text").
-			await this.extendObjectAsync(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
+			await this._upsertStateObject(`remotes.${id}.${def.sub}`, buildStateObj(`remotes.${id}`, def));
 		}
 		this.log.debug(`Objects for remote ${id} ready`);
 	}
@@ -631,7 +629,7 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`switches.${id}.info`, switchChannel(id, 'info', 'Info'));
 		await this.setObjectNotExistsAsync(`switches.${id}.button`, switchChannel(id, 'button', 'Button'));
 		for (const def of [...SWITCH_INFO_STATES, ...SWITCH_BUTTON_STATES]) {
-			await this.setObjectNotExistsAsync(`switches.${id}.${def.sub}`, buildStateObj(`switches.${id}`, def));
+			await this._upsertStateObject(`switches.${id}.${def.sub}`, buildStateObj(`switches.${id}`, def));
 		}
 		this.log.debug(`Objects for switch ${id} ready`);
 	}
@@ -651,7 +649,7 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`sensors.${id}.value`, sensorChannel(id, 'value', 'Value'));
 		const valueStates = SENSOR_VALUE_STATES[sensor.type] || [SENSOR_GENERIC_VALUE_STATE];
 		for (const def of [...SENSOR_INFO_STATES, ...valueStates]) {
-			await this.setObjectNotExistsAsync(`sensors.${id}.${def.sub}`, buildStateObj(`sensors.${id}`, def));
+			await this._upsertStateObject(`sensors.${id}.${def.sub}`, buildStateObj(`sensors.${id}`, def));
 		}
 		this.log.debug(`Objects for sensor ${id} ready (type=${sensor.type})`);
 	}
@@ -668,7 +666,7 @@ class Tint extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`thermostats.${id}.info`, thermostatInfoChannel(id));
 		await this.setObjectNotExistsAsync(`thermostats.${id}.state`, thermostatStateChannel(id));
 		for (const def of THERMOSTAT_STATES) {
-			await this.setObjectNotExistsAsync(`thermostats.${id}.${def.sub}`, buildStateObj(`thermostats.${id}`, def));
+			await this._upsertStateObject(`thermostats.${id}.${def.sub}`, buildStateObj(`thermostats.${id}`, def));
 		}
 		this.log.debug(`Objects for thermostat ${id} ready`);
 	}
@@ -1958,6 +1956,68 @@ class Tint extends utils.Adapter {
 		} catch (err) {
 			this.log.warn(`_applyAdminTabSetting: ${err.message}`);
 		}
+	}
+
+	/**
+	 * Create a state object or bring an existing one up to date.
+	 *
+	 * Only the semantic parts of `common` (type, role, read/write, unit, min/max,
+	 * def, states) are compared and, if they differ, extended — so corrected
+	 * definitions (e.g. the read-only remote roles of 0.5.3 or the write-only
+	 * button flags of 0.5.5) reach existing installations without rewriting
+	 * user-adjusted names on every start.
+	 *
+	 * @param {string} id - Object id relative to the adapter namespace
+	 * @param {ioBroker.SettableObject} obj - Desired object definition
+	 */
+	async _upsertStateObject(id, obj) {
+		const existing = await this.getObjectAsync(id);
+		if (!existing) {
+			await this.setObjectNotExistsAsync(id, obj);
+			return;
+		}
+		const desired = obj.common || {};
+		const current = existing.common || {};
+		const diff = {};
+		for (const field of ['type', 'role', 'read', 'write', 'unit', 'min', 'max', 'def', 'states']) {
+			if (desired[field] !== undefined && JSON.stringify(current[field]) !== JSON.stringify(desired[field])) {
+				diff[field] = desired[field];
+			}
+		}
+		if (Object.keys(diff).length) {
+			this.log.debug(`Updating object ${id}: ${JSON.stringify(diff)}`);
+			await this.extendObjectAsync(id, { common: diff });
+		}
+	}
+
+	/**
+	 * Clamp numeric config values to the ranges enforced by the admin UI.
+	 *
+	 * jsonConfig limits (pollingInterval 10..3600 s, transitionTime 0..300 ×100 ms)
+	 * can be bypassed by writing the instance object directly, so the same limits
+	 * are applied here before the values are used.
+	 */
+	_sanitizeConfig() {
+		/**
+		 * @param {string} name - Config key, for the log message
+		 * @param {unknown} value - Configured value
+		 * @param {number} min - Lower bound (inclusive)
+		 * @param {number} max - Upper bound (inclusive)
+		 * @param {number} fallback - Value used when the input is not a finite number
+		 * @returns {number} Sanitised value
+		 */
+		const clamp = (name, value, min, max, fallback) => {
+			const num = Number(value);
+			const result = Number.isFinite(num) ? Math.min(max, Math.max(min, num)) : fallback;
+			if (result !== num) {
+				this.log.warn(
+					`Config ${name}=${JSON.stringify(value)} is invalid or outside ${min}..${max} — using ${result}`,
+				);
+			}
+			return result;
+		};
+		this.config.pollingInterval = clamp('pollingInterval', this.config.pollingInterval, 10, 3600, 60);
+		this.config.transitionTime = clamp('transitionTime', this.config.transitionTime, 0, 300, 4);
 	}
 
 	/**

@@ -41,7 +41,7 @@ The adapter communicates exclusively through the open deCONZ REST API provided b
 - Müller Licht tint bulbs already paired to the deCONZ gateway
 - deCONZ API key (unlock via the deCONZ app or Phoscon web interface)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x fully supported)
+- ioBroker Admin ≥ 8.0.11
 
 ## Installation
 
@@ -92,7 +92,7 @@ iobroker add tint
 | `action.effect` | string | R/W | Group light effect |
 | `action.transitionTime` | number (×100 ms) | R/W | Group transition time override |
 | `action.activateScene` | string | R/W | Write a scene name to recall it |
-| `scenes.<name>` | boolean | R/W | Set to `true` to recall this scene |
+| `scenes.<name>` | boolean | W | Set to `true` to recall this scene |
 
 ### Remotes (`remotes.<id>.*`)
 
@@ -136,7 +136,7 @@ iobroker add tint
 | `info.reachable` | boolean | R | Zigbee reachability |
 | `info.uniqueid` | string | R | Zigbee IEEE address |
 | `state.position` | number (%) | R/W | Cover position, 0 = closed, 100 = open |
-| `state.stop` | boolean | R/W | Write `true` to stop movement |
+| `state.stop` | boolean | W | Write `true` to stop movement |
 
 ### Switches (`switches.<id>.*`)
 
@@ -184,6 +184,13 @@ iobroker add tint
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.5.5 (2026-09-15)
+* (ssbingo) Require ioBroker Admin >= 8.0.11 in `globalDependencies`, as requested in the ioBroker repository review for adapters with custom jsonConfig components (the panels still load on Admin 7.8.23+, but only Admin 8.0.11+ is the tested and supported minimum); README requirements updated; no functional changes compared to 0.5.4
+* (ssbingo) Remove unused translation keys reported in the repository review: `watchdogMinutes`, `pairingHeader`, `pairingHint`, `btnRequestApiKey`, `btnScanApiKey`, `confirmPairQuestion` from `admin/i18n/*.json`, plus 15 leftover keys of the former jsonConfig/pairing UI from the admin tab translations in `admin/src/i18n/*.json`
+* (ssbingo) Buttons are write-only now as required by the repository review: `covers.<id>.state.stop` and `groups.<id>.scenes.<name>` use `read: false`; state objects are created through a new upsert helper that compares type/role/read/write/unit/min/max/def/states and extends only what differs, so existing installations receive corrected definitions on the next start without touching user-adjusted names
+* (ssbingo) Clamp `pollingInterval` (10–3600 s) and `transitionTime` (0–300 ×100 ms) in code to the ranges enforced by the admin UI, with a warning when a value had to be corrected
+* (ssbingo) Add a help text to the "Show Tint control tab in admin sidebar" option explaining that the change becomes visible only after reloading the Admin page
 
 ### 0.5.4 (2026-09-13)
 * (ssbingo) Add Node.js 26 to the CI test matrix (repository checker W3026); update @iobroker/testing to ^6.2.1 (S0064); no functional changes compared to 0.5.3

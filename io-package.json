@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.5.4",
+		"version": "0.5.5",
 		"news": {
-			"0.5.4": {
-				"en": "Add Node.js 26 to the CI test matrix (repository checker W3026) and update @iobroker/testing to 6.2.1 (S0064); no functional changes compared to 0.5.3",
-				"de": "Node.js 26 zur CI-Testmatrix hinzugefügt (Repository-Checker W3026) und @iobroker/testing auf 6.2.1 aktualisiert (S0064); keine funktionalen Änderungen gegenüber 0.5.3",
-				"ru": "Node.js 26 добавлен в матрицу CI-тестов (проверка репозитория W3026), @iobroker/testing обновлён до 6.2.1 (S0064); функциональных изменений по сравнению с 0.5.3 нет",
-				"pt": "Node.js 26 adicionado à matriz de testes de CI (verificador de repositório W3026) e @iobroker/testing atualizado para 6.2.1 (S0064); sem alterações funcionais em relação à 0.5.3",
-				"nl": "Node.js 26 toegevoegd aan de CI-testmatrix (repository-checker W3026) en @iobroker/testing bijgewerkt naar 6.2.1 (S0064); geen functionele wijzigingen ten opzichte van 0.5.3",
-				"fr": "Ajout de Node.js 26 à la matrice de tests CI (vérificateur de dépôt W3026) et mise à jour de @iobroker/testing vers 6.2.1 (S0064) ; aucun changement fonctionnel par rapport à 0.5.3",
-				"it": "Aggiunto Node.js 26 alla matrice di test CI (verificatore del repository W3026) e aggiornato @iobroker/testing alla 6.2.1 (S0064); nessuna modifica funzionale rispetto alla 0.5.3",
-				"es": "Añadido Node.js 26 a la matriz de pruebas de CI (verificador de repositorio W3026) y actualizado @iobroker/testing a 6.2.1 (S0064); sin cambios funcionales respecto a 0.5.3",
-				"pl": "Dodano Node.js 26 do macierzy testów CI (kontrola repozytorium W3026) i zaktualizowano @iobroker/testing do 6.2.1 (S0064); brak zmian funkcjonalnych względem 0.5.3",
-				"uk": "Додано Node.js 26 до матриці CI-тестів (перевірка репозиторію W3026) та оновлено @iobroker/testing до 6.2.1 (S0064); функціональних змін порівняно з 0.5.3 немає",
-				"zh-cn": "将 Node.js 26 加入 CI 测试矩阵（仓库检查器 W3026），并将 @iobroker/testing 更新至 6.2.1（S0064）；与 0.5.3 相比无功能变化"
+			"0.5.5": {
+				"en": "Repository review: require ioBroker Admin >= 8.0.11; cover stop and scene recall buttons are write-only now (read=false) and existing objects are updated automatically; pollingInterval and transitionTime are clamped in code to the admin UI ranges; hint that the admin sidebar tab setting needs a page reload; unused translation keys removed",
+				"de": "Repository-Review: ioBroker Admin >= 8.0.11 vorausgesetzt; Stop-Button der Rollos und Szenen-Buttons sind jetzt nur schreibbar (read=false), bestehende Objekte werden automatisch aktualisiert; pollingInterval und transitionTime werden im Code auf die Bereiche der Admin-Oberfläche begrenzt; Hinweis, dass die Einstellung für den Admin-Seitenleisten-Tab ein Neuladen der Seite erfordert; ungenutzte Übersetzungsschlüssel entfernt",
+				"ru": "Проверка репозитория: требуется ioBroker Admin >= 8.0.11; кнопки остановки жалюзи и вызова сцен теперь только для записи (read=false), существующие объекты обновляются автоматически; pollingInterval и transitionTime ограничиваются в коде диапазонами интерфейса администратора; подсказка, что настройка вкладки боковой панели требует перезагрузки страницы; удалены неиспользуемые ключи переводов",
+				"pt": "Revisão do repositório: requer ioBroker Admin >= 8.0.11; o botão de paragem dos estores e os botões de cenas são agora só de escrita (read=false) e os objetos existentes são atualizados automaticamente; pollingInterval e transitionTime são limitados no código aos intervalos da interface de administração; aviso de que a definição do separador da barra lateral exige recarregar a página; chaves de tradução não utilizadas removidas",
+				"nl": "Repositoryreview: vereist ioBroker Admin >= 8.0.11; de stopknop van rolluiken en de scèneknoppen zijn nu alleen-schrijven (read=false) en bestaande objecten worden automatisch bijgewerkt; pollingInterval en transitionTime worden in de code begrensd tot de bereiken van de beheerinterface; hint dat de instelling voor het zijbalktabblad een pagina-herlaad vereist; ongebruikte vertaalsleutels verwijderd",
+				"fr": "Revue du dépôt : nécessite ioBroker Admin >= 8.0.11 ; le bouton d'arrêt des volets et les boutons de scène sont désormais en écriture seule (read=false) et les objets existants sont mis à jour automatiquement ; pollingInterval et transitionTime sont bornés dans le code aux plages de l'interface d'administration ; indication que le réglage de l'onglet de la barre latérale nécessite un rechargement de la page ; clés de traduction inutilisées supprimées",
+				"it": "Revisione del repository: richiede ioBroker Admin >= 8.0.11; il pulsante di stop delle tapparelle e i pulsanti delle scene sono ora di sola scrittura (read=false) e gli oggetti esistenti vengono aggiornati automaticamente; pollingInterval e transitionTime sono limitati nel codice agli intervalli dell'interfaccia di amministrazione; avviso che l'impostazione della scheda della barra laterale richiede il ricaricamento della pagina; rimosse le chiavi di traduzione inutilizzate",
+				"es": "Revisión del repositorio: requiere ioBroker Admin >= 8.0.11; el botón de parada de persianas y los botones de escenas son ahora de solo escritura (read=false) y los objetos existentes se actualizan automáticamente; pollingInterval y transitionTime se limitan en el código a los rangos de la interfaz de administración; aviso de que el ajuste de la pestaña de la barra lateral requiere recargar la página; eliminadas claves de traducción no utilizadas",
+				"pl": "Przegląd repozytorium: wymaga ioBroker Admin >= 8.0.11; przycisk stop rolet i przyciski scen są teraz tylko do zapisu (read=false), a istniejące obiekty są aktualizowane automatycznie; pollingInterval i transitionTime są ograniczane w kodzie do zakresów interfejsu administracyjnego; wskazówka, że ustawienie karty paska bocznego wymaga przeładowania strony; usunięto nieużywane klucze tłumaczeń",
+				"uk": "Перевірка репозиторію: потрібен ioBroker Admin >= 8.0.11; кнопка зупинки жалюзі та кнопки сцен тепер лише для запису (read=false), наявні об'єкти оновлюються автоматично; pollingInterval і transitionTime обмежуються в коді діапазонами інтерфейсу адміністратора; підказка, що налаштування вкладки бічної панелі потребує перезавантаження сторінки; вилучено невикористані ключі перекладів",
+				"zh-cn": "仓库评审：要求 ioBroker Admin >= 8.0.11；窗帘停止按钮和场景调用按钮现在为只写（read=false），现有对象会自动更新；pollingInterval 和 transitionTime 在代码中被限制在管理界面的范围内；提示侧边栏标签页设置需要重新加载页面；移除未使用的翻译键"
 			}
 		},
 		"titleLang": {
@@ -81,7 +81,7 @@
 		],
 		"globalDependencies": [
 			{
-				"admin": ">=7.8.23"
+				"admin": ">=8.0.11"
 			}
 		]
 	},

@@ -32,7 +32,7 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 - Żarówki Müller Licht tint sparowane już z bramką deCONZ
 - Klucz API deCONZ (odblokować w aplikacji deCONZ lub interfejsie web Phoscon)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x w pełni obsługiwany)
+- ioBroker Admin ≥ 8.0.11
 
 ## Konfiguracja
 
@@ -75,7 +75,7 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 | `action.effect` | string | R/W | Efekt świetlny grupy |
 | `action.transitionTime` | liczba (×100 ms) | R/W | Czas przejścia grupy |
 | `action.activateScene` | string | R/W | Wpisz nazwę scenerii, aby ją przywołać |
-| `scenes.<name>` | boolean | R/W | Ustaw na `true`, aby przywołać tę scenerię |
+| `scenes.<name>` | boolean | W | Ustaw na `true`, aby przywołać tę scenerię |
 
 ### Piloty (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@ Komunikacja odbywa się wyłącznie przez otwarty REST API deCONZ firmy dresden 
 | `info.reachable` | boolean | R | Osiągalność Zigbee |
 | `info.uniqueid` | string | R | Adres IEEE Zigbee |
 | `state.position` | liczba (%) | R/W | Pozycja, 0 = zamknięta, 100 = otwarta |
-| `state.stop` | boolean | R/W | Wpisz `true`, aby zatrzymać ruch |
+| `state.stop` | boolean | W | Wpisz `true`, aby zatrzymać ruch |
 
 ### Przełączniki (`switches.<id>.*`)
 

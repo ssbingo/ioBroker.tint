@@ -10,7 +10,6 @@
 	"transitionTime": "Transition time (×100 ms)",
 	"remoteHeader": "Tint Remote",
 	"autoApplyColorWheel": "Auto-apply color wheel to lights",
-	"watchdogMinutes": "Remote watchdog (minutes)",
 	"tabLights": "Lights",
 	"tabGroups": "Groups",
 	"descLightsTab": "All lights paired with your deCONZ gateway and their current status.",
@@ -27,12 +26,8 @@
 	"descSwitchesTab": "All generic (non-Tint) Zigbee wall switches and their status.",
 	"descSensorsTab": "All other sensors (temperature, humidity, motion, open/close, consumption, etc.) and their current readings.",
 	"descThermostatsTab": "All radiator thermostats with current temperature, setpoint, and valve position.",
-	"pairingHeader": "API Key",
-	"pairingHint": "Click the button below first, then open Phoscon in your browser (http://IP:Port/) and go to ☰ → Gateway → Authenticate app. The adapter detects the pairing window automatically (polls every 3 s for up to 60 s) and fills in the API key.",
-	"btnRequestApiKey": "Wait for deCONZ pairing…",
-	"btnScanApiKey": "deCONZ Pairing",
-	"confirmPairQuestion": "Open Phoscon: ☰ → Gateway → Authenticate app — then click OK. The adapter will fetch the API key automatically.",
 	"deCONZ Pairing": "deCONZ Pairing",
 	"adminTabSection": "Admin Sidebar Tab",
-	"enableAdminTab": "Show Tint control tab in admin sidebar"
+	"enableAdminTab": "Show Tint control tab in admin sidebar",
+	"enableAdminTabHelp": "Takes effect only after reloading the Admin page in the browser (e.g. F5). On start-up the adapter adds or removes the sidebar tab in its instance object."
 }

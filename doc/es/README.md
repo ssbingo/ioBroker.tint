@@ -32,7 +32,7 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 - Bombillas Müller Licht tint ya emparejadas con la pasarela deCONZ
 - Clave de API deCONZ (desbloquear en la app deCONZ o la interfaz web Phoscon)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x totalmente compatible)
+- ioBroker Admin ≥ 8.0.11
 
 ## Configuración
 
@@ -75,7 +75,7 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 | `action.effect` | string | R/W | Efecto de luz del grupo |
 | `action.transitionTime` | número (×100 ms) | R/W | Tiempo de transición del grupo |
 | `action.activateScene` | string | R/W | Escribe el nombre de una escena para recuperarla |
-| `scenes.<name>` | boolean | R/W | Establecer en `true` para recuperar esta escena |
+| `scenes.<name>` | boolean | W | Establecer en `true` para recuperar esta escena |
 
 ### Mandos (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@ La comunicación se realiza exclusivamente a través de la API REST abierta deCO
 | `info.reachable` | boolean | R | Accesibilidad Zigbee |
 | `info.uniqueid` | string | R | Dirección IEEE Zigbee |
 | `state.position` | número (%) | R/W | Posición, 0 = cerrada, 100 = abierta |
-| `state.stop` | boolean | R/W | Escribe `true` para detener el movimiento |
+| `state.stop` | boolean | W | Escribe `true` para detener el movimiento |
 
 ### Interruptores (`switches.<id>.*`)
 

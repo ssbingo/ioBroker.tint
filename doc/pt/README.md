@@ -32,7 +32,7 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 - Lâmpadas Müller Licht tint já emparelhadas com o gateway deCONZ
 - Chave de API deCONZ (desbloquear na app deCONZ ou interface web Phoscon)
 - Node.js ≥ 22
-- ioBroker Admin ≥ 7.8.23 (Admin 8.x totalmente suportado)
+- ioBroker Admin ≥ 8.0.11
 
 ## Configuração
 
@@ -75,7 +75,7 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 | `action.effect` | string | R/W | Efeito de luz do grupo |
 | `action.transitionTime` | número (×100 ms) | R/W | Tempo de transição do grupo |
 | `action.activateScene` | string | R/W | Escreve o nome de uma cena para a chamar |
-| `scenes.<name>` | boolean | R/W | Definir como `true` para chamar esta cena |
+| `scenes.<name>` | boolean | W | Definir como `true` para chamar esta cena |
 
 ### Telecomandos (`remotes.<id>.*`)
 
@@ -119,7 +119,7 @@ A comunicação é feita exclusivamente através da API REST aberta deCONZ forne
 | `info.reachable` | boolean | R | Alcançabilidade Zigbee |
 | `info.uniqueid` | string | R | Endereço IEEE Zigbee |
 | `state.position` | número (%) | R/W | Posição, 0 = fechado, 100 = aberto |
-| `state.stop` | boolean | R/W | Escreva `true` para parar o movimento |
+| `state.stop` | boolean | W | Escreva `true` para parar o movimento |
 
 ### Interruptores (`switches.<id>.*`)
 

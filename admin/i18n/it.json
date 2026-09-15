@@ -10,7 +10,6 @@
 	"transitionTime": "Tempo di transizione (×100 ms)",
 	"remoteHeader": "Telecomando Tint",
 	"autoApplyColorWheel": "Applicare la ruota dei colori automaticamente",
-	"watchdogMinutes": "Watchdog telecomando (minuti)",
 	"tabLights": "Luci",
 	"tabGroups": "Gruppi",
 	"descLightsTab": "Tutte le luci associate al tuo gateway deCONZ e il loro stato attuale.",
@@ -27,12 +26,8 @@
 	"descSwitchesTab": "Tutti gli interruttori Zigbee generici (non Tint) e il loro stato.",
 	"descSensorsTab": "Tutti gli altri sensori (temperatura, umidità, movimento, apertura/chiusura, consumo, ecc.) e i loro valori attuali.",
 	"descThermostatsTab": "Tutti i termostati dei radiatori con temperatura attuale, valore impostato e posizione della valvola.",
-	"pairingHeader": "Chiave API",
-	"pairingHint": "Fai prima clic sul pulsante in basso, poi apri Phoscon nel browser e vai su ☰ → Gateway → Autentica app. L'adattatore rileva automaticamente la finestra di accoppiamento (ogni 3 s, fino a 60 s) e compila la chiave.",
-	"btnRequestApiKey": "Attendi accoppiamento deCONZ…",
-	"btnScanApiKey": "deCONZ Pairing",
-	"confirmPairQuestion": "Apri Phoscon: ☰ → Gateway → Autentica app — poi clicca OK. L'adattatore recupererà la chiave API automaticamente.",
 	"deCONZ Pairing": "Abbinamento deCONZ",
 	"adminTabSection": "Tab della barra laterale Admin",
-	"enableAdminTab": "Mostra il tab di controllo Tint nella barra laterale Admin"
+	"enableAdminTab": "Mostra il tab di controllo Tint nella barra laterale Admin",
+	"enableAdminTabHelp": "Ha effetto solo dopo aver ricaricato la pagina Admin nel browser (ad es. F5). All'avvio l'adattatore aggiunge o rimuove la scheda della barra laterale nell'oggetto della propria istanza."
 }
