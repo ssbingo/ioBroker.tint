@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.6 (2026-09-15)
+* (ssbingo) Dependency updates via Dependabot: @module-federation/vite ^1.21.5, @iobroker/socket-client ^5.2.3; admin bundles rebuilt; no functional changes compared to 0.5.5
+
 ### 0.5.5 (2026-09-15)
 * (ssbingo) Require ioBroker Admin >= 8.0.11 in `globalDependencies`, as requested in the ioBroker repository review for adapters with custom jsonConfig components (the panels still load on Admin 7.8.23+, but only Admin 8.0.11+ is the tested and supported minimum); README requirements updated; no functional changes compared to 0.5.4
 * (ssbingo) Remove unused translation keys reported in the repository review: `watchdogMinutes`, `pairingHeader`, `pairingHint`, `btnRequestApiKey`, `btnScanApiKey`, `confirmPairQuestion` from `admin/i18n/*.json`, plus 15 leftover keys of the former jsonConfig/pairing UI from the admin tab translations in `admin/src/i18n/*.json`

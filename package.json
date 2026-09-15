@@ -1,6 +1,6 @@
 {
 	"name": "iobroker.tint",
-	"version": "0.5.5",
+	"version": "0.5.6",
 	"description": "Control Müller Licht tint Zigbee lights via deCONZ/ConBee",
 	"author": {
 		"name": "ssbingo",
@@ -39,9 +39,9 @@
 		"@emotion/styled": "^11.14.1",
 		"@iobroker/adapter-dev": "^1.5.0",
 		"@iobroker/eslint-config": "^2.3.4",
-		"@iobroker/socket-client": "^5.2.1",
+		"@iobroker/socket-client": "^5.2.3",
 		"@iobroker/testing": "^6.2.1",
-		"@module-federation/vite": "^1.21.3",
+		"@module-federation/vite": "^1.21.5",
 		"@mui/material": "^9.4.0",
 		"@tsconfig/node22": "^22.0.6",
 		"@types/iobroker": "npm:@iobroker/types@^7.2.2",
