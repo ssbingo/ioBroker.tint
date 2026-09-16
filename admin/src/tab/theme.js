@@ -62,12 +62,15 @@ function themeTypeFromName(name) {
  */
 export function resolveThemeType(explicitName) {
 	const params = new URLSearchParams(window.location.search);
+	// Admin's localStorage is the live source of truth and must win over URL
+	// parameters: Admin puts the theme that was active at load time into the
+	// iframe URL, and that value is stale as soon as the user switches the theme.
 	return (
 		themeTypeFromName(explicitName) ||
-		themeTypeFromName(params.get('themeType')) ||
-		themeTypeFromName(params.get('react') || params.get('theme')) ||
 		themeTypeFromName(readStorage('App.themeName')) ||
 		themeTypeFromName(readStorage('App.theme')) ||
+		themeTypeFromName(params.get('themeType')) ||
+		themeTypeFromName(params.get('react') || params.get('theme')) ||
 		(prefersDark() ? 'dark' : 'light')
 	);
 }
@@ -91,7 +94,9 @@ export function subscribeThemeType(onChange) {
 	};
 	/** @param {StorageEvent} event - localStorage change from another document */
 	const onStorage = event => {
-		if (!event.key || event.key === 'App.themeName' || event.key === 'App.theme') {
+		if (event.key === 'App.themeName') {
+			onChange(resolveThemeType(event.newValue));
+		} else if (!event.key || event.key === 'App.theme') {
 			onChange(resolveThemeType());
 		}
 	};

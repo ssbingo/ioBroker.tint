@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.8 (2026-09-16)
+* (ssbingo) Fix admin sidebar tab not switching back from dark to light until reloaded: Admin appends `react=<themeType>` (the mode active at load time) to the tab URL, and this stale value took precedence over Admin's localStorage, so the storage event that follows a theme switch reverted the tab; localStorage is now resolved before URL parameters, the storage event uses the new value directly, and the pre-render colouring of `tab.html` is kept in sync with the active mode
+
 ### 0.5.7 (2026-09-16)
 * (ssbingo) Fix admin sidebar tab not following the Admin colour theme: Admin loads singleton tabs as `tab.html?<instance>` without any theme parameter, so the tab now resolves light/dark from Admin's localStorage (`App.themeName` / `App.theme`, with `dark`, `blue` and `modernDark` treated as dark), still honours the `themeType`/`react` URL parameters and the OS preference as fallbacks, and switches live on Admin's `updateTheme` postMessage; `tab.html` paints the page in the current mode before React renders to avoid a white flash
 

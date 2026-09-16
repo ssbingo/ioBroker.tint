@@ -1,20 +1,20 @@
 {
 	"common": {
 		"name": "tint",
-		"version": "0.5.7",
+		"version": "0.5.8",
 		"news": {
-			"0.5.7": {
-				"en": "Fix: the admin sidebar tab now follows the Admin colour theme (dark/light). Admin passes no theme parameter to singleton tabs, so the tab reads the active theme from Admin's localStorage and reacts live to Admin's updateTheme message when the theme is switched",
-				"de": "Fix: Der Admin-Seitenleisten-Tab folgt jetzt dem Farbthema von Admin (dunkel/hell). Admin übergibt Singleton-Tabs keinen Theme-Parameter, daher liest der Tab das aktive Theme aus dem localStorage von Admin und reagiert live auf Admins updateTheme-Nachricht beim Umschalten",
-				"ru": "Исправление: вкладка боковой панели администратора теперь следует цветовой теме Admin (тёмная/светлая). Admin не передаёт параметр темы singleton-вкладкам, поэтому вкладка читает активную тему из localStorage Admin и реагирует на сообщение updateTheme при переключении темы",
-				"pt": "Correção: o separador da barra lateral do admin segue agora o tema de cores do Admin (escuro/claro). O Admin não passa nenhum parâmetro de tema aos separadores singleton, por isso o separador lê o tema ativo do localStorage do Admin e reage em tempo real à mensagem updateTheme ao mudar de tema",
-				"nl": "Fix: het zijbalktabblad volgt nu het kleurenthema van Admin (donker/licht). Admin geeft geen themaparameter door aan singleton-tabbladen, dus het tabblad leest het actieve thema uit de localStorage van Admin en reageert direct op het updateTheme-bericht bij het wisselen van thema",
-				"fr": "Correctif : l'onglet de la barre latérale suit désormais le thème de couleurs d'Admin (sombre/clair). Admin ne transmet aucun paramètre de thème aux onglets singleton ; l'onglet lit donc le thème actif dans le localStorage d'Admin et réagit en direct au message updateTheme lors d'un changement de thème",
-				"it": "Correzione: la scheda della barra laterale segue ora il tema colore di Admin (scuro/chiaro). Admin non passa alcun parametro tema alle schede singleton, quindi la scheda legge il tema attivo dal localStorage di Admin e reagisce in tempo reale al messaggio updateTheme al cambio di tema",
-				"es": "Corrección: la pestaña de la barra lateral sigue ahora el tema de color de Admin (oscuro/claro). Admin no pasa ningún parámetro de tema a las pestañas singleton, por lo que la pestaña lee el tema activo del localStorage de Admin y reacciona en vivo al mensaje updateTheme al cambiar de tema",
-				"pl": "Poprawka: karta paska bocznego podąża teraz za motywem kolorystycznym Admina (ciemny/jasny). Admin nie przekazuje parametru motywu kartom singleton, dlatego karta odczytuje aktywny motyw z localStorage Admina i reaguje na żywo na komunikat updateTheme przy zmianie motywu",
-				"uk": "Виправлення: вкладка бічної панелі тепер відповідає колірній темі Admin (темна/світла). Admin не передає параметр теми singleton-вкладкам, тому вкладка читає активну тему з localStorage Admin і миттєво реагує на повідомлення updateTheme під час перемикання теми",
-				"zh-cn": "修复：管理侧边栏标签页现在会跟随 Admin 的颜色主题（深色/浅色）。Admin 不会向单例标签页传递主题参数，因此标签页从 Admin 的 localStorage 读取当前主题，并在切换主题时实时响应 Admin 的 updateTheme 消息"
+			"0.5.8": {
+				"en": "Fix: the admin sidebar tab did not switch back from dark to light until it was reloaded. Admin puts the theme active at load time into the tab URL; this stale value no longer takes precedence over the current theme in Admin's localStorage",
+				"de": "Fix: Der Admin-Seitenleisten-Tab wechselte erst nach einem Neuladen von dunkel zurück auf hell. Admin schreibt das beim Laden aktive Theme in die Tab-URL; dieser veraltete Wert hat jetzt keinen Vorrang mehr vor dem aktuellen Theme im localStorage von Admin",
+				"ru": "Исправление: вкладка боковой панели переключалась с тёмной темы обратно на светлую только после перезагрузки. Admin записывает активную при загрузке тему в URL вкладки; это устаревшее значение больше не имеет приоритета над текущей темой в localStorage Admin",
+				"pt": "Correção: o separador da barra lateral só voltava de escuro para claro depois de ser recarregado. O Admin coloca o tema ativo no momento do carregamento no URL do separador; este valor desatualizado deixa de ter prioridade sobre o tema atual no localStorage do Admin",
+				"nl": "Fix: het zijbalktabblad schakelde pas na herladen terug van donker naar licht. Admin zet het bij het laden actieve thema in de tablad-URL; deze verouderde waarde heeft geen voorrang meer op het actuele thema in de localStorage van Admin",
+				"fr": "Correctif : l'onglet de la barre latérale ne repassait du sombre au clair qu'après un rechargement. Admin place le thème actif au chargement dans l'URL de l'onglet ; cette valeur périmée n'a plus priorité sur le thème courant du localStorage d'Admin",
+				"it": "Correzione: la scheda della barra laterale tornava da scuro a chiaro solo dopo un ricaricamento. Admin inserisce nell'URL della scheda il tema attivo al caricamento; questo valore obsoleto non ha più la precedenza sul tema corrente nel localStorage di Admin",
+				"es": "Corrección: la pestaña de la barra lateral solo volvía de oscuro a claro tras recargarla. Admin coloca el tema activo en el momento de la carga en la URL de la pestaña; este valor obsoleto ya no tiene prioridad sobre el tema actual en el localStorage de Admin",
+				"pl": "Poprawka: karta paska bocznego wracała z ciemnego na jasny motyw dopiero po przeładowaniu. Admin umieszcza w adresie URL karty motyw aktywny podczas ładowania; ta nieaktualna wartość nie ma już pierwszeństwa przed bieżącym motywem w localStorage Admina",
+				"uk": "Виправлення: вкладка бічної панелі поверталася з темної теми на світлу лише після перезавантаження. Admin записує активну під час завантаження тему в URL вкладки; це застаріле значення більше не має пріоритету над поточною темою в localStorage Admin",
+				"zh-cn": "修复：管理侧边栏标签页从深色切回浅色时需要重新加载才生效。Admin 会把加载时的主题写入标签页 URL；这个过时的值不再优先于 Admin localStorage 中的当前主题"
 			}
 		},
 		"titleLang": {

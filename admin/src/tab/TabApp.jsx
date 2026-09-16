@@ -31,6 +31,12 @@ export default function TabApp({ connection, instance, lang: langProp }) {
 	// live updates via Admin's `updateTheme` postMessage (see theme.js).
 	const [themeType, setThemeType] = useState(() => resolveThemeType());
 	useEffect(() => subscribeThemeType(setThemeType), []);
+	useEffect(() => {
+		// keep the pre-render colouring from tab.html in sync and expose the mode for tests
+		document.documentElement.style.colorScheme = themeType;
+		document.documentElement.style.backgroundColor = themeType === 'dark' ? '#121212' : '#fff';
+		document.documentElement.dataset.themeType = themeType;
+	}, [themeType]);
 	const theme = useMemo(() => createTheme({ palette: { mode: themeType } }), [themeType]);
 
 	useEffect(() => {
