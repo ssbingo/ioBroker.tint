@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { ThemeProvider, createTheme, CssBaseline, Box, Tabs, Tab } from '@mui/material';
 import LightsTab from '../components/LightsTab.jsx';
 import GroupsTab from '../components/GroupsTab.jsx';
@@ -8,6 +8,7 @@ import SwitchesTab from '../components/SwitchesTab.jsx';
 import SensorsTab from '../components/SensorsTab.jsx';
 import ThermostatsTab from '../components/ThermostatsTab.jsx';
 import { createT } from '../panels/i18n.js';
+import { resolveThemeType, subscribeThemeType } from './theme.js';
 
 const CATEGORIES = [
 	{ key: 'groups',      Component: GroupsTab,       labelKey: 'tabGroups' },
@@ -19,14 +20,18 @@ const CATEGORIES = [
 	{ key: 'thermostats', Component: ThermostatsTab,  labelKey: 'tabThermostats' },
 ];
 
-export default function TabApp({ connection, instance, lang: langProp, themeType }) {
+export default function TabApp({ connection, instance, lang: langProp }) {
 	const [tabIndex, setTabIndex] = useState(0);
 	const [alive, setAlive] = useState(false);
 	// langProp comes from the URL (?lang=de). If Admin doesn't pass it, we read
 	// it from the system config once the connection is established.
 	const [lang, setLang] = useState(langProp || 'en');
 	const t = createT(lang);
-	const theme = createTheme({ palette: { mode: themeType === 'dark' ? 'dark' : 'light' } });
+	// Follow Admin's light/dark mode: initial value from localStorage/URL/OS,
+	// live updates via Admin's `updateTheme` postMessage (see theme.js).
+	const [themeType, setThemeType] = useState(() => resolveThemeType());
+	useEffect(() => subscribeThemeType(setThemeType), []);
+	const theme = useMemo(() => createTheme({ palette: { mode: themeType } }), [themeType]);
 
 	useEffect(() => {
 		const aliveId = `system.adapter.tint.${instance}.alive`;

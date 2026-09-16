@@ -8,7 +8,8 @@ const instance = parseInt(params.get('instance') ?? '0', 10);
 // ioBroker Admin may pass the language as "lang" or "language"; pass null if absent
 // so TabApp falls back to reading it from the system config via the connection.
 const lang = params.get('lang') || params.get('language') || null;
-const themeType = params.get('themeType') ?? 'light';
+// The theme is resolved inside TabApp (see theme.js): Admin passes no theme
+// parameter to singleton tabs, but exposes it via localStorage and postMessage.
 
 // @iobroker/socket-client calls window.io.connect() internally — compatible
 // with ioBroker's custom socket client (which exposes io as an object with
@@ -16,5 +17,5 @@ const themeType = params.get('themeType') ?? 'light';
 const connection = new Connection({ name: 'tint-tab' });
 
 createRoot(document.getElementById('root')).render(
-	<TabApp connection={connection} instance={instance} lang={lang} themeType={themeType} />,
+	<TabApp connection={connection} instance={instance} lang={lang} />,
 );

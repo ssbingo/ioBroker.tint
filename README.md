@@ -185,6 +185,9 @@ iobroker add tint
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.7 (2026-09-16)
+* (ssbingo) Fix admin sidebar tab not following the Admin colour theme: Admin loads singleton tabs as `tab.html?<instance>` without any theme parameter, so the tab now resolves light/dark from Admin's localStorage (`App.themeName` / `App.theme`, with `dark`, `blue` and `modernDark` treated as dark), still honours the `themeType`/`react` URL parameters and the OS preference as fallbacks, and switches live on Admin's `updateTheme` postMessage; `tab.html` paints the page in the current mode before React renders to avoid a white flash
+
 ### 0.5.6 (2026-09-15)
 * (ssbingo) Dependency updates via Dependabot: @module-federation/vite ^1.21.5, @iobroker/socket-client ^5.2.3; admin bundles rebuilt; no functional changes compared to 0.5.5
 

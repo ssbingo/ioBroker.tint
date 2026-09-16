@@ -6,6 +6,14 @@
     <title>Tint</title>
 </head>
 <body>
+    <!-- Paint the page in Admin's current mode before React renders (avoids a white flash in dark mode). -->
+    <script>
+        try {
+            var dark = localStorage.getItem('App.theme') === 'dark';
+            document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+            document.documentElement.style.backgroundColor = dark ? '#121212' : '#fff';
+        } catch (e) { /* localStorage not accessible */ }
+    </script>
     <div id="root" style="height:100vh;overflow:auto"></div>
     <!-- ioBroker's socket client: exposes window.io as an object with a .connect() method.
          @iobroker/socket-client (bundled in tab.js) calls window.io.connect() internally. -->
